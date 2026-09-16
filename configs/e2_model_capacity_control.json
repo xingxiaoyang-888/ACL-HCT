@@ -1,0 +1,112 @@
+{
+  "protocol": "E2-model-capacity-control-v1",
+  "scope": "bounded text capacity reference for E2; not SOTA, strict single-factor geometry ablation, E5, or confirmation re-registration",
+  "model": {
+    "input_dim": 128,
+    "hidden": 128,
+    "head_hidden": 128,
+    "encoder": "two Linear+ReLU layers",
+    "pair_features": [
+      "parent",
+      "child",
+      "parent-minus-child"
+    ],
+    "graph_aggregation": false,
+    "dropout": false,
+    "normalization": false
+  },
+  "training": {
+    "batch_positives": 128,
+    "negatives_per_positive": 4,
+    "max_steps": 1024,
+    "learning_rate": 0.003,
+    "optimizer": "Adam",
+    "max_seconds": 3300,
+    "evaluation_max_seconds": 180,
+    "candidate_chunk": 4096,
+    "evaluate_every": 256,
+    "save_every": 50,
+    "threads": 2
+  },
+  "seeds": [
+    11,
+    23
+  ],
+  "selection": "first complete full-valid micro MRR maximum; strictly greater replaces best",
+  "data": {
+    "protocol": "B-child-grouped-80-10-10-v1",
+    "split_seed": 20260914,
+    "prepared_manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+    "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+    "label_scope": "train+valid only; reuse original features and fixed negatives"
+  },
+  "baseline_anchors": {
+    "11": {
+      "step": 768,
+      "sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "training_config": {
+        "seed": 11,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    },
+    "23": {
+      "step": 768,
+      "sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "training_config": {
+        "seed": 23,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    }
+  },
+  "resources": {
+    "gpus_per_job": 1,
+    "cpus": 2,
+    "host_memory_gib": 16,
+    "outer_seconds": 3600,
+    "shared_acl_concurrency_maximum": 4
+  }
+}
