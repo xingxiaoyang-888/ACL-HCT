@@ -1,0 +1,166 @@
+{
+  "stage": "E1_user_approved_single_minimum_supplement",
+  "source_commit": "aecb808e88853d8c4f8b4b54d43f34b4027330b2",
+  "archive_sha256": "d72cd86c4368eec9be018e4e68d8e416ad30b9632f17d2af28b41c396cee8f86",
+  "config_canonical_sha256": "d849d11425f30243f28afe9a1bbeccc4a8c59b55aaeb41ad7bb98aae755d214f",
+  "approval_record_sha256": "c6866ea6c27b34309eaebef786791578ebf1ca9edf9e761eb9a36c94d703ec32",
+  "raw_result_sha256": "b5fc6d8561e41e96ee9b04d2cb598fd00502c4a2acbf511606413d8aa08f60ab",
+  "source_config_approval_historical_verified": true,
+  "historical_artifact_unchanged_after": true,
+  "historical_raw_sha256": "1793e3e1f084f7e7c98e3c04709d43ebbbcc620a0aa8fab9bc6ae6a4b9068877",
+  "historical_normalized_lf_sha256": "9c3b26297c1667c16fa76ac5dcf306c5a055a2f2fbdbb8d24355e86ad1fd15e1",
+  "resources": {
+    "cpu_cores": 2,
+    "host_memory_gib": 8,
+    "gpu_count": 0,
+    "gpu_hours": 0,
+    "internal_budget_seconds": 1700,
+    "outer_budget_seconds": 1800,
+    "allocation_seconds": 82,
+    "process_wall_seconds": 81.45,
+    "internal_cases_seconds": 74.80430509522557,
+    "host_max_rss_kib": 401716,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "released": true
+  },
+  "inventory": {
+    "scope": "static arithmetic only; no populations evaluated",
+    "config_sha256": "d849d11425f30243f28afe9a1bbeccc4a8c59b55aaeb41ad7bb98aae755d214f",
+    "blocks": {
+      "historical_quality_completion": {
+        "cases": 54,
+        "exact_subsets": 138483
+      },
+      "curvature": {
+        "cases": 12,
+        "exact_subsets": 80580
+      },
+      "dimension": {
+        "cases": 6,
+        "exact_subsets": 40290
+      },
+      "isometry": {
+        "cases": 6,
+        "exact_subsets": 40290
+      },
+      "population_size": {
+        "cases": 6,
+        "exact_subsets": 15048
+      },
+      "new_seed": {
+        "cases": 6,
+        "exact_subsets": 40290
+      },
+      "local_order": {
+        "cases": 12,
+        "exact_subsets": 80580
+      }
+    },
+    "cases": 102,
+    "exact_subsets": 435561,
+    "baseline_subset_passes": 2,
+    "baseline_aggregation_evaluations": 871122,
+    "original_correction_method_evaluations": 1306683,
+    "historical_quality_additional_correction_evaluations": 415449,
+    "unshifted_isometry_reference_method_evaluations": 161160,
+    "oracle_signed_outputs": 871122,
+    "user_approval_inferred": false
+  },
+  "audit_counts": {
+    "planned_processed": 102,
+    "not_executed": 0,
+    "missing_result": 0,
+    "method_numerically_usable": 816,
+    "method_reported_ok": 816,
+    "method_not_executed": 0,
+    "method_missing_result": 0,
+    "method_case_failure": 0,
+    "method_method_failure": 0,
+    "method_numeric_passed": 816,
+    "method_numeric_failed": 0,
+    "method_numeric_insufficient_evidence": 0,
+    "method_numeric_not_evaluated": 0
+  },
+  "numerical_status": "passed",
+  "recorded_audit_maxima": {
+    "two_pass_sum_difference": 0,
+    "max_manifold_constraint_residual": 7.105427357601002e-15,
+    "max_tangent_constraint_residual": 2.8449465006019636e-16,
+    "max_log_exp_roundtrip_ambient": 2.2647125579284627e-15,
+    "historical_mean_offset_max_abs_difference": 0,
+    "historical_mse_difference": 0,
+    "historical_fallback_rate_difference": 0,
+    "historical_clipping_rate_difference": 0,
+    "identity_output_difference": 0,
+    "oracle_mean_norm": 2.556559513567315e-17,
+    "centered_covariance_max_difference": 5.551115123125783e-17,
+    "recovered_noise_covariance_max_difference": 5.551115123125783e-17,
+    "radial_variance_difference": 5.551115123125783e-17,
+    "transverse_variance_difference": 5.551115123125783e-17,
+    "boost_full_point_difference": 2.220446049250313e-16,
+    "boost_output_max_abs_difference": 2.1094237467877974e-14,
+    "boost_offset_max_abs_difference": 4.443147239019396e-14
+  },
+  "scientific_descriptive_comparisons": {
+    "scope": "54 asymmetric/reverse cases with 3<=k<N; includes mirror pairs and correlated conditions, not independent trials",
+    "counts": {
+      "third_unclipped": {
+        "bias_lower__mse_not_lower": 52,
+        "bias_lower__mse_lower": 2
+      },
+      "third_protected": {
+        "bias_lower__mse_not_lower": 52,
+        "bias_lower__mse_lower": 2
+      },
+      "jackknife_protected": {
+        "bias_lower__mse_not_lower": 52,
+        "bias_lower__mse_lower": 2
+      },
+      "scale_contract": {
+        "bias_not_lower__mse_lower": 50,
+        "bias_not_lower__mse_not_lower": 4
+      },
+      "scale_expand": {
+        "bias_lower__mse_not_lower": 50,
+        "bias_not_lower__mse_not_lower": 4
+      }
+    },
+    "finite_scale_slopes": {
+      "none": {
+        "min": 2.9968353570848647,
+        "max": 3.0001735433258925,
+        "count": 12,
+        "interpretation": "descriptive finite-scale slopes, not asymptotic proof"
+      },
+      "third_unclipped": {
+        "min": 4.989507197782755,
+        "max": 4.999837546319283,
+        "count": 12,
+        "interpretation": "descriptive finite-scale slopes, not asymptotic proof"
+      },
+      "third_protected": {
+        "min": 4.989507197782755,
+        "max": 4.999837546319283,
+        "count": 12,
+        "interpretation": "descriptive finite-scale slopes, not asymptotic proof"
+      },
+      "jackknife_protected": {
+        "min": 3.0008494182290444,
+        "max": 3.0372438273642737,
+        "count": 12,
+        "interpretation": "descriptive finite-scale slopes, not asymptotic proof"
+      }
+    }
+  },
+  "scientific_effect_status": "pending_supervisor_review",
+  "E1_passed": false,
+  "next_experiment_authorized": false,
+  "no_retry_or_extra_conditions": true,
+  "operation_script_sha256": {
+    "approval-record.json": "c6866ea6c27b34309eaebef786791578ebf1ca9edf9e761eb9a36c94d703ec32",
+    "verify.py": "cd6d9cf2d513e66f34ec051749f9536b68cea54945e256b378d7f3507efec9fd",
+    "job.slurm": "faa67f2643a88fe6cff387de84d080371e8e80ace5ffb516fe71793e8ee21627",
+    "submit.sh": "62133f6cf3c9b45dfa1ca6bafcc85568125f6fe390e2096701516748b9258afa"
+  }
+}
