@@ -8,6 +8,8 @@
 
 ## Stage reporting and concise coordination
 
+- The user's fixed research and experimental roadmaps are `docs/research/01_研究路线_采样诱导层级坍缩与切空间修正.md` and `docs/research/02_详细实验路线_双L40S48GB.md`. Preserve their E0–E9 meanings; bounded pilots and minimum implementation gates do not replace original stage completion. Before claiming a stage complete, map evidence and omissions to its original sections. See `docs/operations/ORIGINAL_ROUTE_ALIGNMENT.md` for the current audit: original E1 is only partly fulfilled (D0 scientific work remains); current E2 is entry/local pilot only. Research-scope changes require explicit explanation and user agreement.
+
 - User instruction (2026-09-16): every stage report must lead with the research question, the conclusion supported by current evidence, and whether the stage's intended purpose was met (met / partly met / not met / insufficient evidence), with a brief reason. Distinguish completion and numerical correctness from scientific support. Follow with only the evidence needed to assess that conclusion, remaining limitations, and the next decision. Counts, passing tests, and resource usage alone are not the main result.
 - Keep inter-task messages short. Send only new decisions, changed constraints, blocking facts, or actionable handoffs. Refer to an existing report/path/commit rather than restating history, protocols, hashes, or acknowledgments. Avoid redundant status requests, repeated confirmations, and messages that require no action. Retain exact provenance in artifacts; include it in a message only when needed for safe execution.
 
