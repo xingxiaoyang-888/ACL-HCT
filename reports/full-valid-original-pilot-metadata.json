@@ -1,0 +1,62 @@
+{
+  "stage": "read_only_complete_validation_of_original_10_step_pilot",
+  "status": "complete",
+  "evaluation_commit": "8b9f8bc523a04147f9612090c0f4e6173d00f369",
+  "evaluation_archive_sha256": "1af5b400d01abb9f52b8c7f7bb561083cf0c1c5e3a8abd668802ba7232c781a2",
+  "training_commit": "fce017259a6bdc513f21b31304f096239e357a75",
+  "checkpoint_sha256": "038fd4bc72c71dd544da48453e24349dd9018035b662cf2e5c2799cb9615638a",
+  "checkpoint_before_after_equal": true,
+  "checkpoint_unchanged": true,
+  "selection_performed": false,
+  "best_checkpoint_created": false,
+  "training_and_evaluation_import_hashes_verified_separately": true,
+  "cpu_gate": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "test_seconds": 10.45,
+    "allocation_seconds": 16,
+    "state": "COMPLETED",
+    "actual_checkpoint_source_preflight": "passed",
+    "old_8408af6_fixture_failure_preserved": true
+  },
+  "gpu_allocation": {
+    "gpu": "NVIDIA L40",
+    "driver_version": "580.65.06",
+    "nvidia_smi_total_memory_mib": 46068,
+    "count": 1,
+    "cpu_cores": 2,
+    "host_memory_gib": 16,
+    "limit_minutes": 15,
+    "elapsed_seconds": 40,
+    "allocated_gpu_hours": 0.011111111111111112,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "resource_release_verified": true,
+    "prior_failure_node_excluded": true
+  },
+  "scope": {
+    "valid_queries": 8456,
+    "valid_children": 8210,
+    "entity_candidates_before_filtering": 82115,
+    "evaluation_budget_seconds": 600,
+    "candidate_chunk": 4096,
+    "threads": 2
+  },
+  "timings_seconds": {
+    "verification_seconds": 2.9754047739552334,
+    "model_setup_seconds": 0.1911121200537309,
+    "full_graph_encoding_seconds": 3.2767219588859007,
+    "ranking_seconds": 24.367799879983068,
+    "total_seconds": 30.81664486194495
+  },
+  "next_baseline_cost_gate": {
+    "encoding_plus_ranking_seconds": 27.644521838868968,
+    "per_evaluation_budget_seconds": 180,
+    "passed": true,
+    "score_not_used_as_gate": true
+  },
+  "raw_result_sha256": "b92010aa9c81edffba50f619ceeb5e25d3eb7bfa0133f8537b47ea8a03737a54",
+  "preflight_record_sha256": "064425fb7854c96c9be14c89e1f607d744f2fb13b92a62cfe565e3b5b1fe0401",
+  "limitations": "Development metric of a 10-step last checkpoint only. No retrospective best selection or convergence/competitive-baseline claim. Current model/data imply this measured cost; not a universal future bound."
+}

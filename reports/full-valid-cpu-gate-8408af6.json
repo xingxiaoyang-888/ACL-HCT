@@ -1,0 +1,80 @@
+{
+  "stage": "S1b_full_validation_CPU_gate",
+  "source_commit": "8408af6eab35d89b9c407acc7c69df4106cfe13f",
+  "archive_sha256": "4c760982e75a533c3e6de56d30b4aeacf932b00d4b145538a1dd35e77f4a13e2",
+  "status": "failed_fixture_archive_provenance",
+  "cpu_allocation": {
+    "cores": 2,
+    "host_memory_gib": 8,
+    "elapsed_seconds": 13,
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "released": true
+  },
+  "tests": {
+    "total": 10,
+    "passed": 1,
+    "failed": 9,
+    "skipped": 0,
+    "seconds": 10.45,
+    "cases": [
+      {
+        "name": "test_full_validation_is_read_only_and_never_selects",
+        "passed": false
+      },
+      {
+        "name": "test_provenance_mismatches_rejected[artifact]",
+        "passed": false
+      },
+      {
+        "name": "test_provenance_mismatches_rejected[commit]",
+        "passed": false
+      },
+      {
+        "name": "test_provenance_mismatches_rejected[source]",
+        "passed": false
+      },
+      {
+        "name": "test_provenance_mismatches_rejected[valid]",
+        "passed": false
+      },
+      {
+        "name": "test_provenance_mismatches_rejected[manifest]",
+        "passed": false
+      },
+      {
+        "name": "test_budget_stop_has_no_complete_metric",
+        "passed": false
+      },
+      {
+        "name": "test_partial_ranking_cannot_become_complete_score",
+        "passed": false
+      },
+      {
+        "name": "test_cuda_requires_allocation",
+        "passed": true
+      },
+      {
+        "name": "test_archive_cli_separates_training_and_evaluation_sources",
+        "passed": false
+      }
+    ],
+    "source_sha256": "59083195f39e301f901eabdcf43fc5c505eece1e5d13919b546e0e71e0a36c4f",
+    "raw_junit_sha256": "1022c1295c702341f8ea32712a12d5e6e92b5fc4665101b322ee3b8d1840ab16"
+  },
+  "failure": {
+    "fixture_training_commit": null,
+    "fixture_evaluation_source_commit": null,
+    "main_error": "ValueError: archive evaluation requires --source-commit",
+    "archive_cli_error": "TypeError: expected str, bytes or os.PathLike object, not NoneType",
+    "explanation": "Fixture trains without explicit source identity, uses its null archived training commit, and evaluates without source_commit; archive CLI receives None as an argument."
+  },
+  "actual_checkpoint_preflight_executed": false,
+  "actual_checkpoint_sha256_after": "038fd4bc72c71dd544da48453e24349dd9018035b662cf2e5c2799cb9615638a",
+  "gpu_submitted": false,
+  "gpu_hours": 0,
+  "source_or_tests_modified": false,
+  "full_validation_result_available": false,
+  "next_step": "Code owner to fix archive-portable fixture identity in a new fixed commit; rerun CPU gate before GPU evaluation.",
+  "scope": "Test fixture archive-compatibility failure. Production evaluation with explicit checkpoint, training and evaluation provenance arguments has not run; these fixture failures do not establish that production evaluation would fail with those explicit arguments."
+}
