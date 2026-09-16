@@ -1,0 +1,1389 @@
+{
+  "status": "proposal_pending_explicit_user_approval",
+  "protocol": "E1-minimum-closure-v1",
+  "enumeration_threshold": 20000,
+  "chunk_size": 256,
+  "scale_lambdas": [
+    -1,
+    0,
+    1
+  ],
+  "noise": "exact_centered_plus_minus_oracle",
+  "historical_source_commit": "6cd0caaa6a970b6f472ff45e58a1b3e65ea57e06",
+  "cases": [
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.05_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.15_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "symmetric_s0.7_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "symmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.05_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.15_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "asymmetric_s0.7_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.05_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.15_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k1",
+        "N": 16,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k2",
+        "N": 16,
+        "k": 2,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k3",
+        "N": 16,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k4",
+        "N": 16,
+        "k": 4,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k8",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "historical_controls_only",
+      "case": {
+        "name": "reverse_s0.7_k16",
+        "N": 16,
+        "k": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "reverse",
+        "seed": 11
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "curvature_symmetric_N16_d2_c0.25_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 8,
+        "name": "curvature_symmetric_N16_d2_c0.25_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "curvature_asymmetric_N16_d2_c0.25_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "curvature_asymmetric_N16_d2_c0.25_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "curvature_reverse_N16_d2_c0.25_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 0.25,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "curvature_reverse_N16_d2_c0.25_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "curvature_symmetric_N16_d2_c4.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 8,
+        "name": "curvature_symmetric_N16_d2_c4.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "curvature_asymmetric_N16_d2_c4.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "curvature_asymmetric_N16_d2_c4.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "curvature_reverse_N16_d2_c4.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "curvature",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 4.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "curvature_reverse_N16_d2_c4.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "dimension_symmetric_N16_d8_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 8,
+        "name": "dimension_symmetric_N16_d8_c1.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "dimension_asymmetric_N16_d8_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "dimension_asymmetric_N16_d8_c1.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "dimension_reverse_N16_d8_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "dimension",
+      "case": {
+        "N": 16,
+        "d": 8,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "dimension_reverse_N16_d8_c1.0_s0.15_k8_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "symmetric",
+        "k": 3,
+        "name": "isometry_symmetric_N16_d2_c1.0_s0.15_k3_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "symmetric",
+        "k": 8,
+        "name": "isometry_symmetric_N16_d2_c1.0_s0.15_k8_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "isometry_asymmetric_N16_d2_c1.0_s0.15_k3_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "isometry_asymmetric_N16_d2_c1.0_s0.15_k8_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "reverse",
+        "k": 3,
+        "name": "isometry_reverse_N16_d2_c1.0_s0.15_k3_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "isometry",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.4,
+        "family": "reverse",
+        "k": 8,
+        "name": "isometry_reverse_N16_d2_c1.0_s0.15_k8_seed11_shift0.4"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "population_size_symmetric_N8_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "population_size_asymmetric_N8_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "population_size_reverse_N8_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 32,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "population_size_symmetric_N32_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 32,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "population_size_asymmetric_N32_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "population_size",
+      "case": {
+        "N": 32,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 11,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "population_size_reverse_N32_d2_c1.0_s0.15_k3_seed11_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 3,
+        "name": "new_seed_symmetric_N16_d2_c1.0_s0.15_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "symmetric",
+        "k": 8,
+        "name": "new_seed_symmetric_N16_d2_c1.0_s0.15_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "new_seed_asymmetric_N16_d2_c1.0_s0.15_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "new_seed_asymmetric_N16_d2_c1.0_s0.15_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "new_seed_reverse_N16_d2_c1.0_s0.15_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "new_seed",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "new_seed_reverse_N16_d2_c1.0_s0.15_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.025,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.025_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.025,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.025_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.025,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.025_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.025,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.025_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.05_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.05_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.05_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.05,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.05_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.1,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 3,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.1_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.1,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "asymmetric",
+        "k": 8,
+        "name": "local_order_asymmetric_N16_d2_c1.0_s0.1_k8_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.1,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 3,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.1_k3_seed23_shift0.0"
+      }
+    },
+    {
+      "block": "local_order",
+      "case": {
+        "N": 16,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.1,
+        "seed": 23,
+        "origin_shift": 0.0,
+        "family": "reverse",
+        "k": 8,
+        "name": "local_order_reverse_N16_d2_c1.0_s0.1_k8_seed23_shift0.0"
+      }
+    }
+  ]
+}

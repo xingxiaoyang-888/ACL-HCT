@@ -81,3 +81,5 @@ E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.jso
 有界训练入口与pilot合同见 [reports/S1B_RUNNER.md](reports/S1B_RUNNER.md)。`configs/wordnet_b_pilot.json` 仅10步与固定validation probe，不能据probe选择最佳checkpoint；完整valid选择另用明确配置。所有GPU执行须由实验任务在单卡Slurm分配中运行，代码入口不自行调度。
 
 后续已完成的真实 WordNet 10 步 pilot 与历史 CUDA 诊断见 [reports/S1B_PILOT.md](reports/S1B_PILOT.md)，其计算来源保持 fce0172。只读完整 valid 入口 `python -m acl_hct.evaluate_checkpoint` 的来源校验、时限、命令和 CPU 测试见 [reports/S1B_CHECKPOINT_EVALUATION.md](reports/S1B_CHECKPOINT_EVALUATION.md)；对 pilot last 的评估不追认最佳 checkpoint。等价索引组装补丁见 [reports/S1B_EFFICIENCY.md](reports/S1B_EFFICIENCY.md)，GPU 性能须以独立实验测量为准。
+
+当前优先补齐 E1 最小机制闭环，E2/E3 新增工作暂停。补充代码和待批102条件清单见 [reports/E1_CLOSURE_IMPLEMENTATION.md](reports/E1_CLOSURE_IMPLEMENTATION.md)，仅必要离线工程测试通过，科学补实验尚未运行。每个关键实验必须遵守 [用户批准门槛](docs/operations/EXPERIMENT_APPROVAL_GATE.md)；`python -m acl_hct.e1_closure --config configs/e1_minimum_closure_proposal.json` 默认只做静态核算，发布代码不构成执行授权。

@@ -18,11 +18,11 @@ def plot(result_path, output_dir):
     plt.rcParams.update({'font.size':9,'savefig.dpi':160})
     groups={}
     for row in rows:
-        case=row['case']; key=(case['family'],case['spread'],case['c'],case['d'],case['origin_shift'])
+        case=row['case']; key=(case['family'],case['spread'],case['c'],case['d'],case['origin_shift'],case['N'],case['seed'])
         groups.setdefault(key,[]).append(row)
     fig,axes=plt.subplots(1,2,figsize=(11,4))
     for key,group in groups.items():
-        group=sorted(group,key=lambda r:r['case']['k']); label=f'{key[0]} s={key[1]} c={key[2]} d={key[3]} shift={key[4]}'
+        group=sorted(group,key=lambda r:r['case']['k']); label=f'{key[0]} s={key[1]} c={key[2]} d={key[3]} shift={key[4]} N={key[5]} seed={key[6]}'
         k=[r['case']['k'] for r in group]
         projection=[r['result']['methods']['none']['predicted_direction_projection'] for r in group]
         se=[r['result']['methods']['none']['projection_mc_se'] for r in group]
@@ -31,10 +31,10 @@ def plot(result_path, output_dir):
     axes[0].set(xlabel='k',ylabel='Signed projection onto oracle direction',title=mode_title+('; no MC error bars' if exact else '; bars = 1.96 MC SE'))
     axes[1].set(xlabel='k',ylabel='Cosine with predicted direction',ylim=(-1.05,1.05),title='Undefined near zero; gaps retained')
     axes[0].legend(fontsize=6); fig.tight_layout(); fig.savefig(output_dir/'direction.png'); plt.close(fig)
-    names=('none','third_unclipped','third_protected','jackknife_protected')
+    names=list(dict.fromkeys(name for row in rows for name in row['result']['methods']))
     fig,axes=plt.subplots(1,3,figsize=(13,4))
     for name in names:
-        selected=[r for r in rows if r['result']['methods'][name]['status']=='ok']
+        selected=[r for r in rows if r['result']['methods'].get(name,{}).get('status')=='ok']
         for axis,metric in zip(axes,('mean_offset_norm','variance_population_moment','mse')):
             axis.plot([rows.index(r) for r in selected],[r['result']['methods'][name][metric] for r in selected],'.-',label=name)
             axis.set(xlabel='Case index in JSON',ylabel=metric)

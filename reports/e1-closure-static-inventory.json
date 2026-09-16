@@ -1,0 +1,37 @@
+{
+  "scope": "static configuration arithmetic only; no populations or scientific outputs evaluated",
+  "status": "pending_user_approval",
+  "blocks": {
+    "historical_controls_only": {
+      "cases": 54,
+      "exact_subsets": 138483
+    },
+    "curvature": {
+      "cases": 12,
+      "exact_subsets": 80580
+    },
+    "dimension": {
+      "cases": 6,
+      "exact_subsets": 40290
+    },
+    "isometry": {
+      "cases": 6,
+      "exact_subsets": 40290
+    },
+    "population_size": {
+      "cases": 6,
+      "exact_subsets": 15048
+    },
+    "new_seed": {
+      "cases": 6,
+      "exact_subsets": 40290
+    },
+    "local_order": {
+      "cases": 12,
+      "exact_subsets": 80580
+    }
+  },
+  "cases": 102,
+  "exact_subsets": 435561,
+  "maximum_subsets_per_case": 12870
+}
