@@ -1,0 +1,5 @@
+# Reproducible initial remote combination, installed from existing offline wheels.
+# torch CUDA wheel index for a fresh install: https://download.pytorch.org/whl/cu124
+torch==2.5.1
+numpy==1.26.4
+pytest==8.4.2
