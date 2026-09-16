@@ -21,11 +21,16 @@ def make_plan(neighbors, fanout, generator):
     """Return reusable CPU IDs for one layer, with identical sampling per method."""
     validate_neighbors(neighbors,len(neighbors))
     if fanout is not None and (type(fanout) is not int or fanout<1): raise ValueError('fanout must be positive or None')
+    if any(neighbors) and (not isinstance(generator,torch.Generator) or generator.device.type!='cpu'):
+        raise ValueError('use an explicit CPU generator for portable sampling')
     plan=[]
     for row in neighbors:
         if not row: plan.append([]); continue
-        indices=sample_indices(len(row),len(row) if fanout is None else fanout,generator)
-        plan.append([row[i] for i in indices.tolist()])
+        if fanout is None or len(row)<=fanout:
+            plan.append(list(row))  # Full sampling preserves order and consumes no RNG.
+        else:
+            indices=sample_indices(len(row),fanout,generator)
+            plan.append([row[i] for i in indices.tolist()])
     return plan
 
 
@@ -51,13 +56,15 @@ def aggregate_plan(points, neighbors, plan, c=1., method='none', max_padded_mess
             candidate_width=max(width,len(plan[end]))
             if (end-start+1)*candidate_width>max_padded_messages: break
             width=candidate_width; end+=1
-        ids=torch.zeros((end-start,width),dtype=torch.long,device=points.device)
-        mask=torch.zeros_like(ids,dtype=torch.bool)
-        for row,chosen in enumerate(plan[start:end]):
-            if chosen:
-                ids[row,:len(chosen)]=torch.tensor(chosen,device=points.device)
-                mask[row,:len(chosen)]=True
-        population=torch.tensor([len(row) for row in neighbors[start:end]],device=points.device)
+        # Retain exactly the old chunk boundaries, row order and zero padding.
+        # Construct one CPU tensor per field, rather than issuing per-row CUDA
+        # tensor creation and slice assignment. Transfers are chunk-wide.
+        rows=plan[start:end]
+        ids_cpu=torch.tensor([list(chosen)+[0]*(width-len(chosen)) for chosen in rows],dtype=torch.long)
+        lengths=torch.tensor([len(chosen) for chosen in rows],dtype=torch.long)
+        mask_cpu=torch.arange(width)[None,:]<lengths[:,None]
+        population_cpu=torch.tensor([len(row) for row in neighbors[start:end]],dtype=torch.long)
+        ids=ids_cpu.to(points.device);mask=mask_cpu.to(points.device);population=population_cpu.to(points.device)
         output,stats=correct_batched(points[ids],population,mask,c,method,self_points=points[start:end])
         values.append(output)
         for key,value in stats.items(): metadata.setdefault(key,[]).append(value)
