@@ -1,0 +1,21 @@
+{
+  "version": "3.0",
+  "url": "https://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.bz2",
+  "file": "WordNet-3.0.tar.bz2",
+  "license": "https://wordnet.princeton.edu/license-and-commercial-use",
+  "retrieved_audited_utc": "2026-09-16T11:34:36.034187+00:00",
+  "sha256": "6c492d0c7b4a40e7674d088191d3aa11f373bb1da60762e098b8ee2dda96ef22",
+  "bytes": 9060524,
+  "structure": {
+    "nodes": 82115,
+    "edges": 84427,
+    "roots": 1,
+    "isolated": 0,
+    "multi_parent": 2213,
+    "max_longest_root_depth": 19,
+    "max_out_degree": 664
+  },
+  "parser_diagnostics": {},
+  "relation": "parent->child; WordNet @/@i noun hypernyms or MeSH descriptor-collapsed immediate tree parents; ambiguous MeSH position links quarantined",
+  "hash_note": "locally computed integrity record, not an official signed checksum"
+}

@@ -1,0 +1,936 @@
+{
+  "scope": "synthetic engineering smoke; no held-out task-performance claim",
+  "seed": 11,
+  "steps": 8,
+  "torch": "2.5.1+cu124",
+  "python": "3.11.7",
+  "device": "NVIDIA L40",
+  "cuda_runtime": "12.4",
+  "training": {
+    "none": {
+      "train_losses": [
+        0.3040039539337158,
+        0.2879941463470459,
+        0.27218660712242126,
+        0.2573728859424591,
+        0.24340878427028656,
+        0.22744131088256836,
+        0.21470952033996582,
+        0.1999933272600174
+      ],
+      "elapsed_seconds": 1.3952159718610346,
+      "peak_allocated_bytes": 18102784,
+      "peak_reserved_bytes": 23068672,
+      "synthetic_parent_child_radius_order_accuracy": 0.7435897588729858,
+      "synthetic_cross_minus_same_branch_distance": 0.11105208098888397,
+      "fallback_rate": 0.0,
+      "clipping_rate": 0.0
+    },
+    "third": {
+      "train_losses": [
+        0.3040018677711487,
+        0.2879891097545624,
+        0.2721885144710541,
+        0.25736916065216064,
+        0.2434007227420807,
+        0.22743616998195648,
+        0.2147003710269928,
+        0.19999055564403534
+      ],
+      "elapsed_seconds": 1.3898439458571374,
+      "peak_allocated_bytes": 18302976,
+      "peak_reserved_bytes": 23068672,
+      "synthetic_parent_child_radius_order_accuracy": 0.7435897588729858,
+      "synthetic_cross_minus_same_branch_distance": 0.11106544733047485,
+      "fallback_rate": 0.7,
+      "clipping_rate": 0.0
+    },
+    "jackknife": {
+      "train_losses": [
+        0.3040025234222412,
+        0.28799065947532654,
+        0.2721879780292511,
+        0.2573702931404114,
+        0.2434031218290329,
+        0.22743761539459229,
+        0.2147030085325241,
+        0.1999913454055786
+      ],
+      "elapsed_seconds": 1.419040196808055,
+      "peak_allocated_bytes": 18302976,
+      "peak_reserved_bytes": 23068672,
+      "synthetic_parent_child_radius_order_accuracy": 0.7435897588729858,
+      "synthetic_cross_minus_same_branch_distance": 0.11106167733669281,
+      "fallback_rate": 0.7,
+      "clipping_rate": 0.0
+    }
+  },
+  "frozen": [
+    {
+      "N": 5,
+      "k": 1,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -1.8548351143872766e-08,
+            -0.0001318883359198178,
+            3.4018782540788664e-05
+          ],
+          "bias_norm": 0.00013620503064576888,
+          "variance": 0.013499999996540673,
+          "mse": 0.013500018548351051,
+          "mean_radius_difference": 0.09368991214059512,
+          "radial_bias": -0.00013620500572096147,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            -1.8548351143872766e-08,
+            -0.0001318883359198178,
+            3.4018782540788664e-05
+          ],
+          "bias_norm": 0.00013620503064576888,
+          "variance": 0.013499999996540673,
+          "mse": 0.013500018548351051,
+          "mean_radius_difference": 0.09368991214059512,
+          "radial_bias": -0.00013620500572096147,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            -1.8548351143872766e-08,
+            -0.0001318883359198178,
+            3.4018782540788664e-05
+          ],
+          "bias_norm": 0.00013620503064576888,
+          "variance": 0.013499999996540673,
+          "mse": 0.013500018548351051,
+          "mean_radius_difference": 0.09368991214059512,
+          "radial_bias": -0.00013620500572096147,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 1,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.010170000000000052,
+          "mse": 0.010170000000000052,
+          "mean_radius_difference": 0.08163330765278456,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.010170000000000052,
+          "mse": 0.010170000000000052,
+          "mean_radius_difference": 0.08163330765278456,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.010170000000000052,
+          "mse": 0.010170000000000052,
+          "mean_radius_difference": 0.08163330765278456,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -1.854341649852177e-08,
+            -0.0001318877295219966,
+            3.387571476883549e-05
+          ],
+          "bias_norm": 0.00013616878095109957,
+          "variance": 0.0050608733723093964,
+          "mse": 0.0050608919142463024,
+          "mean_radius_difference": 0.062071190654204265,
+          "radial_bias": -0.0001361687694343233,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            -1.854341649852177e-08,
+            -0.0001318877295219966,
+            3.387571476883549e-05
+          ],
+          "bias_norm": 0.00013616878095109957,
+          "variance": 0.0050608733723093964,
+          "mse": 0.0050608919142463024,
+          "mean_radius_difference": 0.062071190654204265,
+          "radial_bias": -0.0001361687694343233,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            -1.854341649852177e-08,
+            -0.0001318877295219966,
+            3.387571476883549e-05
+          ],
+          "bias_norm": 0.00013616878095109957,
+          "variance": 0.0050608733723093964,
+          "mse": 0.0050608919142463024,
+          "mean_radius_difference": 0.062071190654204265,
+          "radial_bias": -0.0001361687694343233,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            -3.4694469519536144e-19,
+            1.7347234759768072e-19
+          ],
+          "bias_norm": 3.8789596144488644e-19,
+          "variance": 0.0038124031319190866,
+          "mse": 0.0038124031319190866,
+          "mean_radius_difference": 0.05104833624792804,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            -3.4694469519536144e-19,
+            1.7347234759768072e-19
+          ],
+          "bias_norm": 3.8789596144488644e-19,
+          "variance": 0.0038124031319190866,
+          "mse": 0.0038124031319190866,
+          "mean_radius_difference": 0.05104833624792804,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            -3.4694469519536144e-19,
+            1.7347234759768072e-19
+          ],
+          "bias_norm": 3.8789596144488644e-19,
+          "variance": 0.0038124031319190866,
+          "mse": 0.0038124031319190866,
+          "mean_radius_difference": 0.05104833624792804,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 3,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -9.98191844925899e-09,
+            -7.099661791925977e-05,
+            1.8229571351218844e-05
+          ],
+          "bias_norm": 7.32996379798962e-05,
+          "variance": 0.0022524016118630197,
+          "mse": 0.0022524069846999476,
+          "mean_radius_difference": 0.04134378699337563,
+          "radial_bias": -7.329962911275603e-05,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            1.7710975345262865e-11,
+            1.1749512549702468e-07,
+            -6.528255571602512e-08
+          ],
+          "bias_norm": 1.3441322956725223e-07,
+          "variance": 0.002256342745296261,
+          "mse": 0.002256342745314328,
+          "mean_radius_difference": 0.0413583427883416,
+          "radial_bias": 1.3005595522520455e-07,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.00032473682113016056
+        },
+        "jackknife": {
+          "bias_vector": [
+            -3.1334631739261523e-09,
+            -2.2284705795811226e-05,
+            5.730759883645388e-06
+          ],
+          "bias_norm": 2.3009774258589984e-05,
+          "variance": 0.0022551067323546797,
+          "mse": 0.002255107261804391,
+          "mean_radius_difference": 0.041353833277869075,
+          "radial_bias": -2.300977408751628e-05,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0002220826378622136
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 3,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            1.2143064331837649e-18,
+            0.0
+          ],
+          "bias_norm": 1.2143064331837649e-18,
+          "variance": 0.0016946837849489515,
+          "mse": 0.0016946837849489515,
+          "mean_radius_difference": 0.03401984919933788,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            1.7347234759768072e-19,
+            1.7347234759768072e-19
+          ],
+          "bias_norm": 2.453269466693399e-19,
+          "variance": 0.001695247955375455,
+          "mse": 0.001695247955375455,
+          "mean_radius_difference": 0.03401164974474109,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.00013158192345051725
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            3.4694469519536144e-19,
+            3.4694469519536144e-19
+          ],
+          "bias_norm": 4.906538933386798e-19,
+          "variance": 0.0016950734553490183,
+          "mse": 0.0016950734553490183,
+          "mean_radius_difference": 0.03401427303135039,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 9.018985362536027e-05
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 5,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 5,
+      "c": 1.0,
+      "spread": 0.15,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 1,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -0.00016335981505246488,
+            -0.012372493257882217,
+            0.0033112066377688986
+          ],
+          "bias_norm": 0.012806872857382936,
+          "variance": 0.29399933963549735,
+          "mse": 0.2941633556278826,
+          "mean_radius_difference": 0.42509882538016236,
+          "radial_bias": -0.012805889876578732,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            -0.00016335981505246488,
+            -0.012372493257882217,
+            0.0033112066377688986
+          ],
+          "bias_norm": 0.012806872857382936,
+          "variance": 0.29399933963549735,
+          "mse": 0.2941633556278826,
+          "mean_radius_difference": 0.42509882538016236,
+          "radial_bias": -0.012805889876578732,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            -0.00016335981505246488,
+            -0.012372493257882217,
+            0.0033112066377688986
+          ],
+          "bias_norm": 0.012806872857382936,
+          "variance": 0.29399933963549735,
+          "mse": 0.2941633556278826,
+          "mean_radius_difference": 0.42509882538016236,
+          "radial_bias": -0.012805889876578732,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 1,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.22147999999999984,
+          "mse": 0.22147999999999984,
+          "mean_radius_difference": 0.3809554357129915,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.22147999999999984,
+          "mse": 0.22147999999999984,
+          "mean_radius_difference": 0.3809554357129915,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.22147999999999984,
+          "mse": 0.22147999999999984,
+          "mean_radius_difference": 0.3809554357129915,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -0.00016248448281860865,
+            -0.012364908544183801,
+            0.003062676275288248
+          ],
+          "bias_norm": 0.012737525193933327,
+          "variance": 0.10955210321321078,
+          "mse": 0.10971434776127686,
+          "mean_radius_difference": 0.2763422023858871,
+          "radial_bias": -0.012737271972053403,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            -0.00016248448281860865,
+            -0.012364908544183801,
+            0.003062676275288248
+          ],
+          "bias_norm": 0.012737525193933327,
+          "variance": 0.10955210321321078,
+          "mse": 0.10971434776127686,
+          "mean_radius_difference": 0.2763422023858871,
+          "radial_bias": -0.012737271972053403,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            -0.00016248448281860865,
+            -0.012364908544183801,
+            0.003062676275288248
+          ],
+          "bias_norm": 0.012737525193933327,
+          "variance": 0.10955210321321078,
+          "mse": 0.10971434776127686,
+          "mean_radius_difference": 0.2763422023858871,
+          "radial_bias": -0.012737271972053403,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.08244426433701559,
+          "mse": 0.08244426433701559,
+          "mean_radius_difference": 0.23734987022107412,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.08244426433701559,
+          "mse": 0.08244426433701559,
+          "mean_radius_difference": 0.23734987022107412,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.08244426433701559,
+          "mse": 0.08244426433701559,
+          "mean_radius_difference": 0.23734987022107412,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 3,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            -9.109404169080869e-05,
+            -0.006936748053863626,
+            0.0016990255227267736
+          ],
+          "bias_norm": 0.007141208802802662,
+          "variance": 0.05012977884014265,
+          "mse": 0.05018077570330787,
+          "mean_radius_difference": 0.18151465632217273,
+          "radial_bias": -0.0071409254836025254,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            4.1488121693033585e-06,
+            0.0003001103627971284,
+            -0.00013956333545732462
+          ],
+          "bias_norm": 0.00033094854859899535,
+          "variance": 0.052287756257858566,
+          "mse": 0.05228786578480038,
+          "mean_radius_difference": 0.18941000731709054,
+          "radial_bias": 0.0003252282805387648,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.03300105155389526
+        },
+        "jackknife": {
+          "bias_vector": [
+            -3.4116211422400796e-05,
+            -0.0025961857479656013,
+            0.0006431529943961012
+          ],
+          "bias_norm": 0.0026744461662666836,
+          "variance": 0.0514617934926049,
+          "mse": 0.05146894615490116,
+          "mean_radius_difference": 0.18618408453214075,
+          "radial_bias": -0.002674393615963541,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.019183878072007
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 3,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            -6.938893903907229e-19,
+            0.0
+          ],
+          "bias_norm": 6.938893903907229e-19,
+          "variance": 0.03683084786377331,
+          "mse": 0.03683084786377331,
+          "mean_radius_difference": 0.1572025174927261,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.03721464574568354,
+          "mse": 0.03721464574568354,
+          "mean_radius_difference": 0.15641875179015644,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.013387404945877682
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.037088705954017816,
+          "mse": 0.037088705954017816,
+          "mean_radius_difference": 0.15680687777088195,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.008126947581918963
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 5,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": false,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    },
+    {
+      "N": 5,
+      "k": 5,
+      "c": 1.0,
+      "spread": 0.7,
+      "symmetric": true,
+      "methods": {
+        "none": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 0.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "third": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        },
+        "jackknife": {
+          "bias_vector": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bias_norm": 0.0,
+          "variance": 0.0,
+          "mse": 0.0,
+          "mean_radius_difference": 0.0,
+          "radial_bias": 0.0,
+          "fallback_rate": 1.0,
+          "clipping_rate": 0.0,
+          "max_step": 0.0
+        }
+      }
+    }
+  ],
+  "source_commit": "abd3d434aae058efc20edead3dee1691e1acde10",
+  "measurement_note": "Single engineering run; no performance significance. CPU/GPU random tensors differ despite same seed; compare methods within each device only. GPU peaks are PyTorch allocator measurements, not entire process/device usage."
+}

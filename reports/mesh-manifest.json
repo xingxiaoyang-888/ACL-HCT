@@ -1,0 +1,39 @@
+{
+  "version": "2026",
+  "url": "https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/desc2026.gz",
+  "file": "desc2026.gz",
+  "license": "https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html",
+  "retrieved_audited_utc": "2026-09-16T11:34:45.993157+00:00",
+  "sha256": "ccd4d0d33bebfd4c836a59e7dd0c635b1d4e20c4f5a6abc55e2eb0ba4c8716dd",
+  "bytes": 16812612,
+  "structure": {
+    "nodes": 31110,
+    "edges": 42517,
+    "roots": 112,
+    "isolated": 2,
+    "multi_parent": 9347,
+    "max_longest_root_depth": 15,
+    "max_out_degree": 105
+  },
+  "parser_diagnostics": {
+    "tree_positions": 65357,
+    "ambiguous_positions": {
+      "B03.300.390.400.001": [
+        "D047991",
+        "D048013"
+      ],
+      "B03.510.415.400.001": [
+        "D047991",
+        "D048013"
+      ],
+      "B03.510.460.410.001": [
+        "D047991",
+        "D048013"
+      ]
+    },
+    "quarantined_candidate_links": 6,
+    "duplicate_same_owner_occurrences": 0
+  },
+  "relation": "parent->child; WordNet @/@i noun hypernyms or MeSH descriptor-collapsed immediate tree parents; ambiguous MeSH position links quarantined",
+  "hash_note": "locally computed integrity record, not an official signed checksum"
+}
