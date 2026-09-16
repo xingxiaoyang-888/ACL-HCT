@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_e2_development.py",
+    "tests/test_e2_pilot.py::test_selection_provenance_and_strict_label_loading",
+    "tests/test_e2_pilot.py::test_fixed_config_and_explicit_approval_gate",
+    "-q"
+  ],
+  "exitcode": 0,
+  "no_git_verified": true,
+  "archive_basis": "git archive aa8a4efa7ca40b6f7e429ebcf64fe928519a4be0 with command-local autocrlf=false/eol=lf and final listed files overlaid",
+  "stdout": "13 passed, 1 warning in 22.80s",
+  "stderr": "",
+  "source_sha256_normalized_lf": {
+    "src/acl_hct/e2_pilot.py": "ecaad3815458d693c33651475b1ef7056efe85ebeb00bc9bb3066b3bcf1384c3",
+    "src/acl_hct/e2_development.py": "ec9c696c42b94c7651567fac91e3b0aed9af9918852a5a4af05f0d3aa1b2fa6a",
+    "src/acl_hct/vector_structure.py": "d8b2ed8ed586eebf8cdde4f91952513ab23282c8986e45aeb6e8f5a5548e61a2",
+    "src/acl_hct/diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "tests/test_e2_development.py": "3e5ffc4b24a5eecf32bd139d568d23306df70463063ffb72fd4f29394957b44b",
+    "configs/e2_multibudget_development.json": "53671814bf9d8588ae81ea508928c26422758d9dd3ee9082e7b0da8c7c58b5f3"
+  },
+  "scope": "targeted CPU engineering fixtures only; CUDA fixture and real E2 not executed",
+  "warning": "PyTorch TypedStorage compatibility deprecation in synthetic checkpoint fixture; no skipped tests"
+}

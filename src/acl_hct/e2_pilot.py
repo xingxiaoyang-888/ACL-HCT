@@ -74,7 +74,7 @@ def validate_config(config):
 
 def verify_approval(record, config, identity):
     if (record.get('user_authorized') is not True or not record.get('user_message_reference')
-            or record.get('scope') != 'E2-entry-local-pilot-v1'
+            or record.get('scope') != config['protocol']
             or record.get('config_sha256') != digest(config)
             or record.get('source_commit') != identity['source_commit']
             or record.get('quality_review_passed') is not True
@@ -317,8 +317,10 @@ def diagnose(model, features, view, *, repetitions=16, fanout=16, seed=202609160
 
 
 def run(config, seed, prepared, checkpoint_path, training_release, baseline_path, approval, source_commit,
-        *, device='cpu', progress=None):
-    validate_config(config); identity = source_identity(source_commit)
+        *, device='cpu', progress=None, diagnostic_runner=None, configuration_check=None):
+    # Development entry reuses the same provenance loader with its own fixed
+    # validator and bounded runner. The public local-pilot CLI retains defaults.
+    (configuration_check or validate_config)(config); identity = source_identity(source_commit)
     if identity['source_commit'] is None: raise ValueError('archive execution requires explicit source commit')
     verify_approval(approval, config, identity)
     spec = config['checkpoints'][str(seed)]; pilot = config['pilot']; started = time.perf_counter()
@@ -356,7 +358,7 @@ def run(config, seed, prepared, checkpoint_path, training_release, baseline_path
     def save_progress(report):
         report.update(provenance)
         if progress: progress(report)
-    result = diagnose(model, data['features'].to(device), view,
+    result = (diagnostic_runner or diagnose)(model, data['features'].to(device), view,
                       max_seconds=pilot['internal_seconds'] - (time.perf_counter() - started),
                       budget=train_config.max_padded_messages, namespace=pilot['namespace'] + f'/seed{seed}',
                       panel_target=pilot['panel_target'], candidate_chunk=pilot['candidate_chunk'],

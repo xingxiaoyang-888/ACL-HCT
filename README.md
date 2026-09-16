@@ -86,3 +86,6 @@ E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.jso
 
 
 E2后续状态：用户已授权逐步入口检查及局部试跑，先检查seed11/23的best768来源、完整前向/FP64对照及完整valid复现，再固定fanout16、local L1/F/S各16次。`python -m acl_hct.e2_pilot --config configs/e2_entry_local_pilot.json` 默认仅静态核验；真实运行需固定版本质量审查及对应批准记录。入口、阈值、停止行为和限制见 [E2_ENTRY_IMPLEMENTATION.md](reports/E2_ENTRY_IMPLEMENTATION.md)。本批不包含N1、E3或重训。
+
+
+E2原路线11节多预算开发入口已准备：`python -m acl_hct.e2_development --config configs/e2_multibudget_development.json` 默认静态检查。固定两个best768×五档fanout共十片，每片128次四路径、S/S前8次完整valid；新增CUDA工程fixture须独立验收后运行。源/配置/分片命令、NPZ归档读取及科学缺口见 [E2_MULTIBUDGET_IMPLEMENTATION.md](reports/E2_MULTIBUDGET_IMPLEMENTATION.md)。
