@@ -1,0 +1,419 @@
+{
+  "protocol": "E2-independent-confirmation-v1",
+  "scope": "conditional inference for two fixed selected models; no new graph/model/test-label generalization or collapse acceptance",
+  "frozen_before_confirmation": true,
+  "test_labels_unopened": true,
+  "checkpoints": {
+    "11": {
+      "step": 768,
+      "sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "training_config": {
+        "seed": 11,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    },
+    "23": {
+      "step": 768,
+      "sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "training_config": {
+        "seed": 23,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    }
+  },
+  "numerical_limits": {
+    "native_constraint": 0.0002,
+    "promotion_displacement": 0.0001,
+    "fp64_constraint": 1e-10,
+    "tangent_constraint": 1e-09,
+    "roundtrip": 1e-10,
+    "native_fp64_distance": 0.0001,
+    "unchanged_output_difference": 1e-05,
+    "mse_decomposition": 1e-10,
+    "variance_mse_minimum": -1e-12,
+    "full_valid_reproduction": 1e-08
+  },
+  "pilot": {
+    "sampling_seed": 2026091702,
+    "namespace": "E2-independent-confirmation-v1",
+    "conditions": [
+      "local_L1",
+      "F/S",
+      "S/F",
+      "S/S"
+    ],
+    "panel_target": 1000,
+    "threads": 2,
+    "internal_seconds": 6600,
+    "outer_seconds": 7200,
+    "ranking_seconds": 180,
+    "candidate_chunk": 4096,
+    "max_reach_visits": 2000000,
+    "fanouts": [
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "execution_layout": "one_checkpoint_one_fanout_per_job"
+  },
+  "panels": {
+    "combined_hash": "23616b7e8b2639ded9d2b42e5f62cb044c316ac2621bc564e2e5680610d065bf",
+    "development": {
+      "panel_hash": "582e6cb3e0232606bffdca988017e010fd380f511d2e9fa5c2e1e1e481e587d4",
+      "relation_hash": "579373fd3be223b9110b5f11085528121a6c3ff1423b89780886b0d50dd8cfa9"
+    },
+    "diagnostic_confirmation": {
+      "panel_hash": "75f606da00677050bc4ab022159ea5246cc4c9d78824b7ea58d89cb416cfef52",
+      "relation_hash": "47d94ea50f6abf8373a36879a6c6d5876ea7777234a3ebd6c7bda3abf0d6a5d1"
+    }
+  },
+  "development": {
+    "index_raw_sha256": "9e11fdddc514a3ada1a29e3c9bed817c2a5fad6e150ab49e36dfd728b49b4058",
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "summaries": [
+      {
+        "seed": 11,
+        "fanout": 4,
+        "summary_file": "e2-multibudget-f4-seed11.json",
+        "summary_sha256": "865f363dfac4adb6b8b84cd74e9396da8946b78e2cbd60c3e963390ec6909faf"
+      },
+      {
+        "seed": 11,
+        "fanout": 8,
+        "summary_file": "e2-multibudget-f8-seed11.json",
+        "summary_sha256": "d9138c0688720c58bd9a5644fa94e8d405415a3895234c62a8da525e4db8bcc3"
+      },
+      {
+        "seed": 11,
+        "fanout": 16,
+        "summary_file": "e2-multibudget-f16-seed11.json",
+        "summary_sha256": "1c27d1b38ca55d5ed07a911da5cc7eb645b46108a4962709bc4409ed440f4998"
+      },
+      {
+        "seed": 11,
+        "fanout": 32,
+        "summary_file": "e2-multibudget-f32-seed11.json",
+        "summary_sha256": "814103435d8d57883b7ec4062b7a4c516fadfeb63244eda42947f685f6986d27"
+      },
+      {
+        "seed": 11,
+        "fanout": 64,
+        "summary_file": "e2-multibudget-f64-seed11.json",
+        "summary_sha256": "2060c482f59418bfacc2512d12e3a5fa0c6fc8287e63d67728560b36020f326c"
+      },
+      {
+        "seed": 23,
+        "fanout": 4,
+        "summary_file": "e2-multibudget-f4-seed23.json",
+        "summary_sha256": "bc9eb890c3c4e8f159d9404f800f8ffa97c04b8a42d022f7b067e89f060cee07"
+      },
+      {
+        "seed": 23,
+        "fanout": 8,
+        "summary_file": "e2-multibudget-f8-seed23.json",
+        "summary_sha256": "c0952dc4468754f29adbf9def5575b7b2dafe930c153394548f6e1fd9d34004f"
+      },
+      {
+        "seed": 23,
+        "fanout": 16,
+        "summary_file": "e2-multibudget-f16-seed23.json",
+        "summary_sha256": "8583f0f6501a09595257fed7bac4f4d348959999c2b2666edff439d393841f55"
+      },
+      {
+        "seed": 23,
+        "fanout": 32,
+        "summary_file": "e2-multibudget-f32-seed23.json",
+        "summary_sha256": "f0f8f7d54966ba4b1a0e8c0aee26018354a377c0a4a89c0cd4d132fe7bf90f3d"
+      },
+      {
+        "seed": 23,
+        "fanout": 64,
+        "summary_file": "e2-multibudget-f64-seed23.json",
+        "summary_sha256": "1b166e6699cfb7c28cbbbca0fca77f67d1cfb431f1d9ef367cfb42f9b751302a"
+      }
+    ]
+  },
+  "inference": {
+    "alpha": 0.05,
+    "family_size": 70,
+    "correction": "Holm two-sided across all 70 primary hypotheses",
+    "simultaneous_intervals": "Bonferroni Student-t across 70",
+    "marginal_intervals": "Student-t 95 percent",
+    "halfwidth_targets": {
+      "geometry": 0.001,
+      "structure": 0.001,
+      "task": 0.0005
+    },
+    "degenerate_policy": "no inferential interval or rejection; p_for_adjustment=1; full family retained",
+    "numerical_resolution": "report mean empirical floor of defined nodes separately; do not alter p-values or assert a certified bound"
+  },
+  "shards": [
+    {
+      "seed": 11,
+      "fanout": 4,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 18,
+          "S/S": 18
+        },
+        "structure": {
+          "direct": 199,
+          "distant": 144
+        },
+        "task": 10
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 11,
+      "fanout": 8,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 7,
+          "S/S": 7
+        },
+        "structure": {
+          "direct": 112,
+          "distant": 49
+        },
+        "task": 3
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 11,
+      "fanout": 16,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 3,
+          "S/S": 3
+        },
+        "structure": {
+          "direct": 50,
+          "distant": 12
+        },
+        "task": 3
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 11,
+      "fanout": 32,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 1,
+          "S/S": 1
+        },
+        "structure": {
+          "direct": 15,
+          "distant": 3
+        },
+        "task": 4
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 11,
+      "fanout": 64,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 1,
+          "S/S": 1
+        },
+        "structure": {
+          "direct": 12,
+          "distant": 1
+        },
+        "task": 1
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 23,
+      "fanout": 4,
+      "repetitions": 512,
+      "task_repetitions": 128,
+      "internal_seconds": 6600,
+      "outer_seconds": 7200,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 21,
+          "S/S": 21
+        },
+        "structure": {
+          "direct": 302,
+          "distant": 135
+        },
+        "task": 82
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 23,
+      "fanout": 8,
+      "repetitions": 256,
+      "task_repetitions": 64,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 9,
+          "S/S": 9
+        },
+        "structure": {
+          "direct": 177,
+          "distant": 35
+        },
+        "task": 36
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 23,
+      "fanout": 16,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 4,
+          "S/S": 4
+        },
+        "structure": {
+          "direct": 48,
+          "distant": 13
+        },
+        "task": 18
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 23,
+      "fanout": 32,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 2,
+          "S/S": 2
+        },
+        "structure": {
+          "direct": 4,
+          "distant": 4
+        },
+        "task": 11
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    },
+    {
+      "seed": 23,
+      "fanout": 64,
+      "repetitions": 256,
+      "task_repetitions": 32,
+      "internal_seconds": 3300,
+      "outer_seconds": 3600,
+      "planning_required_counts": {
+        "geometry": {
+          "local_L1": 1,
+          "F/S": 1,
+          "S/F": 1,
+          "S/S": 1
+        },
+        "structure": {
+          "direct": 1,
+          "distant": 1
+        },
+        "task": 14
+      },
+      "planning_formula": "ceil((1.96 * development_sample_sd / target_marginal_halfwidth)^2); rounded up with minimum 256 geometry and 32 task"
+    }
+  ]
+}

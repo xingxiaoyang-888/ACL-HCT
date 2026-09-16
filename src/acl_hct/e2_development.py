@@ -1,6 +1,7 @@
 """Fixed multibudget E2 development calibration; no confirmation, N1 or training."""
 import argparse
 from collections import defaultdict
+from dataclasses import dataclass
 import gc
 import hashlib
 import json
@@ -31,6 +32,31 @@ PILOT={**entry.PILOT,'namespace':'E2-multibudget-development-v1','sampling_seed'
        'conditions':list(CONDITIONS),'task_repetitions':8,'fanouts':FANOUTS,
        'execution_layout':'one_checkpoint_one_fanout_per_job'}
 PILOT.pop('fanout')
+
+
+@dataclass(frozen=True)
+class DiagnosticDesign:
+    protocol: str = 'E2-multibudget-development-v1'
+    panel: str = 'development'
+    base_seed: int = BASE_SEED
+    repetition_limit: int = 128
+    task_limit: int = 8
+    panel_binding: dict | None = None
+    registration_sha256: str | None = None
+
+
+def validate_panels(panels,design):
+    development=panels['panels']['development'];confirmation=panels['panels']['diagnostic_confirmation']
+    if set(row['id'] for row in development['rows']) & set(row['id'] for row in confirmation['rows']):
+        raise ValueError('development and confirmation children overlap')
+    if design.panel not in ('development','diagnostic_confirmation'):raise ValueError('unknown diagnostic panel')
+    if design.panel=='diagnostic_confirmation' and (design.panel_binding is None or design.registration_sha256 is None):
+        raise ValueError('confirmation requires frozen panel and registration identity')
+    if design.panel_binding is not None:
+        if panels['hash']!=design.panel_binding['combined_hash']:raise ValueError('frozen combined panel hash mismatch')
+        for name in ('development','diagnostic_confirmation'):
+            for key in ('panel_hash','relation_hash'):
+                if panels['panels'][name][key]!=design.panel_binding[name][key]:raise ValueError('frozen panel identity mismatch')
 
 
 def validate_config(config):
@@ -130,19 +156,21 @@ def condition_offsets(points,base,c,local,active,native_reference):
 @torch.no_grad()
 def diagnose(model,features,view,*,directory,fanouts=FANOUTS,repetitions=128,task_repetitions=8,
              max_seconds=3300.,budget=32768,namespace='E2-multibudget-development-v1',panel_target=1000,
-             candidate_chunk=4096,ranking_seconds=180.,progress=None,expected_ranking=None):
+             candidate_chunk=4096,ranking_seconds=180.,progress=None,expected_ranking=None,design=None):
+    design=design or DiagnosticDesign()
     if (not fanouts or len(set(fanouts))!=len(fanouts) or any(f not in FANOUTS for f in fanouts)
-            or type(repetitions) is not int or repetitions<2 or repetitions>128 or repetitions%2
-            or type(task_repetitions) is not int or not 1<=task_repetitions<=min(8,repetitions)):
+            or type(repetitions) is not int or repetitions<2 or repetitions>design.repetition_limit or repetitions%2
+            or type(task_repetitions) is not int or not 1<=task_repetitions<=min(design.task_limit,repetitions)):
         raise ValueError('registered fanouts and bounded even repetition count required')
     start=time.perf_counter();device=features.device;phase='entry';current=None;streams={};structures={};task_stream=ScalarStream()
-    report={'protocol':'E2-multibudget-development-v1','original_route_section':'11',
+    report={'protocol':design.protocol,'original_route_section':'11',
             'research_question':'Do local and two-layer sampling errors accompany structural/task damage across budgets?',
-            'conclusion':'pending development evidence review','purpose_status':'insufficient_evidence',
+            'conclusion':'pending diagnostic evidence review','purpose_status':'insufficient_evidence',
             'status':'running','entry_status':'not_started','pilot_status':'not_started','fanouts':list(fanouts),
             'planned_fanouts':FANOUTS,'shard_only':list(fanouts)!=FANOUTS,
             'repetitions':repetitions,'task_repetitions':task_repetitions,'budgets':{},'failures':[],
-            'next_experiment_authorized':False,'confirmation_evaluated':False}
+            'next_experiment_authorized':False,'confirmation_evaluated':design.panel=='diagnostic_confirmation',
+            'evaluated_panel':design.panel,'registration_sha256':design.registration_sha256}
     def publish():
         report['elapsed_seconds']=time.perf_counter()-start
         if progress:progress(report)
@@ -202,7 +230,8 @@ def diagnose(model,features,view,*,directory,fanouts=FANOUTS,repetitions=128,tas
         if expected_ranking is not None:
             report['entry_full_valid_reproduction']=entry.validation_reproduction(full_rank,expected_ranking)
             if report['entry_full_valid_reproduction']['status']!='passed':raise ValueError('entry valid reproduction failed')
-        panels=entry.make_panels(view,panel_target);root=index.get(view.root);near_groups=[];directions=[]
+        panels=entry.make_panels(view,panel_target);validate_panels(panels,design)
+        root=index.get(view.root);near_groups=[];directions=[]
         report['reference_layers']=[]
         for layer,row in enumerate(numerical['layers']):
             base=row['base'];floor=row['empirical_numerical_floor']
@@ -231,11 +260,11 @@ def diagnose(model,features,view,*,directory,fanouts=FANOUTS,repetitions=128,tas
                 layer_groups={**groups,**near_groups[layer]};base=numerical['layers'][layer]['base']
                 streams[name]=TangentStream(base,model.c,layer_groups,*directions[layer])
                 scalar_design[name]=geometry_design(streams[name])
-                structures[name]=ScalarStream();radial_panels[name]=RadialPanel(view,panels['panels']['development'],base,layer_groups,
+                structures[name]=ScalarStream();radial_panels[name]=RadialPanel(view,panels['panels'][design.panel],base,layer_groups,
                                                                 model.c,numerical['layers'][layer]['empirical_numerical_floor'])
                 full_structure[name]=radial_panels[name].evaluate(base)
                 structure_columns[name]=structure_vector(full_structure[name])[0]
-            rng=PlanStreams(BASE_SEED,namespace+f'/fanout{fanout}')
+            rng=PlanStreams(design.base_seed,namespace+f'/fanout{fanout}')
             current={'fanout':fanout,'status':'running','requested_repetitions':repetitions,
                      'requested_task_repetitions':task_repetitions,'completed_graph_repetitions':0,
                      'completed_task_repetitions':0,'group_counts':{key:len(ids) for key,ids in groups.items()},
@@ -284,7 +313,7 @@ def diagnose(model,features,view,*,directory,fanouts=FANOUTS,repetitions=128,tas
             streams.clear();structures.clear();radial_panels.clear();gc.collect()
             if device.type=='cuda':torch.cuda.empty_cache()
         report.update(status='complete',pilot_status='complete',purpose_status='pending_supervisor_review',
-                      conclusion='Fixed development observations complete; scientific interpretation remains separate')
+                      conclusion='Fixed diagnostic observations complete; scientific interpretation remains separate')
     except (ValueError,RuntimeError,TimeoutError) as error:
         report['failures'].append({'phase':phase,'type':type(error).__name__,'error':str(error)})
         report['status']='incomplete_time_limit' if isinstance(error,TimeoutError) else 'failed'
@@ -292,7 +321,7 @@ def diagnose(model,features,view,*,directory,fanouts=FANOUTS,repetitions=128,tas
             if current is not None and observations and observations[-1]['status']!='complete':observations[-1]['status']='partial_stopped'
             report['pilot_status']=report['status'];save_budget('partial_not_for_inference')
         else:report['entry_status']=report['status']
-        report['conclusion']='Incomplete development evidence; no unreviewed continuation or inference from partial conditions'
+        report['conclusion']='Incomplete diagnostic evidence; no inference from partial conditions'
     publish();return report
 
 

@@ -317,7 +317,7 @@ def diagnose(model, features, view, *, repetitions=16, fanout=16, seed=202609160
 
 
 def run(config, seed, prepared, checkpoint_path, training_release, baseline_path, approval, source_commit,
-        *, device='cpu', progress=None, diagnostic_runner=None, configuration_check=None):
+        *, device='cpu', progress=None, diagnostic_runner=None, configuration_check=None, execution_seconds=None):
     # Development entry reuses the same provenance loader with its own fixed
     # validator and bounded runner. The public local-pilot CLI retains defaults.
     (configuration_check or validate_config)(config); identity = source_identity(source_commit)
@@ -358,8 +358,12 @@ def run(config, seed, prepared, checkpoint_path, training_release, baseline_path
     def save_progress(report):
         report.update(provenance)
         if progress: progress(report)
+    internal_seconds=pilot['internal_seconds'] if execution_seconds is None else execution_seconds
+    if not math.isfinite(internal_seconds) or not 0<internal_seconds<=pilot['internal_seconds']:
+        raise ValueError('execution budget must fit registered maximum')
+    provenance['execution_internal_seconds']=internal_seconds
     result = (diagnostic_runner or diagnose)(model, data['features'].to(device), view,
-                      max_seconds=pilot['internal_seconds'] - (time.perf_counter() - started),
+                      max_seconds=internal_seconds - (time.perf_counter() - started),
                       budget=train_config.max_padded_messages, namespace=pilot['namespace'] + f'/seed{seed}',
                       panel_target=pilot['panel_target'], candidate_chunk=pilot['candidate_chunk'],
                       ranking_seconds=pilot['ranking_seconds'], progress=save_progress,
