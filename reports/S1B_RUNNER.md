@@ -34,3 +34,10 @@ python -m acl_hct.train --prepared data/processed/wordnet-b-v1 --output runs/wor
 ```
 
 尚需父任务验收真实预处理与此runner，再由实验任务测10步、16-query全候选probe及checkpoint成本。根据测量登记完整valid频率和有界开发配置，不能因validation慢悄悄用probe替代选择。之后才能基于有效selected checkpoint做E2/E3；当前没有真实层级坍缩/竞争力/训练改善证据。
+
+
+## Pilot发布后的契约补丁
+
+父审查确认fce0172的一次eval内部缓存安全，但缓存失效检测此前只跟踪relation_head，强于实现的“模型权重更新失效”表述需要修复。现跟踪整个model.parameters的身份和版本；新增FP32/64分别修改head或backbone的回归，均拒绝旧缓存。它不改变已有pilot release、采样、打分公式或E1结果，不需要重跑E1。
+
+逐节点GPU索引创建/赋值与多次整图验证可能占用显著调度时间。先观察固定fce0172 pilot的sampling_and_mask_seconds及step总时间，再决定是否做等价CPU一次组装/批量传输；本补丁没有把未测优化当作效率结论。

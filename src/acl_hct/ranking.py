@@ -6,7 +6,7 @@ from .geometry import log, origin_like
 
 
 def _versions(model):
-    return tuple((id(p),p._version) for p in model.relation_head.parameters())
+    return tuple((id(p),p._version) for p in model.parameters())
 
 
 @torch.no_grad()
