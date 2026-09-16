@@ -1,0 +1,24 @@
+{
+  "seed": 11,
+  "hidden": 128,
+  "head_hidden": 128,
+  "c": 1.0,
+  "scaled_radius": 1.2,
+  "fanouts": [
+    16,
+    16
+  ],
+  "method": "none",
+  "batch_positives": 128,
+  "max_steps": 1024,
+  "learning_rate": 0.003,
+  "max_seconds": 3300.0,
+  "evaluation": "full_validation",
+  "probe_queries": 16,
+  "evaluation_max_seconds": 180.0,
+  "candidate_chunk": 4096,
+  "max_padded_messages": 32768,
+  "save_every": 50,
+  "evaluate_every": 256,
+  "threads": 2
+}
