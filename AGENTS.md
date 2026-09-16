@@ -6,6 +6,11 @@
 - The already approved and running seed11/23 baseline jobs may finish only their existing bounded configuration, including its scheduled validation and saving. Do not extend, resume, rerun, add seeds, or launch E1 supplemental/E2/E3/E4/E5 scientific experiments without the new gate. Report failures instead of silently changing thresholds or retrying.
 - Read-only review, report preparation, concrete proposed code and necessary offline engineering tests may continue to make the next proposal reviewable. They must not be represented as approval or completion of a real scientific experiment. Record exact user authorization scope before any new key run.
 
+## Stage reporting and concise coordination
+
+- User instruction (2026-09-16): every stage report must lead with the research question, the conclusion supported by current evidence, and whether the stage's intended purpose was met (met / partly met / not met / insufficient evidence), with a brief reason. Distinguish completion and numerical correctness from scientific support. Follow with only the evidence needed to assess that conclusion, remaining limitations, and the next decision. Counts, passing tests, and resource usage alone are not the main result.
+- Keep inter-task messages short. Send only new decisions, changed constraints, blocking facts, or actionable handoffs. Refer to an existing report/path/commit rather than restating history, protocols, hashes, or acknowledgments. Avoid redundant status requests, repeated confirmations, and messages that require no action. Retain exact provenance in artifacts; include it in a message only when needed for safe execution.
+
 ## Ownership and scope
 
 - All local code, scripts, tests and project artifacts belong under `F:\ACL\_HGT`. The Codex saved project may start in `F:\ACL_HGT`; explicitly change working directory before writing or running project commands. Do not create a second implementation there.
