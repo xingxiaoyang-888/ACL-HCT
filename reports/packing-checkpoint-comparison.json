@@ -1,0 +1,204 @@
+{
+  "relative_definition": "abs(a-b)/max(abs(a),abs(b),1e-30)",
+  "model": {
+    "layers.0.linear.weight": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "layers.0.linear.bias": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "layers.1.linear.weight": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "layers.1.linear.bias": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "relation_head.0.weight": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "relation_head.0.bias": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "relation_head.2.weight": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "relation_head.2.bias": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    }
+  },
+  "rng": {
+    "sampling_rng": true,
+    "batch_rng": true,
+    "torch_rng": true
+  },
+  "cuda_rng_equal": true,
+  "checkpoint_sha256": {
+    "old": "038fd4bc72c71dd544da48453e24349dd9018035b662cf2e5c2799cb9615638a",
+    "new": "80f2267fd84daadbf2a5b543d7d3db1aceb57a140c5ca89729157113d5f8db1a"
+  },
+  "optimizer": {
+    "0/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "0/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "0/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "1/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "1/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "1/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "2/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "2/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "2/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "3/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "3/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "3/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "4/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "4/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "4/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "5/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "5/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "5/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "6/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "6/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "6/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "7/step": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "7/exp_avg": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    },
+    "7/exp_avg_sq": {
+      "max_absolute": 0.0,
+      "max_relative_symmetric": 0.0,
+      "bitwise_equal": true
+    }
+  },
+  "losses": {
+    "old": [
+      0.709603488445282,
+      0.6681824922561646,
+      0.6410725116729736,
+      0.6113724708557129,
+      0.5798997282981873,
+      0.5500038862228394,
+      0.5245623588562012,
+      0.5075764060020447,
+      0.5004888772964478,
+      0.5027880072593689
+    ],
+    "new": [
+      0.709603488445282,
+      0.6681824922561646,
+      0.6410725116729736,
+      0.6113724708557129,
+      0.5798997282981873,
+      0.5500038862228394,
+      0.5245623588562012,
+      0.5075764060020447,
+      0.5004888772964478,
+      0.5027880072593689
+    ]
+  },
+  "loss_max_absolute": 0.0
+}

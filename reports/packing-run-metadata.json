@@ -1,0 +1,197 @@
+{
+  "stage": "fixed_order_same_allocation_packing_equivalence_and_cost",
+  "source_commits": {
+    "old": "fce017259a6bdc513f21b31304f096239e357a75",
+    "new": "10d69281342fbb5981fd7c1a112909d0bf695c40"
+  },
+  "new_archive_sha256": "98e8ffa602213b039111959e429698018623d1215b3944f2c6f0031bc9ab9be5",
+  "old_archive_sha256": "0e68f7063c0540b9d04b1ba30ef02433cb3a714b3a56abb4a8a9ac13bba7eaf7",
+  "source_hashes_verified": true,
+  "same_config_and_prepared": true,
+  "config_hash": "c7564246a7d7f77fc2e6b9ac54732032d68225b85a023f2275ce9ca0c3b3f35f",
+  "manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+  "allocation": {
+    "gpu": "NVIDIA L40",
+    "driver_version": "580.65.06",
+    "nvidia_smi_total_memory_mib": 46068,
+    "count": 1,
+    "cpus": 2,
+    "memory_gib": 16,
+    "limit_minutes": 15,
+    "elapsed_seconds": 140,
+    "allocated_gpu_hours": 0.03888888888888889,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "resource_release_verified": true,
+    "same_gpu_sequential": true,
+    "order": [
+      "old",
+      "new"
+    ],
+    "per_training_process_timeout_seconds": 240
+  },
+  "tests": {
+    "total_passed": 18,
+    "cuda_executed": 6,
+    "skipped": 0,
+    "seconds": 2.93,
+    "unchanged_tolerances": true,
+    "test_source_sha256": "6ee0cf497751f2ad55334f776f3310e1dad7a556d73e6a5df1f682d44e76c8a9",
+    "raw_junit_sha256": "b042bf16342636f56fc362503a5cb2b4c52f14cd519dfb85af58620b63074f96",
+    "scope": "FP32/FP64 none/third/jackknife output and diagnostics bitwise equal, gradients within original tolerances; plan and RNG stream tests passed."
+  },
+  "runs": {
+    "old": {
+      "all_10_steps_mean_seconds": 8.316452716989442,
+      "steps_2_to_10_mean_seconds": 8.275243724541118,
+      "all_10_planning_mean_seconds": 0.912234181468375,
+      "steps_2_to_10_planning_mean_seconds": 0.9082669678609818,
+      "all_10_nonplanning_mean_seconds": 7.404218535521068,
+      "full_encoding_seconds": 6.936390380142257,
+      "probe_ranking_seconds": 0.05731621291488409,
+      "runner_elapsed_seconds": 94.45493988087401,
+      "checkpoint_seconds": 0.04678506893105805,
+      "peak_allocated_bytes": 1718813184,
+      "peak_reserved_bytes": 1845493760,
+      "steps": [
+        {
+          "step": 1,
+          "total_seconds": 8.687333649024367,
+          "planning_seconds": 0.9479391039349139
+        },
+        {
+          "step": 2,
+          "total_seconds": 8.275995268952101,
+          "planning_seconds": 0.9107875658664852
+        },
+        {
+          "step": 3,
+          "total_seconds": 8.276852587005123,
+          "planning_seconds": 0.9159339629113674
+        },
+        {
+          "step": 4,
+          "total_seconds": 8.263673273148015,
+          "planning_seconds": 0.8887462811544538
+        },
+        {
+          "step": 5,
+          "total_seconds": 8.37702035298571,
+          "planning_seconds": 0.9890146448742598
+        },
+        {
+          "step": 6,
+          "total_seconds": 8.266751060960814,
+          "planning_seconds": 0.9076366499066353
+        },
+        {
+          "step": 7,
+          "total_seconds": 8.262321105925366,
+          "planning_seconds": 0.8934943850617856
+        },
+        {
+          "step": 8,
+          "total_seconds": 8.247846551937982,
+          "planning_seconds": 0.8902678699232638
+        },
+        {
+          "step": 9,
+          "total_seconds": 8.246142450952902,
+          "planning_seconds": 0.8870615509804338
+        },
+        {
+          "step": 10,
+          "total_seconds": 8.260590869002044,
+          "planning_seconds": 0.8914598000701517
+        }
+      ],
+      "process_max_rss_kib": 1326208,
+      "process_wall_time_text": "1:36.58"
+    },
+    "new": {
+      "all_10_steps_mean_seconds": 2.370859178993851,
+      "steps_2_to_10_mean_seconds": 2.3295728468801826,
+      "all_10_planning_mean_seconds": 0.285115639003925,
+      "steps_2_to_10_planning_mean_seconds": 0.2784306220192876,
+      "all_10_nonplanning_mean_seconds": 2.085743539989926,
+      "full_encoding_seconds": 1.9362448288593441,
+      "probe_ranking_seconds": 0.05688226502388716,
+      "runner_elapsed_seconds": 29.513198032043874,
+      "checkpoint_seconds": 0.03747339476831257,
+      "peak_allocated_bytes": 1718813184,
+      "peak_reserved_bytes": 1845493760,
+      "steps": [
+        {
+          "step": 1,
+          "total_seconds": 2.742436168016866,
+          "planning_seconds": 0.34528079186566174
+        },
+        {
+          "step": 2,
+          "total_seconds": 2.3708002709317952,
+          "planning_seconds": 0.268247458152473
+        },
+        {
+          "step": 3,
+          "total_seconds": 2.2927920478396118,
+          "planning_seconds": 0.2695591838564724
+        },
+        {
+          "step": 4,
+          "total_seconds": 2.310707804048434,
+          "planning_seconds": 0.2632658760994673
+        },
+        {
+          "step": 5,
+          "total_seconds": 2.394571357173845,
+          "planning_seconds": 0.3656897749751806
+        },
+        {
+          "step": 6,
+          "total_seconds": 2.304859099909663,
+          "planning_seconds": 0.2683345330879092
+        },
+        {
+          "step": 7,
+          "total_seconds": 2.3149870079942048,
+          "planning_seconds": 0.27827533800154924
+        },
+        {
+          "step": 8,
+          "total_seconds": 2.3907956040930003,
+          "planning_seconds": 0.2628511469811201
+        },
+        {
+          "step": 9,
+          "total_seconds": 2.285766508895904,
+          "planning_seconds": 0.2689987129997462
+        },
+        {
+          "step": 10,
+          "total_seconds": 2.3008759210351855,
+          "planning_seconds": 0.2606535740196705
+        }
+      ],
+      "process_max_rss_kib": 1357032,
+      "process_wall_time_text": "0:31.57"
+    }
+  },
+  "observed_steps_2_to_10_time_ratio_old_over_new": 3.552257975372401,
+  "loss_max_absolute_difference": 0.0,
+  "model_max_absolute_difference": 0.0,
+  "model_max_relative_symmetric_difference": 0.0,
+  "model_and_optimizer_tensors_bitwise_equal": true,
+  "all_rng_states_equal": true,
+  "operation_script_sha256": {
+    "compare.py": "4a9ec547a27affb75cb32a7ef7e4b3beff5f94ad262043fd936ca5f8735035fb",
+    "step.sh": "7ef7122164f7fcca3f9a5763b0ac179764122a77e7f7feee59d23a40cbc2ece2",
+    "job.slurm": "ecdb8968a7c7d42b0ebf5378b59f6670582bf2b9f5b6b527cdade609a5447d9f",
+    "submit.sh": "20bb27ebe6f4fa3a4bd5bfc6afa2eeaa7a12111234ec17b4c41d2063ff112966"
+  },
+  "raw_artifact_sha256": {
+    "packing-old-run.json": "d38b8fa6bd776aca5b64a9278f4d5c41c0d2d9cf5cfd2cc2f22191444d2d57c2",
+    "packing-new-run.json": "adc2d41bc622f0ebc0aa228b1dbbf6e94faa1d3517213d785a27422ef7732a63",
+    "packing-checkpoint-comparison.json": "79d80e6c7aa03201d1b73533c5981a9cbab01bdda7551260a45cadb476776ac9"
+  },
+  "limitation": "One fixed old-to-new pair, no repeated/randomized-order timing or uncontended-node guarantee. Ratio is descriptive, not statistically stable speedup. Nonplanning time is not pure GPU kernel time."
+}
