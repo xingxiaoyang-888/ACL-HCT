@@ -1,0 +1,95 @@
+{
+  "protocol": "E2-entry-local-pilot-v1",
+  "scope": "User-authorized stepwise E2 entry and local pilot only; final release review required; no E3/N1/retraining",
+  "pilot": {
+    "fanout": 16,
+    "repetitions": 16,
+    "sampling_seed": 2026091605,
+    "namespace": "E2-local-entry-v1",
+    "conditions": [
+      "local_L1",
+      "F/S"
+    ],
+    "panel_target": 1000,
+    "threads": 2,
+    "internal_seconds": 1500,
+    "outer_seconds": 1800,
+    "ranking_seconds": 180,
+    "candidate_chunk": 4096,
+    "max_reach_visits": 2000000
+  },
+  "numerical_limits": {
+    "native_constraint": 0.0002,
+    "promotion_displacement": 0.0001,
+    "fp64_constraint": 1e-10,
+    "tangent_constraint": 1e-09,
+    "roundtrip": 1e-10,
+    "native_fp64_distance": 0.0001,
+    "unchanged_output_difference": 1e-05,
+    "mse_decomposition": 1e-10,
+    "variance_mse_minimum": -1e-12,
+    "full_valid_reproduction": 1e-08
+  },
+  "checkpoints": {
+    "11": {
+      "step": 768,
+      "sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "training_config": {
+        "seed": 11,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    },
+    "23": {
+      "step": 768,
+      "sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "training_config": {
+        "seed": 23,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    }
+  }
+}

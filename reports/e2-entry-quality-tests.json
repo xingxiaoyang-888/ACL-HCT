@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_e2_pilot.py",
+    "-q"
+  ],
+  "exitcode": 0,
+  "no_git_verified": true,
+  "archive_basis": "git archive 0424e91aa21788978e7c58c95f58922b52ca0d4d plus final listed files",
+  "stdout": "22 passed, 1 warning in 21.16s",
+  "stderr": "",
+  "source_sha256_normalized_lf": {
+    "src/acl_hct/e2_pilot.py": "42f898f106159d71f56f3ffd976fe9eef8fe6fe60266dcb58f59e6d73799641c",
+    "tests/test_e2_pilot.py": "ddf626743e7ca8c4219fdc22af8f35762e0f3336290f80f0a9309af9f96998ad",
+    "configs/e2_entry_local_pilot.json": "7644281882d754c873974134887a28fa7f65b5a1cf7a4291bc7867e12284dc71"
+  },
+  "scope": "targeted small engineering fixtures only; no real E2 experiment",
+  "warning": "PyTorch TypedStorage deprecation in the tiny checkpoint fixture; no skipped tests"
+}

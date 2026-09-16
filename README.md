@@ -83,3 +83,6 @@ E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.jso
 后续已完成的真实 WordNet 10 步 pilot 与历史 CUDA 诊断见 [reports/S1B_PILOT.md](reports/S1B_PILOT.md)，其计算来源保持 fce0172。只读完整 valid 入口 `python -m acl_hct.evaluate_checkpoint` 的来源校验、时限、命令和 CPU 测试见 [reports/S1B_CHECKPOINT_EVALUATION.md](reports/S1B_CHECKPOINT_EVALUATION.md)；对 pilot last 的评估不追认最佳 checkpoint。等价索引组装补丁见 [reports/S1B_EFFICIENCY.md](reports/S1B_EFFICIENCY.md)，GPU 性能须以独立实验测量为准。
 
 当前优先补齐 E1 最小机制闭环，E2/E3 新增工作暂停。补充代码和102条件清单见 [reports/E1_CLOSURE_IMPLEMENTATION.md](reports/E1_CLOSURE_IMPLEMENTATION.md)，必要离线工程测试通过；用户已明确授权既定102条件的一次有界运行，待最终固定版本质量检查后由主管交实验任务执行。代码任务尚未运行科学补实验。每个关键实验必须遵守 [用户批准门槛](docs/operations/EXPERIMENT_APPROVAL_GATE.md)；`python -m acl_hct.e1_closure --config configs/e1_minimum_closure_proposal.json` 默认只做静态核算，发布代码不构成执行授权。
+
+
+E2后续状态：用户已授权逐步入口检查及局部试跑，先检查seed11/23的best768来源、完整前向/FP64对照及完整valid复现，再固定fanout16、local L1/F/S各16次。`python -m acl_hct.e2_pilot --config configs/e2_entry_local_pilot.json` 默认仅静态核验；真实运行需固定版本质量审查及对应批准记录。入口、阈值、停止行为和限制见 [E2_ENTRY_IMPLEMENTATION.md](reports/E2_ENTRY_IMPLEMENTATION.md)。本批不包含N1、E3或重训。
