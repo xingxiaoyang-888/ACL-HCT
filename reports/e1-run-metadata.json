@@ -1,0 +1,134 @@
+{
+  "source_commit": "6cd0caaa6a970b6f472ff45e58a1b3e65ea57e06",
+  "archive_sha256": "0983dbefe7e4ae59245d03ab9fc6f651b5b6090e9b79aaf34d8b35b852a8cb91",
+  "raw_result_sha256": "9c3b26297c1667c16fa76ac5dcf306c5a055a2f2fbdbb8d24355e86ad1fd15e1",
+  "config_sha256": "4d8e5c0d3f75a317e5324db06d2ca74ba2104d8394c7c661e7d80a31d1e4c012",
+  "source_hashes_verified_against_archive": true,
+  "git_identity": {
+    "available": false,
+    "commit": null,
+    "dirty": null
+  },
+  "commit_basis": "caller_declared",
+  "status": "COMPLETED",
+  "exit_code": "0:0",
+  "resources": {
+    "cpu_cores": 2,
+    "memory_gib": 8,
+    "gpu_count": 0,
+    "gpu_hours": 0,
+    "time_limit_minutes": 30,
+    "cpu_model": "Intel Xeon CPU Max 9468"
+  },
+  "job_elapsed_seconds": 16,
+  "slurm_step_elapsed_seconds": 13,
+  "srun_wall_seconds": 12.86,
+  "timing_note": "srun wall includes launch and execution; time-v memory/CPU counters measure launcher, not the compute process, so are not used as model utilization.",
+  "queue_release_verified": true,
+  "cases": 54,
+  "exact_cases": 54,
+  "monte_carlo_cases": 0,
+  "neighborhoods": 138483,
+  "method_evaluations": 553932,
+  "methods": {
+    "none": {
+      "status_counts": {
+        "ok": 54
+      },
+      "max_clipping_rate": 0.0,
+      "max_raw_step": 0.0,
+      "full_fallback_conditions": 0,
+      "max_symmetric_bias_norm": 1.1945118703002138e-17,
+      "clipping_conditions": [],
+      "asymmetric_active_bias_lower_count": 0,
+      "asymmetric_active_mse_higher_count": 0,
+      "asymmetric_active_conditions": 18
+    },
+    "third_unclipped": {
+      "status_counts": {
+        "ok": 54
+      },
+      "max_clipping_rate": 0.0,
+      "max_raw_step": 0.29147227691335104,
+      "full_fallback_conditions": 27,
+      "max_symmetric_bias_norm": 3.72485657953922e-18,
+      "clipping_conditions": [],
+      "asymmetric_active_bias_lower_count": 18,
+      "asymmetric_active_mse_higher_count": 18,
+      "asymmetric_active_conditions": 18
+    },
+    "third_protected": {
+      "status_counts": {
+        "ok": 54
+      },
+      "max_clipping_rate": 0.0375,
+      "max_raw_step": 0.29147227691335104,
+      "full_fallback_conditions": 27,
+      "max_symmetric_bias_norm": 3.72485657953922e-18,
+      "clipping_conditions": [
+        {
+          "case": "asymmetric_s0.7_k3",
+          "rate": 0.0375
+        },
+        {
+          "case": "asymmetric_s0.7_k4",
+          "rate": 0.0027472527472527475
+        },
+        {
+          "case": "reverse_s0.7_k3",
+          "rate": 0.0375
+        },
+        {
+          "case": "reverse_s0.7_k4",
+          "rate": 0.0027472527472527475
+        }
+      ],
+      "asymmetric_active_bias_lower_count": 18,
+      "asymmetric_active_mse_higher_count": 18,
+      "asymmetric_active_conditions": 18
+    },
+    "jackknife_protected": {
+      "status_counts": {
+        "ok": 54
+      },
+      "max_clipping_rate": 0.0017857142857142857,
+      "max_raw_step": 0.12558631307682783,
+      "full_fallback_conditions": 27,
+      "max_symmetric_bias_norm": 1.1242901228078009e-17,
+      "clipping_conditions": [
+        {
+          "case": "asymmetric_s0.7_k3",
+          "rate": 0.0017857142857142857
+        },
+        {
+          "case": "reverse_s0.7_k3",
+          "rate": 0.0017857142857142857
+        }
+      ],
+      "asymmetric_active_bias_lower_count": 18,
+      "asymmetric_active_mse_higher_count": 18,
+      "asymmetric_active_conditions": 18
+    }
+  },
+  "checks": {
+    "spatial_reflection_max_abs_error": 0.0,
+    "bias_variance_mse_identity_max_abs_error": 1.492810866240979e-17,
+    "full_sample_max_bias_or_mse": 0.0,
+    "low_k_max_difference_vs_none": 0.0
+  },
+  "missing_controls": [
+    "simple scaling comparator",
+    "matched zero-mean noise"
+  ],
+  "plotting": {
+    "compute_source_commit": "6cd0caaa6a970b6f472ff45e58a1b3e65ea57e06",
+    "plot_source_commit": "2ca02d6033fd5503b82bbcd5b72c5f172b07eb6e",
+    "source_script": "scripts/plot_e1.py",
+    "source_script_sha256": "a4deb94abce93f4b536011197508113296e9cfd084ee7ad069666347e343e489",
+    "matplotlib": "3.10.8",
+    "numpy": "1.24.4",
+    "raw_result_sha256": "9c3b26297c1667c16fa76ac5dcf306c5a055a2f2fbdbb8d24355e86ad1fd15e1",
+    "label_adapter": null,
+    "note": "Rebuilt from unchanged exact-enumeration JSON with mode-aware fixed 2ca02d6 plotting source. Temporary label adapter retired; no E1 computation rerun."
+  }
+}
