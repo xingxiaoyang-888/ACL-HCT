@@ -2,6 +2,8 @@
 
 ## Current user approval gate — supersedes earlier automatic progression
 
+- Latest E2 continuation instruction (2026-09-17): “继续进行，不要自停E2”. Continue authorized E2 after diagnosing and fixing recoverable engineering issues; do not treat the supervisor's earlier one-attempt/no-retry wording as a new user-approval barrier for the same work. Preserve failures, verify repairs before rerunning, retain scientific/numerical gates, and avoid blind retries. Plan/review subsequent E2 work concretely under this continuation instruction; do not infer E3 or unrelated training authorization. See `docs/operations/E2_ENTRY_AND_PILOT.md`.
+
 - On 2026-09-16 the user explicitly required: “每一个关键实验步骤必须在质量验收和关键指标通过，以及我的同意后才能继续”. Every new key experiment requires completed quality review, the pre-agreed key metrics passing, AND explicit user agreement. The parent supervisor cannot substitute its approval for the user's. Earlier staged/conditional auto-run instructions are superseded; available compute is not experiment authorization. Follow `docs/operations/EXPERIMENT_APPROVAL_GATE.md`.
 - The already approved and running seed11/23 baseline jobs may finish only their existing bounded configuration, including its scheduled validation and saving. Do not extend, resume, rerun, add seeds, or launch E1 supplemental/E2/E3/E4/E5 scientific experiments without the new gate. Report failures instead of silently changing thresholds or retrying.
 - Read-only review, report preparation, concrete proposed code and necessary offline engineering tests may continue to make the next proposal reviewable. They must not be represented as approval or completion of a real scientific experiment. Record exact user authorization scope before any new key run.

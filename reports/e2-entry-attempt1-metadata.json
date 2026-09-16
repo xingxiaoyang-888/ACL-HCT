@@ -1,0 +1,61 @@
+{
+  "stage": "E2_entry_local_pilot_attempt1",
+  "research_question": "Can sampling bias in trained fixed neighborhoods be resolved and support later hierarchy research?",
+  "conclusion": "No scientific observation obtained; baseline-report raw byte hash gate rejected an archive copy before forward or sampling.",
+  "purpose_status": "not_met",
+  "source_commit": "8e4209a23f69993c416ee1c28b857f02673363cb",
+  "config_sha256": "052e30ec2f243ce9ef0d609696c7483ff390785417703e587dfe8458298014e9",
+  "archive_sha256": "7cc30cb6863bdff1a78fe7e1a4dda3256cea61e234facff9f8aad91c84c43d1d",
+  "cause": "Local git archive export converted LF blob report bytes to CRLF under the local EOL configuration; uploaded tar and extracted files preserved those bytes. Launcher passed that copy and preflight incorrectly verified only normalized LF hash.",
+  "runs": {
+    "11": {
+      "allocation_seconds": 8,
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "expected_baseline_raw_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "original_training_report_raw_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "archive_report_raw_sha256": "4651ef689094d1e92a9bf9925883a291d2f57baec423e4092c503d4e48a09122",
+      "archive_report_normalized_lf_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "result_sha256": "8f8d9738ee6cc6092d83b5dbccb2e1fb242d44051a5e2bf1ddac72210c26600f"
+    },
+    "23": {
+      "allocation_seconds": 7,
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "expected_baseline_raw_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "original_training_report_raw_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "archive_report_raw_sha256": "310f26f2171426f1b78ecba2cf49b4e6b211cb7b7ba2acc90f6cd162579ab750",
+      "archive_report_normalized_lf_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "result_sha256": "8f8d9738ee6cc6092d83b5dbccb2e1fb242d44051a5e2bf1ddac72210c26600f"
+    }
+  },
+  "resources": {
+    "gpus_per_seed": 1,
+    "gpu_type": "NVIDIA L40",
+    "driver_version": "580.65.06",
+    "memory_mib": 46068,
+    "cpu_per_seed": 2,
+    "host_memory_gib": 16,
+    "gpu_seconds_total": 15,
+    "gpu_hours_total": 0.004166666666666667,
+    "released": true
+  },
+  "native_cuda_precheck_passed": true,
+  "full_forward_executed": false,
+  "sampling_executed": false,
+  "retry_submitted": false,
+  "thresholds_changed": false,
+  "next_action_proposal": "If a retry is explicitly authorized, point baseline-report to original immutable training run.json and verify all raw hashes before reserving GPUs. Keep source/config/science limits unchanged.",
+  "original_E2_stage_complete": false,
+  "byte_chain_diagnosis": {
+    "git_blob_and_original_reports": "LF/raw match fixed config",
+    "local_archive": "CRLF",
+    "remote_archive_equals_local": true,
+    "remote_release_equals_archive_member": true,
+    "default_archive_reproduces_crlf": true,
+    "autocrlf_false_alone_still_crlf": true,
+    "autocrlf_false_and_eol_lf_matches_raw": true,
+    "global_or_repo_config_modified": false,
+    "scientific_retry": false
+  }
+}
