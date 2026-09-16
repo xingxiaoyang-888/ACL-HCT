@@ -1,0 +1,23 @@
+{
+  "format": "gzip lossless original JSON bytes",
+  "source_commit": "8e4209a23f69993c416ee1c28b857f02673363cb",
+  "raw_files_unchanged": true,
+  "files": [
+    {
+      "seed": 11,
+      "file": "e2-local-pilot-seed11.json.gz",
+      "compressed_bytes": 5009765,
+      "compressed_sha256": "c6bdacfb5052687ff7b6e0d37fc6473f291a053a5267bc3fc23088ee25ac0f7e",
+      "raw_bytes": 27588849,
+      "raw_sha256": "73451d7706241b9872125c0a3213bd1059701218d609bf3c5e312ad5bd76a95b"
+    },
+    {
+      "seed": 23,
+      "file": "e2-local-pilot-seed23.json.gz",
+      "compressed_bytes": 5009144,
+      "compressed_sha256": "71bc9a08879670fbc0d333320bcb023d2e9dd169d551839d88e6018fdf05f9e6",
+      "raw_bytes": 27585172,
+      "raw_sha256": "f503ee4df2a70e7b5ecd703d7a8e59f7cd4a625d45f16de17f115a10a525003a"
+    }
+  ]
+}

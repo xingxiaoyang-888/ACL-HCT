@@ -1,0 +1,401 @@
+{
+  "research_question": "Can directional sampling offsets be resolved in trained fixed neighborhoods and support hierarchy-damage research?",
+  "conclusion": "Sampling MSE is measurable on affected nodes, but 16 repetitions do not establish a stable overall radial directional bias. Model boundary concentration and limited structure coverage remain interpretation constraints.",
+  "purpose_status": "partly_met",
+  "source_commit": "8e4209a23f69993c416ee1c28b857f02673363cb",
+  "config_sha256": "052e30ec2f243ce9ef0d609696c7483ff390785417703e587dfe8458298014e9",
+  "archive_sha256": "7cc30cb6863bdff1a78fe7e1a4dda3256cea61e234facff9f8aad91c84c43d1d",
+  "source_and_raw_baseline_anchors_verified": true,
+  "runs": {
+    "11": {
+      "source_commit": "8e4209a23f69993c416ee1c28b857f02673363cb",
+      "checkpoint_sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "raw_result_sha256": "73451d7706241b9872125c0a3213bd1059701218d609bf3c5e312ad5bd76a95b",
+      "raw_result_bytes": 27588849,
+      "entry_passed": true,
+      "valid_reproduction": {
+        "status": "passed",
+        "query_coverage_identical": true,
+        "current_query_pairs_hash": "4448dd9797d384d40d87aa5fdedb3c60a6d482f97045ccf6fab957b1c1da4df7",
+        "historical_query_pairs_hash": "4448dd9797d384d40d87aa5fdedb3c60a6d482f97045ccf6fab957b1c1da4df7",
+        "current_queries": 8456,
+        "historical_queries": 8456,
+        "metric_differences": {
+          "query_micro_mrr": 0.0,
+          "child_macro_mrr": 0.0
+        },
+        "absolute_tolerance": 1e-08
+      },
+      "group_sizes": {
+        "V": 82115,
+        "A": 622,
+        "P": 23971,
+        "P_minus_A": 23349,
+        "V_minus_P": 58144,
+        "degree_0": 13313,
+        "degree_1-2": 59790,
+        "degree_3-4": 4744,
+        "degree_5-8": 2578,
+        "degree_9-16": 1068,
+        "degree_17-32": 420,
+        "degree_33+": 202,
+        "root_reachable": 51836,
+        "root_unknown": 30279
+      },
+      "root_reachable_fraction": 0.6312610363514584,
+      "reference_layers": [
+        {
+          "layer": 1,
+          "near_bound_message_fraction": 0.0,
+          "near_bound_output_fraction": 0.0,
+          "structure_V_group": {
+            "direct": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 291,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.7453866961870516,
+                "full_score": 0.7453866961870516,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            },
+            "distant": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 441,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.9077413633536613,
+                "full_score": 0.9077413633536613,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            }
+          }
+        },
+        {
+          "layer": 2,
+          "near_bound_message_fraction": 0.657577787249589,
+          "near_bound_output_fraction": 0.42680387261767033,
+          "structure_V_group": {
+            "direct": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 291,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.7706268220851367,
+                "full_score": 0.7706268220851367,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            },
+            "distant": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 441,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.9483219705649254,
+                "full_score": 0.9483219705649254,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            }
+          }
+        }
+      ],
+      "geometry": {
+        "local_L1": {
+          "A_group": {
+            "nodes": 622,
+            "mse": {
+              "mean": 0.003949069228233317,
+              "mc_se": 2.481126126495325e-05,
+              "independent_graph_repetitions": 16
+            },
+            "mean_node_variance": 0.0036997347753163086,
+            "mean_node_squared_mean_norm": 0.00024933445291700797,
+            "mean_node_noise_corrected_bias_squared": 2.685467895920749e-06,
+            "mean_node_independent_half_cross": 9.004846847804706e-06,
+            "projection_nodes": 622,
+            "projection": {
+              "mean": 0.00031067200006860496,
+              "mc_se": 0.0002337771280397688,
+              "independent_graph_repetitions": 16
+            }
+          },
+          "radial_projection_mean_over_mc_se": 1.3289238458595285,
+          "bias_below_numerical_proxy_A": 0,
+          "projection_below_numerical_proxy_A": 0,
+          "negative_noise_corrected_bias_squared_A": 386,
+          "negative_half_cross_A": 320,
+          "mse_decomposition_max_residual": 3.469446951953614e-18
+        },
+        "F/S": {
+          "A_group": {
+            "nodes": 622,
+            "mse": {
+              "mean": 0.0033104907196674586,
+              "mc_se": 5.403294407063881e-05,
+              "independent_graph_repetitions": 16
+            },
+            "mean_node_variance": 0.0030969418489080087,
+            "mean_node_squared_mean_norm": 0.00021354887075944988,
+            "mean_node_noise_corrected_bias_squared": 7.086080832249309e-06,
+            "mean_node_independent_half_cross": 1.797998649177489e-05,
+            "projection_nodes": 622,
+            "projection": {
+              "mean": -8.775692730376544e-06,
+              "mc_se": 0.0001794516953780944,
+              "independent_graph_repetitions": 16
+            }
+          },
+          "radial_projection_mean_over_mc_se": -0.04890281316031406,
+          "bias_below_numerical_proxy_A": 9,
+          "projection_below_numerical_proxy_A": 9,
+          "negative_noise_corrected_bias_squared_A": 408,
+          "negative_half_cross_A": 289,
+          "mse_decomposition_max_residual": 6.938893903907228e-18
+        }
+      },
+      "label_files_read": [
+        "entity_split.json",
+        "evaluator_valid.json",
+        "features.npz",
+        "input_manifest.json",
+        "observed_graph.json",
+        "train_queries.json"
+      ],
+      "native_full_forward_seconds": 3.7872671500081196,
+      "full_valid_ranking_seconds": 24.81648307701107,
+      "total_seconds": 83.95917430205736,
+      "allocation_seconds": 97,
+      "peak_allocated_bytes": 1856978432,
+      "peak_reserved_bytes": 2178940928,
+      "checkpoint_and_weights_unchanged": true
+    },
+    "23": {
+      "source_commit": "8e4209a23f69993c416ee1c28b857f02673363cb",
+      "checkpoint_sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "raw_result_sha256": "f503ee4df2a70e7b5ecd703d7a8e59f7cd4a625d45f16de17f115a10a525003a",
+      "raw_result_bytes": 27585172,
+      "entry_passed": true,
+      "valid_reproduction": {
+        "status": "passed",
+        "query_coverage_identical": true,
+        "current_query_pairs_hash": "4448dd9797d384d40d87aa5fdedb3c60a6d482f97045ccf6fab957b1c1da4df7",
+        "historical_query_pairs_hash": "4448dd9797d384d40d87aa5fdedb3c60a6d482f97045ccf6fab957b1c1da4df7",
+        "current_queries": 8456,
+        "historical_queries": 8456,
+        "metric_differences": {
+          "query_micro_mrr": 0.0,
+          "child_macro_mrr": 0.0
+        },
+        "absolute_tolerance": 1e-08
+      },
+      "group_sizes": {
+        "V": 82115,
+        "A": 622,
+        "P": 23971,
+        "P_minus_A": 23349,
+        "V_minus_P": 58144,
+        "degree_0": 13313,
+        "degree_1-2": 59790,
+        "degree_3-4": 4744,
+        "degree_5-8": 2578,
+        "degree_9-16": 1068,
+        "degree_17-32": 420,
+        "degree_33+": 202,
+        "root_reachable": 51836,
+        "root_unknown": 30279
+      },
+      "root_reachable_fraction": 0.6312610363514584,
+      "reference_layers": [
+        {
+          "layer": 1,
+          "near_bound_message_fraction": 0.0,
+          "near_bound_output_fraction": 0.0,
+          "structure_V_group": {
+            "direct": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 291,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.7519528983243035,
+                "full_score": 0.7519528983243035,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            },
+            "distant": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 441,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.943878537907804,
+                "full_score": 0.943878537907804,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            }
+          }
+        },
+        {
+          "layer": 2,
+          "near_bound_message_fraction": 0.6410400048712173,
+          "near_bound_output_fraction": 0.3958838214698898,
+          "structure_V_group": {
+            "direct": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 291,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.7666267903427895,
+                "full_score": 0.7666267903427895,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            },
+            "distant": {
+              "sampled_children": 1000,
+              "covered_children": 722,
+              "no_covered_relation_children": 278,
+              "unknown_relations": 441,
+              "weighted_covered_child_mass_in_pool": 0.718078081928322,
+              "weighted_sampled_child_mass_in_pool": 0.9999999999999892,
+              "weighted_covered_child_metrics": {
+                "score": 0.947237523025602,
+                "full_score": 0.947237523025602,
+                "tie": 0.0,
+                "correct_to_error": 0.0,
+                "error_to_correct": 0.0,
+                "score_change": 0.0
+              }
+            }
+          }
+        }
+      ],
+      "geometry": {
+        "local_L1": {
+          "A_group": {
+            "nodes": 622,
+            "mse": {
+              "mean": 0.0037706960490262987,
+              "mc_se": 4.103473151589201e-05,
+              "independent_graph_repetitions": 16
+            },
+            "mean_node_variance": 0.003534447106394167,
+            "mean_node_squared_mean_norm": 0.00023624894263213187,
+            "mean_node_noise_corrected_bias_squared": 6.191355391873981e-07,
+            "mean_node_independent_half_cross": 3.2543260099599968e-06,
+            "projection_nodes": 622,
+            "projection": {
+              "mean": 7.848272305636737e-05,
+              "mc_se": 0.0002485235726347132,
+              "independent_graph_repetitions": 16
+            }
+          },
+          "radial_projection_mean_over_mc_se": 0.3157958910067796,
+          "bias_below_numerical_proxy_A": 0,
+          "projection_below_numerical_proxy_A": 0,
+          "negative_noise_corrected_bias_squared_A": 383,
+          "negative_half_cross_A": 310,
+          "mse_decomposition_max_residual": 6.938893903907228e-18
+        },
+        "F/S": {
+          "A_group": {
+            "nodes": 622,
+            "mse": {
+              "mean": 0.0034465809542433778,
+              "mc_se": 6.0117543659187534e-05,
+              "independent_graph_repetitions": 16
+            },
+            "mean_node_variance": 0.0032191574172581983,
+            "mean_node_squared_mean_norm": 0.00022742353698517907,
+            "mean_node_noise_corrected_bias_squared": 1.2813042501299176e-05,
+            "mean_node_independent_half_cross": 5.6230277709773264e-05,
+            "projection_nodes": 622,
+            "projection": {
+              "mean": 4.5420822309810524e-05,
+              "mc_se": 0.00030414692823716594,
+              "independent_graph_repetitions": 16
+            }
+          },
+          "radial_projection_mean_over_mc_se": 0.14933842196950461,
+          "bias_below_numerical_proxy_A": 8,
+          "projection_below_numerical_proxy_A": 9,
+          "negative_noise_corrected_bias_squared_A": 391,
+          "negative_half_cross_A": 279,
+          "mse_decomposition_max_residual": 5.204170427930421e-18
+        }
+      },
+      "label_files_read": [
+        "entity_split.json",
+        "evaluator_valid.json",
+        "features.npz",
+        "input_manifest.json",
+        "observed_graph.json",
+        "train_queries.json"
+      ],
+      "native_full_forward_seconds": 3.7451971678528935,
+      "full_valid_ranking_seconds": 24.832846488105133,
+      "total_seconds": 82.31175868795253,
+      "allocation_seconds": 94,
+      "peak_allocated_bytes": 1856978432,
+      "peak_reserved_bytes": 2178940928,
+      "checkpoint_and_weights_unchanged": true
+    }
+  },
+  "resource_summary": {
+    "gpu": "NVIDIA L40",
+    "driver": "580.65.06",
+    "memory_mib": 46068,
+    "gpus_per_seed": 1,
+    "cpus_per_seed": 2,
+    "host_memory_gib": 16,
+    "outer_seconds": 1800,
+    "recovery_gpu_seconds": 191,
+    "recovery_gpu_hours": 0.05305555555555556,
+    "first_failed_attempt_gpu_seconds": 15,
+    "combined_gpu_seconds": 206,
+    "combined_gpu_hours": 0.05722222222222222,
+    "both_completed_exit_zero": true,
+    "released": true
+  },
+  "scope": "Entry plus f16 local L1 and F/S, 16 independent graph realizations each. Not full original E2, E3, corrections, N1 or retraining.",
+  "next_action": "Independent review then fixed next E2 protocol; no automatic repetition increase."
+}
