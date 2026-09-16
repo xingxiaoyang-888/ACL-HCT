@@ -1,0 +1,223 @@
+{
+  "stage": "two_bounded_baseline_preparation_runs_not_E2",
+  "source_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+  "archive_sha256": "a4939608987594cf32f98b166770da5453cef1e53effbd16073c9d6ce1f2cc74",
+  "source_config_and_data_verified": true,
+  "hardware": {
+    "gpu": "NVIDIA L40",
+    "driver_version": "580.65.06",
+    "memory_total_mib": 46068,
+    "separate_single_gpu_allocations": true,
+    "same_node_distinct_gpu_uuids": true,
+    "binding_preserved": true
+  },
+  "resources": {
+    "per_job_cpus": 2,
+    "per_job_host_memory_gib": 16,
+    "per_job_wall_limit_seconds": 3600,
+    "per_job_internal_seconds": 3300,
+    "allocated_gpu_seconds_total": 5118,
+    "allocated_gpu_hours_total": 1.4216666666666666,
+    "both_completed_exit_zero": true,
+    "queue_empty_verified": true
+  },
+  "runs": {
+    "11": {
+      "status": "step_limit_reached",
+      "steps": 1024,
+      "best_step": 768,
+      "best_step_basis": "maximum recorded complete full-valid micro-MRR, consistent with fixed runner selection; checkpoint content not reloaded",
+      "best_micro_mrr": 0.017536850617393598,
+      "best_child_macro_mrr": 0.017734743820406178,
+      "best_hits": {
+        "1": 0.006859035004730369,
+        "3": 0.01620151371807001,
+        "10": 0.03216650898770104
+      },
+      "final_micro_mrr": 0.0161267994877424,
+      "first_loss": 0.709603488445282,
+      "last_loss": 0.21186546981334686,
+      "last_layer_near_bound": [
+        3.6534129321807995e-05,
+        0.7732570171356201
+      ],
+      "maximum_clipping_rate": 0.0,
+      "finite_loss_and_gradient_checks_passed": true,
+      "gradient_evidence": "runner per-step finite loss and all parameter gradients checked before update; norms not recorded",
+      "step_seconds_mean": 2.3694665299087774,
+      "planning_seconds_mean": 0.30301484394829004,
+      "runner_elapsed_seconds": 2534.2509789709,
+      "allocation_seconds": 2539,
+      "allocated_gpu_hours": 0.7052777777777778,
+      "peak_allocated_bytes": 1718813184,
+      "peak_reserved_bytes": 1845493760,
+      "host_max_rss_kib": 1606056,
+      "evaluations": [
+        {
+          "step": 256,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.007193695263860769,
+          "child_macro_mrr": 0.0071918312132419684,
+          "hits": {
+            "1": 0.00023651844843897824,
+            "3": 0.006622516556291391,
+            "10": 0.018211920529801324
+          },
+          "full_graph_encoding_seconds": 1.9046345269307494,
+          "elapsed_seconds": 23.382377038011327
+        },
+        {
+          "step": 512,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.008435679013423587,
+          "child_macro_mrr": 0.008419212841367513,
+          "hits": {
+            "1": 0.0010643330179754022,
+            "3": 0.006149479659413435,
+            "10": 0.018448438978240302
+          },
+          "full_graph_encoding_seconds": 1.8732775009702891,
+          "elapsed_seconds": 22.92320665495936
+        },
+        {
+          "step": 768,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.017536850617393598,
+          "child_macro_mrr": 0.017734743820406178,
+          "hits": {
+            "1": 0.006859035004730369,
+            "3": 0.01620151371807001,
+            "10": 0.03216650898770104
+          },
+          "full_graph_encoding_seconds": 1.8794106800341979,
+          "elapsed_seconds": 23.06897931592539
+        },
+        {
+          "step": 1024,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.0161267994877424,
+          "child_macro_mrr": 0.016333008939495245,
+          "hits": {
+            "1": 0.004730368968779565,
+            "3": 0.012771996215704825,
+            "10": 0.03571428571428571
+          },
+          "full_graph_encoding_seconds": 1.8745668209157884,
+          "elapsed_seconds": 23.12807553296443
+        }
+      ],
+      "checkpoint_sha256": {
+        "last.pt": "3f6072d02d07db5819de93783b4973416c26580abcdc8d315d2d920646e4db8e",
+        "best.pt": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d"
+      },
+      "raw_json_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94"
+    },
+    "23": {
+      "status": "step_limit_reached",
+      "steps": 1024,
+      "best_step": 768,
+      "best_step_basis": "maximum recorded complete full-valid micro-MRR, consistent with fixed runner selection; checkpoint content not reloaded",
+      "best_micro_mrr": 0.01392854402164253,
+      "best_child_macro_mrr": 0.013804136347005046,
+      "best_hits": {
+        "1": 0.004493850520340586,
+        "3": 0.011471144749290445,
+        "10": 0.02684484389782403
+      },
+      "final_micro_mrr": 0.01121512425757409,
+      "first_loss": 0.7045952081680298,
+      "last_loss": 0.2540268301963806,
+      "last_layer_near_bound": [
+        0.0,
+        0.7214516401290894
+      ],
+      "maximum_clipping_rate": 0.0,
+      "finite_loss_and_gradient_checks_passed": true,
+      "gradient_evidence": "runner per-step finite loss and all parameter gradients checked before update; norms not recorded",
+      "step_seconds_mean": 2.406366480117981,
+      "planning_seconds_mean": 0.3106382106948331,
+      "runner_elapsed_seconds": 2574.6429137249943,
+      "allocation_seconds": 2579,
+      "allocated_gpu_hours": 0.7163888888888889,
+      "peak_allocated_bytes": 1718813184,
+      "peak_reserved_bytes": 1845493760,
+      "host_max_rss_kib": 1617016,
+      "evaluations": [
+        {
+          "step": 256,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.005397249181584874,
+          "child_macro_mrr": 0.005525601991947489,
+          "hits": {
+            "1": 0.00035477767265846736,
+            "3": 0.004612109744560076,
+            "10": 0.011471144749290445
+          },
+          "full_graph_encoding_seconds": 1.9580192669527605,
+          "elapsed_seconds": 23.98872277396731
+        },
+        {
+          "step": 512,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.007993983154352808,
+          "child_macro_mrr": 0.007992426779250468,
+          "hits": {
+            "1": 0.001892147587511826,
+            "3": 0.0060312204351939454,
+            "10": 0.013954588457899717
+          },
+          "full_graph_encoding_seconds": 1.9713503599632531,
+          "elapsed_seconds": 24.02514613501262
+        },
+        {
+          "step": 768,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.01392854402164253,
+          "child_macro_mrr": 0.013804136347005046,
+          "hits": {
+            "1": 0.004493850520340586,
+            "3": 0.011471144749290445,
+            "10": 0.02684484389782403
+          },
+          "full_graph_encoding_seconds": 1.9216270470060408,
+          "elapsed_seconds": 23.39534622093197
+        },
+        {
+          "step": 1024,
+          "status": "complete",
+          "completed_queries": 8456,
+          "completed_children": 8210,
+          "query_micro_mrr": 0.01121512425757409,
+          "child_macro_mrr": 0.011334989426156688,
+          "hits": {
+            "1": 0.0015373699148533587,
+            "3": 0.007923368022705771,
+            "10": 0.026253547776726584
+          },
+          "full_graph_encoding_seconds": 1.95327694399748,
+          "elapsed_seconds": 24.12179303704761
+        }
+      ],
+      "checkpoint_sha256": {
+        "last.pt": "489bd7e18764bc721aa9757d6ab0d5e9dc5ca16aefb041ad06fb8f199a24ac79",
+        "best.pt": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1"
+      },
+      "raw_json_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b"
+    }
+  },
+  "scope": "Existing approved bounded baselines completed. No extension/resume/retry/new seed or E2. Concurrent timings are not uncontended speed comparison. Quality completion does not establish convergence or competitiveness."
+}
