@@ -1,0 +1,547 @@
+{
+  "enumeration_threshold": 2048,
+  "mc_draws": 4096,
+  "chunk_size": 256,
+  "cases": [
+    {
+      "name": "symmetric_s0.05_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.05_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.05_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.05_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.05_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.05_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.15_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_s0.7_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.05_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.15_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_s0.7_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.05_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.05,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.15_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k1",
+      "N": 16,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k2",
+      "N": 16,
+      "k": 2,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k3",
+      "N": 16,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k4",
+      "N": 16,
+      "k": 4,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k8",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_s0.7_k16",
+      "N": 16,
+      "k": 16,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "reverse",
+      "seed": 11
+    }
+  ]
+}

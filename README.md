@@ -73,3 +73,5 @@ Prepare dependencies and data before allocation. Supply authorized account, QOS,
 Raw downloads, private host inventory, job identifiers, caches and detailed scheduler logs remain untracked. Read the acceptance contract before extending scope.
 
 Implementation hardening evidence, known limitations and CPU-only measurements: [reports/CODE_QUALITY.md](reports/CODE_QUALITY.md). Historical GPU reports apply only to their recorded source revision.
+
+E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.json --output logs/e1.json`；用 `scripts/plot_e1.py --input logs/e1.json --output-dir logs/e1-figures` 从JSON重建图（可选 `[plots]` 依赖）。固定阈值枚举/MC、配对采样、共同切空间、未裁剪与保护版、MC不确定性和科学边界见 [reports/E1_IMPLEMENTATION.md](reports/E1_IMPLEMENTATION.md)。正式受控组配置 `configs/e1_s1.json` 尚待实验任务在固定commit运行。

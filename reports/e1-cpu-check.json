@@ -1,0 +1,3158 @@
+{
+  "schema_version": 1,
+  "config": {
+    "enumeration_threshold": 2048,
+    "mc_draws": 128,
+    "chunk_size": 32,
+    "cases": [
+      {
+        "name": "symmetric_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      },
+      {
+        "name": "symmetric_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      },
+      {
+        "name": "symmetric_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11
+      },
+      {
+        "name": "asymmetric_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      },
+      {
+        "name": "asymmetric_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      },
+      {
+        "name": "asymmetric_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      },
+      {
+        "name": "reverse_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      },
+      {
+        "name": "reverse_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      },
+      {
+        "name": "reverse_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11
+      },
+      {
+        "name": "asymmetric_wide",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11
+      },
+      {
+        "name": "curvature4_dimension4",
+        "N": 8,
+        "k": 3,
+        "d": 4,
+        "c": 4.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11
+      },
+      {
+        "name": "mc_nonorigin",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.4
+      }
+    ]
+  },
+  "geometry_domain": "FP64; origin scaled radius <=3; no resampling on failure",
+  "scope": "E1 frozen local mechanisms; no learned task or semantic hierarchy claim",
+  "uncertainty": "MC SEs are across independent subset draws; exact enumeration has zero sampling SE. Mean-vector norm is noisy. Noise-corrected squared bias may be negative. Covariance is in ambient coordinates at full_point. No CI for norm is implied.",
+  "missing_controls": [
+    "simple scaling comparator",
+    "matched zero-mean noise"
+  ],
+  "torch": "2.0.1+cpu",
+  "python": "3.10.11",
+  "device": "cpu",
+  "cases": [
+    {
+      "case": {
+        "name": "symmetric_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 1,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 6,
+        "draws": 6,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0,
+          5.748343620318066e-19,
+          -2.2993374481272262e-18
+        ],
+        "full_radius": 2.3701027918916803e-18,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": false,
+        "predictions": {
+          "second_order_oracle": [
+            0.0,
+            -2.2227713136442714e-21,
+            -4.502218739261024e-21
+          ],
+          "local_third_order_oracle": [
+            -0.0,
+            -3.7645908766857795e-21,
+            6.0233454026972465e-21
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              0.0,
+              -4.625929269271485e-18,
+              3.469446951953614e-18
+            ],
+            "mean_offset_norm": 5.782411586589357e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 3.3436283756722843e-35,
+            "variance_population_moment": 0.011835937499999996,
+            "mse": 0.011835937499999996,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.10125000000000021,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 5.78333680670729e-18,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              0.0,
+              -4.625929269271485e-18,
+              3.469446951953614e-18
+            ],
+            "mean_offset_norm": 5.782411586589357e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 3.3436283756722843e-35,
+            "variance_population_moment": 0.011835937499999996,
+            "mse": 0.011835937499999996,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.10125000000000021,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 5.78333680670729e-18,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              0.0,
+              -4.625929269271485e-18,
+              3.469446951953614e-18
+            ],
+            "mean_offset_norm": 5.782411586589357e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 3.3436283756722843e-35,
+            "variance_population_moment": 0.011835937499999996,
+            "mse": 0.011835937499999996,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.10125000000000021,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 5.78333680670729e-18,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              0.0,
+              -4.625929269271485e-18,
+              3.469446951953614e-18
+            ],
+            "mean_offset_norm": 5.782411586589357e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 3.3436283756722843e-35,
+            "variance_population_moment": 0.011835937499999996,
+            "mse": 0.011835937499999996,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.10125000000000021,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 5.78333680670729e-18,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "symmetric_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 3,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 20,
+        "draws": 20,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "3012015b3f23f8311542604180b74c6550f8cc37d5b265fca8da140aed19e1a7",
+        "full_point": [
+          1.0,
+          5.748343620318066e-19,
+          -2.2993374481272262e-18
+        ],
+        "full_radius": 2.3701027918916803e-18,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": false,
+        "predictions": {
+          "second_order_oracle": [
+            0.0,
+            -4.445542627288543e-22,
+            -9.004437478522047e-22
+          ],
+          "local_third_order_oracle": [
+            -0.0,
+            -2.2587545260114674e-21,
+            3.614007241618347e-21
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              4.212971753347078e-36,
+              6.938893903907229e-19,
+              1.3877787807814458e-18
+            ],
+            "mean_offset_norm": 1.5515838457795458e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.4074124304840453e-36,
+            "variance_population_moment": 0.002361039883508386,
+            "mse": 0.002361039883508386,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.043064941518748866,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 1.5525880378700961e-18,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              4.212971753347078e-36,
+              0.0,
+              2.0816681711721684e-18
+            ],
+            "mean_offset_norm": 2.0816681711721684e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 4.3333423748712805e-36,
+            "variance_population_moment": 0.0023562540085887785,
+            "mse": 0.0023562540085887785,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.04299330528730555,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 2.082568662368275e-18,
+            "paired_mse_delta_vs_none": -4.785874919607647e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": -7.163623144332328e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00010671113055380754,
+            "max_step": 0.0003046494857814607,
+            "max_raw_step": 0.0003046494857814607
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              4.212971753347078e-36,
+              0.0,
+              2.0816681711721684e-18
+            ],
+            "mean_offset_norm": 2.0816681711721684e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 4.3333423748712805e-36,
+            "variance_population_moment": 0.0023562540085887785,
+            "mse": 0.0023562540085887785,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.04299330528730555,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 2.082568662368275e-18,
+            "paired_mse_delta_vs_none": -4.785874919607647e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": -7.163623144332328e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00010671113055380754,
+            "max_step": 0.0003046494857814607,
+            "max_raw_step": 0.0003046494857814607
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              4.212971753347078e-36,
+              -2.0816681711721684e-18,
+              0.0
+            ],
+            "mean_offset_norm": 2.0816681711721684e-18,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 4.3333423748712805e-36,
+            "variance_population_moment": 0.0023578622157264936,
+            "mse": 0.0023578622157264936,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.04301742807648322,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 2.0812238116984324e-18,
+            "paired_mse_delta_vs_none": -3.177667781892039e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": -4.751344226564761e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 7.077326129926118e-05,
+            "max_step": 0.00020171813637624158,
+            "max_raw_step": 0.00020171813637624158
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "symmetric_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "symmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 6,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 1,
+        "draws": 1,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0,
+          5.748343620318066e-19,
+          -2.2993374481272262e-18
+        ],
+        "full_radius": 2.3701027918916803e-18,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": false,
+        "predictions": {
+          "second_order_oracle": [
+            0.0,
+            -0.0,
+            -0.0
+          ],
+          "local_third_order_oracle": [
+            -0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "asymmetric_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 1,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 6,
+        "draws": 6,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0000000253813657,
+          -0.0002082846276938538,
+          -8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -1.519144325013985e-07,
+            0.0006234062192161992,
+            0.000256884255730308
+          ],
+          "local_third_order_oracle": [
+            -5.105705377520169e-08,
+            0.00020951110400171992,
+            8.636078169756239e-05
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              0.0002085348426601203,
+              8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              0.0002085348426601203,
+              8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              0.0002085348426601203,
+              8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              0.0002085348426601203,
+              8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "asymmetric_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 3,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 20,
+        "draws": 20,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "3012015b3f23f8311542604180b74c6550f8cc37d5b265fca8da140aed19e1a7",
+        "full_point": [
+          1.0000000253813657,
+          -0.0002082846276938538,
+          -8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -3.03828865002797e-08,
+            0.0001246812438432398,
+            5.13768511460616e-05
+          ],
+          "local_third_order_oracle": [
+            -3.063423226512101e-08,
+            0.00012570666240103195,
+            5.181646901853743e-05
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -3.054261674840313e-08,
+              0.00012527874481730317,
+              5.178752113701307e-05
+            ],
+            "mean_offset_norm": 0.0001355607255648335,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 1.8376710315664103e-08,
+            "variance_population_moment": 0.004000792690889133,
+            "mse": 0.0040008110675994486,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0556025047734829,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00013556064028467097,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999993709080365,
+            "prediction_error_norm": 7.250222272185824e-07,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              1.099930710894676e-10,
+              -4.789034935365199e-07,
+              -1.192531080398962e-07
+            ],
+            "mean_offset_norm": 4.935279605049577e-07,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.435698478001831e-13,
+            "variance_population_moment": 0.004002790135319835,
+            "mse": 0.004002790135563405,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561616875714211,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -4.882186009178002e-07,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.989242028794191,
+            "prediction_error_norm": 0.00013533998043777434,
+            "paired_mse_delta_vs_none": 1.9790679639578056e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 1.3663983659220007e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00022056338633362813,
+            "max_step": 0.0010006167855371082,
+            "max_raw_step": 0.0010006167855371082
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              1.099930710894676e-10,
+              -4.789034935365199e-07,
+              -1.192531080398962e-07
+            ],
+            "mean_offset_norm": 4.935279605049577e-07,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.435698478001831e-13,
+            "variance_population_moment": 0.004002790135319835,
+            "mse": 0.004002790135563405,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561616875714211,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -4.882186009178002e-07,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.989242028794191,
+            "prediction_error_norm": 0.00013533998043777434,
+            "paired_mse_delta_vs_none": 1.9790679639578056e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 1.3663983659220007e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00022056338633362813,
+            "max_step": 0.0010006167855371082,
+            "max_raw_step": 0.0010006167855371082
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -1.0322664306499485e-08,
+              4.2371871908165884e-05,
+              1.7428514210213187e-05
+            ],
+            "mean_offset_norm": 4.581624744585944e-05,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.099128530020222e-09,
+            "variance_population_moment": 0.004002104214101953,
+            "mse": 0.004002106313230483,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561135340491221,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 4.581623820288511e-05,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999997982598999,
+            "prediction_error_norm": 8.903550913339975e-05,
+            "paired_mse_delta_vs_none": 1.2952456310353674e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 8.848631429304172e-06,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0001455512608450983,
+            "max_step": 0.0006583037019140894,
+            "max_raw_step": 0.0006583037019140894
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "asymmetric_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 6,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 1,
+        "draws": 1,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0000000253813657,
+          -0.0002082846276938538,
+          -8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": false,
+        "predictions": {
+          "second_order_oracle": [
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "local_third_order_oracle": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "reverse_k1",
+        "N": 6,
+        "k": 1,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 1,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 6,
+        "draws": 6,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0000000253813657,
+          0.0002082846276938538,
+          8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -1.519144325013985e-07,
+            -0.0006234062192161992,
+            -0.000256884255730308
+          ],
+          "local_third_order_oracle": [
+            -5.105705377520169e-08,
+            -0.00020951110400171992,
+            -8.636078169756239e-05
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              -0.0002085348426601203,
+              -8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              -0.0002085348426601203,
+              -8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              -0.0002085348426601203,
+              -8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 6,
+            "mean_offset": [
+              -5.079824598741958e-08,
+              -0.0002085348426601203,
+              -8.571512196020245e-05
+            ],
+            "mean_offset_norm": 0.00022546365595250983,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.083386015547172e-08,
+            "variance_population_moment": 0.020029981923965545,
+            "mse": 0.0200300327578257,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.12186402447696677,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00022546356839251778,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996116447901,
+            "prediction_error_norm": 0.0004487951884954438,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "reverse_k3",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 3,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 20,
+        "draws": 20,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "3012015b3f23f8311542604180b74c6550f8cc37d5b265fca8da140aed19e1a7",
+        "full_point": [
+          1.0000000253813657,
+          0.0002082846276938538,
+          8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -3.03828865002797e-08,
+            -0.0001246812438432398,
+            -5.13768511460616e-05
+          ],
+          "local_third_order_oracle": [
+            -3.063423226512101e-08,
+            -0.00012570666240103195,
+            -5.181646901853743e-05
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -3.054261674840313e-08,
+              -0.00012527874481730317,
+              -5.178752113701307e-05
+            ],
+            "mean_offset_norm": 0.0001355607255648335,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 1.8376710315664103e-08,
+            "variance_population_moment": 0.004000792690889133,
+            "mse": 0.0040008110675994486,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0556025047734829,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.00013556064028467097,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999993709080365,
+            "prediction_error_norm": 7.250222272185824e-07,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              1.099930710894676e-10,
+              4.789034935365199e-07,
+              1.192531080398962e-07
+            ],
+            "mean_offset_norm": 4.935279605049577e-07,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.435698478001831e-13,
+            "variance_population_moment": 0.004002790135319835,
+            "mse": 0.004002790135563405,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561616875714211,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -4.882186009178002e-07,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.989242028794191,
+            "prediction_error_norm": 0.00013533998043777434,
+            "paired_mse_delta_vs_none": 1.9790679639578056e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 1.3663983659220007e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00022056338633362813,
+            "max_step": 0.0010006167855371082,
+            "max_raw_step": 0.0010006167855371082
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              1.099930710894676e-10,
+              4.789034935365199e-07,
+              1.192531080398962e-07
+            ],
+            "mean_offset_norm": 4.935279605049577e-07,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.435698478001831e-13,
+            "variance_population_moment": 0.004002790135319835,
+            "mse": 0.004002790135563405,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561616875714211,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -4.882186009178002e-07,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.989242028794191,
+            "prediction_error_norm": 0.00013533998043777434,
+            "paired_mse_delta_vs_none": 1.9790679639578056e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 1.3663983659220007e-05,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.00022056338633362813,
+            "max_step": 0.0010006167855371082,
+            "max_raw_step": 0.0010006167855371082
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -1.0322664306499485e-08,
+              -4.2371871908165884e-05,
+              -1.7428514210213187e-05
+            ],
+            "mean_offset_norm": 4.581624744585944e-05,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.099128530020222e-09,
+            "variance_population_moment": 0.004002104214101953,
+            "mse": 0.004002106313230483,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.05561135340491221,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 4.581623820288511e-05,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999997982598999,
+            "prediction_error_norm": 8.903550913339975e-05,
+            "paired_mse_delta_vs_none": 1.2952456310353674e-06,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 8.848631429304172e-06,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0001455512608450983,
+            "max_step": 0.0006583037019140894,
+            "max_raw_step": 0.0006583037019140894
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "reverse_k6",
+        "N": 6,
+        "k": 6,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "reverse",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 6,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 1,
+        "draws": 1,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "f190072c5052f4f440d4a607c25f5bced487c420806c9aab4ca5b0653e72da61",
+        "full_point": [
+          1.0000000253813657,
+          0.0002082846276938538,
+          8.590835597531474e-05
+        ],
+        "full_radius": 0.00022530586077818096,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": false,
+        "predictions": {
+          "second_order_oracle": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "local_third_order_oracle": [
+            -0.0,
+            -0.0,
+            -0.0
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 1,
+            "mean_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mean_offset_norm": 0.0,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0,
+            "variance_population_moment": 0.0,
+            "mse": 0.0,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.0,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": null,
+            "prediction_error_norm": 0.0,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 1.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "asymmetric_wide",
+        "N": 6,
+        "k": 3,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.7,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 6,
+        "k": 3,
+        "c": 1.0,
+        "mode": "exact",
+        "possible_subsets": 20,
+        "draws": 20,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "3012015b3f23f8311542604180b74c6550f8cc37d5b265fca8da140aed19e1a7",
+        "full_point": [
+          1.0002087299958244,
+          -0.01885520516446866,
+          -0.007873042491052393
+        ],
+        "full_radius": 0.020431482318229666,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -0.0002357878041898054,
+            0.010671123661147926,
+            0.004398654554473128
+          ],
+          "local_third_order_oracle": [
+            -0.0002827610829965639,
+            0.012795261172633129,
+            0.0052791318248967215
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -0.000262670856739434,
+              0.011797219635693907,
+              0.005117041787942381
+            ],
+            "mean_offset_norm": 0.012856496871752048,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 0.0001652895118133702,
+            "variance_population_moment": 0.085413489167179,
+            "mse": 0.08557877867899237,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.23648146224678523,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.01285434848864735,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9998328951404007,
+            "prediction_error_norm": 0.0013354585963577766,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              2.3847723131314134e-05,
+              -0.0011457438672696496,
+              -0.00028571739397029725
+            ],
+            "mean_offset_norm": 0.0011805908371254805,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 1.3937947247046427e-06,
+            "variance_population_moment": 0.08829902811159536,
+            "mse": 0.08830042190632006,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.24455544230813273,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -0.0011679233112635579,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.9892701811130699,
+            "prediction_error_norm": 0.012708827173602057,
+            "paired_mse_delta_vs_none": 0.0027216432273277,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.00807398006134745,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.02252917177845318,
+            "max_step": 0.10212257196051658,
+            "max_raw_step": 0.10212257196051658
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              2.1728360801641886e-05,
+              -0.001058482929687471,
+              -0.00022545075324711394
+            ],
+            "mean_offset_norm": 0.001082008333108547,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 1.1707420329163366e-06,
+            "variance_population_moment": 0.08828649905115098,
+            "mse": 0.08828766979318389,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.2444801643056839,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -0.0010643017949287902,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.9836354881585013,
+            "prediction_error_norm": 0.012605542673658434,
+            "paired_mse_delta_vs_none": 0.0027088911141915375,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.007998702058898619,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.05,
+            "mean_step": 0.02242304318042735,
+            "max_step": 0.09999999999999999,
+            "max_raw_step": 0.10212257196051658
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 20,
+            "mean_offset": [
+              -0.00010777984443102184,
+              0.0048761952480270935,
+              0.0020145553020922387
+            ],
+            "mean_offset_norm": 0.005274855132342915,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.7824096667204386e-05,
+            "variance_population_moment": 0.0868265912268307,
+            "mse": 0.0868544153234979,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.24016891598350795,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.005274853433015853,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999996778438397,
+            "prediction_error_norm": 0.006264881365248398,
+            "paired_mse_delta_vs_none": 0.0012756366445055435,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.00368745373672266,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.012278509534277799,
+            "max_step": 0.0523969510546015,
+            "max_raw_step": 0.0523969510546015
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "curvature4_dimension4",
+        "N": 8,
+        "k": 3,
+        "d": 4,
+        "c": 4.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.0
+      },
+      "result": {
+        "status": "ok",
+        "N": 8,
+        "k": 3,
+        "c": 4.0,
+        "mode": "exact",
+        "possible_subsets": 56,
+        "draws": 56,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "dc001eb3d1d9e531adfd720e1ad7a1870ce6fc42c3989b275d7aebab4738ab76",
+        "full_point": [
+          0.5000008305774681,
+          -0.0008692706481007526,
+          0.00013588858382152956,
+          0.00023636123348054624,
+          -2.4786255326074007e-05
+        ],
+        "full_radius": 0.0009113601034696727,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -1.1836586992407306e-06,
+            0.000619484757232637,
+            -9.580328296839846e-05,
+            -0.00016894356200073353,
+            1.5336531328844258e-05
+          ],
+          "local_third_order_oracle": [
+            -1.1226383223908173e-06,
+            0.0005874494865568997,
+            -9.203737862039106e-05,
+            -0.0001596393025320109,
+            1.727272733517458e-05
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 56,
+            "mean_offset": [
+              -1.1072375893270066e-06,
+              0.0005794329644998117,
+              -9.043130648156825e-05,
+              -0.00015760183447575463,
+              1.5980613326021927e-05
+            ],
+            "mean_offset_norm": 0.0006074642983734296,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 3.690128737983231e-07,
+            "variance_population_moment": 0.004450784079705271,
+            "mse": 0.00445115309257907,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.06092515600103039,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0006074613977963183,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.9999952251068595,
+            "prediction_error_norm": 4.197675567706685e-05,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 56,
+            "mean_offset": [
+              2.6097343711520585e-08,
+              -1.358951655970658e-05,
+              3.0104172788049784e-06,
+              3.2530012793795645e-06,
+              -2.3303612378058295e-06
+            ],
+            "mean_offset_norm": 1.4482730829164475e-05,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.097494922700311e-10,
+            "variance_population_moment": 0.0045048404884948925,
+            "mse": 0.004504840698244385,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.06130565542008349,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -1.4308967670840361e-05,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.9880020446161245,
+            "prediction_error_norm": 0.0006637088936295848,
+            "paired_mse_delta_vs_none": 5.368760566531597e-05,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.000380499419053094,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0008914648538354225,
+            "max_step": 0.0036644446003689835,
+            "max_raw_step": 0.0036644446003689835
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 56,
+            "mean_offset": [
+              2.6097343711520585e-08,
+              -1.358951655970658e-05,
+              3.0104172788049784e-06,
+              3.2530012793795645e-06,
+              -2.3303612378058295e-06
+            ],
+            "mean_offset_norm": 1.4482730829164475e-05,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 2.097494922700311e-10,
+            "variance_population_moment": 0.0045048404884948925,
+            "mse": 0.004504840698244385,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.06130565542008349,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": -1.4308967670840361e-05,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": -0.9880020446161245,
+            "prediction_error_norm": 0.0006637088936295848,
+            "paired_mse_delta_vs_none": 5.368760566531597e-05,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.000380499419053094,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0008914648538354225,
+            "max_step": 0.0036644446003689835,
+            "max_raw_step": 0.0036644446003689835
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 56,
+            "mean_offset": [
+              -4.106985010807961e-07,
+              0.00021500045534037247,
+              -3.2401875436370575e-05,
+              -5.907458200833957e-05,
+              3.631870308280028e-06
+            ],
+            "mean_offset_norm": 0.00022533953354105218,
+            "bias_interpretation": "exact expectation",
+            "mean_offset_covariance_mc": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bias_squared_noise_corrected": 5.0777905376498984e-08,
+            "variance_population_moment": 0.004484102723943433,
+            "mse": 0.004484153501848809,
+            "mse_mc_se": 0.0,
+            "radius_change": 0.06115907324599875,
+            "radius_mc_se": 0.0,
+            "predicted_direction_projection": 0.0002253311692930332,
+            "projection_mc_se": 0.0,
+            "prediction_cosine": 0.999962881577468,
+            "prediction_error_norm": 0.0004240694322172046,
+            "paired_mse_delta_vs_none": 3.300040926973944e-05,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.00023391724496835044,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0005487568163907326,
+            "max_step": 0.0022145171029384725,
+            "max_raw_step": 0.0022145171029384725
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "mc_nonorigin",
+        "N": 16,
+        "k": 8,
+        "d": 2,
+        "c": 1.0,
+        "spread": 0.15,
+        "family": "asymmetric",
+        "seed": 11,
+        "origin_shift": 0.4
+      },
+      "result": {
+        "status": "ok",
+        "N": 16,
+        "k": 8,
+        "c": 1.0,
+        "mode": "mc",
+        "possible_subsets": 12870,
+        "draws": 128,
+        "seed": 11,
+        "chunk_size": 32,
+        "sample_stream_sha256": "b95f39ffd9686f3e7f2ac4475e8ea813a56648ac287c33ff63f4d1fb8ad15517",
+        "full_point": [
+          1.0810991971020791,
+          0.4108229227974268,
+          8.88480864260394e-06
+        ],
+        "full_radius": 0.40006530202480267,
+        "full_reference": {
+          "mean_offset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mse": 0.0,
+          "radius_change": 0.0
+        },
+        "direction_defined": true,
+        "predictions": {
+          "second_order_oracle": [
+            -5.417628664964151e-06,
+            -1.425669687165784e-05,
+            -1.8145172500986671e-06
+          ],
+          "local_third_order_oracle": [
+            -5.3788111560164e-06,
+            -1.4154547664867758e-05,
+            -1.776017605493094e-06
+          ]
+        },
+        "methods": {
+          "none": {
+            "status": "ok",
+            "samples": 128,
+            "mean_offset": [
+              -0.0006863929001598408,
+              -0.0018062621926064478,
+              -0.0005514980118424205
+            ],
+            "mean_offset_norm": 0.0017594311444656646,
+            "bias_interpretation": "noisy MC mean norm, upward biased; not exact bias",
+            "mean_offset_covariance_mc": [
+              [
+                8.27099967467431e-07,
+                2.1765472058474394e-06,
+                1.830134382196176e-07
+              ],
+              [
+                2.1765472058474394e-06,
+                5.727672502532902e-06,
+                4.815387244938834e-07
+              ],
+              [
+                1.830134382196176e-07,
+                4.815387244938834e-07,
+                3.211648392818456e-06
+              ]
+            ],
+            "bias_squared_noise_corrected": -5.016622975768168e-06,
+            "variance_population_moment": 0.0010302520578412586,
+            "mse": 0.0010333476557933745,
+            "mse_mc_se": 7.58365373802302e-05,
+            "radius_change": -0.001125975874693568,
+            "radius_mc_se": 0.002205443409964065,
+            "predicted_direction_projection": 0.001730343602478942,
+            "projection_mc_se": 0.0022337156303587217,
+            "prediction_cosine": 0.9834676440290273,
+            "prediction_error_norm": 0.0017463414100866409,
+            "paired_mse_delta_vs_none": 0.0,
+            "paired_mse_delta_mc_se": 0.0,
+            "paired_radius_delta_vs_none": 0.0,
+            "paired_radius_delta_mc_se": 0.0,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 0.0,
+            "max_step": 0.0,
+            "max_raw_step": 0.0
+          },
+          "third_unclipped": {
+            "status": "ok",
+            "samples": 128,
+            "mean_offset": [
+              -0.0006826985671159439,
+              -0.001796540450015504,
+              -0.0005485962398266706
+            ],
+            "mean_offset_norm": 0.0017499823111539465,
+            "bias_interpretation": "noisy MC mean norm, upward biased; not exact bias",
+            "mean_offset_covariance_mc": [
+              [
+                8.27976958332746e-07,
+                2.178855044394884e-06,
+                1.831420793753954e-07
+              ],
+              [
+                2.178855044394884e-06,
+                5.7337456772616e-06,
+                4.818772779119183e-07
+              ],
+              [
+                1.831420793753954e-07,
+                4.818772779119183e-07,
+                3.2103366600754033e-06
+              ]
+            ],
+            "bias_squared_noise_corrected": -5.0536672896525455e-06,
+            "variance_population_moment": 0.0010307453831335403,
+            "mse": 0.001033807821222892,
+            "mse_mc_se": 7.586268621985923e-05,
+            "radius_change": -0.0011172180130924786,
+            "radius_mc_se": 0.0022066187545192713,
+            "predicted_direction_projection": 0.0017210395400939391,
+            "projection_mc_se": 0.0022348703219137026,
+            "prediction_cosine": 0.9834611065063151,
+            "prediction_error_norm": 0.0017368926735049802,
+            "paired_mse_delta_vs_none": 4.601654295177464e-07,
+            "paired_mse_delta_mc_se": 1.1430815227608376e-07,
+            "paired_radius_delta_vs_none": 8.757861601089382e-06,
+            "paired_radius_delta_mc_se": 2.684365679356441e-06,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 2.729458350066244e-05,
+            "max_step": 9.141635040709735e-05,
+            "max_raw_step": 9.141635040709735e-05
+          },
+          "third_protected": {
+            "status": "ok",
+            "samples": 128,
+            "mean_offset": [
+              -0.0006826985671159439,
+              -0.001796540450015504,
+              -0.0005485962398266706
+            ],
+            "mean_offset_norm": 0.0017499823111539465,
+            "bias_interpretation": "noisy MC mean norm, upward biased; not exact bias",
+            "mean_offset_covariance_mc": [
+              [
+                8.27976958332746e-07,
+                2.178855044394884e-06,
+                1.831420793753954e-07
+              ],
+              [
+                2.178855044394884e-06,
+                5.7337456772616e-06,
+                4.818772779119183e-07
+              ],
+              [
+                1.831420793753954e-07,
+                4.818772779119183e-07,
+                3.2103366600754033e-06
+              ]
+            ],
+            "bias_squared_noise_corrected": -5.0536672896525455e-06,
+            "variance_population_moment": 0.0010307453831335403,
+            "mse": 0.001033807821222892,
+            "mse_mc_se": 7.586268621985923e-05,
+            "radius_change": -0.0011172180130924786,
+            "radius_mc_se": 0.0022066187545192713,
+            "predicted_direction_projection": 0.0017210395400939391,
+            "projection_mc_se": 0.0022348703219137026,
+            "prediction_cosine": 0.9834611065063151,
+            "prediction_error_norm": 0.0017368926735049802,
+            "paired_mse_delta_vs_none": 4.601654295177464e-07,
+            "paired_mse_delta_mc_se": 1.1430815227608376e-07,
+            "paired_radius_delta_vs_none": 8.757861601089382e-06,
+            "paired_radius_delta_mc_se": 2.684365679356441e-06,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 2.729458350066244e-05,
+            "max_step": 9.141635040709735e-05,
+            "max_raw_step": 9.141635040709735e-05
+          },
+          "jackknife_protected": {
+            "status": "ok",
+            "samples": 128,
+            "mean_offset": [
+              -0.0006829017356724796,
+              -0.0017970750936755215,
+              -0.0005487641988290725
+            ],
+            "mean_offset_norm": 0.001750504572299345,
+            "bias_interpretation": "noisy MC mean norm, upward biased; not exact bias",
+            "mean_offset_covariance_mc": [
+              [
+                8.279223588741428e-07,
+                2.178711363592593e-06,
+                1.8313490860867273e-07
+              ],
+              [
+                2.178711363592593e-06,
+                5.733367575106871e-06,
+                4.818584058109514e-07
+              ],
+              [
+                1.8313490860867273e-07,
+                4.818584058109514e-07,
+                3.2104246227931226e-06
+              ]
+            ],
+            "bias_squared_noise_corrected": -5.051603581384939e-06,
+            "variance_population_moment": 0.0010307154695562832,
+            "mse": 0.001033779735813924,
+            "mse_mc_se": 7.586107808333815e-05,
+            "radius_change": -0.0011176970174976578,
+            "radius_mc_se": 0.0022065456265447383,
+            "predicted_direction_projection": 0.0017215523554609314,
+            "projection_mc_se": 0.002234798600283824,
+            "prediction_cosine": 0.9834606448354577,
+            "prediction_error_norm": 0.0017374149403392009,
+            "paired_mse_delta_vs_none": 4.320800205494155e-07,
+            "paired_mse_delta_mc_se": 1.0729431528364065e-07,
+            "paired_radius_delta_vs_none": 8.278857195910191e-06,
+            "paired_radius_delta_mc_se": 2.5207784944149735e-06,
+            "fallback_rate": 0.0,
+            "clipping_rate": 0.0,
+            "mean_step": 2.5606269791071003e-05,
+            "max_step": 8.605597523430957e-05,
+            "max_raw_step": 8.605597523430957e-05
+          }
+        }
+      }
+    }
+  ],
+  "source_commit": "9e610cbc16acfeff0d0790c63a0a11d28c4b9cb6",
+  "source_sha256_normalized_lf": "1c8d7a90d32dff2cdb088874939432f2777d35c7962becb6d0cb333ea157830e",
+  "working_tree_dirty": true
+}

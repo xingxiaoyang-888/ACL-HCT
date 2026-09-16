@@ -1,0 +1,128 @@
+{
+  "enumeration_threshold": 2048,
+  "mc_draws": 128,
+  "chunk_size": 32,
+  "cases": [
+    {
+      "name": "symmetric_k1",
+      "N": 6,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_k3",
+      "N": 6,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "symmetric_k6",
+      "N": 6,
+      "k": 6,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "symmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_k1",
+      "N": 6,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_k3",
+      "N": 6,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_k6",
+      "N": 6,
+      "k": 6,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "reverse_k1",
+      "N": 6,
+      "k": 1,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_k3",
+      "N": 6,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "reverse_k6",
+      "N": 6,
+      "k": 6,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "reverse",
+      "seed": 11
+    },
+    {
+      "name": "asymmetric_wide",
+      "N": 6,
+      "k": 3,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.7,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "curvature4_dimension4",
+      "N": 8,
+      "k": 3,
+      "d": 4,
+      "c": 4.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11
+    },
+    {
+      "name": "mc_nonorigin",
+      "N": 16,
+      "k": 8,
+      "d": 2,
+      "c": 1.0,
+      "spread": 0.15,
+      "family": "asymmetric",
+      "seed": 11,
+      "origin_shift": 0.4
+    }
+  ]
+}
