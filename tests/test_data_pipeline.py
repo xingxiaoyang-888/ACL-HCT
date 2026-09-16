@@ -40,6 +40,18 @@ def test_strict_split():
             assert not reachable(split["train"],b,a)
 
 
+def test_mesh_ambiguous_official_position_quarantined(tmp_path):
+    p=tmp_path/"collision.xml"
+    p.write_text("<DescriptorRecordSet>"+"".join(
+        f"<DescriptorRecord><DescriptorUI>{ui}</DescriptorUI><TreeNumberList><TreeNumber>{t}</TreeNumber></TreeNumberList></DescriptorRecord>"
+        for ui,t in [("R","B03"),("A","B03.001"),("B","B03.001"),("C","B03.001.001")])+"</DescriptorRecordSet>")
+    diagnostics={}
+    nodes,edges=mesh_descriptors(p,diagnostics)
+    assert len(nodes)==4 and not edges
+    assert diagnostics["ambiguous_positions"]=={"B03.001":["A","B"]}
+    assert diagnostics["quarantined_candidate_links"]==4
+
+
 def test_model_full_and_empty():
     torch.manual_seed(11); model=TinyGNN(); x=torch.randn(3,4)
     neighbors=[[1,2],[0],[]]

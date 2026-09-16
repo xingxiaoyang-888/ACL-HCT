@@ -44,6 +44,8 @@ Pinned sources: [Princeton WordNet 3.0](https://wordnetcode.princeton.edu/3.0/) 
 
 WordNet parses noun semantic hypernym and instance-hypernym links, parent->child. MeSH parses immediate tree parents collapsed onto descriptor IDs. Multiple parents and isolates are preserved; the DAG audit detects cycles instead of fabricating depth. Depth is longest root path. `split_relations` is a conservative **small-graph** helper: held-out pairs and reverse pairs are excluded from training; held-out relations still inferable through training paths in either direction are quarantined. This repeated reachability implementation needs a scalable redesign before full-corpus use. No real-data benchmark split is claimed yet.
 
+The downloaded official MeSH 2026 release assigns three tree positions to both D047991 and D048013. The parser retains both descriptors but quarantines links touching these ambiguous positions, and lists the collisions and excluded-link count in the manifest. It never silently chooses an owner. Reported MeSH edges therefore describe this explicitly filtered view.
+
 ## HPC isolation
 
 Prepare dependencies and data before allocation. Supply authorized account, QOS, partition, CPUs, memory, output path and time explicitly to Slurm. Start with a CPU run of `scripts/smoke.slurm`; after audit passes, use `ACL_DEVICE=cuda`, one L40 and <=30 minutes. Private resource commands and JobIDs belong under `.local/`. Preserve Slurm GPU binding. The runner records versions, tests and smoke metrics, then exits; it contains no sweep or automatic retry campaign.

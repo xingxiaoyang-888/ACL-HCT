@@ -25,6 +25,7 @@ def main():
         digest=hashlib.sha256()
         with target.open("rb") as f:
             for block in iter(lambda:f.read(1024*1024),b""): digest.update(block)
+        parser_diagnostics = {}
         if name=="wordnet":
             with tarfile.open(target) as archive:
                 matches=[m for m in archive.getmembers() if m.name.endswith("/dict/data.noun")]
@@ -33,10 +34,11 @@ def main():
                 nodes,edges=wordnet_nouns(line.decode("utf-8") for line in stream)
         else:
             with gzip.open(target, "rb") as stream:
-                nodes,edges=mesh_descriptors(stream)
+                nodes,edges=mesh_descriptors(stream, parser_diagnostics)
         result={**source,"retrieved_audited_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "sha256":digest.hexdigest(),"bytes":target.stat().st_size,"structure":audit(nodes,edges),
-            "relation":"parent->child; WordNet @/@i noun hypernyms or MeSH descriptor-collapsed immediate tree parents",
+            "parser_diagnostics":parser_diagnostics,
+            "relation":"parent->child; WordNet @/@i noun hypernyms or MeSH descriptor-collapsed immediate tree parents; ambiguous MeSH position links quarantined",
             "hash_note":"locally computed integrity record, not an official signed checksum"}
         (a.root/(name+"-manifest.json")).write_text(json.dumps(result,indent=2)+"\n")
         print(json.dumps(result),flush=True)

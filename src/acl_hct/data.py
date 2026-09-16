@@ -29,8 +29,14 @@ def wordnet_nouns(lines):
     return nodes, edges
 
 
-def mesh_descriptors(path):
-    nodes, trees = set(), {}
+def mesh_descriptors(path, diagnostics=None):
+    """Preserve descriptors; quarantine links incident to ambiguous tree positions.
+
+    Official releases can assign one tree position to multiple descriptors.
+    Do not silently overwrite an owner or fabricate a unique hierarchy.
+    """
+    nodes, trees = set(), defaultdict(set)
+    duplicate_occurrences = 0
     for _, e in ET.iterparse(path, events=("end",)):
         if e.tag != "DescriptorRecord":
             continue
@@ -41,19 +47,31 @@ def mesh_descriptors(path):
             raise ValueError("duplicate descriptor")
         nodes.add(ui)
         for t in e.findall("./TreeNumberList/TreeNumber"):
-            if not t.text or t.text in trees:
-                raise ValueError("missing/duplicate tree position")
-            trees[t.text] = ui
+            if not t.text:
+                raise ValueError("missing tree position")
+            duplicate_occurrences += int(ui in trees[t.text])
+            trees[t.text].add(ui)
         e.clear()
     edges = set()
-    for path, child in trees.items():
+    ambiguous = {p: sorted(ids) for p, ids in trees.items() if len(ids) > 1}
+    quarantined_links = 0
+    for path, children in trees.items():
         if "." in path:
             parent_path = path.rsplit(".", 1)[0]
             if parent_path not in trees:
                 raise ValueError("missing parent tree position")
-            parent = trees[parent_path]
+            if path in ambiguous or parent_path in ambiguous:
+                quarantined_links += len(children) * len(trees[parent_path])
+                continue
+            parent = next(iter(trees[parent_path]))
+            child = next(iter(children))
             if parent != child:
                 edges.add((parent, child))
+    if diagnostics is not None:
+        diagnostics.update({"tree_positions": len(trees),
+                            "ambiguous_positions": ambiguous,
+                            "quarantined_candidate_links": quarantined_links,
+                            "duplicate_same_owner_occurrences": duplicate_occurrences})
     return nodes, edges
 
 
