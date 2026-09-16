@@ -1,5 +1,11 @@
 # ACL-HCT research engineering
 
+## Current user approval gate — supersedes earlier automatic progression
+
+- On 2026-09-16 the user explicitly required: “每一个关键实验步骤必须在质量验收和关键指标通过，以及我的同意后才能继续”. Every new key experiment requires completed quality review, the pre-agreed key metrics passing, AND explicit user agreement. The parent supervisor cannot substitute its approval for the user's. Earlier staged/conditional auto-run instructions are superseded; available compute is not experiment authorization. Follow `docs/operations/EXPERIMENT_APPROVAL_GATE.md`.
+- The already approved and running seed11/23 baseline jobs may finish only their existing bounded configuration, including its scheduled validation and saving. Do not extend, resume, rerun, add seeds, or launch E1 supplemental/E2/E3/E4/E5 scientific experiments without the new gate. Report failures instead of silently changing thresholds or retrying.
+- Read-only review, report preparation, concrete proposed code and necessary offline engineering tests may continue to make the next proposal reviewable. They must not be represented as approval or completion of a real scientific experiment. Record exact user authorization scope before any new key run.
+
 ## Ownership and scope
 
 - All local code, scripts, tests and project artifacts belong under `F:\ACL\_HGT`. The Codex saved project may start in `F:\ACL_HGT`; explicitly change working directory before writing or running project commands. Do not create a second implementation there.
