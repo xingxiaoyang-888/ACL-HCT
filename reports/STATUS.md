@@ -60,3 +60,9 @@
 父任务冻结协议B V1：全部实体按20260914划分，train-only文本拟合，batch正查询双向屏蔽，全候选filtered valid MRR选checkpoint。新增rich文本/路径schema、预处理CLI、真正两层原Lorentz-Mean、固定输入诊断和全候选评分缓存，离线fixture通过；见 S1B_IMPLEMENTATION.md。真实新预处理/训练checkpoint尚未完成，训练runner继续接入。E1结果由实验任务保管，未自行提交其尚未批准清单。
 
 S1b训练runner已接通query屏蔽、两层训练、全valid选择、probe独立标记、时间上限和完整状态保存/恢复，CPU fixture验证见S1B_RUNNER.md。尚未执行真实训练；实验任务真实预处理/运行证据独立保留。
+
+## 后续固定版本与 E2/E3 首批 fixture
+
+上述段落保留其历史状态。已发布真实10步 pilot、CUDA诊断及同卡等价索引优化证据，分别见 S1B_PILOT.md、PACKING_COMPARISON.md；只读完整valid入口及归档测试修复见 S1B_CHECKPOINT_EVALUATION.md。双seed有界开发配置见 S1B_DEVELOPMENT_CONFIGS.md，实际训练状态由实验任务的固定来源报告验收，本状态不预写未归档结果。
+
+E2/E3 V1 首批代码与小图验证已完成：严格 H_dev/面板、配对两层传播、共同切空间流式统计、数值审计、直接父/正祖先指标与确认登记 guard。整个目标测试在无Git归档11项通过，4次合成重复 CLI 完成，详见 E2_E3_IMPLEMENTATION.md。尚无真实selected checkpoint诊断、真实重复预算或层级坍缩结论；N1噪声实现作为后续独立提交。
