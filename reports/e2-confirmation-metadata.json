@@ -1,0 +1,35 @@
+{
+  "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+  "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+  "source_archive_sha256": "47b640d011393801eaab75d0aca1caf8a9011d0529e4bcbdfcbc534e97a56fd0",
+  "cuda_fixture_raw_sha256": "152cab62be61c16e7d147afebf1e5c79179f56787264baad86c50198505cd91f",
+  "independent_analysis_raw_sha256": "076efab92e89e29e6e7bd08ba18cc7e38bfbec8eb530c133df65b9eb207e45e5",
+  "private_results_index_raw_sha256": "23c78fefa0a799a9afa6a13d1fd2d441b2eb05093233a369fca62990644da3ac",
+  "total_allocated_gpu_seconds": 20693,
+  "total_allocated_gpu_hours": 5.748055555555555,
+  "geometry_graph_repetitions": 2816,
+  "condition_observations": 11264,
+  "full_valid_task_repetitions": 448,
+  "arrays_verified": 24264,
+  "named_numerical_checks_passed": 62312,
+  "maximum_concurrent_ACL_gpus": 4,
+  "resources_per_shard": {
+    "gpu_count": 1,
+    "cpus": 2,
+    "host_memory_gib": 16
+  },
+  "CPU_independent_analysis": {
+    "elapsed_seconds": 35,
+    "resources": {
+      "gpu": 0,
+      "cpus": 2,
+      "host_memory_gib": 16
+    },
+    "max_rss_kib": 1128360,
+    "process_wall_time": "0:33.56"
+  },
+  "all_project_GPU_jobs_released": true,
+  "scope": "This confirmation batch only, not old development/pilot/fixture cost; two frozen models/new MC samples on validation-selected data",
+  "status": "complete",
+  "scientific_acceptance": "pending independent supervisor review"
+}

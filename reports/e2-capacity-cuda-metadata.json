@@ -1,0 +1,53 @@
+{
+  "source_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+  "source_archive_sha256": "9b217610420b35012403afbbf660e4b94f8b36f1f9d7541336103d9bb0b0c5cb",
+  "config_sha256": "c40ad1d32bb338047f307749bf0ef023c204ce1cf39550e003d77ce665df7634",
+  "cuda_quality_raw_sha256": "a287ac03251e41b539e572f32d43ea2f03691c0be9c7e027e1e41c00a8d0e71e",
+  "run_raw_sha256": "f23533aabe030685a56efddcd64f573a51d2cecda91b6f9125f20ae122bbbc91",
+  "source_hashes_verified": 31,
+  "checkpoints": {
+    "last.pt": {
+      "sha256": "afc1f95d561414488146f6120161280f31365099b081ade3a4f6bc56857a611e",
+      "bytes": 1015213
+    },
+    "best.pt": {
+      "sha256": "8b586ab317c764110be97469926b91de9ce7604e4e83bb89f332d6fceec8ddf0",
+      "bytes": 1015213
+    }
+  },
+  "capacity_fixture_passed": true,
+  "synthetic_steps_completed": 4,
+  "synthetic_full_valid_evaluations": 4,
+  "selected_best_step": 4,
+  "parameter_count": 82433,
+  "cache_check": {
+    "pairs": 1600,
+    "maximum_absolute_score_difference": 5.960464477539063e-08,
+    "absolute_tolerance": 1e-05,
+    "nonfinite_scores": false,
+    "status": "passed"
+  },
+  "independent_checks": {
+    "all_remote_file_hashes_match_download": true,
+    "source_hashes_match_fixed_Git_blob_archive": true,
+    "checkpoint_raw_hashes_match_report": true,
+    "run_and_quality_shared_fields_identical": true,
+    "all_four_rank_micro_macro_and_first_best_recomputed": true
+  },
+  "fixture_internal_seconds": 3.6606883062049747,
+  "process_wall_time": "0:07.25",
+  "max_rss_kib": 1145240,
+  "allocated_gpu_seconds": 7,
+  "gpu": "NVIDIA L40",
+  "driver": "580.65.06",
+  "resources": {
+    "gpu_count": 1,
+    "cpus": 2,
+    "host_memory_gib": 16,
+    "outer_seconds": 600,
+    "internal_seconds": 120
+  },
+  "concurrency_control": "afterany confirmation lane1 terminal; replaces released slot, at most4 ACL GPUs across both workflows",
+  "scope": "40-node128-feature engineering only; no real MLP training or model-competitiveness evidence",
+  "all_fixture_GPU_resources_released": true
+}

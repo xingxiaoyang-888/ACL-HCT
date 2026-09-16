@@ -1,0 +1,331 @@
+{
+  "source_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+  "config_sha256": "c40ad1d32bb338047f307749bf0ef023c204ce1cf39550e003d77ce665df7634",
+  "capacity_cuda_quality_raw_sha256": "a287ac03251e41b539e572f32d43ea2f03691c0be9c7e027e1e41c00a8d0e71e",
+  "shards": [
+    {
+      "seed": 11,
+      "run_file": "e2-capacity-seed11-run.json",
+      "run_raw_sha256": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+      "status": "complete",
+      "best_step": 1024,
+      "best_full_valid_mrr": 0.020536583138370156,
+      "comparison": {
+        "difference_sign": "text minus GNN",
+        "scheduled_valid": [
+          {
+            "step": 256,
+            "query_micro_mrr": {
+              "text_mlp": 0.005378673190459604,
+              "gnn": 0.007193695263860769,
+              "text_minus_gnn": -0.0018150220734011648
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.005484674594935997,
+              "gnn": 0.0071918312132419684,
+              "text_minus_gnn": -0.0017071566183059711
+            }
+          },
+          {
+            "step": 512,
+            "query_micro_mrr": {
+              "text_mlp": 0.01193960014905031,
+              "gnn": 0.008435679013423587,
+              "text_minus_gnn": 0.0035039211356267235
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.012100689800291223,
+              "gnn": 0.008419212841367513,
+              "text_minus_gnn": 0.0036814769589237108
+            }
+          },
+          {
+            "step": 768,
+            "query_micro_mrr": {
+              "text_mlp": 0.014313652163200368,
+              "gnn": 0.017536850617393598,
+              "text_minus_gnn": -0.00322319845419323
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.014381842634108497,
+              "gnn": 0.017734743820406178,
+              "text_minus_gnn": -0.0033529011862976806
+            }
+          },
+          {
+            "step": 1024,
+            "query_micro_mrr": {
+              "text_mlp": 0.020536583138370156,
+              "gnn": 0.0161267994877424,
+              "text_minus_gnn": 0.004409783650627757
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.020774412518580098,
+              "gnn": 0.016333008939495245,
+              "text_minus_gnn": 0.004441403579084853
+            }
+          }
+        ],
+        "best": {
+          "text_step": 1024,
+          "gnn_step": 768,
+          "query_micro_mrr": {
+            "text_mlp": 0.020536583138370156,
+            "gnn": 0.017536850617393598,
+            "text_minus_gnn": 0.0029997325209765585
+          },
+          "child_macro_mrr": {
+            "text_mlp": 0.020774412518580098,
+            "gnn": 0.017734743820406178,
+            "text_minus_gnn": 0.0030396686981739203
+          }
+        },
+        "gnn_elapsed_seconds": 2534.2509789709,
+        "caveat": "two fixed seeds; bounded reference, no training-randomness significance, SOTA or matched FLOPs/convergence claim",
+        "valid_for_capacity_judgment": true,
+        "gnn_parameter_count": 82433
+      },
+      "checkpoints": {
+        "last.pt": {
+          "sha256": "11a0f4440b7b085b5257e22b5593c875f04ddba8addb74f3484e2f4b11ba9d70",
+          "bytes": 1015213
+        },
+        "best.pt": {
+          "sha256": "4a3cb6db635f82c850d15fd2e391c07e1fd61906cb4c496333f4db6c7f7afdee",
+          "bytes": 1015213
+        }
+      },
+      "training_internal_seconds": 107.05439774971455,
+      "process_wall_time": "1:49.31",
+      "max_rss_kib": 1257428,
+      "allocated_gpu_seconds": 110,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB",
+      "peak_cuda_allocated_bytes": 192173056,
+      "peak_cuda_reserved_bytes": 222298112
+    },
+    {
+      "seed": 23,
+      "run_file": "e2-capacity-seed23-run.json",
+      "run_raw_sha256": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e",
+      "status": "complete",
+      "best_step": 1024,
+      "best_full_valid_mrr": 0.01914426559912869,
+      "comparison": {
+        "difference_sign": "text minus GNN",
+        "scheduled_valid": [
+          {
+            "step": 256,
+            "query_micro_mrr": {
+              "text_mlp": 0.005556958153649544,
+              "gnn": 0.005397249181584874,
+              "text_minus_gnn": 0.00015970897206467067
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.005629656624016293,
+              "gnn": 0.005525601991947489,
+              "text_minus_gnn": 0.00010405463206880367
+            }
+          },
+          {
+            "step": 512,
+            "query_micro_mrr": {
+              "text_mlp": 0.013186183905830562,
+              "gnn": 0.007993983154352808,
+              "text_minus_gnn": 0.005192200751477754
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.013438368244285452,
+              "gnn": 0.007992426779250468,
+              "text_minus_gnn": 0.005445941465034984
+            }
+          },
+          {
+            "step": 768,
+            "query_micro_mrr": {
+              "text_mlp": 0.018479655574373557,
+              "gnn": 0.01392854402164253,
+              "text_minus_gnn": 0.004551111552731026
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.01842492169025931,
+              "gnn": 0.013804136347005046,
+              "text_minus_gnn": 0.004620785343254262
+            }
+          },
+          {
+            "step": 1024,
+            "query_micro_mrr": {
+              "text_mlp": 0.01914426559912869,
+              "gnn": 0.01121512425757409,
+              "text_minus_gnn": 0.007929141341554601
+            },
+            "child_macro_mrr": {
+              "text_mlp": 0.019176073778559462,
+              "gnn": 0.011334989426156688,
+              "text_minus_gnn": 0.007841084352402774
+            }
+          }
+        ],
+        "best": {
+          "text_step": 1024,
+          "gnn_step": 768,
+          "query_micro_mrr": {
+            "text_mlp": 0.01914426559912869,
+            "gnn": 0.01392854402164253,
+            "text_minus_gnn": 0.005215721577486161
+          },
+          "child_macro_mrr": {
+            "text_mlp": 0.019176073778559462,
+            "gnn": 0.013804136347005046,
+            "text_minus_gnn": 0.005371937431554416
+          }
+        },
+        "gnn_elapsed_seconds": 2574.6429137249943,
+        "caveat": "two fixed seeds; bounded reference, no training-randomness significance, SOTA or matched FLOPs/convergence claim",
+        "valid_for_capacity_judgment": true,
+        "gnn_parameter_count": 82433
+      },
+      "checkpoints": {
+        "last.pt": {
+          "sha256": "7af9265ebcd43119bccdf7b76a0285ce6ce657b98606327509fbadb4a26b0309",
+          "bytes": 1015213
+        },
+        "best.pt": {
+          "sha256": "a4107a0d69deeb3da00366f89792966441cec298379bd6e71086b538753bc31a",
+          "bytes": 1015213
+        }
+      },
+      "training_internal_seconds": 106.71694414131343,
+      "process_wall_time": "1:48.90",
+      "max_rss_kib": 1251860,
+      "allocated_gpu_seconds": 109,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB",
+      "peak_cuda_allocated_bytes": 192173056,
+      "peak_cuda_reserved_bytes": 222298112
+    }
+  ],
+  "independent_verification": {
+    "11": {
+      "seed": 11,
+      "run_raw_sha256": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+      "status": "complete",
+      "completed_steps": 1024,
+      "source_hashes_verified": 31,
+      "config_sha256": "c40ad1d32bb338047f307749bf0ef023c204ce1cf39550e003d77ce665df7634",
+      "source_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+      "all_remote_download_hashes_match": true,
+      "checkpoint_raw_hashes_verified": {
+        "last.pt": {
+          "sha256": "11a0f4440b7b085b5257e22b5593c875f04ddba8addb74f3484e2f4b11ba9d70",
+          "bytes": 1015213
+        },
+        "best.pt": {
+          "sha256": "4a3cb6db635f82c850d15fd2e391c07e1fd61906cb4c496333f4db6c7f7afdee",
+          "bytes": 1015213
+        }
+      },
+      "all_four_full_valid_metrics_from_ranks_recomputed": true,
+      "first_best_selection_recomputed": true,
+      "metrics": [
+        {
+          "step": 256,
+          "micro_mrr": 0.0053786731904595705,
+          "macro_mrr": 0.005484674594935968
+        },
+        {
+          "step": 512,
+          "micro_mrr": 0.011939600149050298,
+          "macro_mrr": 0.012100689800291223
+        },
+        {
+          "step": 768,
+          "micro_mrr": 0.014313652163200357,
+          "macro_mrr": 0.014381842634108518
+        },
+        {
+          "step": 1024,
+          "micro_mrr": 0.02053658313837018,
+          "macro_mrr": 0.02077441251858013
+        }
+      ],
+      "best_step": 1024
+    },
+    "23": {
+      "seed": 23,
+      "run_raw_sha256": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e",
+      "status": "complete",
+      "completed_steps": 1024,
+      "source_hashes_verified": 31,
+      "config_sha256": "c40ad1d32bb338047f307749bf0ef023c204ce1cf39550e003d77ce665df7634",
+      "source_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+      "all_remote_download_hashes_match": true,
+      "checkpoint_raw_hashes_verified": {
+        "last.pt": {
+          "sha256": "7af9265ebcd43119bccdf7b76a0285ce6ce657b98606327509fbadb4a26b0309",
+          "bytes": 1015213
+        },
+        "best.pt": {
+          "sha256": "a4107a0d69deeb3da00366f89792966441cec298379bd6e71086b538753bc31a",
+          "bytes": 1015213
+        }
+      },
+      "all_four_full_valid_metrics_from_ranks_recomputed": true,
+      "first_best_selection_recomputed": true,
+      "metrics": [
+        {
+          "step": 256,
+          "micro_mrr": 0.005556958153649484,
+          "macro_mrr": 0.00562965662401624
+        },
+        {
+          "step": 512,
+          "micro_mrr": 0.013186183905830547,
+          "macro_mrr": 0.013438368244285431
+        },
+        {
+          "step": 768,
+          "micro_mrr": 0.018479655574373477,
+          "macro_mrr": 0.01842492169025926
+        },
+        {
+          "step": 1024,
+          "micro_mrr": 0.019144265599128598,
+          "macro_mrr": 0.019176073778559368
+        }
+      ],
+      "best_step": 1024
+    }
+  },
+  "total_training_allocated_gpu_seconds": 219,
+  "total_training_allocated_gpu_hours": 0.060833333333333336,
+  "resources_per_shard": {
+    "gpu_count": 1,
+    "cpus": 2,
+    "host_memory_gib": 16
+  },
+  "execution": "seed11→seed23 afterok, one released slot; all ACL≤4",
+  "scope": "Two fixed reference trainings; no training-randomness significance, matched FLOPs/convergence, SOTA or universal GNN disadvantage claim",
+  "selected_saved_weight_reproduction": {
+    "status": "passed",
+    "report": "e2-capacity-selected-weights-quality.json",
+    "raw_sha256": "06d9c334517cbd224b9ae2cff230c834a7f4035699a407c75227367dde5eb666",
+    "allocated_gpu_seconds": 55,
+    "resources": {
+      "gpu_count": 1,
+      "cpus": 2,
+      "host_memory_gib": 16
+    },
+    "process_wall_time": "0:54.75",
+    "max_rss_kib": 896404,
+    "purpose": "Post-training quality only; reload best/last, verify weight/source/RNG/hash and reproduce existing 8456 ranks; no optimizer update, new selection or new data."
+  },
+  "all_GPU_resources_released": true,
+  "total_capacity_training_and_selected_quality_gpu_seconds": 274,
+  "total_capacity_training_and_selected_quality_gpu_hours": 0.07611111111111112,
+  "status": "complete",
+  "scientific_acceptance": "pending independent supervisor review"
+}

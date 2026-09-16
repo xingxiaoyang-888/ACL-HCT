@@ -1,0 +1,62 @@
+{
+  "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+  "source_archive_sha256": "47b640d011393801eaab75d0aca1caf8a9011d0529e4bcbdfcbc534e97a56fd0",
+  "raw_cuda_quality_sha256": "152cab62be61c16e7d147afebf1e5c79179f56787264baad86c50198505cd91f",
+  "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+  "source_files_verified": 29,
+  "archives": [
+    {
+      "manifest": "entry.json",
+      "arrays_verified": 12,
+      "manifest_sha256": "fe24e247c3ccab111d902751a1a5aa6aeb5c0f09bfe6a9440105c4686e4eb596",
+      "npz_sha256": "78b5ab2eac95d6aee66c924d32fb831b30b150eab48d9fd628b1178c2c4beb29",
+      "npz_bytes": 4820
+    },
+    {
+      "manifest": "fanout_4.json",
+      "arrays_verified": 106,
+      "manifest_sha256": "d7c9b7f4bec7349c153710329c72d99cb51001c140d6991b41b2e3c926f2a2a5",
+      "npz_sha256": "4cef04c999a35ff7c9926d2a00f35db17af9b00e5e73a9e0e8b0cf86cd0002cd",
+      "npz_bytes": 25740
+    },
+    {
+      "manifest": "fanout_16.json",
+      "arrays_verified": 106,
+      "manifest_sha256": "7e6bef1e7506f87e524b2220135e8215a2b6ef33b6d30892237a11cf79719359",
+      "npz_sha256": "05f17399ecc74d4b3e5767b4b2ea01bbd89eb4edf72007bfb364d8882314ccb9",
+      "npz_bytes": 25718
+    }
+  ],
+  "recorded_check_status_counts": {
+    "passed": 312
+  },
+  "confirmation_fixture_passed": true,
+  "independent_recomputation": {
+    "geometry_group_means_mc_se": true,
+    "structure_columns_means_mc_se": true,
+    "all_six_task_rank_micro_macro": true,
+    "task_means_mc_se": true,
+    "repetition_ids_and_task_boundary": true,
+    "synthetic_panel_hashes_and_child_disjointness": true
+  },
+  "fixture_internal_seconds": 3.420246939174831,
+  "process_wall_time": "0:06.44",
+  "max_process_rss_kib": 1119748,
+  "allocated_gpu_seconds": 13,
+  "gpu": "NVIDIA L40",
+  "driver": "550.54.14",
+  "resources": {
+    "gpu_count": 1,
+    "cpus": 2,
+    "memory_gib": 16,
+    "outer_seconds": 600,
+    "internal_seconds": 120
+  },
+  "static_development_audit": {
+    "index_raw_sha256": "9e11fdddc514a3ada1a29e3c9bed817c2a5fad6e150ab49e36dfd728b49b4058",
+    "summaries_verified": 10,
+    "status": "passed"
+  },
+  "scope": "40-node engineering fixture; synthetic confirmation panel only; no real confirmation outputs",
+  "all_gpus_released": true
+}

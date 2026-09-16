@@ -1,0 +1,412 @@
+{
+  "seed11-f4": {
+    "seed": 11,
+    "fanout": 4,
+    "summary_sha256": "04619f578dcaaf121fafe0f1c74054a2689110ecc5f6e5292ad57a0b5e4afc56",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "8ca49fc9904824240d53ce6020f90c6ba65410a587f0f2a4f2c4d2a38ca50d04",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_4.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "10f68e161bdcbb1612a2a163c125b18bfdf4ec04167b76351b80a222755009a6",
+        "npz_sha256": "01a514f53858179aa1085f759b31917bb3541d1a6f5d161c4f27f30bbe74b1aa",
+        "npz_bytes": 73263688
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1511.2060632389039,
+    "timing_seconds": {
+      "paired_forward": 623.586463406682,
+      "geometry_structure": 34.63788967113942,
+      "task": 785.8029515249655
+    },
+    "peak_cuda_allocated_bytes": 3179065344,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed11-f8": {
+    "seed": 11,
+    "fanout": 8,
+    "summary_sha256": "213c9db63c8bb8e7c26d02946d976d924dafb327a700c10e546900e9555cf1ae",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "69d81aa826dfd70e68815c00bfb8652b0f9f4f23554921897681ef3e2d740542",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_8.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "c5283fb364626169dc696916e8830c717ff4e7ed80ef27ec81dbe47b40092a74",
+        "npz_sha256": "0a17902fcea6948eed872a9b28633b492807236eb0d8dd9ad3c0e0d570387f5e",
+        "npz_bytes": 49601468
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1547.124113852973,
+    "timing_seconds": {
+      "paired_forward": 660.0284808403812,
+      "geometry_structure": 34.95069630758371,
+      "task": 786.1238016280113
+    },
+    "peak_cuda_allocated_bytes": 3178201088,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed11-f16": {
+    "seed": 11,
+    "fanout": 16,
+    "summary_sha256": "1036753b4040b63c346399ae66a704b9a427ece9e1f7c2b9613d5fb4b84e722e",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "58f8145cede13976008fcbfb042b618fa3f41c09b061ed6aa3e429dfcdfead47",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_16.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "d4830675aa6c0847277a33b2c12396922bfdcfee878e43176125a3ff6d40f222",
+        "npz_sha256": "b31e7789eea3f9aa867b0061c8b52d5839c69de9f0e26a4149561d99b864df44",
+        "npz_bytes": 32520638
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1647.8022077893838,
+    "timing_seconds": {
+      "paired_forward": 726.3580593820661,
+      "geometry_structure": 35.1364000570029,
+      "task": 818.6326435748488
+    },
+    "peak_cuda_allocated_bytes": 3177459712,
+    "peak_cuda_reserved_bytes": 3579838464,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed11-f32": {
+    "seed": 11,
+    "fanout": 32,
+    "summary_sha256": "c91d44ab7bc2c411f1ec6204b5a03469c5c5a73c8005e3a0279829229fa1fdc0",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "8a061e043f466be5ecdb66a1e26fba8854b98486e4f2e6637171f08466923ed4",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_32.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "a226c53d2957ca7ebe308b9dd48266c1ec078ea747fd9182dfb284f3a02863c9",
+        "npz_sha256": "76c246221e878da26b908aabfb51e7a784eb3212e1aad4361c7f50eee3bad2c3",
+        "npz_bytes": 20224629
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1854.1268468294293,
+    "timing_seconds": {
+      "paired_forward": 915.8778289509937,
+      "geometry_structure": 35.753580801188946,
+      "task": 834.2250325130299
+    },
+    "peak_cuda_allocated_bytes": 3176882176,
+    "peak_cuda_reserved_bytes": 3592421376,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed11-f64": {
+    "seed": 11,
+    "fanout": 64,
+    "summary_sha256": "73345e81bc129c1b1dbb2be47941bd27c96fdb539391435a3e9916e72d6bf60b",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "814c57633e330410644e95a95d280b75d6319889ed98ff110ae4e7b68a9aaca5",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_64.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "d76e80e56914b9fac7b1684046090d5a6c8024cda6d69791bbb1d9f400523c78",
+        "npz_sha256": "920b0b6ee938dc97ba5d08a58b8c5d2989b888ac641f8f104b03ddc6ccdf5bdc",
+        "npz_bytes": 14076319
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1895.947343538981,
+    "timing_seconds": {
+      "paired_forward": 1006.2505437143845,
+      "geometry_structure": 34.78101262252312,
+      "task": 790.5315684451489
+    },
+    "peak_cuda_allocated_bytes": 3176525824,
+    "peak_cuda_reserved_bytes": 3584032768,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed23-f4": {
+    "seed": 23,
+    "fanout": 4,
+    "summary_sha256": "dbb8deca821dcc6afe78802cd2d3493e8d458f0ead8bc5ca34862dfb93cc20c8",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "021c3a8c21cabcc6309a8c2d24aacc8c7ccf923d0e6a3766873ddd2bf1957b21",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_4.json",
+        "arrays_verified": 4421,
+        "manifest_sha256": "1f156bd360637249655b7037c8c2fb97a336574cc8ee26831a2daefabba900cb",
+        "npz_sha256": "7289f186c05c3a25242a7dd32f9ab236d0405ddf7c1a86e8ac2c7629addcff8a",
+        "npz_bytes": 80386726
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 11300
+    },
+    "geometry_structure_repetitions": 512,
+    "task_repetitions": 128,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 4637.6550763184205,
+    "timing_seconds": {
+      "paired_forward": 1312.8517258688807,
+      "geometry_structure": 70.77529166918248,
+      "task": 3184.3915043650195
+    },
+    "peak_cuda_allocated_bytes": 3179065344,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed23-f8": {
+    "seed": 23,
+    "fanout": 8,
+    "summary_sha256": "7f258bfbc16e9ec71f60dbf88f0bbb13f923a1d46f4ed84ed00bf48ccd970d60",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "c0659b299ccb11fbde991d36cbcbf118b0482c7d0eb74d4d4b5a81254976ee8a",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_8.json",
+        "arrays_verified": 2245,
+        "manifest_sha256": "89568ae598818bdfc20776dc835be462d4018e9a09c758943b274b22b4b18532",
+        "npz_sha256": "f3c9faeb0267fa4dea32833968a3435dd2d9c7fcd1bae71a2d86397f17ca63e1",
+        "npz_bytes": 51466500
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 64,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 2305.9607614240376,
+    "timing_seconds": {
+      "paired_forward": 648.0172522715293,
+      "geometry_structure": 34.74850138032343,
+      "task": 1556.2314121179515
+    },
+    "peak_cuda_allocated_bytes": 3178201088,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed23-f16": {
+    "seed": 23,
+    "fanout": 16,
+    "summary_sha256": "9391b591d624420ac90ed5cf9ba20d57ebc1d60e80be62e8b9f970bcd3a6df70",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "ab3cc6e2c308d832ec461655aeba1796bb993a398ab44ad2f4305ba3c2147e9c",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_16.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "c4c7d24b31a1090fee3a38a6271d7b4af94ccd75cf3be5a76aa31842ae26987f",
+        "npz_sha256": "60a0521f396c76abbb2803ded9c8c62202c1a45ce53ad4a75c375d51506519b2",
+        "npz_bytes": 32521980
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1593.8689243560657,
+    "timing_seconds": {
+      "paired_forward": 710.9082860630006,
+      "geometry_structure": 34.53741695731878,
+      "task": 784.0881983842701
+    },
+    "peak_cuda_allocated_bytes": 3177459712,
+    "peak_cuda_reserved_bytes": 3579838464,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed23-f32": {
+    "seed": 23,
+    "fanout": 32,
+    "summary_sha256": "4ab5f7fab264b2f3dd08b01501a08d9b75ae8922bec413581895c94e315b1868",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "fb1a03a979d3c1f8bc70f31979164a1ee1b7886205a87a03e0085e4232f6146f",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_32.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "9356333707c75ac70ca41b5d467e49693eb2578db0f1f6e7bcd80e75083436dd",
+        "npz_sha256": "de796eb6d58773462902f3c8834ce3907f4142356cdcc6444f8b248243998ad7",
+        "npz_bytes": 20235563
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1716.184778052033,
+    "timing_seconds": {
+      "paired_forward": 849.4142304364359,
+      "geometry_structure": 34.49541794729885,
+      "task": 767.8863770620665
+    },
+    "peak_cuda_allocated_bytes": 3176882176,
+    "peak_cuda_reserved_bytes": 3594518528,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  },
+  "seed23-f64": {
+    "seed": 23,
+    "fanout": 64,
+    "summary_sha256": "06b87e0d177cfdaa874d0490b131b5ea405b8cb90c859b3b697ac55585855c89",
+    "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+    "registration_sha256": "04f625d9bb5d61402c8f8ad1440ab4de21fad7f73ce64abb112a1138080f4d12",
+    "source_files_verified": 29,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "c9e0a49adec1d1e06bc1b1fba9a84a46a34fcd47fffd6d696862d6e588dd86e0",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_64.json",
+        "arrays_verified": 2181,
+        "manifest_sha256": "391c0ca5eddc42b84240ba8c6c866fe001e6545486adfff6669952635b5a6c70",
+        "npz_sha256": "f45434fb3aedb5a04c65cb7b300084c5fbdafd44041328815ea82a2bfe275a5c",
+        "npz_bytes": 14076375
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 5668
+    },
+    "geometry_structure_repetitions": 256,
+    "task_repetitions": 32,
+    "status": "complete",
+    "checkpoint_and_weights_unchanged": true,
+    "full_valid_reproduction_passed": true,
+    "total_seconds": 1946.3442138079554,
+    "timing_seconds": {
+      "paired_forward": 1034.7657043840736,
+      "geometry_structure": 35.06869691587053,
+      "task": 810.7055714672897
+    },
+    "peak_cuda_allocated_bytes": 3176525824,
+    "peak_cuda_reserved_bytes": 3586129920,
+    "independent_analysis": "Separate frozen CPU analysis validates all per-repetition statistics, panel/stream/plan identities and full task ranks."
+  }
+}

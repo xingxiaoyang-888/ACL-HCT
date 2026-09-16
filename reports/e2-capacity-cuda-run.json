@@ -1,0 +1,413 @@
+{
+  "protocol": "E2-model-capacity-control-v1",
+  "scope": "CPU/CUDA engineering fixture only",
+  "research_question": "Does the existing GNN outperform a bounded graph-free text MLP on original full valid?",
+  "conclusion": "Bounded text reference acquired; scientific capacity judgment awaits independent review",
+  "purpose_status": "pending_supervisor_review",
+  "started_utc": "2026-09-16T19:50:17.524207+00:00",
+  "status": "complete",
+  "config_sha256": "c40ad1d32bb338047f307749bf0ef023c204ce1cf39550e003d77ce665df7634",
+  "training_settings": {
+    "seed": 11,
+    "input_dim": 128,
+    "hidden": 128,
+    "head_hidden": 128,
+    "batch_positives": 4,
+    "max_steps": 4,
+    "learning_rate": 0.003,
+    "max_seconds": 120,
+    "evaluation_max_seconds": 20,
+    "candidate_chunk": 11,
+    "evaluate_every": 1,
+    "save_every": 1,
+    "threads": 2
+  },
+  "seed": 11,
+  "source": {
+    "source_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+    "source_commit_basis": "caller_declared",
+    "git": {
+      "available": false,
+      "commit": null,
+      "dirty": null
+    }
+  },
+  "source_sha256_normalized_lf": {
+    "acl_hct/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "acl_hct/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "acl_hct/backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "acl_hct/data.py": "31761322b71548cafc8b105bb0332d5e64d71a7c912718f77a8be0eed67be0f2",
+    "acl_hct/development_view.py": "db6ddaaa6cc2c0061ba9e1f8178b28d60a6259d533b26b81ff4647f26d84cd1b",
+    "acl_hct/diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "acl_hct/diagnostics.py": "08de5ccd4656a13f24f9dba4ad4b52b0aed7cf8391afde4e18e2e02e0ea68eee",
+    "acl_hct/e1_audit.py": "74b0dd8f54c5bc1fc06a4d65ac13efe334e48c609264de2fb401090dd90d9e9d",
+    "acl_hct/e1_closure.py": "33a23e59b440201966d3abd2a296f1c56e254fe3394209e0df2431ab6aa9b9f5",
+    "acl_hct/e1_controls.py": "8fd0a14f998676982de717bcde3bde22eb7e3da2a87ec3a014748214d20bd44e",
+    "acl_hct/e2_development.py": "e182b2f970262aad159feb9486c9f023e206eb58cc0af9b52722134f1a2d5529",
+    "acl_hct/e2_pilot.py": "ba9f3f71d5e32ef9f961bed3990172087b087523de76e160bb61b18bb8bee816",
+    "acl_hct/evaluate_checkpoint.py": "0a255b3e545a4a93a4af5d5f76b432d6071cc9a03bf00cb9e9de95d194af1e16",
+    "acl_hct/frozen_fixture.py": "035144ce8e8cdc352bd6a8027c8f5d3c7929e11bc838c747fd22bae884d43847",
+    "acl_hct/frozen_forward.py": "a2e335878d3aa4dc118210af61709e8ccfddc2c064c3378d16d468a1ca7a3184",
+    "acl_hct/frozen_stats.py": "a45fea311243ee1fd7ae1418f90e9ced94605a4d77895613c5b6ff3af2f5176d",
+    "acl_hct/frozen_structure.py": "3c4980051e60cbed1f3af9378f7342fdb660345794dde93910b890014649d2a0",
+    "acl_hct/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "acl_hct/mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "acl_hct/model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1",
+    "acl_hct/protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "acl_hct/ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "acl_hct/smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3",
+    "acl_hct/taxonomy.py": "a4fc2d18570357606c4e1e816033d073c72171e8077fff76ae8dea01c0bf3615",
+    "acl_hct/train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "acl_hct/vector_structure.py": "d8b2ed8ed586eebf8cdde4f91952513ab23282c8986e45aeb6e8f5a5548e61a2",
+    "acl_hct/e2_confirmation.py": "96dc6effead55b7bfe6ec307135e3c776c144d34c664728e2a6f9e37cf359846",
+    "acl_hct/confirmation_registration.py": "fd81290ffeb2a60b7f66c3279be528b0b99e9693a8e6aa73efcd86c56da3fd9a",
+    "acl_hct/confirmation_analysis.py": "3bad76d75720c2b16aec6bfec118c5424a8b744eaca7d22a39a2f38a42f76693",
+    "acl_hct/text_capacity.py": "7d58ccdc91969af0da312bd5c64d7255d8d0080721dbf48a1400c4b23a1f0bdf",
+    "acl_hct/capacity_control.py": "064482153cf216dff753c585cd3a21124462c1d0740167ccee782acd38f1cbb7"
+  },
+  "manifest_hash": "aa12c353c168aa5e436413a0dd68c1c0b8b28961360202424a23a1d342da87a1",
+  "validation_queries_hash": "cf6dc8402444b06f5e8f58a7d7cc12e167de1a87d54f4c4a6df5cdabc70a54be",
+  "graph_hash": "881e7200013fd88b631c8bd7356d9289bab963c316056418506c850a031f325c",
+  "train_queries_hash": "de06631bc7ed993e2b1c1b00d24220c3104b50e9f3fd5c13a029dd0ba3b7c708",
+  "feature_sha256": "41d0b0bb34233f84af2c9ef172244245822bf796a63b65abd2986c5765697cc1",
+  "label_files_read": [],
+  "observed_graph_use": "input-contract validation only; never enters encoder or scorer",
+  "training_encoding": "only unique query entities; no cross-entity encoder operations",
+  "batch_rng": "CPU randperm(number of original positive groups), first batch_positives, seed=model_seed+1",
+  "parameter_count": 82433,
+  "initial_weights_sha256": {
+    "encoder.0.weight": "fda5c86bd9e0c6704f9533ef0f1dc99f76c807184c446b4d24650c677aca8dbc",
+    "encoder.0.bias": "a91f6441ba00d7915a533c9986f22d1e011574219d085ad042d02e81d393f35c",
+    "encoder.2.weight": "95721d6861dc59b9ad3acf646b2da30260786a44b253f049599d9da7ad4e0cca",
+    "encoder.2.bias": "ec0e8dfaba186f15ae59f16212ff2aafa3ee9ce7d33ffe12ab57c68b99185fa8",
+    "relation_head.0.weight": "404c9af9bd2520fd3a5f89e47174d8de89f5213926c7525a3b0023fb8a493667",
+    "relation_head.0.bias": "25a43d7903c518b74c9e9931313b84a21884122cc1fac14a6c0b42dc2b969db6",
+    "relation_head.2.weight": "06be95ca98887659267888297f77f610d1eec45332d54b6ed80b3ac201627e60",
+    "relation_head.2.bias": "dc340b8d82686c5626f02093ad5d66f7afe48c3281068f71a9d8d09db57c24bf"
+  },
+  "precision": "FP32; no AMP/TF32",
+  "device_type": "cuda",
+  "device_name": "NVIDIA L40",
+  "python": "3.11.7",
+  "torch": "2.5.1+cu124",
+  "completed_steps": 4,
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.7084283232688904,
+      "seconds": 0.33632980939000845,
+      "positive_queries": 4,
+      "negative_queries": 16,
+      "batch_group_ids_sha256": "5a5b882b36b74881d179d8937992a4028b8a9aab799ad6d092c0a96a68495f51"
+    },
+    {
+      "step": 2,
+      "loss": 0.6804566979408264,
+      "seconds": 0.0033088093623518944,
+      "positive_queries": 4,
+      "negative_queries": 16,
+      "batch_group_ids_sha256": "6cf4956ae5db8621a7029df23c954ad755700d7fa43f7b6cf16702aa05237fe0"
+    },
+    {
+      "step": 3,
+      "loss": 0.6548444628715515,
+      "seconds": 0.002887345850467682,
+      "positive_queries": 4,
+      "negative_queries": 16,
+      "batch_group_ids_sha256": "fd8ac5749dd9f8d05e03cc4c232c827d3a869e0847c92171dce751bead4a4047"
+    },
+    {
+      "step": 4,
+      "loss": 0.6283788681030273,
+      "seconds": 0.0028559397906064987,
+      "positive_queries": 4,
+      "negative_queries": 16,
+      "batch_group_ids_sha256": "8256357e2b51db20d0271e861072322565d6ceff6c3117f8258505e96bf17dae"
+    }
+  ],
+  "evaluations": [
+    {
+      "status": "complete",
+      "metric_scope": "filtered_all_entity_candidates",
+      "expected_queries": 7,
+      "completed_queries": 7,
+      "completed_children": 6,
+      "query_micro_mrr": 0.18789009249838742,
+      "child_macro_mrr": 0.13355695976663717,
+      "hits": {
+        "1": 0.14285714285714285,
+        "3": 0.14285714285714285,
+        "10": 0.14285714285714285
+      },
+      "rows": [
+        {
+          "parent": 0,
+          "child": 28,
+          "rank": 1.0,
+          "candidates": 38
+        },
+        {
+          "parent": 1,
+          "child": 28,
+          "rank": 36.0,
+          "candidates": 38
+        },
+        {
+          "parent": 25,
+          "child": 29,
+          "rank": 11.0,
+          "candidates": 39
+        },
+        {
+          "parent": 29,
+          "child": 30,
+          "rank": 30.0,
+          "candidates": 39
+        },
+        {
+          "parent": 31,
+          "child": 32,
+          "rank": 12.0,
+          "candidates": 39
+        },
+        {
+          "parent": 32,
+          "child": 33,
+          "rank": 21.0,
+          "candidates": 39
+        },
+        {
+          "parent": 34,
+          "child": 35,
+          "rank": 31.0,
+          "candidates": 39
+        }
+      ],
+      "elapsed_seconds": 0.0360117070376873,
+      "tie_policy": "average rank of exactly equal computed scores; target excluded from competitors",
+      "step": 1,
+      "purpose": "full_validation",
+      "full_graph_encoding_seconds": 0.0005107736214995384
+    },
+    {
+      "status": "complete",
+      "metric_scope": "filtered_all_entity_candidates",
+      "expected_queries": 7,
+      "completed_queries": 7,
+      "completed_children": 6,
+      "query_micro_mrr": 0.18841573484430627,
+      "child_macro_mrr": 0.1342327717327717,
+      "hits": {
+        "1": 0.14285714285714285,
+        "3": 0.14285714285714285,
+        "10": 0.14285714285714285
+      },
+      "rows": [
+        {
+          "parent": 0,
+          "child": 28,
+          "rank": 1.0,
+          "candidates": 38
+        },
+        {
+          "parent": 1,
+          "child": 28,
+          "rank": 37.0,
+          "candidates": 38
+        },
+        {
+          "parent": 25,
+          "child": 29,
+          "rank": 15.0,
+          "candidates": 39
+        },
+        {
+          "parent": 29,
+          "child": 30,
+          "rank": 24.0,
+          "candidates": 39
+        },
+        {
+          "parent": 31,
+          "child": 32,
+          "rank": 14.0,
+          "candidates": 39
+        },
+        {
+          "parent": 32,
+          "child": 33,
+          "rank": 15.0,
+          "candidates": 39
+        },
+        {
+          "parent": 34,
+          "child": 35,
+          "rank": 22.0,
+          "candidates": 39
+        }
+      ],
+      "elapsed_seconds": 0.005630807019770145,
+      "tie_policy": "average rank of exactly equal computed scores; target excluded from competitors",
+      "step": 2,
+      "purpose": "full_validation",
+      "full_graph_encoding_seconds": 0.00013987906277179718
+    },
+    {
+      "status": "complete",
+      "metric_scope": "filtered_all_entity_candidates",
+      "expected_queries": 7,
+      "completed_queries": 7,
+      "completed_children": 6,
+      "query_micro_mrr": 0.19039114039114038,
+      "child_macro_mrr": 0.13653741153741153,
+      "hits": {
+        "1": 0.14285714285714285,
+        "3": 0.14285714285714285,
+        "10": 0.14285714285714285
+      },
+      "rows": [
+        {
+          "parent": 0,
+          "child": 28,
+          "rank": 1.0,
+          "candidates": 38
+        },
+        {
+          "parent": 1,
+          "child": 28,
+          "rank": 37.0,
+          "candidates": 38
+        },
+        {
+          "parent": 25,
+          "child": 29,
+          "rank": 15.0,
+          "candidates": 39
+        },
+        {
+          "parent": 29,
+          "child": 30,
+          "rank": 22.0,
+          "candidates": 39
+        },
+        {
+          "parent": 31,
+          "child": 32,
+          "rank": 15.0,
+          "candidates": 39
+        },
+        {
+          "parent": 32,
+          "child": 33,
+          "rank": 13.0,
+          "candidates": 39
+        },
+        {
+          "parent": 34,
+          "child": 35,
+          "rank": 20.0,
+          "candidates": 39
+        }
+      ],
+      "elapsed_seconds": 0.005595923401415348,
+      "tie_policy": "average rank of exactly equal computed scores; target excluded from competitors",
+      "step": 3,
+      "purpose": "full_validation",
+      "full_graph_encoding_seconds": 0.00013463478535413742
+    },
+    {
+      "status": "complete",
+      "metric_scope": "filtered_all_entity_candidates",
+      "expected_queries": 7,
+      "completed_queries": 7,
+      "completed_children": 6,
+      "query_micro_mrr": 0.19413751932548923,
+      "child_macro_mrr": 0.14090818696081855,
+      "hits": {
+        "1": 0.14285714285714285,
+        "3": 0.14285714285714285,
+        "10": 0.14285714285714285
+      },
+      "rows": [
+        {
+          "parent": 0,
+          "child": 28,
+          "rank": 1.0,
+          "candidates": 38
+        },
+        {
+          "parent": 1,
+          "child": 28,
+          "rank": 37.0,
+          "candidates": 38
+        },
+        {
+          "parent": 25,
+          "child": 29,
+          "rank": 13.0,
+          "candidates": 39
+        },
+        {
+          "parent": 29,
+          "child": 30,
+          "rank": 21.0,
+          "candidates": 39
+        },
+        {
+          "parent": 31,
+          "child": 32,
+          "rank": 12.0,
+          "candidates": 39
+        },
+        {
+          "parent": 32,
+          "child": 33,
+          "rank": 14.0,
+          "candidates": 39
+        },
+        {
+          "parent": 34,
+          "child": 35,
+          "rank": 19.0,
+          "candidates": 39
+        }
+      ],
+      "elapsed_seconds": 0.00561969168484211,
+      "tie_policy": "average rank of exactly equal computed scores; target excluded from competitors",
+      "step": 4,
+      "purpose": "full_validation",
+      "full_graph_encoding_seconds": 0.00013552047312259674
+    }
+  ],
+  "checkpoint_seconds": [
+    0.02262832783162594,
+    0.0066300043836236,
+    0.00728682242333889,
+    0.008000260218977928,
+    0.007006416097283363,
+    0.00797301810234785,
+    0.006798993796110153,
+    0.0069025857374072075,
+    0.006865466944873333,
+    0.00694322120398283
+  ],
+  "best_full_valid_mrr": 0.19413751932548923,
+  "best_step": 4,
+  "selection_status": "first complete filtered all-candidate validation micro MRR maximum",
+  "budget_check": "at step/child boundaries; one operation may exceed deadline",
+  "full_valid_query_count": 7,
+  "valid_query_pairs_hash": "cf6dc8402444b06f5e8f58a7d7cc12e167de1a87d54f4c4a6df5cdabc70a54be",
+  "elapsed_seconds": 3.3643331406638026,
+  "peak_allocated_bytes": 19472384,
+  "peak_reserved_bytes": 25165824,
+  "checkpoints": {
+    "last.pt": {
+      "sha256": "afc1f95d561414488146f6120161280f31365099b081ade3a4f6bc56857a611e",
+      "bytes": 1015213
+    },
+    "best.pt": {
+      "sha256": "8b586ab317c764110be97469926b91de9ce7604e4e83bb89f332d6fceec8ddf0",
+      "bytes": 1015213
+    }
+  }
+}
