@@ -1,8 +1,8 @@
 {
-  "scope": "static configuration arithmetic only; no populations or scientific outputs evaluated",
-  "status": "pending_user_approval",
+  "scope": "static arithmetic only; no populations evaluated",
+  "config_sha256": "d849d11425f30243f28afe9a1bbeccc4a8c59b55aaeb41ad7bb98aae755d214f",
   "blocks": {
-    "historical_controls_only": {
+    "historical_quality_completion": {
       "cases": 54,
       "exact_subsets": 138483
     },
@@ -33,5 +33,15 @@
   },
   "cases": 102,
   "exact_subsets": 435561,
-  "maximum_subsets_per_case": 12870
+  "baseline_subset_passes": 2,
+  "baseline_aggregation_evaluations": 871122,
+  "original_correction_method_evaluations": 1306683,
+  "historical_quality_additional_correction_evaluations": 415449,
+  "unshifted_isometry_reference_method_evaluations": 161160,
+  "oracle_signed_outputs": 871122,
+  "user_approval_inferred": false,
+  "status": "user_authorized_single_run_pending_final_quality_release",
+  "maximum_subsets_per_case": 12870,
+  "historical_policy": "recompute_same_methods_for_numerical_audit_compare_immutable_artifact",
+  "authorization_note": "User explicitly requested 继续补充E1实验 on 2026-09-16; separate approval record must bind final source and this unchanged config hash. Static inventory is not execution approval."
 }

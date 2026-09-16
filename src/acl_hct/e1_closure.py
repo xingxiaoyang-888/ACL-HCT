@@ -12,18 +12,22 @@ from pathlib import Path
 import time
 import torch
 from .e1_controls import evaluate_exact_controls
+from .e1_audit import audit_results
 from .mechanisms import Case, dependency_hashes, population, source_identity
 from .protocols import digest
 
 
 HISTORICAL_COMMIT='6cd0caaa6a970b6f472ff45e58a1b3e65ea57e06'
 HISTORICAL_RESULT_SHA256='9c3b26297c1667c16fa76ac5dcf306c5a055a2f2fbdbb8d24355e86ad1fd15e1'
+HISTORICAL_POLICY='recompute_same_methods_for_numerical_audit_compare_immutable_artifact'
+HISTORICAL_BLOCK='historical_quality_completion'
 
 
 def inventory(config):
     if (config.get('protocol')!='E1-minimum-closure-v1' or config.get('scale_lambdas')!=[-1,0,1]
             or config.get('noise')!='exact_centered_plus_minus_oracle'
-            or config.get('historical_source_commit')!=HISTORICAL_COMMIT):
+            or config.get('historical_source_commit')!=HISTORICAL_COMMIT
+            or config.get('historical_policy')!=HISTORICAL_POLICY):
         raise ValueError('unexpected closure protocol/control definition')
     if config['enumeration_threshold']!=20000 or not 1<=config['chunk_size']<=4096:
         raise ValueError('registered exact threshold and bounded chunk required')
@@ -42,6 +46,9 @@ def inventory(config):
     return {'scope':'static arithmetic only; no populations evaluated','config_sha256':digest(config),
             'blocks':blocks,'cases':len(config['cases']),'exact_subsets':total,
             'baseline_subset_passes':2,'baseline_aggregation_evaluations':2*total,
+            'original_correction_method_evaluations':3*total,
+            'historical_quality_additional_correction_evaluations':3*blocks.get(HISTORICAL_BLOCK,{}).get('exact_subsets',0),
+            'unshifted_isometry_reference_method_evaluations':4*blocks.get('isometry',{}).get('exact_subsets',0),
             'oracle_signed_outputs':2*total,'user_approval_inferred':False}
 
 
@@ -72,7 +79,25 @@ def load_historical(path):
     if result['source_commit']!=HISTORICAL_COMMIT:raise ValueError('historical source mismatch')
     return {case_key(Case(**row['case'])):row for row in result['cases']}, {
         'source_commit':HISTORICAL_COMMIT,'raw_sha256':hashlib.sha256(raw).hexdigest(),
-        'normalized_lf_sha256':HISTORICAL_RESULT_SHA256,'reuse':'original correction metrics for old 54; none recomputed only for new controls'}
+        'normalized_lf_sha256':HISTORICAL_RESULT_SHA256,'role':'independent unchanged reference; all current metrics and numerical diagnostics newly computed'}
+
+
+def compare_historical(result,previous):
+    comparisons={}
+    for name in ('none','third_unclipped','third_protected','jackknife_protected'):
+        current=result['methods'].get(name,{});prior=previous['methods'].get(name,{})
+        if current.get('status')!='ok' or prior.get('status')!='ok':
+            comparisons[name]={'status':'unavailable','current_status':current.get('status'),'historical_status':prior.get('status')}
+            continue
+        row={'status':'compared','mean_offset_max_abs_difference':max(abs(a-b) for a,b in zip(current['mean_offset'],prior['mean_offset'])),
+             'mse_difference':current['mse']-prior['mse'],'current_samples':current['samples'],'historical_samples':prior['samples']}
+        for rate,count in (('fallback_rate','fallback_count'),('clipping_rate','clipped_count')):
+            row[rate]={'current':current[rate],'historical':prior[rate],'difference':current[rate]-prior[rate]}
+            row[count]={'current':current[count],'historical':prior.get(count),
+                        'comparison_basis':'count' if count in prior else 'ratio_with_identical_denominator'}
+        comparisons[name]=row
+    return {'source_commit':HISTORICAL_COMMIT,'sample_stream_hash_matches':result['sample_stream_sha256']==previous['sample_stream_sha256'],
+            'methods':comparisons,'policy':'new observations compared to unchanged old values; no historical metric is copied into current methods'}
 
 
 def finite_scale_slopes(rows):
@@ -105,32 +130,27 @@ def run_cases(config,historical,max_seconds):
     plan=inventory(config);started=time.perf_counter();rows=[]
     for item in config['cases']:
         if time.perf_counter()-started>=max_seconds:break
-        case=Case(**item['case']);old=item['block']=='historical_controls_only'
+        case=Case(**item['case']);old=item['block']==HISTORICAL_BLOCK
         if old and case_key(case) not in historical:raise ValueError('historical control case missing from verified artifact')
         begin=time.perf_counter()
         try:
             points=population(case)
             unshifted=(population(replace(case,origin_shift=0.)),case.origin_shift) if item['block']=='isometry' else None
             result=evaluate_exact_controls(points,case.k,c=case.c,chunk_size=config['chunk_size'],
-                     enumeration_threshold=config['enumeration_threshold'],include_original=not old,isometry_reference=unshifted)
+                     enumeration_threshold=config['enumeration_threshold'],include_original=True,isometry_reference=unshifted)
             if old:
-                previous=historical[case_key(case)]['result'];current=result['methods']['none'];prior=previous['methods']['none']
-                result['historical_baseline_comparison']={
-                    'mean_offset_max_abs_difference':max(abs(a-b) for a,b in zip(current['mean_offset'],prior['mean_offset'])),
-                    'mse_difference':current['mse']-prior['mse'],
-                    'sample_stream_hash_matches':result['sample_stream_sha256']==previous['sample_stream_sha256']}
-                for name in ('third_unclipped','third_protected','jackknife_protected'):
-                    result['methods'][name]={**previous['methods'][name],'metric_source':'unchanged verified historical artifact',
-                                             'source_commit':HISTORICAL_COMMIT}
+                result['historical_method_comparison']=compare_historical(result,historical[case_key(case)]['result'])
         except ValueError as error:
             result={'status':'input_or_domain_failure','error':str(error),'policy':'no redraw, no replacement configuration'}
         rows.append({'case':asdict(case),'block':item['block'],'seconds':time.perf_counter()-begin,'result':result})
-    return {'schema_version':2,'scope':'E1 exact controlled geometry; oracle noise identities are not research findings',
-            'status':'completed_planned_cases' if len(rows)==len(config['cases']) else 'incomplete_time_limit',
+    audit=audit_results(config,rows)
+    return {'schema_version':3,'scope':'E1 exact controlled geometry; oracle noise identities are not research findings',
+            'status':'planned_cases_processed' if len(rows)==len(config['cases']) else 'incomplete_time_limit',
             'quality_and_scientific_acceptance':'requires supervisor review and user agreement before any next key experiment',
             'config':config,'inventory':plan,'cases':rows,'elapsed_seconds':time.perf_counter()-started,
             'deadline_policy':'checked between cases; a case may overrun; external allocation supplies hard cap',
-            'finite_scale_slopes':finite_scale_slopes(rows),'missing_controls':[],
+            'finite_scale_slopes':finite_scale_slopes(rows),'missing_controls':audit['missing_controls'],'quality_audit':audit,
+            'scientific_effect_status':'pending','E1_passed':False,
             'remaining_scope_limits':['exact oracle is not calibrated real-graph N1','no semantic hierarchy or task-effect conclusion']}
 
 

@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_e1_audit.py",
+    "tests/test_e1_closure.py::test_small_executor_recomputes_and_compares_without_mutating_history",
+    "tests/test_e1_closure.py::test_approved_history_integrity_read_only_and_tamper_rejection",
+    "tests/test_e1_controls.py::test_proposal_inventory_is_static_exact_and_not_authorization",
+    "-q"
+  ],
+  "exitcode": 0,
+  "git_available": false,
+  "scope": "32 targeted engineering tests; no scientific 102-case execution",
+  "stdout": "................................                                         [100%]\n32 passed in 7.11s\n",
+  "stderr": "",
+  "source_archive": "git archive 90d941180f9cf76210bc1597c92e6b35d3d9d965 with final listed working files overlaid",
+  "source_sha256_normalized_lf": {
+    "src/acl_hct/e1_audit.py": "74b0dd8f54c5bc1fc06a4d65ac13efe334e48c609264de2fb401090dd90d9e9d",
+    "src/acl_hct/e1_controls.py": "8fd0a14f998676982de717bcde3bde22eb7e3da2a87ec3a014748214d20bd44e",
+    "src/acl_hct/e1_closure.py": "33a23e59b440201966d3abd2a296f1c56e254fe3394209e0df2431ab6aa9b9f5",
+    "tests/test_e1_audit.py": "54ecc4baffbca96e90e7de9e7b93b655f756d58a77e17a24337ca29b002620d1",
+    "tests/test_e1_controls.py": "1a00bce895dbea417704225b677282e308c8d97bb6e9aad3e7ba92009cc20c28",
+    "tests/test_e1_closure.py": "72afbbf4da31c8feeb3487f55ec0e02248e2b71b1741f0b05c91e66ad114039e",
+    "configs/e1_minimum_closure_proposal.json": "5bb1c045b966dbecc1af85470fb0d13757d778250b3b6b6e17a8aba5ca33ca20"
+  },
+  "scientific_cases_executed": 0
+}

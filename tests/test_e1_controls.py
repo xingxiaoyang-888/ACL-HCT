@@ -96,6 +96,7 @@ def test_isometry_outputs_vectors_and_non_equivariant_origin_scale():
 
 
 def test_proposal_inventory_is_static_exact_and_not_authorization():
+    from acl_hct.e1_closure import inventory
     config=json.loads((Path(__file__).parents[1]/'configs/e1_minimum_closure_proposal.json').read_text())
     assert config['status']=='proposal_pending_explicit_user_approval'
     assert config['scale_lambdas']==[-1,0,1] and len(config['cases'])==102
@@ -103,4 +104,8 @@ def test_proposal_inventory_is_static_exact_and_not_authorization():
     for row in config['cases']:Case(**row['case']).validate()
     counts=[math.comb(row['case']['N'],row['case']['k']) for row in config['cases']]
     assert sum(counts)==435561 and max(counts)==12870
-    assert sum(count for row,count in zip(config['cases'],counts) if row['block']=='historical_controls_only')==138483
+    assert sum(count for row,count in zip(config['cases'],counts) if row['block']=='historical_quality_completion')==138483
+    budget=inventory(config)
+    assert budget['original_correction_method_evaluations']==1306683
+    assert budget['historical_quality_additional_correction_evaluations']==415449
+    assert budget['baseline_aggregation_evaluations']==871122

@@ -63,6 +63,7 @@ class ExactMoments(Moments):
             covector=self.radial_direction.detach().cpu().clone();covector[0]*=-1
             radial=float(covector@covariance@covector)
         result.update({'covariance_population_ambient':covariance.tolist(),
+                       'fallback_count':self.fallback,'clipped_count':self.clipped,
                        'covariance_denominator':self.n,'lorentz_covariance_trace':variance,
                        'radial_variance':radial,'transverse_variance':variance-radial if radial is not None else None,
                        'radial_direction_defined':radial is not None,
@@ -118,9 +119,14 @@ def evaluate_exact_controls(x,k,*,c=1.,chunk_size=256,enumeration_threshold=2000
         row['output_max_abs_difference']=max(row['output_max_abs_difference'],float((points-lorentz_boost(other,shift,c)).abs().max()))
         row['offset_max_abs_difference']=max(row['offset_max_abs_difference'],float((log(p,points,c)-lorentz_boost(log(original_p,other,c),shift,c)).abs().max()))
     first_hash=hashlib.sha256();second_hash=hashlib.sha256();second_sum=torch.zeros_like(p)
+    first_count=second_count=0
+    scale_identity={name:{'applicable':coefficient==0 or k==len(x),
+                         'compared_samples':0,'bitwise_equal':None,'max_abs_output_difference':None}
+                    for name,coefficient in SCALE_LAMBDAS.items()}
     def indices():return index_chunks(len(x),k,0,'exact',count,chunk_size)
     for ids in indices():
         first_hash.update(ids.numpy().astype('<i8').tobytes())
+        first_count+=len(ids)
         sample=x[ids.to(x.device)];mask=torch.ones(sample.shape[:-1],device=x.device,dtype=torch.bool)
         baseline,stats=correct_batched(sample,len(x),mask,c,'none')
         accumulators['none'].observe(baseline,baseline,direction,stats)
@@ -141,6 +147,7 @@ def evaluate_exact_controls(x,k,*,c=1.,chunk_size=256,enumeration_threshold=2000
     centered_sum=torch.zeros_like(p);centered_cross=torch.zeros((len(p),len(p)),dtype=torch.float64,device=x.device)
     for ids in indices():
         second_hash.update(ids.numpy().astype('<i8').tobytes())
+        second_count+=len(ids)
         sample=x[ids.to(x.device)];mask=torch.ones(sample.shape[:-1],device=x.device,dtype=torch.bool)
         baseline,_=correct_batched(sample,len(x),mask,c,'none')
         z=log(p,baseline,c);second_sum+=z.sum(0);centered=z-mean
@@ -149,6 +156,11 @@ def evaluate_exact_controls(x,k,*,c=1.,chunk_size=256,enumeration_threshold=2000
             if name in failures:continue
             try:
                 points=radial_scale(baseline,len(x),k,coefficient,c)
+                identity=scale_identity[name]
+                if identity['applicable']:
+                    identity['compared_samples']+=len(baseline)
+                    identity['bitwise_equal']=identity['bitwise_equal'] is not False and torch.equal(points,baseline)
+                    identity['max_abs_output_difference']=max(identity['max_abs_output_difference'] or 0.,float((points-baseline).abs().max()))
                 accumulators[name].observe(points,baseline,direction,_stats(points,baseline,c))
             except ValueError as error:
                 failures[name]={'status':'domain_failure','error':str(error),'metrics':None,
@@ -174,11 +186,13 @@ def evaluate_exact_controls(x,k,*,c=1.,chunk_size=256,enumeration_threshold=2000
     return {'status':'partial_method_failure' if failures else 'ok','mode':'exact','N':len(x),'k':k,'c':c,
             'possible_subsets':count,'draws':count,'chunk_size':chunk_size,'full_point':p.tolist(),
             'sample_stream_sha256':first_hash.hexdigest(),'second_pass_stream_sha256':second_hash.hexdigest(),
+            'first_pass_subsets':first_count,'second_pass_subsets':second_count,
             'two_pass_baseline_sum_max_difference':float((second_sum.cpu()-accumulators['none'].sum).abs().max()),
             'full_reference':{'mse':0.,'mean_offset_norm':0.},
             'predictions':{name:value.tolist() for name,value in pred.items()},'direction_defined':bool(length>1e-14),
             'scale_definition':{'anchor':'coordinate origin','lambda':SCALE_LAMBDAS,'alpha':'1 + lambda * (1/k - 1/N)',
                                 'fitted':False,'isometry_equivariant':False,'low_k_fallback':False},
+            'scale_output_identity':scale_identity,
             'noise_identity':{'kind':'exact population oracle, not a deployable method or independent calibrated N1',
                               'subset_pairs':count,'signed_outputs':2*count,'independent_mc_samples':0,
                               'covariance_denominator':count,'centered_mean':(centered_sum/count).tolist(),

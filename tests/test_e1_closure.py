@@ -7,7 +7,7 @@ import subprocess
 import sys
 import pytest
 import torch
-from acl_hct.e1_closure import HISTORICAL_COMMIT, case_key, inventory, load_historical, run_cases, verify_approval
+from acl_hct.e1_closure import HISTORICAL_COMMIT, HISTORICAL_POLICY, case_key, inventory, load_historical, run_cases, verify_approval
 from acl_hct.e1_controls import evaluate_exact_controls, lorentz_boost
 from acl_hct.mechanisms import Case, evaluate_points, population
 from acl_hct.protocols import digest
@@ -16,23 +16,27 @@ from acl_hct.protocols import digest
 def fixture_config(rows):
     return {'status':'engineering_fixture_not_scientific_run','protocol':'E1-minimum-closure-v1',
             'scale_lambdas':[-1,0,1],'noise':'exact_centered_plus_minus_oracle',
-            'historical_source_commit':HISTORICAL_COMMIT,'enumeration_threshold':20000,'chunk_size':7,'cases':rows}
+            'historical_source_commit':HISTORICAL_COMMIT,'historical_policy':HISTORICAL_POLICY,'enumeration_threshold':20000,'chunk_size':7,'cases':rows}
 
 
-def test_small_executor_reuses_supplied_metrics_and_never_mutates_them():
+def test_small_executor_recomputes_and_compares_without_mutating_history():
     # Six-point synthetic unit fixture, not any of the 102 proposed scientific cases.
     old=Case('old-unit-fixture',N=6,k=3)
     new=Case('new-unit-fixture',N=6,k=3,origin_shift=.4)
     saved={'case':asdict(old),'result':evaluate_points(population(old),3,chunk_size=7)}
     serialized=json.dumps(saved,sort_keys=True)
-    config=fixture_config([{'block':'historical_controls_only','case':asdict(old)},
+    config=fixture_config([{'block':'historical_quality_completion','case':asdict(old)},
                            {'block':'isometry','case':asdict(new)}])
     result=run_cases(config,{case_key(old):saved},30.)
-    assert result['status']=='completed_planned_cases' and len(result['cases'])==2
+    assert result['status']=='planned_cases_processed' and len(result['cases'])==2
     assert json.dumps(saved,sort_keys=True)==serialized
     before=result['cases'][0]['result'];moved=result['cases'][1]['result']
-    assert before['historical_baseline_comparison']['sample_stream_hash_matches']
+    assert before['historical_method_comparison']['sample_stream_hash_matches']
     assert before['methods']['third_protected']['mse']==saved['result']['methods']['third_protected']['mse']
+    assert 'metric_source' not in before['methods']['third_protected']
+    assert 'max_manifold_constraint_residual' in before['methods']['third_protected']
+    assert result['quality_audit']['numerical_status']=='passed'
+    assert result['E1_passed'] is False
     assert moved['isometry']['status']=='computed_correspondence'
     for row in moved['isometry']['methods'].values():
         assert row['output_max_abs_difference']<1e-13 and row['offset_max_abs_difference']<1e-13
@@ -59,7 +63,7 @@ def test_approved_history_integrity_read_only_and_tamper_rejection(tmp_path):
     before=path.read_bytes();rows,metadata=load_historical(path)
     assert len(rows)==54 and metadata['source_commit']==HISTORICAL_COMMIT
     config=json.loads((root/'configs/e1_minimum_closure_proposal.json').read_text())
-    expected={case_key(Case(**row['case'])) for row in config['cases'] if row['block']=='historical_controls_only'}
+    expected={case_key(Case(**row['case'])) for row in config['cases'] if row['block']=='historical_quality_completion'}
     assert expected==set(rows)  # Case identity check only, no scientific recomputation.
     assert path.read_bytes()==before
     altered=tmp_path/'altered.json';altered.write_bytes(before+b' ')
