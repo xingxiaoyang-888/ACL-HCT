@@ -4,7 +4,7 @@
 
 - All local code, scripts, tests and project artifacts belong under `F:\ACL\_HGT`. The Codex saved project may start in `F:\ACL_HGT`; explicitly change working directory before writing or running project commands. Do not create a second implementation there.
 - This repository studies sampling-induced hierarchical collapse and tangent-space correction in hyperbolic GNNs. Read `docs/research/启动与验收约定.md` before implementation. The research claim is a hypothesis, not an established result.
-- The experiment task owns implementation, tests, remote setup and data. The parent writing/supervision task reviews evidence and coordinates scope. Maintain `reports/STATUS.md` with reproducible commands, current milestone, tests, failures and next steps.
+- Following the initial release, the dedicated code-quality task owns source, tests, README and packaging changes. The original experiment task owns remote operations and historical run/data evidence, and has handed off source editing. The parent writing/supervision task reviews evidence and coordinates scope. Do not have two tasks modify the same files concurrently. Maintain `reports/STATUS.md` and a separate code-quality report with reproducible commands, milestones, tests, failures and next steps; preserve provenance of historical results.
 - The user authorized initial environment setup, code, meaningful tests, data acquisition, deployment to their HPC directory, and short initial jobs. They did not request the historical 455-run matrix or an automatic large training campaign.
 
 ## Isolation and resource use

@@ -44,3 +44,9 @@
 按 README 安装后，`python -m pytest -q`；`python -m acl_hct.smoke --device cpu --output logs/smoke.json`。官方数据先 `scripts/acquire_data.py --download-only`，再在CPU分配中 `--audit-only`。服务器通过 `scripts/smoke.slurm` 提交，显式指定授权资源参数；GPU 设置 `ACL_DEVICE=cuda`，保留 Slurm GPU绑定。
 
 下一阶段需要先审查数据语义、冻结真实层级任务与划分，再决定是否启动新实验。本轮不自动追加计算。
+
+## 后续代码加固 — 2026-09-16
+
+本地实现新增 masked 批量聚合/修正与逐节点设备诊断，TinyGNN 可选 batch 路径；修复输入契约与 WordNet 错误解释，下载改为 .part 完成后发布。最终离线 CPU **78 passed / 36.37s**，40节点三方法各8步 batch smoke 及有上限的 CPU 微基准完成。详见 [CODE_QUALITY.md](CODE_QUALITY.md) 与 code-quality-*.json；其中源码哈希标识本轮验证内容。
+
+本次没有远程/GPU新作业，未改写上述历史远程证据。新代码仍待父任务协调短时远程回归，真实数据训练、正式划分、层级坍缩和普遍修正收益仍未完成。

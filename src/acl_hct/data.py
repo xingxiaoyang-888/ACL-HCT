@@ -6,24 +6,34 @@ import random
 
 def wordnet_nouns(lines):
     nodes, edges = set(), set()
-    for line in lines:
+    for line_number, line in enumerate(lines, 1):
         if not line.strip() or line[0].isspace():
             continue
-        fields = line.split("|", 1)[0].split()
-        if len(fields) < 5 or not fields[0].isdigit() or fields[2] != "n":
-            raise ValueError("malformed noun record")
-        node = fields[0]
-        nodes.add(node)
-        pos = 4 + 2*int(fields[3], 16)
-        count = int(fields[pos]); pos += 1
-        if len(fields) < pos + 4*count:
-            raise ValueError("truncated pointer list")
-        for j in range(count):
-            symbol, target, kind, lexical = fields[pos+4*j:pos+4*j+4]
-            if symbol in ("@", "@i") and kind == "n":
-                if lexical != "0000":
-                    raise ValueError("hypernym pointer must be semantic")
-                edges.add((target, node))
+        try:
+            fields = line.split("|", 1)[0].split()
+            if len(fields) < 5 or not fields[0].isdigit() or fields[2] != "n":
+                raise ValueError("malformed noun record")
+            node = fields[0]
+            if node in nodes:
+                raise ValueError("duplicate synset")
+            words = int(fields[3], 16)
+            if words < 1:
+                raise ValueError("empty word list")
+            pos = 4 + 2 * words
+            if pos >= len(fields):
+                raise ValueError("truncated word list or missing pointer count")
+            count = int(fields[pos]); pos += 1
+            if count < 0 or len(fields) != pos + 4 * count:
+                raise ValueError("invalid pointer list length")
+            for j in range(count):
+                symbol, target, kind, lexical = fields[pos+4*j:pos+4*j+4]
+                if symbol in ("@", "@i") and kind == "n":
+                    if lexical != "0000":
+                        raise ValueError("hypernym pointer must be semantic")
+                    edges.add((target, node))
+            nodes.add(node)
+        except ValueError as error:
+            raise ValueError(f"WordNet line {line_number}: {error}") from error
     if any(a not in nodes or b not in nodes for a,b in edges):
         raise ValueError("missing hypernym node")
     return nodes, edges

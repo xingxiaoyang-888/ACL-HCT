@@ -9,19 +9,37 @@ import torch
 
 
 def curvature(c):
-    if not isinstance(c, (int, float)) or not math.isfinite(c) or c <= 0:
+    if isinstance(c, bool) or not isinstance(c, (int, float)) or not math.isfinite(c) or c <= 0:
         raise ValueError("c must be a finite positive scalar")
     return c
 
 
+def _coordinates(x):
+    if not isinstance(x, torch.Tensor) or x.ndim < 1 or x.shape[-1] < 2:
+        raise ValueError("geometry requires a final axis with >=2 coordinates")
+    if x.dtype not in (torch.float32, torch.float64):
+        raise ValueError("geometry requires FP32/64")
+
+
+def _compatible(x, y):
+    _coordinates(x)
+    _coordinates(y)
+    if x.shape[-1] != y.shape[-1] or x.dtype != y.dtype or x.device != y.device:
+        raise ValueError("coordinate count, dtype and device must match")
+    try:
+        torch.broadcast_shapes(x.shape[:-1], y.shape[:-1])
+    except RuntimeError as error:
+        raise ValueError("incompatible batch shapes") from error
+
+
 def dot(x, y):
+    _compatible(x, y)
     return (x[..., 1:] * y[..., 1:]).sum(-1) - x[..., 0] * y[..., 0]
 
 
 def check_point(x, c=1.):
     curvature(c)
-    if x.dtype not in (torch.float32, torch.float64) or x.shape[-1] < 2:
-        raise ValueError("geometry requires FP32/64 and >=2 coordinates")
+    _coordinates(x)
     tol = 2e-4 if x.dtype == torch.float32 else 2e-11
     if not torch.isfinite(x).all() or (x[..., 0] <= 0).any():
         raise ValueError("nonfinite point or wrong Lorentz sheet")
@@ -33,6 +51,7 @@ def check_point(x, c=1.):
 
 def origin_like(x, c=1.):
     curvature(c)
+    _coordinates(x)
     p = torch.zeros_like(x)
     p[..., 0] = 1 / math.sqrt(c)
     return p
@@ -69,6 +88,7 @@ def exp(p, v, c=1.):
 
 
 def log(p, q, c=1.):
+    _compatible(p, q)
     check_point(p, c)
     check_point(q, c)
     # alpha-1 from displacement avoids cancellation near coincidence.
@@ -90,5 +110,7 @@ def distance(p, q, c=1.):
 
 
 def from_spatial(v, c=1.):
+    if not isinstance(v, torch.Tensor) or v.ndim < 1 or v.shape[-1] < 1:
+        raise ValueError("spatial vectors require a nonempty coordinate axis")
     w = torch.cat((torch.zeros_like(v[..., :1]), v), -1)
     return exp(origin_like(w, c), w, c)

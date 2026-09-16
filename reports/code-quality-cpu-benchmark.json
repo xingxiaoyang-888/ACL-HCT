@@ -1,0 +1,69 @@
+{
+  "scope": "CPU FP64 forward+backward including validation and diagnostics; equal padded lengths; no production/GPU speed claim",
+  "nodes": 32,
+  "k": 8,
+  "N": 16,
+  "spatial_dim": 4,
+  "threads": 2,
+  "warmups": 1,
+  "repeats": 3,
+  "python": "3.10.11",
+  "torch": "2.0.1+cpu",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "results": {
+    "none": {
+      "reference": {
+        "seconds": [
+          0.04706439999426948,
+          0.04058929999882821,
+          0.039413900005456526
+        ],
+        "median_seconds": 0.04058929999882821
+      },
+      "batched": {
+        "seconds": [
+          0.008358899998711422,
+          0.0060684999989462085,
+          0.006538800000271294
+        ],
+        "median_seconds": 0.006538800000271294
+      }
+    },
+    "third": {
+      "reference": {
+        "seconds": [
+          0.21139800000673858,
+          0.2458773000034853,
+          0.19780549999995856
+        ],
+        "median_seconds": 0.21139800000673858
+      },
+      "batched": {
+        "seconds": [
+          0.010775499998999294,
+          0.009906699997372925,
+          0.011470400000689551
+        ],
+        "median_seconds": 0.010775499998999294
+      }
+    },
+    "jackknife": {
+      "reference": {
+        "seconds": [
+          0.20347490000131074,
+          0.21745750000263797,
+          0.2051355000003241
+        ],
+        "median_seconds": 0.2051355000003241
+      },
+      "batched": {
+        "seconds": [
+          0.011160199996083975,
+          0.011150899998028763,
+          0.011770299999625422
+        ],
+        "median_seconds": 0.011160199996083975
+      }
+    }
+  }
+}

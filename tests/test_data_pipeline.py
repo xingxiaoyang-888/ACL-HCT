@@ -67,3 +67,12 @@ def test_small_pipeline_reproducible():
     for method in a["training"]:
         assert a["training"][method]["train_losses"]==b["training"][method]["train_losses"]
         assert a["training"][method]["clipping_rate"]==0
+
+
+def test_batched_training_matches_reference():
+    a=run(steps=2); b=run(steps=2,batched=True)
+    for method in a["training"]:
+        torch.testing.assert_close(torch.tensor(a["training"][method]["train_losses"]),
+                                   torch.tensor(b["training"][method]["train_losses"]),
+                                   atol=2e-7,rtol=2e-6)
+        assert a["training"][method]["fallback_rate"] == b["training"][method]["fallback_rate"]

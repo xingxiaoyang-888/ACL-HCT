@@ -28,7 +28,18 @@ Coordinates are `(time, spatial...)`; Lorentz product is `-x0*y0 + sum(xi*yi)`; 
 - `third`: candidate local third-central-moment correction, with the finite-population coefficient in the research note. Requires fixed vectors, uniform sampling without replacement, equal weights and small local spread. No universal improvement is claimed.
 - `jackknife`: cached-sum leave-one-out comparator with finite-population factor `(N-k)/N`; an approximate geometric comparator, not an exact unbiased estimator. Both corrections cost O(kd).
 
-k=N returns the original output exactly; k=1/2 return it with fallback recorded. Step norm is capped at 0.1; clipping/fallback rates and step norms are recorded. Lower bias need not imply lower MSE. Batched metadata records whether any member clipped; the model calls one neighborhood at a time.
+k=N returns the original output exactly; k=1/2 return it with fallback recorded. Step norm is capped at 0.1; clipping/fallback rates and step norms are recorded. Lower bias need not imply lower MSE. The reference `correct` path retains scalar summary metadata. `correct_batched` returns per-node device tensors; `TinyGNN.forward(..., batched=True)` enables it without changing sampling or the correction formula.
+
+The batched contract is `correct_batched(sample, N, mask, ..., self_points=None)`: points have shape `[..., K, D]` with K>=1, a boolean mask has shape `[..., K]`, and integer N broadcasts to the leading batch shape. For nonempty rows, 1<=k<=N. Empty rows require N=0 and explicit self points, returned exactly. Padding (including NaNs) is ignored and has zero gradient. Diagnostics `fallback`, `empty`, `full`, `small_sample`, `clipped`, `raw_step`, `step`, `k`, `N` are detached tensors on the input device. `none` means masked complete/sample aggregation. Full and small samples return the uncorrected mean exactly; fallback reason flags may overlap. Empty rows are marked fallback even with `none`.
+
+Batch dimensions broadcast; coordinate count, dtype and device must match. Validation still synchronizes at batch level. Padding costs O(batch * maximum fanout * dimension); sampling and index packing still use Python loops. This is a small-model optional path, not a scalable graph engine. Compare the paths offline:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m pytest -q
+python -m acl_hct.smoke --device cpu --batched --output logs/batched-smoke.json
+python scripts/benchmark_aggregation.py --output logs/cpu-benchmark.json
+```
 
 Sampling uses an explicit CPU `torch.Generator`; full fanout preserves input order. GNN neighbor IDs are deduplicated. An empty neighborhood explicitly uses self; other self loops must be explicit. Semantic truth stays separate from message adjacency. The synthetic training demo uses the known tree graph and all-node depth regression; it is not link prediction or a held-out task benchmark.
 
@@ -40,7 +51,7 @@ PYTHONPATH=src python scripts/acquire_data.py --download-only
 PYTHONPATH=src python scripts/acquire_data.py --audit-only
 ```
 
-Pinned sources: [Princeton WordNet 3.0](https://wordnetcode.princeton.edu/3.0/) and [NLM MeSH 2026 XML](https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/). [WordNet license](https://wordnet.princeton.edu/license-and-commercial-use) and [MeSH terms](https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html) apply; raw data are not redistributed. Curl resumes interrupted transfers. Manifests record URL, version, retrieval/audit time, bytes, SHA256 and structure. Hashes are local integrity records, not upstream signatures. Amazon reviews are not downloaded.
+Pinned sources: [Princeton WordNet 3.0](https://wordnetcode.princeton.edu/3.0/) and [NLM MeSH 2026 XML](https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/). [WordNet license](https://wordnet.princeton.edu/license-and-commercial-use) and [MeSH terms](https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html) apply; raw data are not redistributed. Curl resumes interrupted transfers into `.part` and renames only after successful transport. Existing final files are reused; archive decoding and structural audit are still required. An old partial file created by the previous downloader must be moved to `.part` explicitly before resuming. Download-only and audit-only are mutually exclusive. Manifests record URL, version, audit time (not relabeled as retrieval time), bytes, SHA256 and structure. Hashes are local integrity records, not upstream signatures. Amazon reviews are not downloaded.
 
 WordNet parses noun semantic hypernym and instance-hypernym links, parent->child. MeSH parses immediate tree parents collapsed onto descriptor IDs. Multiple parents and isolates are preserved; the DAG audit detects cycles instead of fabricating depth. Depth is longest root path. `split_relations` is a conservative **small-graph** helper: held-out pairs and reverse pairs are excluded from training; held-out relations still inferable through training paths in either direction are quarantined. This repeated reachability implementation needs a scalable redesign before full-corpus use. No real-data benchmark split is claimed yet.
 
@@ -60,3 +71,5 @@ Prepare dependencies and data before allocation. Supply authorized account, QOS,
 - `docs/research/`: hypotheses and bounded initial acceptance contract.
 
 Raw downloads, private host inventory, job identifiers, caches and detailed scheduler logs remain untracked. Read the acceptance contract before extending scope.
+
+Implementation hardening evidence, known limitations and CPU-only measurements: [reports/CODE_QUALITY.md](reports/CODE_QUALITY.md). Historical GPU reports apply only to their recorded source revision.

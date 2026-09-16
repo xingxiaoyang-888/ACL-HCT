@@ -1,0 +1,30 @@
+{
+  "base_commit": "948810d44cd77b5871f36862440fde2c5006d2c0",
+  "scope": "local CPU implementation hardening; no remote or GPU run",
+  "python": "3.10.11",
+  "torch": "2.0.1+cpu",
+  "numpy": "1.24.4",
+  "pytest": "8.2.0",
+  "tests": {
+    "command": "python -m pytest -q",
+    "passed": 78,
+    "seconds": 36.37
+  },
+  "sha256_normalized_lf": {
+    "scripts/acquire_data.py": "3b5893880c1226658811870328249235a418a4a63489f8aba569c649fccd4394",
+    "scripts/benchmark_aggregation.py": "21467f7216394eb7424018fd94846f5f889d31b24a5bcb05bf6d6c437b3bbb53",
+    "src/acl_hct/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "src/acl_hct/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "src/acl_hct/data.py": "31761322b71548cafc8b105bb0332d5e64d71a7c912718f77a8be0eed67be0f2",
+    "src/acl_hct/diagnostics.py": "08de5ccd4656a13f24f9dba4ad4b52b0aed7cf8391afde4e18e2e02e0ea68eee",
+    "src/acl_hct/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "src/acl_hct/model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1",
+    "src/acl_hct/smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3",
+    "tests/test_batched.py": "7627b139672c0eac7106c0aab380ff9ce7ed4865a03db2ba1f7783c747c83336",
+    "tests/test_contracts.py": "2c8e84c1d5bab7b2f54a59651ad467d5a0ed3a373b686cfb6cf7c06d56940d57",
+    "tests/test_core.py": "8fe9939d0d1cf7b106c4d9ca28f3eb90bf85bc3428864ec8cb1147deda1c0ca7",
+    "tests/test_data_contracts.py": "9877959bea957e371f5a5274cb15f9ab6351a2d98ccab9c755b6232715c2209e",
+    "tests/test_data_pipeline.py": "c4a40e9dbcf9393c01961b5bceea178902658e6e76c1ec9436bf9957b4f1acdf",
+    "tests/test_zero_correction.py": "f3800ecc902ca9434ae656489f4f31dbd370891bdd375b59f44f849509ad3da8"
+  }
+}

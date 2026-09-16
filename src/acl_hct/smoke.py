@@ -11,7 +11,7 @@ from .geometry import distance, origin_like
 from .diagnostics import frozen_case
 
 
-def run(device="cpu", seed=11, steps=8):
+def run(device="cpu", seed=11, steps=8, batched=False):
     if steps < 1 or steps > 30: raise ValueError("smoke steps must be 1..30")
     torch.set_num_threads(2)
     torch.manual_seed(seed)
@@ -32,14 +32,19 @@ def run(device="cpu", seed=11, steps=8):
         started=time.perf_counter(); losses=[]; fallback=clip=total=0
         for _ in range(steps):
             optimizer.zero_grad()
-            pred,points,stats=model(features,neighbors,generator,3,method)
+            pred,points,stats=model(features,neighbors,generator,3,method,batched=batched)
             loss=(pred-target).square().mean(); loss.backward()
             if any(p.grad is not None and not torch.isfinite(p.grad).all() for p in model.parameters()):
                 raise RuntimeError("nonfinite gradient")
             optimizer.step(); losses.append(float(loss.detach()))
-            fallback+=sum(s["fallback"] for s in stats); clip+=sum(s["clipped"] for s in stats); total+=len(stats)
+            if batched:
+                # Transfer only two aggregate counters once per optimization step.
+                counts=torch.stack((stats["fallback"].sum(),stats["clipped"].sum())).cpu().tolist()
+                fallback+=counts[0]; clip+=counts[1]; total+=len(neighbors)
+            else:
+                fallback+=sum(s["fallback"] for s in stats); clip+=sum(s["clipped"] for s in stats); total+=len(stats)
         with torch.no_grad():
-            _,points,_=model(features,neighbors,torch.Generator().manual_seed(seed+1),3,method)
+            _,points,_=model(features,neighbors,torch.Generator().manual_seed(seed+1),3,method,batched=batched)
             radius=distance(origin_like(points),points)
             order=float(torch.stack([(radius[b]>radius[a]).float() for a,b in edges]).mean())
             # Explicit semantic branch labels; pairwise distances of synthetic nodes only.
@@ -55,7 +60,7 @@ def run(device="cpu", seed=11, steps=8):
             "synthetic_cross_minus_same_branch_distance":gap,
             "fallback_rate":fallback/total,"clipping_rate":clip/total}
     return {"scope":"synthetic engineering smoke; no held-out task-performance claim",
-        "seed":seed,"steps":steps,"torch":torch.__version__,"python":platform.python_version(),
+        "seed":seed,"steps":steps,"batched":batched,"torch":torch.__version__,"python":platform.python_version(),
         "device":torch.cuda.get_device_name(0) if device=="cuda" else platform.processor(),
         "cuda_runtime":torch.version.cuda,"training":results,
         "frozen":[frozen_case(spread,k,symmetric=symmetric) for spread in (.15,.7) for k in (1,2,3,5) for symmetric in (False,True)]}
@@ -64,7 +69,8 @@ def run(device="cpu", seed=11, steps=8):
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument("--device",choices=["cpu","cuda"],default="cpu")
     parser.add_argument("--output",type=Path,required=True); parser.add_argument("--steps",type=int,default=8)
-    args=parser.parse_args(); result=run(args.device,steps=args.steps)
+    parser.add_argument("--batched",action="store_true")
+    args=parser.parse_args(); result=run(args.device,steps=args.steps,batched=args.batched)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(result,indent=2,allow_nan=False)+"\n")
     print(json.dumps({"output":str(args.output),"device":result["device"],"methods":list(result["training"])}))
