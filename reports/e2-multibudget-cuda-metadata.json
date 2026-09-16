@@ -1,0 +1,39 @@
+{
+  "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+  "source_archive_sha256": "26cb4cb7c7abfbc943a9fd85d45db50826d703fc389bc17133923557f613cee7",
+  "raw_cuda_quality_sha256": "4a392b7c955461b09670af2f4f35425d4ba7e7fba58140bd7c46cf002590bcd2",
+  "source_files_verified": 18,
+  "archives": [
+    {
+      "manifest": "entry.json",
+      "arrays_verified": 12,
+      "manifest_sha256": "bdc7b11f2b4d971a4cb0ccde204b6989142679f6047b7791591566158b31dd86",
+      "npz_sha256": "78b5ab2eac95d6aee66c924d32fb831b30b150eab48d9fd628b1178c2c4beb29"
+    },
+    {
+      "manifest": "fanout_4.json",
+      "arrays_verified": 82,
+      "manifest_sha256": "b5ea362ee7f621688dec176b70c151d1bacb019febfbceeb1c588ec598e386a4",
+      "npz_sha256": "e56d780e8d92174efc7878038b35a845319a24b761557bace5e1b77cf86a0b38"
+    },
+    {
+      "manifest": "fanout_16.json",
+      "arrays_verified": 82,
+      "manifest_sha256": "801af665c6bae311dc86474fdbe7e24202d529f78432e576d990c503ae57800d",
+      "npz_sha256": "a65c0941e8bc63264feb5b4302cf8f08e3e79dee8fcf5ab07cc62215d211d157"
+    }
+  ],
+  "cuda_fixture_passed": true,
+  "fixture_internal_seconds": 1.7691271940711886,
+  "process_wall_seconds": 5.59,
+  "process_max_rss_kib": 1132472,
+  "slurm_elapsed_seconds": 5,
+  "resources": {
+    "gpu": "NVIDIA L40",
+    "gpu_count": 1,
+    "cpus": 2,
+    "memory_gib": 16
+  },
+  "scope": "40-node engineering fixture only; no real checkpoint or scientific effect evidence",
+  "verification": "Independent local NumPy verification of archive inventories, dtype, shape, array bytes and all manifest/NPZ SHA256; source hashes checked against byte-verified fixed Git archive."
+}

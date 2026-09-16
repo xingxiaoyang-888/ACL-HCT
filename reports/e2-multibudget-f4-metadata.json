@@ -1,0 +1,193 @@
+{
+  "scope": "First two of ten fixed E2 development shards; f4 only",
+  "verification": {
+    "11": {
+      "summary_sha256": "865f363dfac4adb6b8b84cd74e9396da8946b78e2cbd60c3e963390ec6909faf",
+      "seed": 11,
+      "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+      "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+      "status": "complete",
+      "entry_status": "passed",
+      "failures": [],
+      "checkpoint_and_weights_unchanged": true,
+      "archives": [
+        {
+          "manifest": "entry.json",
+          "arrays_verified": 15,
+          "manifest_sha256": "e448e6b1b5548c140229442f5c875ee8bcfb67e59545f26d0e49a1808adc95d9",
+          "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+          "npz_bytes": 116068016
+        },
+        {
+          "manifest": "fanout_4.json",
+          "arrays_verified": 1109,
+          "manifest_sha256": "8c4173d94f5d35829856b77cfeca93989e40ae3a6131cdda0c9fa17b568caeb2",
+          "npz_sha256": "a52d82346c9f2cae1186759f80bf2d89377e784cf31aa57b737b26faddf6c450",
+          "npz_bytes": 71099687
+        }
+      ],
+      "recorded_check_status_counts": {
+        "passed": 2852
+      },
+      "failed_recorded_checks": [],
+      "total_seconds": 589.736520107137,
+      "peak_cuda_allocated_bytes": 3179065344,
+      "peak_cuda_reserved_bytes": 3495952384,
+      "budgets": {
+        "4": {
+          "status": "complete",
+          "completed_graph_repetitions": 128,
+          "completed_task_repetitions": 8,
+          "completed_method_repetitions": {
+            "local_L1": 128,
+            "F/S": 128,
+            "S/F": 128,
+            "S/S": 128
+          },
+          "timing_seconds": {
+            "paired_forward": 313.2493216586299,
+            "geometry_structure": 17.272940035909414,
+            "task": 193.39715829701163
+          },
+          "seconds": 525.1973779969849,
+          "task_statistics": {
+            "mean": [
+              0.015100149008146217,
+              -0.0024367016092473807,
+              0.015358992315298614,
+              -0.0023757515051075627
+            ],
+            "mc_se": [
+              0.0002764841844949216,
+              0.00027648418449492164,
+              0.00026729427279773796,
+              0.00026729427279773796
+            ],
+            "independent_graph_repetitions": 8
+          },
+          "task_columns": [
+            "micro_mrr",
+            "micro_change_from_full",
+            "child_macro_mrr",
+            "macro_change_from_full"
+          ]
+        }
+      },
+      "independent_recomputation": {
+        "all_geometry_group_means_mc_se": true,
+        "all_structure_columns_means_mc_se": true,
+        "all_8_task_rank_micro_macro": true,
+        "task_means_mc_se": true,
+        "complete_repetition_ids": true
+      }
+    },
+    "23": {
+      "summary_sha256": "bc9eb890c3c4e8f159d9404f800f8ffa97c04b8a42d022f7b067e89f060cee07",
+      "seed": 23,
+      "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+      "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+      "status": "complete",
+      "entry_status": "passed",
+      "failures": [],
+      "checkpoint_and_weights_unchanged": true,
+      "archives": [
+        {
+          "manifest": "entry.json",
+          "arrays_verified": 15,
+          "manifest_sha256": "727ab7d61ae474dd61d618041b590bb1ae432503927fb3cac48fe63726152790",
+          "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+          "npz_bytes": 116059022
+        },
+        {
+          "manifest": "fanout_4.json",
+          "arrays_verified": 1109,
+          "manifest_sha256": "1bd2fcc74296d798e03b4839297ed6aba0659e52b2eddb3c2bbdb507ea94e448",
+          "npz_sha256": "eff643f81b7e8624e9f15e690c522f348553ddc78def01a42aed9bd669389444",
+          "npz_bytes": 71093901
+        }
+      ],
+      "recorded_check_status_counts": {
+        "passed": 2852
+      },
+      "failed_recorded_checks": [],
+      "total_seconds": 592.8166325530037,
+      "peak_cuda_allocated_bytes": 3179065344,
+      "peak_cuda_reserved_bytes": 3495952384,
+      "budgets": {
+        "4": {
+          "status": "complete",
+          "completed_graph_repetitions": 128,
+          "completed_task_repetitions": 8,
+          "completed_method_repetitions": {
+            "local_L1": 128,
+            "F/S": 128,
+            "S/F": 128,
+            "S/S": 128
+          },
+          "timing_seconds": {
+            "paired_forward": 315.12688234914094,
+            "geometry_structure": 17.32666132040322,
+            "task": 193.25546521600336
+          },
+          "seconds": 527.1041159238666,
+          "task_statistics": {
+            "mean": [
+              0.012727533954748066,
+              -0.001201010066894467,
+              0.0126979090285749,
+              -0.001106227318430146
+            ],
+            "mc_se": [
+              0.000814625096104271,
+              0.000814625096104271,
+              0.0008035216683595144,
+              0.0008035216683595145
+            ],
+            "independent_graph_repetitions": 8
+          },
+          "task_columns": [
+            "micro_mrr",
+            "micro_change_from_full",
+            "child_macro_mrr",
+            "macro_change_from_full"
+          ]
+        }
+      },
+      "independent_recomputation": {
+        "all_geometry_group_means_mc_se": true,
+        "all_structure_columns_means_mc_se": true,
+        "all_8_task_rank_micro_macro": true,
+        "task_means_mc_se": true,
+        "complete_repetition_ids": true
+      }
+    }
+  },
+  "scheduler_elapsed_seconds": {
+    "11": 592,
+    "23": 600
+  },
+  "process_wall_seconds": {
+    "11": 591.91,
+    "23": 600.25
+  },
+  "process_max_rss_kib": {
+    "11": 1939584,
+    "23": 2074576
+  },
+  "allocated_gpu_seconds_total": 1192,
+  "allocated_gpu_hours_total": 0.33111111111111113,
+  "resources_per_shard": {
+    "gpu": "NVIDIA L40",
+    "gpu_count": 1,
+    "cpus": 2,
+    "memory_gib": 16
+  },
+  "remaining_fanouts": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "remaining_shards_submitted": false,
+  "cost_limit_interpretation": "Both f4 shards fit fixed resource/time limits. Larger fanouts remain unmeasured; concurrent runs are not an uncontended benchmark."
+}
