@@ -1,0 +1,76 @@
+{
+  "stage": "S1b_CUDA_node_isolation_diagnostic",
+  "status": "passed",
+  "training_invoked": false,
+  "source_commit_for_unchanged_pilot": "fce017259a6bdc513f21b31304f096239e357a75",
+  "script_sha256": "a8811e2c6e6243e89b8b2e48c17ad5995ceafc5083ed993d1ba08c2a1b1865a5",
+  "launcher_sha256": "1420d41ce0a92676f9e05c22c492380b25776cd5e99e5f3ed46678a007300539",
+  "same_acl_environment": true,
+  "python": "3.11.7",
+  "torch": "2.5.1+cu124",
+  "cuda_runtime": "12.4",
+  "excluded_previous_failure_node": true,
+  "different_node_from_both_failures_and_E0": true,
+  "binding_overridden": false,
+  "allocation": {
+    "gpu_count": 1,
+    "gpu_type": "L40",
+    "cpu_cores": 2,
+    "host_memory_gib": 4,
+    "limit_minutes": 5,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed_seconds": 11,
+    "allocated_gpu_hours": 0.0030555555555555557,
+    "resource_release_verified": true
+  },
+  "hardware": {
+    "name": "NVIDIA L40",
+    "driver_version": "550.54.14",
+    "nvidia_smi_total_memory_mib": 46068,
+    "torch_total_memory_bytes": 47576711168,
+    "capability": [
+      8,
+      9
+    ]
+  },
+  "driver": {
+    "cuInit_return_code": 0,
+    "cuInit_error_name": "CUDA_SUCCESS",
+    "driver_version_api": 12040,
+    "device_count": 1
+  },
+  "enumeration": {
+    "device_count": 1,
+    "is_available": true
+  },
+  "kernel": {
+    "sum": 4.0,
+    "synchronize_passed": true,
+    "peak_allocated_bytes": 1024,
+    "peak_reserved_bytes": 2097152
+  },
+  "check_wall_seconds": {
+    "nvidia_smi": 0.0254619512706995,
+    "driver": 0.18295401521027088,
+    "enumerate": 6.140743413940072,
+    "properties": 1.8113065622746944,
+    "kernel": 2.162955543026328
+  },
+  "diagnostic_total_seconds": 10.325725054368377,
+  "check_timeouts": false,
+  "environment_observations": {
+    "cuda_visible_devices": "0",
+    "ld_library_path_set": false,
+    "ld_preload_set": false,
+    "conda_prefix_set": false,
+    "torch_from_acl_venv": true,
+    "libcudart_from_acl_venv": true,
+    "libcuda_from_system_driver": true
+  },
+  "prior_two_failures_gpu_seconds": 10,
+  "failures_plus_diagnostic_gpu_seconds": 21,
+  "failures_plus_diagnostic_gpu_hours": 0.005833333333333334,
+  "root_cause_established": false,
+  "scope": "Only proves CUDA initialization and minimal tensor execution on this allocation. No training timings, quality results or checkpoint. Different node and driver confound attribution."
+}

@@ -1,0 +1,541 @@
+{
+  "started_utc": "2026-09-16T13:38:53.142676+00:00",
+  "scope": "bounded protocol-B development; validation probe never selects a checkpoint",
+  "status": "step_limit_reached",
+  "config": {
+    "seed": 11,
+    "hidden": 128,
+    "head_hidden": 128,
+    "c": 1.0,
+    "scaled_radius": 1.2,
+    "fanouts": [
+      16,
+      16
+    ],
+    "method": "none",
+    "batch_positives": 128,
+    "max_steps": 10,
+    "learning_rate": 0.003,
+    "max_seconds": 1800.0,
+    "evaluation": "validation_probe",
+    "probe_queries": 16,
+    "evaluation_max_seconds": 300.0,
+    "candidate_chunk": 4096,
+    "max_padded_messages": 32768,
+    "save_every": 5,
+    "evaluate_every": 0,
+    "threads": 2
+  },
+  "config_hash": "c7564246a7d7f77fc2e6b9ac54732032d68225b85a023f2275ce9ca0c3b3f35f",
+  "manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+  "validation_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+  "protocol": "B-child-grouped-80-10-10-v1",
+  "split_seed": 20260914,
+  "device": "NVIDIA L40",
+  "torch": "2.5.1+cu124",
+  "python": "3.11.7",
+  "precision": "FP32; CUDA TF32 disabled; no mixed precision",
+  "deterministic_algorithms": false,
+  "source": {
+    "source_commit": "fce017259a6bdc513f21b31304f096239e357a75",
+    "source_commit_basis": "caller_declared",
+    "git": {
+      "available": false,
+      "commit": null,
+      "dirty": null
+    }
+  },
+  "source_sha256_normalized_lf": {
+    "acl_hct/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "acl_hct/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "acl_hct/backbone.py": "8165d56756dbd13b417c2f2cc69af6802d795f6162daea671a3214665fc26a78",
+    "acl_hct/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "acl_hct/mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "acl_hct/protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "acl_hct/ranking.py": "a94c4cd7a05752e7f63e091919c96ff4ac363a88a1c81566bf27057fff38c5f6",
+    "acl_hct/train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9"
+  },
+  "resumed_from_step": 0,
+  "completed_steps": 10,
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.709603488445282,
+      "seconds": 8.935553568182513,
+      "sampling_and_mask_seconds": 1.003316069021821,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.5879777073860168,
+          "max_scaled_message_radius": 0.7753574252128601,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633927971124649,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120367.0
+        },
+        {
+          "mean_scaled_message_radius": 0.6559295058250427,
+          "max_scaled_message_radius": 0.7171808481216431,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633927971124649,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120367.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "loss": 0.6681824922561646,
+      "seconds": 8.211894779931754,
+      "sampling_and_mask_seconds": 0.9469211760442704,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.5868034958839417,
+          "max_scaled_message_radius": 0.774436891078949,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16333191096782684,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120378.0
+        },
+        {
+          "mean_scaled_message_radius": 0.6758842468261719,
+          "max_scaled_message_radius": 0.7272427678108215,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16333191096782684,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120378.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "loss": 0.6410725116729736,
+      "seconds": 8.20457840198651,
+      "sampling_and_mask_seconds": 0.903006284032017,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.5897480249404907,
+          "max_scaled_message_radius": 0.7753031849861145,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633927971124649,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120371.0
+        },
+        {
+          "mean_scaled_message_radius": 0.7439163327217102,
+          "max_scaled_message_radius": 0.7836119532585144,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633927971124649,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120371.0
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "loss": 0.6113724708557129,
+      "seconds": 8.223780423868448,
+      "sampling_and_mask_seconds": 0.8971702379640192,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.5959183573722839,
+          "max_scaled_message_radius": 0.7796065807342529,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16338062286376953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120363.0
+        },
+        {
+          "mean_scaled_message_radius": 0.8200389742851257,
+          "max_scaled_message_radius": 0.8533673286437988,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16338062286376953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120363.0
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "loss": 0.5798997282981873,
+      "seconds": 8.296897812047973,
+      "sampling_and_mask_seconds": 0.9964049418922514,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.6049337983131409,
+          "max_scaled_message_radius": 0.7861160039901733,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16336844861507416,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120367.0
+        },
+        {
+          "mean_scaled_message_radius": 0.8897597789764404,
+          "max_scaled_message_radius": 0.9194583296775818,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16336844861507416,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120367.0
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "loss": 0.5500038862228394,
+      "seconds": 8.229481286136433,
+      "sampling_and_mask_seconds": 0.9194136750884354,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.6163676977157593,
+          "max_scaled_message_radius": 0.7944008111953735,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16336844861507416,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120375.0
+        },
+        {
+          "mean_scaled_message_radius": 0.9488692879676819,
+          "max_scaled_message_radius": 0.9735804200172424,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16336844861507416,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120375.0
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "loss": 0.5245623588562012,
+      "seconds": 8.207325355848297,
+      "sampling_and_mask_seconds": 0.9062567388173193,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.6295114159584045,
+          "max_scaled_message_radius": 0.8036649823188782,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16329537332057953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120369.0
+        },
+        {
+          "mean_scaled_message_radius": 0.996288537979126,
+          "max_scaled_message_radius": 1.0167584419250488,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16329537332057953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120369.0
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "loss": 0.5075764060020447,
+      "seconds": 8.205221420153975,
+      "sampling_and_mask_seconds": 0.8987787500955164,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.6435601711273193,
+          "max_scaled_message_radius": 0.8130808472633362,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633075624704361,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120379.0
+        },
+        {
+          "mean_scaled_message_radius": 1.0330921411514282,
+          "max_scaled_message_radius": 1.0518293380737305,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.1633075624704361,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120379.0
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "loss": 0.5004888772964478,
+      "seconds": 8.217641573166475,
+      "sampling_and_mask_seconds": 0.9019812531769276,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.6574334502220154,
+          "max_scaled_message_radius": 0.8217945098876953,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16329537332057953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120375.0
+        },
+        {
+          "mean_scaled_message_radius": 1.060849666595459,
+          "max_scaled_message_radius": 1.077653169631958,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16329537332057953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120375.0
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "loss": 0.5027880072593689,
+      "seconds": 8.239107107045129,
+      "sampling_and_mask_seconds": 0.9108970800880343,
+      "positive_queries": 128,
+      "negative_queries": 512,
+      "layers": [
+        {
+          "mean_scaled_message_radius": 0.669928252696991,
+          "max_scaled_message_radius": 0.8289691209793091,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16346587240695953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120366.0
+        },
+        {
+          "mean_scaled_message_radius": 1.0811545848846436,
+          "max_scaled_message_radius": 1.0962576866149902,
+          "near_bound_fraction": 0.0,
+          "fallback_rate": 0.16346587240695953,
+          "clipping_rate": 0.0,
+          "candidate_messages": 134822.0,
+          "selected_messages": 120366.0
+        }
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "status": "complete",
+      "metric_scope": "filtered_all_entity_candidates",
+      "expected_queries": 16,
+      "completed_queries": 16,
+      "completed_children": 16,
+      "query_micro_mrr": 0.00012689415283530356,
+      "child_macro_mrr": 0.00012689415283530356,
+      "hits": {
+        "1": 0.0,
+        "3": 0.0,
+        "10": 0.0
+      },
+      "rows": [
+        {
+          "parent": 39425,
+          "child": 40117,
+          "rank": 31000.5,
+          "candidates": 82114
+        },
+        {
+          "parent": 64921,
+          "child": 64996,
+          "rank": 904.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 72223,
+          "child": 72369,
+          "rank": 13071.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 36489,
+          "child": 36494,
+          "rank": 59496.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 75782,
+          "child": 75762,
+          "rank": 54974.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 25124,
+          "child": 25126,
+          "rank": 23021.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 62017,
+          "child": 62020,
+          "rank": 11346.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 62766,
+          "child": 65058,
+          "rank": 71004.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 72509,
+          "child": 73631,
+          "rank": 54812.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 77668,
+          "child": 75446,
+          "rank": 69797.5,
+          "candidates": 82114
+        },
+        {
+          "parent": 22685,
+          "child": 16733,
+          "rank": 3217.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 36172,
+          "child": 36176,
+          "rank": 60065.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 26991,
+          "child": 27002,
+          "rank": 67519.5,
+          "candidates": 82114
+        },
+        {
+          "parent": 40931,
+          "child": 43102,
+          "rank": 5651.0,
+          "candidates": 82114
+        },
+        {
+          "parent": 57207,
+          "child": 58079,
+          "rank": 15433.5,
+          "candidates": 82114
+        },
+        {
+          "parent": 27255,
+          "child": 27256,
+          "rank": 55375.5,
+          "candidates": 82114
+        }
+      ],
+      "elapsed_seconds": 0.0753395021893084,
+      "tie_policy": "average rank of exactly equal computed scores; target excluded from competitors",
+      "step": 10,
+      "purpose": "validation_probe",
+      "full_graph_encoding_seconds": 6.873559097992256
+    }
+  ],
+  "checkpoint_seconds": [
+    0.009693600935861468,
+    0.008613143116235733,
+    0.009515802143141627,
+    0.007845127023756504
+  ],
+  "selection_status": "none; no complete validation selected yet",
+  "best_full_valid_mrr": null,
+  "budget_check": "at step/child boundaries; one operation may exceed deadline",
+  "evaluation_query_ids": [
+    [
+      39425,
+      40117
+    ],
+    [
+      64921,
+      64996
+    ],
+    [
+      72223,
+      72369
+    ],
+    [
+      36489,
+      36494
+    ],
+    [
+      75782,
+      75762
+    ],
+    [
+      25124,
+      25126
+    ],
+    [
+      62017,
+      62020
+    ],
+    [
+      62766,
+      65058
+    ],
+    [
+      72509,
+      73631
+    ],
+    [
+      77668,
+      75446
+    ],
+    [
+      22685,
+      16733
+    ],
+    [
+      36172,
+      36176
+    ],
+    [
+      26991,
+      27002
+    ],
+    [
+      40931,
+      43102
+    ],
+    [
+      57207,
+      58079
+    ],
+    [
+      27255,
+      27256
+    ]
+  ],
+  "evaluation_query_hash": "94e8b43a2f517cf3f7de038237d7b0dadee66e533fa3a88e14b28b1d6c1d3a28",
+  "full_valid_query_count": 8456,
+  "elapsed_seconds": 95.60437436890788,
+  "peak_allocated_bytes": 1718813184,
+  "peak_reserved_bytes": 1845493760
+}
