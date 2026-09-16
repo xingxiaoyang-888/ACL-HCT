@@ -104,3 +104,15 @@ def fit_text_features(records, train_entities, dimension=128, seed=11):
               'requested_dimension':dimension,'effective_dimension':effective,'seed':seed,
               'sklearn':sklearn.__version__,'empty_texts':sum(not text.strip() for text in texts.values())}
     return features, manifest, state
+
+
+def mask_indexed_queries(neighbors, positive_pairs):
+    """Copy only changed rows of an already validated indexed observed graph."""
+    blocked=defaultdict(set)
+    for a,b in positive_pairs:
+        if type(a) is not int or type(b) is not int or not 0<=a<len(neighbors) or not 0<=b<len(neighbors) or a==b:
+            raise ValueError('invalid indexed positive query')
+        blocked[a].add(b); blocked[b].add(a)
+    result=list(neighbors)
+    for node,excluded in blocked.items(): result[node]=[i for i in neighbors[node] if i not in excluded]
+    return result

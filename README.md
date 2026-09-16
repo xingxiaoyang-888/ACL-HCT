@@ -77,3 +77,5 @@ Implementation hardening evidence, known limitations and CPU-only measurements: 
 E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.json --output logs/e1.json`；用 `scripts/plot_e1.py --input logs/e1.json --output-dir logs/e1-figures` 从JSON重建图（可选 `[plots]` 依赖）。固定阈值枚举/MC、配对采样、共同切空间、未裁剪与保护版、MC不确定性和科学边界见 [reports/E1_IMPLEMENTATION.md](reports/E1_IMPLEMENTATION.md)。正式受控组配置 `configs/e1_s1.json` 尚待实验任务在固定commit运行。
 
 协议B预处理与两层自建骨干准备见 [reports/S1B_IMPLEMENTATION.md](reports/S1B_IMPLEMENTATION.md) 及父任务冻结决定 [docs/operations/S1B_PROTOCOL_DECISIONS.md](docs/operations/S1B_PROTOCOL_DECISIONS.md)。文本特征依赖可选 `[benchmark]`；split seed为20260914，train-only文本拟合，监督query边在采样前屏蔽。当前fixture通过，真实预处理/训练尚未执行，不能把TinyGNN或fixture结果当正式基线。
+
+有界训练入口与pilot合同见 [reports/S1B_RUNNER.md](reports/S1B_RUNNER.md)。`configs/wordnet_b_pilot.json` 仅10步与固定validation probe，不能据probe选择最佳checkpoint；完整valid选择另用明确配置。所有GPU执行须由实验任务在单卡Slurm分配中运行，代码入口不自行调度。

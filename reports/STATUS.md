@@ -58,3 +58,5 @@
 ## S1b 协议与实现准备
 
 父任务冻结协议B V1：全部实体按20260914划分，train-only文本拟合，batch正查询双向屏蔽，全候选filtered valid MRR选checkpoint。新增rich文本/路径schema、预处理CLI、真正两层原Lorentz-Mean、固定输入诊断和全候选评分缓存，离线fixture通过；见 S1B_IMPLEMENTATION.md。真实新预处理/训练checkpoint尚未完成，训练runner继续接入。E1结果由实验任务保管，未自行提交其尚未批准清单。
+
+S1b训练runner已接通query屏蔽、两层训练、全valid选择、probe独立标记、时间上限和完整状态保存/恢复，CPU fixture验证见S1B_RUNNER.md。尚未执行真实训练；实验任务真实预处理/运行证据独立保留。
