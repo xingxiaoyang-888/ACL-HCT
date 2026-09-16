@@ -7,6 +7,8 @@ import json
 import math
 from pathlib import Path
 import platform
+import re
+import sys
 import subprocess
 import torch
 from .aggregation import aggregate, correct_batched
@@ -220,16 +222,53 @@ def run(config, device='cpu'):
             'torch':torch.__version__,'python':platform.python_version(),'device':device,'cases':rows}
 
 
+def source_identity(declared_commit=None):
+    """Git identity is optional and never inferred from an unrelated cwd repo."""
+    if declared_commit is not None and not re.fullmatch(r"[0-9a-fA-F]{40}",declared_commit):
+        raise ValueError("--source-commit requires a full 40-digit commit SHA")
+    root=Path(__file__).resolve().parents[2]
+    identity={'available':False,'commit':None,'dirty':None}
+    try:
+        top=subprocess.check_output(['git','-C',str(root),'rev-parse','--show-toplevel'],
+                                    text=True,stderr=subprocess.DEVNULL).strip()
+        if Path(top).resolve()==root:
+            identity={'available':True,
+                      'commit':subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip(),
+                      'dirty':bool(subprocess.check_output(['git','-C',str(root),'status','--porcelain'],text=True).strip())}
+    except (OSError,subprocess.CalledProcessError):
+        pass
+    if declared_commit and identity['commit'] and declared_commit.lower()!=identity['commit']:
+        raise ValueError('declared commit differs from the available source repository')
+    return {'source_commit':declared_commit.lower() if declared_commit else identity['commit'],
+            'source_commit_basis':'caller_declared' if declared_commit else ('git' if identity['available'] else 'unavailable'),
+            'git':identity}
+
+
+def dependency_hashes():
+    """All imported project source modules, including geometry and aggregation."""
+    hashes={}
+    for name,module in sorted(sys.modules.items()):
+        if name=='acl_hct' or name.startswith('acl_hct.') or (name=='__main__' and getattr(module,'__file__',None)==__file__):
+            path=Path(module.__file__)
+            if path.suffix=='.py':
+                key='acl_hct/'+path.name
+                hashes[key]=hashlib.sha256(path.read_text(encoding='utf-8').encode()).hexdigest()
+    return hashes
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--config',type=Path,required=True); parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--device',choices=['cpu','cuda'],default='cpu')
+    parser.add_argument('--source-commit',help='Full caller-declared archive revision; hashes remain independent evidence')
     args=parser.parse_args(); torch.set_num_threads(2)
+    identity=source_identity(args.source_commit)  # Check identity before expensive work.
     config=json.loads(args.config.read_text(encoding='utf-8'))
+    config_hash=hashlib.sha256(json.dumps(config,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     result=run(config,args.device)
-    result['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-    result['source_sha256_normalized_lf']=hashlib.sha256(Path(__file__).read_text().encode()).hexdigest()
-    result['working_tree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip())
+    result.update(identity)
+    result['config_sha256']=config_hash
+    result['source_sha256_normalized_lf']=dependency_hashes()
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     print(json.dumps({'output':str(args.output),'cases':len(result['cases']),

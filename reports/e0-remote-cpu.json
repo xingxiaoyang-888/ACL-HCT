@@ -1,0 +1,71 @@
+{
+  "source_commit": "9e610cbc16acfeff0d0790c63a0a11d28c4b9cb6",
+  "source_archive_sha256": "6e16e890bcbebc9f745cb508c401ab0cb40aeea8ebce1ef670e68b9abb016dde",
+  "harness_sha256": "f1e9e3692caa39b2b7362cb9d79325fed24212063bcbf7687d5debf3cf4b9b14",
+  "harness_tests_sha256": "4a605bfabf30fa7013d85b345450960b703102302dc00edabcc16b1baefe5847",
+  "source_files_sha256": {
+    "src/acl_hct/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "src/acl_hct/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "src/acl_hct/data.py": "31761322b71548cafc8b105bb0332d5e64d71a7c912718f77a8be0eed67be0f2",
+    "src/acl_hct/diagnostics.py": "08de5ccd4656a13f24f9dba4ad4b52b0aed7cf8391afde4e18e2e02e0ea68eee",
+    "src/acl_hct/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "src/acl_hct/model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1",
+    "src/acl_hct/smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3"
+  },
+  "stage": "E0",
+  "kind": "fixed_release_cpu_pytest",
+  "status": "passed",
+  "exit_code": 0,
+  "slurm_state": "COMPLETED",
+  "job_elapsed_seconds": 15,
+  "resources": {
+    "cpu_cores": 2,
+    "memory_gib": 8,
+    "gpus": 0
+  },
+  "pytest": {
+    "tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit_seconds": 11.708,
+    "console_seconds": 11.71
+  },
+  "environment": [
+    "filelock==3.32.3",
+    "fsspec==2026.7.0",
+    "iniconfig==2.3.0",
+    "Jinja2==3.1.6",
+    "MarkupSafe==3.0.3",
+    "mpmath==1.3.0",
+    "networkx==3.6.1",
+    "numpy==1.26.4",
+    "nvidia-cublas-cu12==12.4.5.8",
+    "nvidia-cuda-cupti-cu12==12.4.127",
+    "nvidia-cuda-nvrtc-cu12==12.4.127",
+    "nvidia-cuda-runtime-cu12==12.4.127",
+    "nvidia-cudnn-cu12==9.1.0.70",
+    "nvidia-cufft-cu12==11.2.1.3",
+    "nvidia-curand-cu12==10.3.5.147",
+    "nvidia-cusolver-cu12==11.6.1.9",
+    "nvidia-cusparse-cu12==12.3.1.170",
+    "nvidia-nccl-cu12==2.21.5",
+    "nvidia-nvjitlink-cu12==12.4.127",
+    "nvidia-nvtx-cu12==12.4.127",
+    "packaging==25.0",
+    "pluggy==1.6.0",
+    "Pygments==2.21.0",
+    "pytest==8.4.2",
+    "sympy==1.13.1",
+    "torch==2.5.1+cu124",
+    "triton==3.1.0",
+    "typing_extensions==4.16.0"
+  ],
+  "harness_tests_local": {
+    "tests": 9,
+    "seconds": 7.53,
+    "python": "3.10.11",
+    "torch": "2.0.1+cpu"
+  },
+  "scope": "Fixed release original 78-test CPU suite; not a CUDA test result."
+}

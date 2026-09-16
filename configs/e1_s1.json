@@ -1,5 +1,5 @@
 {
-  "enumeration_threshold": 2048,
+  "enumeration_threshold": 20000,
   "mc_draws": 4096,
   "chunk_size": 256,
   "cases": [
