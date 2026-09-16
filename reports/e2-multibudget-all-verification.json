@@ -1,0 +1,810 @@
+{
+  "11-f4": {
+    "summary_sha256": "865f363dfac4adb6b8b84cd74e9396da8946b78e2cbd60c3e963390ec6909faf",
+    "seed": 11,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "e448e6b1b5548c140229442f5c875ee8bcfb67e59545f26d0e49a1808adc95d9",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_4.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "8c4173d94f5d35829856b77cfeca93989e40ae3a6131cdda0c9fa17b568caeb2",
+        "npz_sha256": "a52d82346c9f2cae1186759f80bf2d89377e784cf31aa57b737b26faddf6c450",
+        "npz_bytes": 71099687
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 589.736520107137,
+    "peak_cuda_allocated_bytes": 3179065344,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "budgets": {
+      "4": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 313.2493216586299,
+          "geometry_structure": 17.272940035909414,
+          "task": 193.39715829701163
+        },
+        "seconds": 525.1973779969849,
+        "task_statistics": {
+          "mean": [
+            0.015100149008146217,
+            -0.0024367016092473807,
+            0.015358992315298614,
+            -0.0023757515051075627
+          ],
+          "mc_se": [
+            0.0002764841844949216,
+            0.00027648418449492164,
+            0.00026729427279773796,
+            0.00026729427279773796
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true
+    }
+  },
+  "11-f8": {
+    "summary_sha256": "d9138c0688720c58bd9a5644fa94e8d405415a3895234c62a8da525e4db8bcc3",
+    "seed": 11,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "0092fd0aaa94e2c8e826deae8714ff0b3ff277e2e6b26489786abb57ff0f448f",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_8.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "caf1acb02904f18b8ff605a7c56e5fc5b5e02029dcb18065415423df80565994",
+        "npz_sha256": "c7c466e8ad8b2ee64ed84ec761e8e9b4a5cc18d6adade032cd602d8dfd1a954c",
+        "npz_bytes": 47505627
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 623.3761520290282,
+    "peak_cuda_allocated_bytes": 3178201088,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "budgets": {
+      "8": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 339.43537188949995,
+          "geometry_structure": 17.644564074929804,
+          "task": 199.15340772480704
+        },
+        "seconds": 557.5550857250346,
+        "task_statistics": {
+          "mean": [
+            0.016691066539017033,
+            -0.0008457840783765644,
+            0.016952171452189947,
+            -0.0007825723682162301
+          ],
+          "mc_se": [
+            0.00014646785666904408,
+            0.0001464678566690441,
+            0.00016343571685009398,
+            0.00016343571685009382
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "11-f16": {
+    "summary_sha256": "1c27d1b38ca55d5ed07a911da5cc7eb645b46108a4962709bc4409ed440f4998",
+    "seed": 11,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "9ac8fb83b5b7cacf935997b540ef59ad2fb9024f397b1ca31c41a642e063c9db",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_16.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "226a65ae4c6f6cb6019386efc0149652ce428a1037ac4fec1356a86502489404",
+        "npz_sha256": "0b2b5bf7bbfb066350bddb0726448be68b3e4a5c9b5a3f28954b0bf3aa75c2f2",
+        "npz_bytes": 30503878
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 627.648508625105,
+    "peak_cuda_allocated_bytes": 3177459712,
+    "peak_cuda_reserved_bytes": 3579838464,
+    "budgets": {
+      "16": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 353.08067910932004,
+          "geometry_structure": 17.218800622504205,
+          "task": 193.32226524944417
+        },
+        "seconds": 564.8174887008499,
+        "task_statistics": {
+          "mean": [
+            0.01750385469176811,
+            -3.2995925625486894e-05,
+            0.0177031535512307,
+            -3.1590269175476336e-05
+          ],
+          "mc_se": [
+            0.0001485749285336549,
+            0.00014857492853365497,
+            0.00014686748293576572,
+            0.0001468674829357661
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "11-f32": {
+    "summary_sha256": "814103435d8d57883b7ec4062b7a4c516fadfeb63244eda42947f685f6986d27",
+    "seed": 11,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "b5df9130bf796d1668f3482475ab061541e033735110c7ff441adce80c4f1d79",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_32.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "52fb2881a056f233b33c4156581477cfc8271a91d7c04bff8be08ca74c1345f4",
+        "npz_sha256": "a5fdf8a299650227b6db113190f9945a4b4998a9c89260a2cc9d2fceed7a1b63",
+        "npz_bytes": 18319408
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 711.5766943525523,
+    "peak_cuda_allocated_bytes": 3176882176,
+    "peak_cuda_reserved_bytes": 3592421376,
+    "budgets": {
+      "32": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 434.35395085345954,
+          "geometry_structure": 17.347527810372412,
+          "task": 195.9579978333786
+        },
+        "seconds": 648.8710152721033,
+        "task_statistics": {
+          "mean": [
+            0.017527495145471084,
+            -9.355471922510582e-06,
+            0.017726439705917404,
+            -8.304114488774564e-06
+          ],
+          "mc_se": [
+            0.0001732718226915855,
+            0.0001732718226915856,
+            0.00017408386192983044,
+            0.00017408386192983025
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "11-f64": {
+    "summary_sha256": "2060c482f59418bfacc2512d12e3a5fa0c6fc8287e63d67728560b36020f326c",
+    "seed": 11,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "95f0ee3705feae3b3d565479fae3f98886443f68f6f5ffb6f57a8ff66ebfeb6b",
+        "npz_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+        "npz_bytes": 116068016
+      },
+      {
+        "manifest": "fanout_64.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "71fe33517c960a0015e0c5470e85a65e48ebbf9f07636462fcb0ebe3041e1524",
+        "npz_sha256": "55690ff7a02c083a766f2c5287d66f3a69fcb31b909d1c48d8e4789d6398435c",
+        "npz_bytes": 12250420
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 781.13106995821,
+    "peak_cuda_allocated_bytes": 3176525824,
+    "peak_cuda_reserved_bytes": 3584032768,
+    "budgets": {
+      "64": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 503.439788014628,
+          "geometry_structure": 17.3686631815508,
+          "task": 196.6710673784837
+        },
+        "seconds": 718.6823380766436,
+        "task_statistics": {
+          "mean": [
+            0.017649874775162704,
+            0.00011302415776910873,
+            0.017837855808634336,
+            0.00010311198822815807
+          ],
+          "mc_se": [
+            5.209311093869521e-05,
+            5.209311093869559e-05,
+            5.3608096629776553e-05,
+            5.360809662977661e-05
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "23-f4": {
+    "summary_sha256": "bc9eb890c3c4e8f159d9404f800f8ffa97c04b8a42d022f7b067e89f060cee07",
+    "seed": 23,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "727ab7d61ae474dd61d618041b590bb1ae432503927fb3cac48fe63726152790",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_4.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "1bd2fcc74296d798e03b4839297ed6aba0659e52b2eddb3c2bbdb507ea94e448",
+        "npz_sha256": "eff643f81b7e8624e9f15e690c522f348553ddc78def01a42aed9bd669389444",
+        "npz_bytes": 71093901
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 592.8166325530037,
+    "peak_cuda_allocated_bytes": 3179065344,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "budgets": {
+      "4": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 315.12688234914094,
+          "geometry_structure": 17.32666132040322,
+          "task": 193.25546521600336
+        },
+        "seconds": 527.1041159238666,
+        "task_statistics": {
+          "mean": [
+            0.012727533954748066,
+            -0.001201010066894467,
+            0.0126979090285749,
+            -0.001106227318430146
+          ],
+          "mc_se": [
+            0.000814625096104271,
+            0.000814625096104271,
+            0.0008035216683595144,
+            0.0008035216683595145
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true
+    }
+  },
+  "23-f8": {
+    "summary_sha256": "c0952dc4468754f29adbf9def5575b7b2dafe930c153394548f6e1fd9d34004f",
+    "seed": 23,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "715d8a443557c89d82e3b4eb4b280677f59c7de39bc2e78952e202394bda3bd4",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_8.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "935e09f19635f02e88daf46b043caf423fc676444d1f54a7f2a7976a807a76b0",
+        "npz_sha256": "abfa83c6cc3eda173ead0e32ff6cd44c257b3d1ac986f696b52337a78d3f68f7",
+        "npz_bytes": 47498388
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 622.7222336279228,
+    "peak_cuda_allocated_bytes": 3178201088,
+    "peak_cuda_reserved_bytes": 3495952384,
+    "budgets": {
+      "8": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 337.1859320908552,
+          "geometry_structure": 17.68607122974936,
+          "task": 200.6746157159796
+        },
+        "seconds": 556.8469484589295,
+        "task_statistics": {
+          "mean": [
+            0.012370155996610899,
+            -0.0015583880250316321,
+            0.012348073962419423,
+            -0.0014560623845856222
+          ],
+          "mc_se": [
+            0.0005344530344856027,
+            0.0005344530344856027,
+            0.0004907158215741264,
+            0.0004907158215741264
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "23-f16": {
+    "summary_sha256": "8583f0f6501a09595257fed7bac4f4d348959999c2b2666edff439d393841f55",
+    "seed": 23,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "64c8a500c040cfa85b8471f3d2254f209d82cc32158a761b281cbe236ef000d3",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_16.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "385060abd39528eb1408f1ce9bfb213cca8d49df5fb5902bc3ae2bd9c6050981",
+        "npz_sha256": "75290c601eb7e55ad323e1def4406cd9e06fb513b942b102146a90464feebe5e",
+        "npz_bytes": 30506317
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 628.2671499489807,
+    "peak_cuda_allocated_bytes": 3177459712,
+    "peak_cuda_reserved_bytes": 3579838464,
+    "budgets": {
+      "16": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 354.8239671753254,
+          "geometry_structure": 17.18094422132708,
+          "task": 192.13522493792698
+        },
+        "seconds": 565.36079492094,
+        "task_statistics": {
+          "mean": [
+            0.013947974495149876,
+            1.943047350734333e-05,
+            0.013808316536056546,
+            4.1801890514983506e-06
+          ],
+          "mc_se": [
+            0.00038258794283094975,
+            0.00038258794283094996,
+            0.0003522998872496824,
+            0.0003522998872496825
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "23-f32": {
+    "summary_sha256": "f0f8f7d54966ba4b1a0e8c0aee26018354a377c0a4a89c0cd4d132fe7bf90f3d",
+    "seed": 23,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "f05bab2e48c1a548fe14118b8989a3037ca893992f4d03661031c14959e73143",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_32.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "c442329968c6c3d4136bbaf331b4f8cb7187d09407d8165b573e6c235079e72d",
+        "npz_sha256": "c18c5f152fa94a7dc3dd9855bfc51da1675f78a88229e1a880da7454db42ebe0",
+        "npz_bytes": 18319934
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 733.0187833579257,
+    "peak_cuda_allocated_bytes": 3176882176,
+    "peak_cuda_reserved_bytes": 3592421376,
+    "budgets": {
+      "32": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 443.3023610454984,
+          "geometry_structure": 17.651567183900625,
+          "task": 205.16776867117733
+        },
+        "seconds": 667.352296797093,
+        "task_statistics": {
+          "mean": [
+            0.013190355605148049,
+            -0.0007381884164944809,
+            0.013121223219941455,
+            -0.0006829131270635906
+          ],
+          "mc_se": [
+            0.00029225882985946754,
+            0.00029225882985946765,
+            0.00026243838829675736,
+            0.00026243838829675747
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  },
+  "23-f64": {
+    "summary_sha256": "1b166e6699cfb7c28cbbbca0fca77f67d1cfb431f1d9ef367cfb42f9b751302a",
+    "seed": 23,
+    "source_commit": "4a0fdb1c66512c247def473b553dd59ced690210",
+    "config_sha256": "9476fd2cd6dd1527f22ba2538f4f2c29d8adc847ef6df74d47553fa1256e6ff7",
+    "status": "complete",
+    "entry_status": "passed",
+    "failures": [],
+    "checkpoint_and_weights_unchanged": true,
+    "archives": [
+      {
+        "manifest": "entry.json",
+        "arrays_verified": 15,
+        "manifest_sha256": "3cce03d27c4e544e3449438edef36e79a4b908632f1b940c56349451a3dc7fb1",
+        "npz_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+        "npz_bytes": 116059022
+      },
+      {
+        "manifest": "fanout_64.json",
+        "arrays_verified": 1109,
+        "manifest_sha256": "769d8bdd23c95ac67d6759acd763d5eb26b827d9b623c165ade6519f1f82c8dc",
+        "npz_sha256": "7405d448f86d77e27767033d16d8b8ded505bca14d27c8bd41dd19859ec8f995",
+        "npz_bytes": 12249546
+      }
+    ],
+    "recorded_check_status_counts": {
+      "passed": 2852
+    },
+    "failed_recorded_checks": [],
+    "total_seconds": 807.2816808014177,
+    "peak_cuda_allocated_bytes": 3176525824,
+    "peak_cuda_reserved_bytes": 3584032768,
+    "budgets": {
+      "64": {
+        "status": "complete",
+        "completed_graph_repetitions": 128,
+        "completed_task_repetitions": 8,
+        "completed_method_repetitions": {
+          "local_L1": 128,
+          "F/S": 128,
+          "S/F": 128,
+          "S/S": 128
+        },
+        "timing_seconds": {
+          "paired_forward": 520.1607736032456,
+          "geometry_structure": 17.67862568795681,
+          "task": 203.84411165397614
+        },
+        "seconds": 742.8888000608422,
+        "task_statistics": {
+          "mean": [
+            0.013929537230913926,
+            9.932092713946423e-07,
+            0.013819108371954608,
+            1.4972024949561085e-05
+          ],
+          "mc_se": [
+            0.0003267803850322322,
+            0.0003267803850322322,
+            0.00029595546613142424,
+            0.0002959554661314243
+          ],
+          "independent_graph_repetitions": 8
+        },
+        "task_columns": [
+          "micro_mrr",
+          "micro_change_from_full",
+          "child_macro_mrr",
+          "macro_change_from_full"
+        ]
+      }
+    },
+    "independent_recomputation": {
+      "all_geometry_group_means_mc_se": true,
+      "all_structure_columns_means_mc_se": true,
+      "all_8_task_rank_micro_macro": true,
+      "task_means_mc_se": true,
+      "complete_repetition_ids": true,
+      "same_query_pairs_all_task_repetitions": true
+    }
+  }
+}

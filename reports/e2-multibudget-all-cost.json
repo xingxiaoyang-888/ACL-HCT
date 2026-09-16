@@ -1,0 +1,134 @@
+{
+  "shards": [
+    {
+      "seed": 11,
+      "fanout": 4,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 592,
+      "process_wall_time": "9:51.91",
+      "max_process_rss_kib": 1939584,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 23,
+      "fanout": 4,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 600,
+      "process_wall_time": "10:00.25",
+      "max_process_rss_kib": 2074576,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 11,
+      "fanout": 8,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 629,
+      "process_wall_time": "10:28.18",
+      "max_process_rss_kib": 1940384,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 11,
+      "fanout": 16,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 632,
+      "process_wall_time": "10:32.10",
+      "max_process_rss_kib": 1966524,
+      "gpu": "NVIDIA L40",
+      "driver": "550.54.14",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 11,
+      "fanout": 32,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 717,
+      "process_wall_time": "11:56.84",
+      "max_process_rss_kib": 1925928,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 11,
+      "fanout": 64,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 785,
+      "process_wall_time": "13:03.89",
+      "max_process_rss_kib": 1928412,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 23,
+      "fanout": 8,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 625,
+      "process_wall_time": "10:25.14",
+      "max_process_rss_kib": 1939748,
+      "gpu": "NVIDIA L40",
+      "driver": "580.65.06",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 23,
+      "fanout": 16,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 633,
+      "process_wall_time": "10:32.86",
+      "max_process_rss_kib": 1954636,
+      "gpu": "NVIDIA L40",
+      "driver": "550.54.14",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 23,
+      "fanout": 32,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 738,
+      "process_wall_time": "12:18.00",
+      "max_process_rss_kib": 1776556,
+      "gpu": "NVIDIA L40",
+      "driver": "550.54.14",
+      "gpu_memory_reported": "46068 MiB"
+    },
+    {
+      "seed": 23,
+      "fanout": 64,
+      "status": "COMPLETED",
+      "exit_code": "0:0",
+      "allocated_gpu_seconds": 814,
+      "process_wall_time": "13:33.35",
+      "max_process_rss_kib": 1773376,
+      "gpu": "NVIDIA L40",
+      "driver": "550.54.14",
+      "gpu_memory_reported": "46068 MiB"
+    }
+  ],
+  "total_allocated_gpu_seconds": 6765,
+  "total_allocated_gpu_hours": 1.8791666666666667,
+  "per_shard_resources": {
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "host_memory_gib": 16
+  },
+  "maximum_concurrent_gpus": 2,
+  "all_gpus_released": true,
+  "cost_scope": "Ten scientific development shards only; excludes CUDA fixture and earlier pilots. Different drivers and concurrent placements are not a controlled performance comparison."
+}
