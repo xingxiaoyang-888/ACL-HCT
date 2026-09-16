@@ -40,3 +40,11 @@ PYTHONPATH=src python -m acl_hct.evaluate_checkpoint \
 CPU 40 实体 fixture：`python -m pytest tests/test_checkpoint_evaluation.py -q`，10 passed / 30.79 s。验证完整 valid 多于一条 probe、全部候选、test/truth 不读取、禁止 optimizer/save 调用、输入和 checkpoint 目录字节不变、无 best 文件、artifact/commit/source/valid/manifest 不匹配拒绝、编码前时间耗尽、ranking 时间耗尽、未分配 CUDA 拒绝，以及实际无 Git 归档 CLI 区分训练与评估来源并拒绝覆盖输出。仅出现旧 PyTorch TypedStorage 弃用警告。
 
 同轮原训练器五项回归通过（包括完整 valid 选择和精确 resume）；它们未因新增只读入口而改动。本提交未运行真实完整 valid 或 GPU 作业，不提供该成本或模型能力结论。效率补丁与历史 pilot 证据分别见 [S1B_EFFICIENCY.md](S1B_EFFICIENCY.md) 和 [S1B_PILOT.md](S1B_PILOT.md)。
+
+## 整文件无 Git 归档测试修复
+
+8408af6 的上述通过结果来自本地 Git 工作区。实验任务随后在无 `.git` release 执行整个 `tests/test_checkpoint_evaluation.py`，结果 **9 failed / 1 passed / 10.45 s**，尚未申请 GPU。原因是合成训练 fixture 隐式依赖 Git HEAD，归档中的 checkpoint source commit 变为 null；多数直接 evaluate 调用也没有显式提供评估 source commit。原有“归档 CLI”子测试不足以证明整个目标文件能在归档运行。该失败不改写为远程通过。
+
+修复仅改测试：训练 identity 明确标为 `synthetic_test_fixture_not_a_repository_revision`，使用40位全1的合成标识；无 Git fixture 评估显式使用40位全2的合成标识。实际 Git checkout 的直接评估仍声明真实 HEAD，避免违反生产来源一致性约束。训练/评估合成标识仅用于测试，绝非真实 release 来源。新增无 Git CLI 缺少评估 source commit 时仍拒绝的断言，保留所有 artifact/commit/source/valid/manifest mismatch 检查。生产入口、source_identity、resume 和 checkpoint 校验完全未修改，未伪造 Git 仓库、跳过测试或吞异常。
+
+实际验证：以 `git archive 052ef0b2df50e04a26e2d08b23e097cd7ac77744 --output=source.tar` 导出到系统 TEMP 下的新目录，用 Python `tarfile` 展开并只覆盖修复后的 `tests/test_checkpoint_evaluation.py`。先确认该目录不存在 `.git` 且其中 `git rev-parse --show-toplevel` 返回失败，再以归档目录为 cwd、`PYTHONPATH=<archive>/src` 运行 **`python -m pytest tests/test_checkpoint_evaluation.py -q`**，整个目标文件 **10 passed / 27.84 s**，exit 0。仅有本地旧 PyTorch 的 TypedStorage 弃用警告。复现时直接导出包含此修复的固定 commit，不再需要覆盖测试文件。机器可读摘要与规范 LF 测试哈希见 [checkpoint-evaluation-archive-fixture.json](checkpoint-evaluation-archive-fixture.json)。远程重验及真实完整 valid 仍由实验任务执行。

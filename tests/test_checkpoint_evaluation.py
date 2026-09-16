@@ -14,6 +14,9 @@ from acl_hct.train import run, load_prepared
 from acl_hct.taxonomy import Taxonomy
 from test_training_runner import small_config
 
+TRAINING_FIXTURE_COMMIT = '1111111111111111111111111111111111111111'
+EVALUATION_FIXTURE_COMMIT = '2222222222222222222222222222222222222222'
+
 
 @pytest.fixture
 def prepared(tmp_path):
@@ -30,7 +33,11 @@ def prepared(tmp_path):
 
 @pytest.fixture
 def evaluation_inputs(prepared, tmp_path):
-    run(prepared, tmp_path/'pilot', small_config(max_steps=1, probe_queries=1))
+    # Synthetic checkpoint provenance is explicit and never claims a Git commit.
+    fixture_identity = {'source_commit': TRAINING_FIXTURE_COMMIT,
+                        'source_commit_basis': 'synthetic_test_fixture_not_a_repository_revision',
+                        'git': {'available': False, 'commit': None, 'dirty': None}}
+    run(prepared, tmp_path/'pilot', small_config(max_steps=1, probe_queries=1), identity=fixture_identity)
     checkpoint = tmp_path/'pilot/last.pt'
     saved = torch.load(checkpoint, map_location='cpu', weights_only=True)
     release = tmp_path/'training-release'
@@ -44,6 +51,9 @@ def evaluation_inputs(prepared, tmp_path):
         'expected_checkpoint_sha256': evaluator.file_sha256(checkpoint),
         'expected_training_commit': saved['source']['source_commit'],
         'training_release': release,
+        # A real checkout must retain its actual revision: production rejects
+        # false declarations. A Git-free fixture archive uses this synthetic ID.
+        'source_commit': evaluator.source_identity()['source_commit'] or EVALUATION_FIXTURE_COMMIT,
     }
 
 
@@ -139,13 +149,17 @@ def test_archive_cli_separates_training_and_evaluation_sources(evaluation_inputs
     source = release/'src/acl_hct/evaluate_checkpoint.py'
     source.write_text(source.read_text()+'\n# archive fixture\n')
     output = tmp_path/'full-valid.json'
-    declared = 'a'*40
+    declared = EVALUATION_FIXTURE_COMMIT
     command = [sys.executable, '-m', 'acl_hct.evaluate_checkpoint',
         '--prepared', str(args['prepared_root']), '--checkpoint', str(args['checkpoint_path']),
         '--training-release', str(args['training_release']), '--output', str(output),
         '--expected-checkpoint-sha256', args['expected_checkpoint_sha256'],
         '--expected-training-commit', args['expected_training_commit'], '--source-commit', declared]
     env = {**os.environ, 'PYTHONPATH': str(release/'src')}
+    missing_commit = command[:-2]  # Remove --source-commit and its value.
+    rejected = subprocess.run(missing_commit, cwd=release, env=env, capture_output=True)
+    assert rejected.returncode != 0 and b'archive evaluation requires --source-commit' in rejected.stderr
+    assert not output.exists()
     subprocess.run(command, cwd=release, env=env, check=True, capture_output=True)
     result = json.loads(output.read_text())
     assert result['status'] == 'complete'

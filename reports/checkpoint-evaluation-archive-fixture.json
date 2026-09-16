@@ -1,0 +1,37 @@
+{
+  "scope": "CPU synthetic fixture only; entire target test file in Git-free temporary archive",
+  "source_base_commit": "052ef0b2df50e04a26e2d08b23e097cd7ac77744",
+  "overlay": "tests/test_checkpoint_evaluation.py only; production source unchanged",
+  "test_sha256_normalized_lf": "6e1643b675785f4c03bb442f64f48eaabc969d81b7c34d5f312aba45c58820c0",
+  "git_directory_present": false,
+  "git_rev_parse_succeeded": false,
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_checkpoint_evaluation.py",
+    "-q"
+  ],
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "elapsed_seconds": 27.84,
+  "exit_code": 0,
+  "python": "3.10.11",
+  "torch": "2.0.1+cpu",
+  "warning": "TypedStorage deprecation",
+  "training_fixture_identity": "1111111111111111111111111111111111111111",
+  "archive_evaluation_fixture_identity": "2222222222222222222222222222222222222222",
+  "identity_scope": "synthetic fixtures, not real repository revisions",
+  "archive_missing_evaluation_commit_rejected": true,
+  "production_source_changed": false,
+  "historical_remote_gate": {
+    "source_commit": "8408af6eab35d89b9c407acc7c69df4106cfe13f",
+    "passed": 1,
+    "failed": 9,
+    "elapsed_seconds": 10.45,
+    "gpu_requested": false,
+    "basis": "experiment task result reviewed by parent; preserved as failed"
+  },
+  "real_full_validation_run": false
+}
