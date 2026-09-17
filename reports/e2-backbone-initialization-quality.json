@@ -1,0 +1,254 @@
+{
+  "status": "passed",
+  "purpose": "Historical-version initialization fairness micro-check only; manual_seed then constructors; no data/checkpoint loading, forward, optimizer or GPU operations",
+  "GNN_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+  "MLP_commit": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+  "source_sha256": {
+    "GNN/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "GNN/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "GNN/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "GNN/backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "GNN/train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "MLP/text_capacity.py": "7d58ccdc91969af0da312bd5c64d7255d8d0080721dbf48a1400c4b23a1f0bdf",
+    "MLP/capacity_control.py": "064482153cf216dff753c585cd3a21124462c1d0740167ccee782acd38f1cbb7"
+  },
+  "historical_MLP_run_raw_sha256": {
+    "11": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+    "23": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e"
+  },
+  "helper_raw_sha256": "a3720417df4909d16fe4ea9d8d98e2aabe5ded4be459017e7d84ea6e8fe2a6ef",
+  "expected_record_raw_sha256": "43d2df7ef0053dbfbc5b6b24f839a64e9235bbde05e09ebbdb8ccedf23fbae74",
+  "software": {
+    "python": "3.11.7",
+    "torch": "2.5.1+cu124",
+    "numpy": "1.26.4",
+    "default_dtype": "torch.float32",
+    "device": "CPU"
+  },
+  "seeds": [
+    {
+      "seed": 11,
+      "GNN_parameters": 82433,
+      "MLP_parameters": 82433,
+      "corresponding_tensors": [
+        {
+          "GNN_tensor": "layers.0.linear.weight",
+          "MLP_tensor": "encoder.0.weight",
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "fda5c86bd9e0c6704f9533ef0f1dc99f76c807184c446b4d24650c677aca8dbc",
+          "MLP_sha256": "fda5c86bd9e0c6704f9533ef0f1dc99f76c807184c446b4d24650c677aca8dbc",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.0.linear.bias",
+          "MLP_tensor": "encoder.0.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "a91f6441ba00d7915a533c9986f22d1e011574219d085ad042d02e81d393f35c",
+          "MLP_sha256": "a91f6441ba00d7915a533c9986f22d1e011574219d085ad042d02e81d393f35c",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.1.linear.weight",
+          "MLP_tensor": "encoder.2.weight",
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "95721d6861dc59b9ad3acf646b2da30260786a44b253f049599d9da7ad4e0cca",
+          "MLP_sha256": "95721d6861dc59b9ad3acf646b2da30260786a44b253f049599d9da7ad4e0cca",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.1.linear.bias",
+          "MLP_tensor": "encoder.2.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "ec0e8dfaba186f15ae59f16212ff2aafa3ee9ce7d33ffe12ab57c68b99185fa8",
+          "MLP_sha256": "ec0e8dfaba186f15ae59f16212ff2aafa3ee9ce7d33ffe12ab57c68b99185fa8",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.0.weight",
+          "MLP_tensor": "relation_head.0.weight",
+          "shape": [
+            128,
+            384
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "404c9af9bd2520fd3a5f89e47174d8de89f5213926c7525a3b0023fb8a493667",
+          "MLP_sha256": "404c9af9bd2520fd3a5f89e47174d8de89f5213926c7525a3b0023fb8a493667",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.0.bias",
+          "MLP_tensor": "relation_head.0.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "25a43d7903c518b74c9e9931313b84a21884122cc1fac14a6c0b42dc2b969db6",
+          "MLP_sha256": "25a43d7903c518b74c9e9931313b84a21884122cc1fac14a6c0b42dc2b969db6",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.2.weight",
+          "MLP_tensor": "relation_head.2.weight",
+          "shape": [
+            1,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "06be95ca98887659267888297f77f610d1eec45332d54b6ed80b3ac201627e60",
+          "MLP_sha256": "06be95ca98887659267888297f77f610d1eec45332d54b6ed80b3ac201627e60",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.2.bias",
+          "MLP_tensor": "relation_head.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "dc340b8d82686c5626f02093ad5d66f7afe48c3281068f71a9d8d09db57c24bf",
+          "MLP_sha256": "dc340b8d82686c5626f02093ad5d66f7afe48c3281068f71a9d8d09db57c24bf",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        }
+      ],
+      "post_constructor_CPU_RNG_equal": true,
+      "post_constructor_CPU_RNG_sha256": "771294b8847708451ac0cc2c8d74f8a07ae8ebf85ad93e35a2949d575cf49c2f",
+      "all_eight_corresponding_tensors_equal": true,
+      "all_eight_MLP_historical_initial_hashes_match": true
+    },
+    {
+      "seed": 23,
+      "GNN_parameters": 82433,
+      "MLP_parameters": 82433,
+      "corresponding_tensors": [
+        {
+          "GNN_tensor": "layers.0.linear.weight",
+          "MLP_tensor": "encoder.0.weight",
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "d3fd936e1d74f9eca488c142873aa3995a878a0c322e6426314323c41cb1d471",
+          "MLP_sha256": "d3fd936e1d74f9eca488c142873aa3995a878a0c322e6426314323c41cb1d471",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.0.linear.bias",
+          "MLP_tensor": "encoder.0.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "6037bdab5258f4fa3cfb70f202a632fd7f60b8121f9cbe2bc77838afab824d76",
+          "MLP_sha256": "6037bdab5258f4fa3cfb70f202a632fd7f60b8121f9cbe2bc77838afab824d76",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.1.linear.weight",
+          "MLP_tensor": "encoder.2.weight",
+          "shape": [
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "912db8be87076ebe1b9d2a34d9ba6fd2c323a4f36f20c627d8fd9a60c3b82696",
+          "MLP_sha256": "912db8be87076ebe1b9d2a34d9ba6fd2c323a4f36f20c627d8fd9a60c3b82696",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "layers.1.linear.bias",
+          "MLP_tensor": "encoder.2.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "3e85a9ceebd596e8918462d0d5351c59d517992ce8ca8aa2b83be0d99d9b4c40",
+          "MLP_sha256": "3e85a9ceebd596e8918462d0d5351c59d517992ce8ca8aa2b83be0d99d9b4c40",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.0.weight",
+          "MLP_tensor": "relation_head.0.weight",
+          "shape": [
+            128,
+            384
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "2705009ebcebff16a7351ad7010c15358318bdb30ea6654c8d0ecda90ef6a479",
+          "MLP_sha256": "2705009ebcebff16a7351ad7010c15358318bdb30ea6654c8d0ecda90ef6a479",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.0.bias",
+          "MLP_tensor": "relation_head.0.bias",
+          "shape": [
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "20f4c4e0384d65c7a9e7652b06ce73de9761d50c28a2b638394745b8c0448c79",
+          "MLP_sha256": "20f4c4e0384d65c7a9e7652b06ce73de9761d50c28a2b638394745b8c0448c79",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.2.weight",
+          "MLP_tensor": "relation_head.2.weight",
+          "shape": [
+            1,
+            128
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "d20ff2c566cce8a4c1347b22e087feb33cdf3312e28e0c6444463c8a20ec765e",
+          "MLP_sha256": "d20ff2c566cce8a4c1347b22e087feb33cdf3312e28e0c6444463c8a20ec765e",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        },
+        {
+          "GNN_tensor": "relation_head.2.bias",
+          "MLP_tensor": "relation_head.2.bias",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "GNN_sha256": "8980ba5ca504f605cf247006a5d93fb75147cbf01b295b5b6a65031c6a1afa17",
+          "MLP_sha256": "8980ba5ca504f605cf247006a5d93fb75147cbf01b295b5b6a65031c6a1afa17",
+          "corresponding_values_equal": true,
+          "MLP_historical_initial_sha256_matches": true
+        }
+      ],
+      "post_constructor_CPU_RNG_equal": true,
+      "post_constructor_CPU_RNG_sha256": "e9b5c4c45ca4847b3fd767a127abe17e867a01cfb0ea1fb0d323e41f2a4f1b47",
+      "all_eight_corresponding_tensors_equal": true,
+      "all_eight_MLP_historical_initial_hashes_match": true
+    }
+  ],
+  "elapsed_seconds_excluding_imports": 0.6128875711001456,
+  "limitations": "Historical GNN initial tensors were not logged directly; reconstructed using its frozen constructor and initialization order. Equal initialization does not match architecture, FLOPs or convergence."
+}

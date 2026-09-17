@@ -1,0 +1,435 @@
+{
+  "scope": "Read-only descriptive audit of already generated data; no new model evaluations/training",
+  "train_positive_groups": 67539,
+  "total_positive_group_draws": 131072,
+  "equivalent_group_passes": 1.9406861220924208,
+  "expected_unique_positive_groups": 57857.87837939048,
+  "models": {
+    "11": {
+      "gnn": {
+        "raw_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+        "source": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+        "loss_windows": {
+          "1-64": 0.4945075558498502,
+          "193-256": 0.33252611430361867,
+          "449-512": 0.2722104382701218,
+          "705-768": 0.25239434372633696,
+          "961-1024": 0.23306971951387823
+        },
+        "validation": [
+          {
+            "step": 256,
+            "micro": 0.007193695263860769,
+            "macro": 0.0071918312132419684,
+            "hits": {
+              "1": 0.00023651844843897824,
+              "3": 0.006622516556291391,
+              "10": 0.018211920529801324
+            }
+          },
+          {
+            "step": 512,
+            "micro": 0.008435679013423587,
+            "macro": 0.008419212841367513,
+            "hits": {
+              "1": 0.0010643330179754022,
+              "3": 0.006149479659413435,
+              "10": 0.018448438978240302
+            }
+          },
+          {
+            "step": 768,
+            "micro": 0.017536850617393598,
+            "macro": 0.017734743820406178,
+            "hits": {
+              "1": 0.006859035004730369,
+              "3": 0.01620151371807001,
+              "10": 0.03216650898770104
+            }
+          },
+          {
+            "step": 1024,
+            "micro": 0.0161267994877424,
+            "macro": 0.016333008939495245,
+            "hits": {
+              "1": 0.004730368968779565,
+              "3": 0.012771996215704825,
+              "10": 0.03571428571428571
+            }
+          }
+        ],
+        "best_step": 768,
+        "layers": {
+          "1": {
+            "1-64": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.5844387523829937,
+              "fallback_rate": 0.16334846848621964,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.8125
+            },
+            "193-256": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.47337084962055087,
+              "fallback_rate": 0.1633515120483935,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.90625
+            },
+            "449-512": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.5293850190937519,
+              "fallback_rate": 0.16334694577381015,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.515625
+            },
+            "705-768": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.6138266129419208,
+              "fallback_rate": 0.16334218834526837,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.359375
+            },
+            "961-1024": {
+              "near_bound_fraction": 1.7125373119597498e-05,
+              "mean_scaled_message_radius": 0.6637545060366392,
+              "fallback_rate": 0.16333609889261425,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.25
+            }
+          },
+          "2": {
+            "1-64": {
+              "near_bound_fraction": 0.004621757643064939,
+              "mean_scaled_message_radius": 1.0212350636720657,
+              "fallback_rate": 0.16334846848621964,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.8125
+            },
+            "193-256": {
+              "near_bound_fraction": 0.34566899482160807,
+              "mean_scaled_message_radius": 1.1107963006943464,
+              "fallback_rate": 0.1633515120483935,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.90625
+            },
+            "449-512": {
+              "near_bound_fraction": 0.5494649317115545,
+              "mean_scaled_message_radius": 1.1332048270851374,
+              "fallback_rate": 0.16334694577381015,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.515625
+            },
+            "705-768": {
+              "near_bound_fraction": 0.6446681218221784,
+              "mean_scaled_message_radius": 1.1456920262426138,
+              "fallback_rate": 0.16334218834526837,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.359375
+            },
+            "961-1024": {
+              "near_bound_fraction": 0.7665524417534471,
+              "mean_scaled_message_radius": 1.155830092728138,
+              "fallback_rate": 0.16333609889261425,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.25
+            }
+          }
+        },
+        "sampled_messages_fraction": 0.8928240148932483
+      },
+      "mlp": {
+        "raw_sha256": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+        "source": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+        "loss_windows": {
+          "1-64": 0.4941857005469501,
+          "193-256": 0.35943476762622595,
+          "449-512": 0.3081061798147857,
+          "705-768": 0.27058912278153,
+          "961-1024": 0.2504403442144394
+        },
+        "validation": [
+          {
+            "step": 256,
+            "micro": 0.005378673190459604,
+            "macro": 0.005484674594935997,
+            "hits": {
+              "1": 0.00035477767265846736,
+              "3": 0.004375591296121097,
+              "10": 0.010525070955534531
+            }
+          },
+          {
+            "step": 512,
+            "micro": 0.01193960014905031,
+            "macro": 0.012100689800291223,
+            "hits": {
+              "1": 0.003192999053926206,
+              "3": 0.008278145695364239,
+              "10": 0.030274361400189215
+            }
+          },
+          {
+            "step": 768,
+            "micro": 0.014313652163200368,
+            "macro": 0.014381842634108497,
+            "hits": {
+              "1": 0.0021286660359508044,
+              "3": 0.010288552507095554,
+              "10": 0.037961210974456004
+            }
+          },
+          {
+            "step": 1024,
+            "micro": 0.020536583138370156,
+            "macro": 0.020774412518580098,
+            "hits": {
+              "1": 0.005203405865657522,
+              "3": 0.018330179754020813,
+              "10": 0.04848628192999054
+            }
+          }
+        ],
+        "best_step": 1024
+      }
+    },
+    "23": {
+      "gnn": {
+        "raw_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+        "source": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+        "loss_windows": {
+          "1-64": 0.4890446593053639,
+          "193-256": 0.3384542725980282,
+          "449-512": 0.2760494132526219,
+          "705-768": 0.250404404476285,
+          "961-1024": 0.2336566501762718
+        },
+        "validation": [
+          {
+            "step": 256,
+            "micro": 0.005397249181584874,
+            "macro": 0.005525601991947489,
+            "hits": {
+              "1": 0.00035477767265846736,
+              "3": 0.004612109744560076,
+              "10": 0.011471144749290445
+            }
+          },
+          {
+            "step": 512,
+            "micro": 0.007993983154352808,
+            "macro": 0.007992426779250468,
+            "hits": {
+              "1": 0.001892147587511826,
+              "3": 0.0060312204351939454,
+              "10": 0.013954588457899717
+            }
+          },
+          {
+            "step": 768,
+            "micro": 0.01392854402164253,
+            "macro": 0.013804136347005046,
+            "hits": {
+              "1": 0.004493850520340586,
+              "3": 0.011471144749290445,
+              "10": 0.02684484389782403
+            }
+          },
+          {
+            "step": 1024,
+            "micro": 0.01121512425757409,
+            "macro": 0.011334989426156688,
+            "hits": {
+              "1": 0.0015373699148533587,
+              "3": 0.007923368022705771,
+              "10": 0.026253547776726584
+            }
+          }
+        ],
+        "best_step": 768,
+        "layers": {
+          "1": {
+            "1-64": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.6115988781675696,
+              "fallback_rate": 0.1633608357515186,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.0
+            },
+            "193-256": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.4800266739912331,
+              "fallback_rate": 0.1633459934964776,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.609375
+            },
+            "449-512": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.5423369137570262,
+              "fallback_rate": 0.16334751597605646,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.78125
+            },
+            "705-768": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.6148474058136344,
+              "fallback_rate": 0.16335341590456665,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.953125
+            },
+            "961-1024": {
+              "near_bound_fraction": 0.0,
+              "mean_scaled_message_radius": 0.6635990124195814,
+              "fallback_rate": 0.1633362891152501,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120373.453125
+            }
+          },
+          "2": {
+            "1-64": {
+              "near_bound_fraction": 0.0007655041810608054,
+              "mean_scaled_message_radius": 1.0072061493992805,
+              "fallback_rate": 0.1633608357515186,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120371.0
+            },
+            "193-256": {
+              "near_bound_fraction": 0.23676608479581773,
+              "mean_scaled_message_radius": 1.0909071955829859,
+              "fallback_rate": 0.1633459934964776,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.609375
+            },
+            "449-512": {
+              "near_bound_fraction": 0.4884030814282596,
+              "mean_scaled_message_radius": 1.1264905575662851,
+              "fallback_rate": 0.16334751597605646,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.78125
+            },
+            "705-768": {
+              "near_bound_fraction": 0.6335653616115451,
+              "mean_scaled_message_radius": 1.14399553835392,
+              "fallback_rate": 0.16335341590456665,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120372.953125
+            },
+            "961-1024": {
+              "near_bound_fraction": 0.7374299811199307,
+              "mean_scaled_message_radius": 1.1532992701977491,
+              "fallback_rate": 0.1633362891152501,
+              "clipping_rate": 0.0,
+              "candidate_messages": 134822.0,
+              "selected_messages": 120373.453125
+            }
+          }
+        },
+        "sampled_messages_fraction": 0.8928241814902241
+      },
+      "mlp": {
+        "raw_sha256": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e",
+        "source": "e1dd5ee3e9b2ac2a89cdf6b49dd71247987e4246",
+        "loss_windows": {
+          "1-64": 0.48794529028236866,
+          "193-256": 0.3475627340376377,
+          "449-512": 0.3046421208418906,
+          "705-768": 0.2645578128285706,
+          "961-1024": 0.2435851206537336
+        },
+        "validation": [
+          {
+            "step": 256,
+            "micro": 0.005556958153649544,
+            "macro": 0.005629656624016293,
+            "hits": {
+              "1": 0.0004730368968779565,
+              "3": 0.0021286660359508044,
+              "10": 0.012771996215704825
+            }
+          },
+          {
+            "step": 512,
+            "micro": 0.013186183905830562,
+            "macro": 0.013438368244285452,
+            "hits": {
+              "1": 0.0041390728476821195,
+              "3": 0.011944181646168402,
+              "10": 0.026490066225165563
+            }
+          },
+          {
+            "step": 768,
+            "micro": 0.018479655574373557,
+            "macro": 0.01842492169025931,
+            "hits": {
+              "1": 0.005912961210974456,
+              "3": 0.013126773888363292,
+              "10": 0.04304635761589404
+            }
+          },
+          {
+            "step": 1024,
+            "micro": 0.01914426559912869,
+            "macro": 0.019176073778559462,
+            "hits": {
+              "1": 0.005912961210974456,
+              "3": 0.012535477767265846,
+              "10": 0.04706717123935667
+            }
+          }
+        ],
+        "best_step": 1024
+      }
+    }
+  },
+  "existing_f16_inference_check": [
+    {
+      "seed": 11,
+      "fanout": 16,
+      "n": 32,
+      "mean": -6.459537288518765e-05,
+      "marginal_ci95": [
+        -0.0002831938146836588,
+        0.00015400306891328352
+      ],
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "seed": 23,
+      "fanout": 16,
+      "n": 32,
+      "mean": -0.000560394585203865,
+      "marginal_ci95": [
+        -0.0009926199731692864,
+        -0.00012816919723844376
+      ],
+      "p_holm": 0.2673455571326437,
+      "reject_holm_05": false
+    }
+  ],
+  "interpretation": {
+    "training": "Loss decreases and final GNN valid falls vs768; no proof of convergence, overfitting cause or failed optimization",
+    "f16": "No observed mean retrieval gain from matched f16 inference; does not test batch-specific edge masking mismatch",
+    "parameterization": "Near-radius concentration is descriptive; causal role requires controlled intervention",
+    "selection": "Same four valid opportunities; MLP final best, GNN768 best; no extra repeats or tuning"
+  }
+}

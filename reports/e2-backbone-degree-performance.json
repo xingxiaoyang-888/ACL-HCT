@@ -1,0 +1,264 @@
+{
+  "scope": "Post-hoc existing rank decomposition, no causal or new significance claim; query-weighted contributions, each model original best",
+  "mapping_raw_sha256": "983046333df6aa48842536aa6dfe4402885c0ee9e08ddfc69cd85a695c78ea1a",
+  "input_raw_sha256": {
+    "reports/e2-backbone-data-diagnosis.json": "6e03550f13e3f71758f148b7f17062a1d7a0479dd1f5d297b0edfb67b8309590",
+    "reports/e2-backbone-initialization-quality.json": "757d08b8bd77d8b68975c9b5e8913d2d67c30cf6a24abea189dca224c23e8df6",
+    "reports/baseline-seed11-run.json": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+    "reports/baseline-seed23-run.json": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+    "reports/e2-capacity-seed11-run.json": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+    "reports/e2-capacity-seed23-run.json": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e"
+  },
+  "analysis_helper_lf_sha256": "81cc0218fc26b8f3f334fabfa83588bafe794d2b7df18eb8f01a7e3cd0f7ed11",
+  "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+  "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+  "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+  "contribution_definition": "Sum of (MLP RR minus GNN RR) within group divided by all 8456 queries; child and parent views overlap and must not be added together",
+  "degree_and_f16_populations_recomputed": [
+    "all_nodes",
+    "valid_children_unique",
+    "valid_parents_unique",
+    "valid_child_query_occurrences",
+    "valid_parent_query_occurrences"
+  ],
+  "static_source_hashes_verified": 5,
+  "historical_MLP_initial_hashes_matched_original_environment": 16,
+  "models": [
+    {
+      "seed": 11,
+      "gnn_step": 768,
+      "mlp_step": 1024,
+      "gnn_micro": 0.017536850617393525,
+      "mlp_micro": 0.020536583138370184,
+      "mlp_minus_gnn": 0.002999732520976658,
+      "groups": {
+        "child": [
+          {
+            "degree": "0",
+            "queries": 6819,
+            "unique_children": 6626,
+            "gnn_micro": 0.020424857075705363,
+            "mlp_micro": 0.020926871896672056,
+            "micro_difference": 0.000502014820966687,
+            "contribution_to_overall_micro_difference": 0.0004048295960468115,
+            "gnn_child_macro_in_group": 0.020642158190626213,
+            "mlp_child_macro_in_group": 0.02119034055582658,
+            "gnn_hits10": 0.037102214400938555,
+            "mlp_hits10": 0.04956738524710368
+          },
+          {
+            "degree": "1",
+            "queries": 653,
+            "unique_children": 635,
+            "gnn_micro": 0.004481996699852486,
+            "mlp_micro": 0.019668834972789904,
+            "micro_difference": 0.015186838272937415,
+            "contribution_to_overall_micro_difference": 0.0011727773642653894,
+            "gnn_child_macro_in_group": 0.004543608918884501,
+            "mlp_child_macro_in_group": 0.01932543201135559,
+            "gnn_hits10": 0.009188361408882083,
+            "mlp_hits10": 0.045941807044410414
+          },
+          {
+            "degree": "2-16",
+            "queries": 932,
+            "unique_children": 899,
+            "gnn_micro": 0.006278129573648077,
+            "mlp_micro": 0.01751106991697914,
+            "micro_difference": 0.011232940343331067,
+            "contribution_to_overall_micro_difference": 0.0012380676915781166,
+            "gnn_child_macro_in_group": 0.006348847479795676,
+            "mlp_child_macro_in_group": 0.018005795441160946,
+            "gnn_hits10": 0.013948497854077254,
+            "mlp_hits10": 0.0407725321888412
+          },
+          {
+            "degree": ">16",
+            "queries": 52,
+            "unique_children": 50,
+            "gnn_micro": 0.004548996419251261,
+            "mlp_micro": 0.034479637592214625,
+            "micro_difference": 0.02993064117296336,
+            "contribution_to_overall_micro_difference": 0.00018405786908634044,
+            "gnn_child_macro_in_group": 0.004690020932335535,
+            "mlp_child_macro_in_group": 0.03383741651642789,
+            "gnn_hits10": 0.0,
+            "mlp_hits10": 0.07692307692307693
+          }
+        ],
+        "parent": [
+          {
+            "degree": "0",
+            "queries": 160,
+            "unique_children": 160,
+            "gnn_micro": 0.006882022086482614,
+            "mlp_micro": 0.00046750014069238817,
+            "micro_difference": -0.006414521945790225,
+            "contribution_to_overall_micro_difference": -0.00012137222224768638,
+            "gnn_child_macro_in_group": 0.006882022086482614,
+            "mlp_child_macro_in_group": 0.00046750014069238817,
+            "gnn_hits10": 0.00625,
+            "mlp_hits10": 0.0
+          },
+          {
+            "degree": "1",
+            "queries": 787,
+            "unique_children": 781,
+            "gnn_micro": 0.0005829010290108526,
+            "mlp_micro": 0.0007737125369198931,
+            "micro_difference": 0.00019081150790904052,
+            "contribution_to_overall_micro_difference": 1.7758828846312075e-05,
+            "gnn_child_macro_in_group": 0.0005861838750401061,
+            "mlp_child_macro_in_group": 0.0007723563215129881,
+            "gnn_hits10": 0.0,
+            "mlp_hits10": 0.0012706480304955528
+          },
+          {
+            "degree": "2-16",
+            "queries": 4609,
+            "unique_children": 4537,
+            "gnn_micro": 0.0033709866246864387,
+            "mlp_micro": 0.0029067484005022787,
+            "micro_difference": -0.0004642382241841604,
+            "contribution_to_overall_micro_difference": -0.00025303618439744506,
+            "gnn_child_macro_in_group": 0.003391684326577387,
+            "mlp_child_macro_in_group": 0.0029244634407720994,
+            "gnn_hits10": 0.0032545020611846388,
+            "mlp_hits10": 0.004122369277500542
+          },
+          {
+            "degree": ">16",
+            "queries": 2900,
+            "unique_children": 2848,
+            "gnn_micro": 0.04523960855994176,
+            "mlp_micro": 0.05502635581071605,
+            "micro_difference": 0.009786747250774287,
+            "contribution_to_overall_micro_difference": 0.0033563820987754767,
+            "gnn_child_macro_in_group": 0.045520488102056736,
+            "mlp_child_macro_in_group": 0.05539776921268357,
+            "gnn_hits10": 0.08827586206896551,
+            "mlp_hits10": 0.13448275862068965
+          }
+        ]
+      }
+    },
+    {
+      "seed": 23,
+      "gnn_step": 768,
+      "mlp_step": 1024,
+      "gnn_micro": 0.013928544021642503,
+      "mlp_micro": 0.019144265599128595,
+      "mlp_minus_gnn": 0.005215721577486094,
+      "groups": {
+        "child": [
+          {
+            "degree": "0",
+            "queries": 6819,
+            "unique_children": 6626,
+            "gnn_micro": 0.015149096306860767,
+            "mlp_micro": 0.01820991500690155,
+            "micro_difference": 0.0030608187000407856,
+            "contribution_to_overall_micro_difference": 0.0024682737364685567,
+            "gnn_child_macro_in_group": 0.01494256640796474,
+            "mlp_child_macro_in_group": 0.018225777846570014,
+            "gnn_hits10": 0.029036515618125824,
+            "mlp_hits10": 0.04766094735298431
+          },
+          {
+            "degree": "1",
+            "queries": 653,
+            "unique_children": 635,
+            "gnn_micro": 0.009709204457408334,
+            "mlp_micro": 0.02762410477481439,
+            "micro_difference": 0.01791490031740606,
+            "contribution_to_overall_micro_difference": 0.001383447245419366,
+            "gnn_child_macro_in_group": 0.009918042573015535,
+            "mlp_child_macro_in_group": 0.027585822245919933,
+            "gnn_hits10": 0.015313935681470138,
+            "mlp_hits10": 0.04747320061255743
+          },
+          {
+            "degree": "2-16",
+            "queries": 932,
+            "unique_children": 899,
+            "gnn_micro": 0.008465340440028477,
+            "mlp_micro": 0.019709370849671736,
+            "micro_difference": 0.011244030409643259,
+            "contribution_to_overall_micro_difference": 0.0012392900120373129,
+            "gnn_child_macro_in_group": 0.008652747538097938,
+            "mlp_child_macro_in_group": 0.01986961909085316,
+            "gnn_hits10": 0.0203862660944206,
+            "mlp_hits10": 0.03969957081545064
+          },
+          {
+            "degree": ">16",
+            "queries": 52,
+            "unique_children": 50,
+            "gnn_micro": 0.004774475571754897,
+            "mlp_micro": 0.025054335083112764,
+            "micro_difference": 0.020279859511357873,
+            "contribution_to_overall_micro_difference": 0.00012471058356085731,
+            "gnn_child_macro_in_group": 0.004914746382437546,
+            "mlp_child_macro_in_group": 0.02583554043526704,
+            "gnn_hits10": 0.0,
+            "mlp_hits10": 0.09615384615384616
+          }
+        ],
+        "parent": [
+          {
+            "degree": "0",
+            "queries": 160,
+            "unique_children": 160,
+            "gnn_micro": 0.0010838721531028059,
+            "mlp_micro": 0.0003718220321445858,
+            "micro_difference": -0.0007120501209582203,
+            "contribution_to_overall_micro_difference": -1.3473039185586003e-05,
+            "gnn_child_macro_in_group": 0.0010838721531028059,
+            "mlp_child_macro_in_group": 0.0003718220321445858,
+            "gnn_hits10": 0.0,
+            "mlp_hits10": 0.0
+          },
+          {
+            "degree": "1",
+            "queries": 787,
+            "unique_children": 781,
+            "gnn_micro": 0.0005135088217415438,
+            "mlp_micro": 0.0009189017352616043,
+            "micro_difference": 0.00040539291352006046,
+            "contribution_to_overall_micro_difference": 3.772992229662814e-05,
+            "gnn_child_macro_in_group": 0.0005162415463067159,
+            "mlp_child_macro_in_group": 0.0009139190977320104,
+            "gnn_hits10": 0.0,
+            "mlp_hits10": 0.0012706480304955528
+          },
+          {
+            "degree": "2-16",
+            "queries": 4609,
+            "unique_children": 4537,
+            "gnn_micro": 0.0028018978807230043,
+            "mlp_micro": 0.002287656894161611,
+            "micro_difference": -0.0005142409865613932,
+            "contribution_to_overall_micro_difference": -0.000280290528271223,
+            "gnn_child_macro_in_group": 0.0028113112110143158,
+            "mlp_child_macro_in_group": 0.0022093873136596366,
+            "gnn_hits10": 0.004556302885658494,
+            "mlp_hits10": 0.0032545020611846388
+          },
+          {
+            "degree": ">16",
+            "queries": 2900,
+            "unique_children": 2848,
+            "gnn_micro": 0.03596147238881022,
+            "mlp_micro": 0.051916355893188465,
+            "micro_difference": 0.01595488350437824,
+            "contribution_to_overall_micro_difference": 0.005471755222646275,
+            "gnn_child_macro_in_group": 0.03535245305164522,
+            "mlp_child_macro_in_group": 0.05179186584463462,
+            "gnn_hits10": 0.07103448275862069,
+            "mlp_hits10": 0.1317241379310345
+          }
+        ]
+      }
+    }
+  ]
+}

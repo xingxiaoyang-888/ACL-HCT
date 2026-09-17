@@ -1,0 +1,894 @@
+{
+  "status": "existing_array_description_independently_verified",
+  "scope": "read-only existing arrays; local numpy arithmetic; no model, torch, forward, GPU, training or new significance tests",
+  "source_raw_audit_sha256": "9e2c06f91ebb97c8a930c0a9529334bc6fda598f3562b531d35fe4795496ed75",
+  "source_independent_rank_review_sha256": "c7e8917b6ee594c4e69c5ee2c061e8e2467b6dfabf6d4606348b8372ceb7fe49",
+  "degree_map_raw_sha256": "983046333df6aa48842536aa6dfe4402885c0ee9e08ddfc69cd85a695c78ea1a",
+  "existing_scientific_indexes_inspected": 40,
+  "coordinate_sources": [
+    {
+      "seed": 11,
+      "entry_manifest_raw_sha256": "8ca49fc9904824240d53ce6020f90c6ba65410a587f0f2a4f2c4d2a38ca50d04",
+      "entry_npz_raw_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+      "selected_array_key": "a00010",
+      "selected_array_sha256": "43d69037879e63c5151a17e23b3f6edaf786098f13a632dcbfdc7741dd65fb99"
+    },
+    {
+      "seed": 23,
+      "entry_manifest_raw_sha256": "021c3a8c21cabcc6309a8c2d24aacc8c7ccf923d0e6a3766873ddd2bf1957b21",
+      "entry_npz_raw_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+      "selected_array_key": "a00010",
+      "selected_array_sha256": "b8a1dfdbed9c2f408c57eba5b3bb42c7529446379e9b1c061f16369766364f65"
+    }
+  ],
+  "supervisor_independent_checks": [
+    {
+      "seed": 11,
+      "independent_asinh_vs_acosh_max_abs_error": 4.440892098500626e-16,
+      "parent_groups_recomputed": 4
+    },
+    {
+      "seed": 23,
+      "independent_asinh_vs_acosh_max_abs_error": 4.440892098500626e-16,
+      "parent_groups_recomputed": 4
+    }
+  ],
+  "results": [
+    {
+      "seed": 11,
+      "frozen_checkpoint_step": 768,
+      "headers_checked_before_loading": [
+        {
+          "file": "entry.npz",
+          "key": "a00000",
+          "shape": [
+            82115
+          ],
+          "dtype": "<U8"
+        },
+        {
+          "file": "entry.npz",
+          "key": "a00010",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "file": "fanout_4.npz",
+          "key": "a00063",
+          "shape": [
+            35047
+          ],
+          "dtype": "<i8"
+        }
+      ],
+      "output_coordinate_semantics": "FP32 full second-layer output promoted/projected to FP64 by numerical_audit; not FP64 model rerun, not messages",
+      "c": 1.0,
+      "reference_anchor_id": "00001740",
+      "origin_near_bound_threshold": 1.14,
+      "full_all_nodes_origin_output_radius": {
+        "count": 82115,
+        "min": 0.5145572399263628,
+        "mean": 1.120305290186248,
+        "max": 1.1926190312973752,
+        "p25_p50_p75_p95": [
+          1.1004632499596225,
+          1.1330090106355006,
+          1.1562457049259245,
+          1.1761251668081731
+        ]
+      },
+      "full_all_nodes_origin_output_near_bound_count": 35047,
+      "full_all_nodes_origin_output_near_bound_fraction": 0.42680387261767033,
+      "full_all_nodes_message_radius_scalar_only": {
+        "count": 82115,
+        "minimum": 1.0171681138060795,
+        "mean": 1.147337239335296,
+        "maximum": 1.1926188100838786
+      },
+      "full_all_nodes_origin_message_near_bound_fraction_scalar_only": 0.657577787249589,
+      "per_node_message_radius_or_mask_available": false,
+      "parent_degree_groups": {
+        "valid_parent_query_occurrences": [
+          {
+            "degree": "0",
+            "count": 160,
+            "origin_output_radius": {
+              "count": 160,
+              "min": 1.0505475229107422,
+              "mean": 1.1422134111886368,
+              "max": 1.1872238582387766,
+              "p25_p50_p75_p95": [
+                1.1230161976534108,
+                1.1478797002341399,
+                1.1691556714640976,
+                1.1834453120888393
+              ]
+            },
+            "origin_output_near_1_14_count": 90,
+            "origin_output_near_1_14_fraction": 0.5625,
+            "reference_anchor_output_distance": {
+              "count": 160,
+              "min": 0.46544970904467686,
+              "mean": 1.253318904372772,
+              "max": 1.9707882582812337,
+              "p25_p50_p75_p95": [
+                0.9841921140247012,
+                1.2890031167449996,
+                1.5204333614155545,
+                1.8126174390223575
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 787,
+            "origin_output_radius": {
+              "count": 787,
+              "min": 1.0447453398370552,
+              "mean": 1.1313371637915386,
+              "max": 1.190768306689082,
+              "p25_p50_p75_p95": [
+                1.1089089432159827,
+                1.1321963974853693,
+                1.1559260810765046,
+                1.1753959045933686
+              ]
+            },
+            "origin_output_near_1_14_count": 314,
+            "origin_output_near_1_14_fraction": 0.39898348157560354,
+            "reference_anchor_output_distance": {
+              "count": 787,
+              "min": 0.28794491944502243,
+              "mean": 1.196887141363051,
+              "max": 1.9580086308348574,
+              "p25_p50_p75_p95": [
+                0.9039813264094629,
+                1.2195087855098405,
+                1.502080824002555,
+                1.7807913875874442
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 4609,
+            "origin_output_radius": {
+              "count": 4609,
+              "min": 0.6878559047221652,
+              "mean": 1.0580512303369527,
+              "max": 1.1921556248590133,
+              "p25_p50_p75_p95": [
+                1.0106484605827655,
+                1.0701729795651913,
+                1.1171720241989778,
+                1.1644445458918031
+              ]
+            },
+            "origin_output_near_1_14_count": 642,
+            "origin_output_near_1_14_fraction": 0.13929268821870253,
+            "reference_anchor_output_distance": {
+              "count": 4609,
+              "min": 0.0,
+              "mean": 1.1476445288093269,
+              "max": 1.9898265303949034,
+              "p25_p50_p75_p95": [
+                0.8355636418823611,
+                1.1707768302163106,
+                1.4569635534038956,
+                1.7363760919691702
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 2900,
+            "origin_output_radius": {
+              "count": 2900,
+              "min": 0.7561180704759692,
+              "mean": 1.0752298222779362,
+              "max": 1.1882376282412526,
+              "p25_p50_p75_p95": [
+                1.0133544392146177,
+                1.091969895881027,
+                1.1520626547310848,
+                1.1756955105821956
+              ]
+            },
+            "origin_output_near_1_14_count": 856,
+            "origin_output_near_1_14_fraction": 0.29517241379310344,
+            "reference_anchor_output_distance": {
+              "count": 2900,
+              "min": 0.29209203193333216,
+              "mean": 1.2639428308887932,
+              "max": 1.9665945799407254,
+              "p25_p50_p75_p95": [
+                0.969245651776126,
+                1.286621272679087,
+                1.5973665093698395,
+                1.8407215500865945
+              ]
+            }
+          }
+        ],
+        "valid_parents_unique": [
+          {
+            "degree": "0",
+            "count": 146,
+            "origin_output_radius": {
+              "count": 146,
+              "min": 1.0505475229107422,
+              "mean": 1.1416360552978828,
+              "max": 1.1872238582387766,
+              "p25_p50_p75_p95": [
+                1.1231827671147836,
+                1.145248285919191,
+                1.1690371944785387,
+                1.1823392627402711
+              ]
+            },
+            "origin_output_near_1_14_count": 81,
+            "origin_output_near_1_14_fraction": 0.5547945205479452,
+            "reference_anchor_output_distance": {
+              "count": 146,
+              "min": 0.46544970904467686,
+              "mean": 1.2571600798296887,
+              "max": 1.9707882582812337,
+              "p25_p50_p75_p95": [
+                0.9945206229177914,
+                1.2890031167449996,
+                1.5213855156038778,
+                1.800751125313338
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 731,
+            "origin_output_radius": {
+              "count": 731,
+              "min": 1.0447453398370552,
+              "mean": 1.1309661691610544,
+              "max": 1.190768306689082,
+              "p25_p50_p75_p95": [
+                1.108356212829309,
+                1.1319628037300757,
+                1.1551778422491532,
+                1.174503820340329
+              ]
+            },
+            "origin_output_near_1_14_count": 291,
+            "origin_output_near_1_14_fraction": 0.39808481532147744,
+            "reference_anchor_output_distance": {
+              "count": 731,
+              "min": 0.28794491944502243,
+              "mean": 1.1939270284740957,
+              "max": 1.9580086308348574,
+              "p25_p50_p75_p95": [
+                0.8964706277085055,
+                1.2191036799053954,
+                1.5014947741717537,
+                1.772579175822659
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 3417,
+            "origin_output_radius": {
+              "count": 3417,
+              "min": 0.6878559047221652,
+              "mean": 1.057608579017463,
+              "max": 1.1921556248590133,
+              "p25_p50_p75_p95": [
+                1.0106484605827655,
+                1.0696227221782848,
+                1.1166524691936652,
+                1.1646298971751443
+              ]
+            },
+            "origin_output_near_1_14_count": 476,
+            "origin_output_near_1_14_fraction": 0.13930348258706468,
+            "reference_anchor_output_distance": {
+              "count": 3417,
+              "min": 0.0,
+              "mean": 1.1512783021581334,
+              "max": 1.9898265303949034,
+              "p25_p50_p75_p95": [
+                0.8412482904004869,
+                1.1709396795184281,
+                1.4582998772331779,
+                1.7370610113778835
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 569,
+            "origin_output_radius": {
+              "count": 569,
+              "min": 0.7561180704759692,
+              "mean": 1.0633124652256485,
+              "max": 1.1882376282412526,
+              "p25_p50_p75_p95": [
+                1.0116152692389657,
+                1.0741789063926286,
+                1.1335471086767346,
+                1.171093271237643
+              ]
+            },
+            "origin_output_near_1_14_count": 123,
+            "origin_output_near_1_14_fraction": 0.21616871704745166,
+            "reference_anchor_output_distance": {
+              "count": 569,
+              "min": 0.29209203193333216,
+              "mean": 1.2059192227382158,
+              "max": 1.9665945799407254,
+              "p25_p50_p75_p95": [
+                0.8813065735219241,
+                1.2332004660565756,
+                1.5366558894583,
+                1.82146221968686
+              ]
+            }
+          }
+        ],
+        "all_entity_parent_candidates": [
+          {
+            "degree": "0",
+            "count": 13313,
+            "origin_output_radius": {
+              "count": 13313,
+              "min": 1.0171681424594898,
+              "mean": 1.146039959466111,
+              "max": 1.1926190312973752,
+              "p25_p50_p75_p95": [
+                1.127015890451664,
+                1.1525058604041694,
+                1.170754875988093,
+                1.1832923634927972
+              ]
+            },
+            "origin_output_near_1_14_count": 8456,
+            "origin_output_near_1_14_fraction": 0.6351686321640502,
+            "reference_anchor_output_distance": {
+              "count": 13313,
+              "min": 0.23015688601713952,
+              "mean": 1.4561122766449686,
+              "max": 2.010264748938715,
+              "p25_p50_p75_p95": [
+                1.225870455932396,
+                1.530047500439147,
+                1.7501065991130618,
+                1.9102573431801653
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 52879,
+            "origin_output_radius": {
+              "count": 52879,
+              "min": 1.0274565435502,
+              "mean": 1.1315515781495038,
+              "max": 1.1919106093446248,
+              "p25_p50_p75_p95": [
+                1.110442851969133,
+                1.1366598748018293,
+                1.1563423813044587,
+                1.1729836130090896
+              ]
+            },
+            "origin_output_near_1_14_count": 24067,
+            "origin_output_near_1_14_fraction": 0.4551334178029085,
+            "reference_anchor_output_distance": {
+              "count": 52879,
+              "min": 0.1609964806348267,
+              "mean": 1.3528664458710136,
+              "max": 1.996524179276397,
+              "p25_p50_p75_p95": [
+                1.078704428166027,
+                1.4046187853153698,
+                1.6899918532317608,
+                1.853456608552104
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 15301,
+            "origin_output_radius": {
+              "count": 15301,
+              "min": 0.5145572399263628,
+              "mean": 1.0613791211592223,
+              "max": 1.1921556248590133,
+              "p25_p50_p75_p95": [
+                1.017706746678647,
+                1.0744606615124224,
+                1.120175123632574,
+                1.1628916504833275
+              ]
+            },
+            "origin_output_near_1_14_count": 2396,
+            "origin_output_near_1_14_fraction": 0.15659107247892295,
+            "reference_anchor_output_distance": {
+              "count": 15301,
+              "min": 0.0,
+              "mean": 1.1854907185579067,
+              "max": 1.9898265303949034,
+              "p25_p50_p75_p95": [
+                0.8859142400203084,
+                1.2018796006157544,
+                1.4976903041495744,
+                1.7701420413405493
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 622,
+            "origin_output_radius": {
+              "count": 622,
+              "min": 0.7561180704759692,
+              "mean": 1.0629599508786927,
+              "max": 1.1882376282412526,
+              "p25_p50_p75_p95": [
+                1.0128870659984526,
+                1.0736958653756314,
+                1.1315008165198517,
+                1.1707277640824099
+              ]
+            },
+            "origin_output_near_1_14_count": 128,
+            "origin_output_near_1_14_fraction": 0.2057877813504823,
+            "reference_anchor_output_distance": {
+              "count": 622,
+              "min": 0.29209203193333216,
+              "mean": 1.1971553080392552,
+              "max": 1.9665945799407254,
+              "p25_p50_p75_p95": [
+                0.8754064272929056,
+                1.220654349382003,
+                1.5350384764568177,
+                1.814984558529156
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 23,
+      "frozen_checkpoint_step": 768,
+      "headers_checked_before_loading": [
+        {
+          "file": "entry.npz",
+          "key": "a00000",
+          "shape": [
+            82115
+          ],
+          "dtype": "<U8"
+        },
+        {
+          "file": "entry.npz",
+          "key": "a00010",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "file": "fanout_4.npz",
+          "key": "a00063",
+          "shape": [
+            32508
+          ],
+          "dtype": "<i8"
+        }
+      ],
+      "output_coordinate_semantics": "FP32 full second-layer output promoted/projected to FP64 by numerical_audit; not FP64 model rerun, not messages",
+      "c": 1.0,
+      "reference_anchor_id": "00001740",
+      "origin_near_bound_threshold": 1.14,
+      "full_all_nodes_origin_output_radius": {
+        "count": 82115,
+        "min": 0.5474433511872026,
+        "mean": 1.1172694032023012,
+        "max": 1.191938883705017,
+        "p25_p50_p75_p95": [
+          1.0961149767232015,
+          1.1295530506728784,
+          1.1541366845633838,
+          1.1759303165358996
+        ]
+      },
+      "full_all_nodes_origin_output_near_bound_count": 32508,
+      "full_all_nodes_origin_output_near_bound_fraction": 0.39588382146988976,
+      "full_all_nodes_message_radius_scalar_only": {
+        "count": 82115,
+        "minimum": 1.0028602748734878,
+        "mean": 1.144654869581254,
+        "maximum": 1.191938798786639
+      },
+      "full_all_nodes_origin_message_near_bound_fraction_scalar_only": 0.6410400048712173,
+      "per_node_message_radius_or_mask_available": false,
+      "parent_degree_groups": {
+        "valid_parent_query_occurrences": [
+          {
+            "degree": "0",
+            "count": 160,
+            "origin_output_radius": {
+              "count": 160,
+              "min": 1.0273402704525467,
+              "mean": 1.1387222606838088,
+              "max": 1.1878903012481574,
+              "p25_p50_p75_p95": [
+                1.1157804913881457,
+                1.147573260244048,
+                1.1676672525518796,
+                1.181785662307501
+              ]
+            },
+            "origin_output_near_1_14_count": 86,
+            "origin_output_near_1_14_fraction": 0.5375,
+            "reference_anchor_output_distance": {
+              "count": 160,
+              "min": 0.5585915447124362,
+              "mean": 1.252493163814456,
+              "max": 2.0005670088502825,
+              "p25_p50_p75_p95": [
+                0.9927462881846911,
+                1.2822992207549766,
+                1.5649202556216277,
+                1.8765413700635851
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 787,
+            "origin_output_radius": {
+              "count": 787,
+              "min": 1.0178328734379054,
+              "mean": 1.1287231826384287,
+              "max": 1.188749421360441,
+              "p25_p50_p75_p95": [
+                1.107557210396696,
+                1.1327639329745367,
+                1.1540679795359212,
+                1.1747273295456833
+              ]
+            },
+            "origin_output_near_1_14_count": 308,
+            "origin_output_near_1_14_fraction": 0.39135959339263027,
+            "reference_anchor_output_distance": {
+              "count": 787,
+              "min": 0.37170221455606006,
+              "mean": 1.2312856592929309,
+              "max": 2.039216445500921,
+              "p25_p50_p75_p95": [
+                0.9046953479990083,
+                1.2806981875691155,
+                1.5550557538671497,
+                1.8137959543258302
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 4609,
+            "origin_output_radius": {
+              "count": 4609,
+              "min": 0.6683620807874112,
+              "mean": 1.056556686223567,
+              "max": 1.1906108508827085,
+              "p25_p50_p75_p95": [
+                1.0092779067990005,
+                1.0705081838941293,
+                1.119068408610034,
+                1.1636829029241658
+              ]
+            },
+            "origin_output_near_1_14_count": 631,
+            "origin_output_near_1_14_fraction": 0.1369060533738338,
+            "reference_anchor_output_distance": {
+              "count": 4609,
+              "min": 2.1073424255447017e-08,
+              "mean": 1.1787534637717827,
+              "max": 2.043361592445807,
+              "p25_p50_p75_p95": [
+                0.8537263575586378,
+                1.1846174467006307,
+                1.4977332450328222,
+                1.8067121949254221
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 2900,
+            "origin_output_radius": {
+              "count": 2900,
+              "min": 0.6781144474167359,
+              "mean": 1.0731908761074525,
+              "max": 1.1880077367149116,
+              "p25_p50_p75_p95": [
+                1.0098282217232297,
+                1.0945353724590736,
+                1.1472625049724745,
+                1.173529453433059
+              ]
+            },
+            "origin_output_near_1_14_count": 838,
+            "origin_output_near_1_14_fraction": 0.2889655172413793,
+            "reference_anchor_output_distance": {
+              "count": 2900,
+              "min": 0.3181991124611321,
+              "mean": 1.2468569595253203,
+              "max": 2.0284461281277544,
+              "p25_p50_p75_p95": [
+                0.9534122617107449,
+                1.281701423035328,
+                1.5576454553153811,
+                1.8572946881170376
+              ]
+            }
+          }
+        ],
+        "valid_parents_unique": [
+          {
+            "degree": "0",
+            "count": 146,
+            "origin_output_radius": {
+              "count": 146,
+              "min": 1.0273402704525467,
+              "mean": 1.1375437377769948,
+              "max": 1.1878903012481574,
+              "p25_p50_p75_p95": [
+                1.117137983854517,
+                1.1447722490697376,
+                1.167345456712277,
+                1.1805534662639807
+              ]
+            },
+            "origin_output_near_1_14_count": 76,
+            "origin_output_near_1_14_fraction": 0.5205479452054794,
+            "reference_anchor_output_distance": {
+              "count": 146,
+              "min": 0.5585915447124362,
+              "mean": 1.2586793647363388,
+              "max": 2.0005670088502825,
+              "p25_p50_p75_p95": [
+                1.003572822913429,
+                1.2822992207549766,
+                1.5659220562967122,
+                1.8740791798452217
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 731,
+            "origin_output_radius": {
+              "count": 731,
+              "min": 1.0178328734379054,
+              "mean": 1.128414299810061,
+              "max": 1.188749421360441,
+              "p25_p50_p75_p95": [
+                1.1071912787784743,
+                1.132573801171737,
+                1.1536025698657695,
+                1.1744031715828247
+              ]
+            },
+            "origin_output_near_1_14_count": 284,
+            "origin_output_near_1_14_fraction": 0.38850889192886456,
+            "reference_anchor_output_distance": {
+              "count": 731,
+              "min": 0.37170221455606006,
+              "mean": 1.2279724009329205,
+              "max": 2.039216445500921,
+              "p25_p50_p75_p95": [
+                0.9015658993295561,
+                1.2782062009940371,
+                1.5470995745659404,
+                1.8059100024563421
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 3417,
+            "origin_output_radius": {
+              "count": 3417,
+              "min": 0.6683620807874112,
+              "mean": 1.0557376132281466,
+              "max": 1.1906108508827085,
+              "p25_p50_p75_p95": [
+                1.0088487956377887,
+                1.069751492871976,
+                1.1182468213937498,
+                1.163827594922071
+              ]
+            },
+            "origin_output_near_1_14_count": 472,
+            "origin_output_near_1_14_fraction": 0.13813286508633305,
+            "reference_anchor_output_distance": {
+              "count": 3417,
+              "min": 2.1073424255447017e-08,
+              "mean": 1.1811650483474796,
+              "max": 2.043361592445807,
+              "p25_p50_p75_p95": [
+                0.8565569708590022,
+                1.188417065155618,
+                1.4977332450328222,
+                1.80739175512264
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 569,
+            "origin_output_radius": {
+              "count": 569,
+              "min": 0.6781144474167359,
+              "mean": 1.0587017611113894,
+              "max": 1.1880077367149116,
+              "p25_p50_p75_p95": [
+                1.0003300296283066,
+                1.0737698135596738,
+                1.1310771834802504,
+                1.1703016435938205
+              ]
+            },
+            "origin_output_near_1_14_count": 122,
+            "origin_output_near_1_14_fraction": 0.21441124780316345,
+            "reference_anchor_output_distance": {
+              "count": 569,
+              "min": 0.3181991124611321,
+              "mean": 1.200040639055474,
+              "max": 2.0284461281277544,
+              "p25_p50_p75_p95": [
+                0.8431625911072109,
+                1.1963764002707276,
+                1.5394614392440327,
+                1.8602781992695598
+              ]
+            }
+          }
+        ],
+        "all_entity_parent_candidates": [
+          {
+            "degree": "0",
+            "count": 13313,
+            "origin_output_radius": {
+              "count": 13313,
+              "min": 1.0028602670941857,
+              "mean": 1.1429887845459599,
+              "max": 1.191938883705017,
+              "p25_p50_p75_p95": [
+                1.1227552687002598,
+                1.1514302417730244,
+                1.1698427924199362,
+                1.1825356967528755
+              ]
+            },
+            "origin_output_near_1_14_count": 8225,
+            "origin_output_near_1_14_fraction": 0.6178171711860587,
+            "reference_anchor_output_distance": {
+              "count": 13313,
+              "min": 0.29869200716439,
+              "mean": 1.4782089659190831,
+              "max": 2.0479023023090615,
+              "p25_p50_p75_p95": [
+                1.243563592883782,
+                1.572849391766232,
+                1.7639788778049226,
+                1.9387729562417966
+              ]
+            }
+          },
+          {
+            "degree": "1",
+            "count": 52879,
+            "origin_output_radius": {
+              "count": 52879,
+              "min": 1.0089271784767202,
+              "mean": 1.1284246184513185,
+              "max": 1.1917392371234623,
+              "p25_p50_p75_p95": [
+                1.1075863930743102,
+                1.1329466803607686,
+                1.1540069103851436,
+                1.1734367211201973
+              ]
+            },
+            "origin_output_near_1_14_count": 22034,
+            "origin_output_near_1_14_fraction": 0.41668715369050097,
+            "reference_anchor_output_distance": {
+              "count": 52879,
+              "min": 0.19469425863278184,
+              "mean": 1.3813244014986121,
+              "max": 2.050492709204536,
+              "p25_p50_p75_p95": [
+                1.110813220688538,
+                1.4687734714641445,
+                1.700793201850611,
+                1.8743976982510675
+              ]
+            }
+          },
+          {
+            "degree": "2-16",
+            "count": 15301,
+            "origin_output_radius": {
+              "count": 15301,
+              "min": 0.5474433511872026,
+              "mean": 1.0587554009997828,
+              "max": 1.1906108508827085,
+              "p25_p50_p75_p95": [
+                1.0144809296639377,
+                1.073894970003576,
+                1.1205528318259552,
+                1.162352493894361
+              ]
+            },
+            "origin_output_near_1_14_count": 2121,
+            "origin_output_near_1_14_fraction": 0.13861839095483955,
+            "reference_anchor_output_distance": {
+              "count": 15301,
+              "min": 2.1073424255447017e-08,
+              "mean": 1.2175660660153953,
+              "max": 2.043361592445807,
+              "p25_p50_p75_p95": [
+                0.9004781895192749,
+                1.2402810848761716,
+                1.54236427902043,
+                1.822003118700259
+              ]
+            }
+          },
+          {
+            "degree": ">16",
+            "count": 622,
+            "origin_output_radius": {
+              "count": 622,
+              "min": 0.6781144474167359,
+              "mean": 1.0578546069318902,
+              "max": 1.1880077367149116,
+              "p25_p50_p75_p95": [
+                1.00021352507497,
+                1.0720928914879126,
+                1.12892746206093,
+                1.1701909931491599
+              ]
+            },
+            "origin_output_near_1_14_count": 128,
+            "origin_output_near_1_14_fraction": 0.2057877813504823,
+            "reference_anchor_output_distance": {
+              "count": 622,
+              "min": 0.3181991124611321,
+              "mean": 1.1889002599210505,
+              "max": 2.0284461281277544,
+              "p25_p50_p75_p95": [
+                0.8355961054001358,
+                1.1872818906098572,
+                1.530141642142703,
+                1.8572910038622554
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Indexed full L2 output coordinates and origin output near-bound masks exist; per-node L2 messages/message masks not saved in these 40 scientific NPZ indexes.",
+    "Legacy pilot source saves only scalar message/output radius summaries and message near-bound fraction, not per-node message coordinates.",
+    "Anchor distance is not taxonomy depth; the origin threshold1.14 must not be labeled an anchor saturation boundary.",
+    "Radius-degree association and existing-rank decomposition do not establish curvature or parameter-boundary causation."
+  ]
+}

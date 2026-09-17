@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "purpose": "Offline engineering and artificial CPU graph checks only; no real experiment conclusion",
+  "protocol": "E2-BACKBONE-FROZEN-v1",
+  "config_sha256": "38ae7ad55156fd2b9922eff424460c5961f9d7e43dab8135bd5a23d117e7f784",
+  "source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "backbone_frozen_diagnosis.py": "cc9451507183fd1d48afc18c7ae665c28fc722601b33d89bf485d46866c2c78b",
+    "backbone_frozen_entry.py": "9fe7b34204a454bf8594ca3735ab8156cc64e2967b925d070da711a396a6b5e3",
+    "backbone_frozen_inputs.py": "892dd30284820c22ac91aff2c530b9647f55ca15076ad2a1819da309d395a5e3",
+    "backbone_frozen_readings.py": "1247fe6c604ac49f6f352ea45db53d02af7f8a2df056e5dd175f8b753831a72e",
+    "diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "evaluate_checkpoint.py": "0a255b3e545a4a93a4af5d5f76b432d6071cc9a03bf00cb9e9de95d194af1e16",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9"
+  },
+  "preparation_git_head": "7965fec39ca8b080ab8bbb83b1b33feb4c54169e",
+  "file_raw_sha256": {
+    "configs/e2_backbone_frozen_diagnosis.json": "bb225f5bcf5cf15ac4ab4767270097f305f7e8e0d958bab9e3d7170aa4c96c12",
+    "src/acl_hct/backbone_frozen_entry.py": "9fe7b34204a454bf8594ca3735ab8156cc64e2967b925d070da711a396a6b5e3",
+    "src/acl_hct/backbone_frozen_diagnosis.py": "cc9451507183fd1d48afc18c7ae665c28fc722601b33d89bf485d46866c2c78b",
+    "src/acl_hct/backbone_frozen_inputs.py": "892dd30284820c22ac91aff2c530b9647f55ca15076ad2a1819da309d395a5e3",
+    "src/acl_hct/backbone_frozen_readings.py": "1247fe6c604ac49f6f352ea45db53d02af7f8a2df056e5dd175f8b753831a72e",
+    "tests/test_backbone_frozen_diagnosis.py": "c67097ca90f70d79bbc8f93b1ef15885083c6db762ca092dcc893fa96b7e80db",
+    "tests/test_backbone_frozen_inputs.py": "021d0948281ff8774330ad0d1b3ec40cb59e7d6d373a72de581fbc7b1461c5aa",
+    "tests/test_backbone_frozen_readings.py": "f37eba51d3add2f0d338a31116818e39877a61cdbd0cbd1b2c63f2df284588cd"
+  },
+  "tests": {
+    "command": "python -m pytest tests/test_backbone_frozen_diagnosis.py tests/test_backbone_frozen_inputs.py tests/test_backbone_frozen_readings.py -q --junitxml=.local/e2-backbone-frozen-engineering-final-tests.xml",
+    "count": 58,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 30.01,
+    "private_junit_file": ".local/e2-backbone-frozen-engineering-final-tests.xml",
+    "private_junit_raw_sha256": "2da3d38eec118cb614e3ae69eec51efb1ea2025a7aa5f9c51573d8f81f0f0a5d"
+  },
+  "software": {
+    "torch": "2.0.1+cpu",
+    "python": "3.10.11",
+    "device": "CPU",
+    "threads": 2
+  },
+  "fixture_matrix": {
+    "artificial_models": 2,
+    "artificial_nodes_per_model": 22,
+    "artificial_positive_groups_per_batch": 2,
+    "artificial_queries_per_batch": 10,
+    "schema_scientific_forward_backward_count": 72,
+    "schema_plain_equivalence_forward_backward_count": 8,
+    "not_real_scientific_execution": true,
+    "all_registered_sampling_seeds_and_plans_checked": true
+  },
+  "checks": {
+    "hooks_plain_points_logits_mean_BCE_parameter_gradient_equivalence": true,
+    "CPU_FP64_equivalence_atol": 1e-12,
+    "CPU_FP64_equivalence_rtol": 1e-11,
+    "CPU_FP32_equivalence_atol": 2e-06,
+    "CPU_FP32_equivalence_rtol": 2e-05,
+    "weight_input_hash_invariance": true,
+    "train_only_allowlist_and_batch_history_mismatch": true,
+    "local_Jacobian_and_undefined_direction_masks": true,
+    "fixed_positive_parent_child_grouping_and_paired_differences": true,
+    "all_four_equivalence_conditions_precede_other_replicates": true,
+    "deadline_and_partial_failure_inventory": true,
+    "strict_load_missing_key_rejected": true,
+    "config_source_quality_user_gate_fail_closed": true
+  },
+  "real_data_executed": false,
+  "real_prepared_opened": false,
+  "real_checkpoint_opened": false,
+  "optimizer_created": false,
+  "training_executed": false,
+  "GPU_used": false,
+  "valid_test_truth_opened": false,
+  "real_runtime_quality_passed": false,
+  "real_2_5_1_L40_equivalence_cost_memory": "unmeasured; still required under approved real run",
+  "history": [
+    {
+      "event": "first full CPU suite",
+      "result": "58 passed in 75.59s"
+    },
+    {
+      "event": "second full CPU suite before compact phase records",
+      "result": "58 passed in 73.44s"
+    },
+    {
+      "event": "review fix",
+      "result": "configuration tuple/list normalization and training_seed/plan_seed separation; no real execution"
+    },
+    {
+      "event": "verification command cancelled",
+      "reason": "Removed legacy checkpoint tests because their fixtures invoke optimizer/training; only owned pytest process stopped while its first synthetic matrix was running, before those legacy fixtures",
+      "legacy_training_fixture_executed": false
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "protocol": "E2-BACKBONE-FROZEN-v1",
+  "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+  "training_source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686"
+  },
+  "execution_frozen_sources": [
+    "backbone.py",
+    "geometry.py",
+    "aggregation.py",
+    "protocols.py"
+  ],
+  "checkpoints": {
+    "11": {
+      "step": 768,
+      "sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "training_config": {
+        "seed": 11,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    },
+    "23": {
+      "step": 768,
+      "sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "training_config": {
+        "seed": 23,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    }
+  },
+  "prepared": {
+    "manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+    "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+    "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+    "train_queries_hash": "443072ae213eb5567302777c7c99b1f841847a6067101c8c78a04a83ba5dd50d",
+    "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+    "input_raw_sha256": {
+      "input_manifest.json": "01fa131b858543bbe88eadb64f6ed452e770eec91eba64ac36d5a685ce94b8ab",
+      "observed_graph.json": "5cc31adff35651ab3da018424dfaa32da07b7348e22116e2ebc1669828ae6402",
+      "train_queries.json": "c5246c99bc7ca6b2bd45066a16e2d8e54c50c9e4ba876c4fbdf080f9eae91e52"
+    },
+    "nodes_count": 82115,
+    "train_groups_count": 67539
+  },
+  "history_raw_sha256": {
+    "11": "f7f189fbdb2d38daf2f0f9f16470f6ee2f8b6cb7fda6c4228e33c63bc1d9eaef",
+    "23": "300f41e07186bb961ba8b7189a4fc84f58da1fdc454c5a20dfad7cd8c153f16e"
+  },
+  "batch_steps": [
+    769,
+    770
+  ],
+  "batch_positives": 128,
+  "negative_count": 4,
+  "replicates": 8,
+  "fanout": 16,
+  "torch_version": "2.5.1+cu124",
+  "dtype": "float32",
+  "c": 1.0,
+  "radius": 1.2,
+  "threads": 2,
+  "max_padded_messages": 32768,
+  "hard_seconds": 720,
+  "allocation_seconds": 900,
+  "equivalence": {
+    "batch_step": 769,
+    "sample_replicate": 0,
+    "atol": 2e-06,
+    "rtol": 2e-05,
+    "additional_forward_backward_per_seed": 4
+  },
+  "scientific_forward_backward_per_seed": 36,
+  "total_scientific_forward_backward": 72,
+  "total_equivalence_forward_backward": 8,
+  "test_truth_unopened": true,
+  "optimizer_allowed": false,
+  "validation_ranking_allowed": false
+}
