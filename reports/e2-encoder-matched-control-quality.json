@@ -1,0 +1,129 @@
+{
+  "status": "passed",
+  "protocol": "E2-matched-encoder-control-v1",
+  "quality_scope": "local_cpu_engineering_only",
+  "created_at_utc": "2026-09-17T05:54:39.717829+00:00",
+  "base_commit": "4f51e86f4463246ef84e9c626e66ff6d005de385",
+  "source_publication_status": "not_yet_published",
+  "config_canonical_sha256": "e07cb6244dcf6a25b25f9a463e90e1f953c3245a1578674799ae4010c16f691d",
+  "config_raw_sha256": "4be7a504a4cfea8d0611ee5d714a18a07ba5bde6e3c384f9765acf70e93cb0b3",
+  "source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "backbone_frozen_inputs.py": "98a4d5a44c5c03f1cae9fdda89dd5cbbb29abefaedc411736aa355287bc4ba5b",
+    "encoder_matched.py": "25bcfffb94b1ce77f2801b70165b416b5d50063a490e45fd6cdfca9664b157a8",
+    "encoder_matched_registration.py": "31c9681dd16c0d2bbdb6b83b5c20a0edeee6fe1ca3a214f3235586bfb0bc8bcc",
+    "encoder_matched_control.py": "19f0a24caa080a92abb4cb125e4bb1bdea8d7aed383ecace13ba6db0eee61188",
+    "encoder_matched_entry.py": "36ce1758211fe131ab30f3e806a4e2c0fa9f5b9e9468222abb06187aba1cacea"
+  },
+  "reviewed_files_raw_sha256": {
+    "src/acl_hct/encoder_matched.py": "25bcfffb94b1ce77f2801b70165b416b5d50063a490e45fd6cdfca9664b157a8",
+    "src/acl_hct/encoder_matched_registration.py": "31c9681dd16c0d2bbdb6b83b5c20a0edeee6fe1ca3a214f3235586bfb0bc8bcc",
+    "src/acl_hct/encoder_matched_control.py": "19f0a24caa080a92abb4cb125e4bb1bdea8d7aed383ecace13ba6db0eee61188",
+    "src/acl_hct/encoder_matched_entry.py": "36ce1758211fe131ab30f3e806a4e2c0fa9f5b9e9468222abb06187aba1cacea",
+    "configs/e2_encoder_matched_control.json": "4be7a504a4cfea8d0611ee5d714a18a07ba5bde6e3c384f9765acf70e93cb0b3",
+    "tests/test_encoder_matched_control.py": "1b362f603d170e8985b2c1a29b97aae2813f1b08c74411c9d194f0c8ccd093f6",
+    "reports/E2_ENCODER_MATCHED_CONTROL_IMPLEMENTATION.md": "b0f0c9bb52b48c02cd9be7765e119f3193ea6d079bed77101ce2462c08508070"
+  },
+  "tests": {
+    "tests": 50,
+    "passed": 50,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "junit_suite_seconds": 15.652,
+    "junit_private_artifact": ".local/e2-encoder-matched/frozen-tests.xml",
+    "junit_raw_sha256": "ebee6e22e46478aac1aeebffa4f8299b7cd162ef7f38ad28e3ec5b1e60ba67e1",
+    "pytest_summary_seconds": 15.66,
+    "warnings": 1,
+    "warning": "PyTorch TypedStorage deprecation",
+    "command": "python -m pytest tests/test_encoder_matched_control.py -q --basetemp=.local/e2-encoder-matched/pytest-freeze --junitxml=.local/e2-encoder-matched/frozen-tests.xml"
+  },
+  "preserved_test_history": [
+    {
+      "tests": 40,
+      "passed": 40,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "junit_suite_seconds": 16.765,
+      "junit_private_artifact": ".local/e2-encoder-matched/first-tests.xml",
+      "junit_raw_sha256": "6e15aa05623169ac6d5cfaac8192ba09c2f4e85b8128fc1093456652915f8904"
+    },
+    {
+      "tests": 50,
+      "passed": 50,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "junit_suite_seconds": 14.887,
+      "junit_private_artifact": ".local/e2-encoder-matched/final-tests.xml",
+      "junit_raw_sha256": "7d6ca5bab9715fae91d32b83f81cd817a57813887ba10c28134db1f222a9bfc1"
+    },
+    {
+      "tests": 50,
+      "passed": 50,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "junit_suite_seconds": 15.652,
+      "junit_private_artifact": ".local/e2-encoder-matched/frozen-tests.xml",
+      "junit_raw_sha256": "ebee6e22e46478aac1aeebffa4f8299b7cd162ef7f38ad28e3ec5b1e60ba67e1"
+    }
+  ],
+  "software": {
+    "python": "3.10.11",
+    "torch": "2.0.1+cpu",
+    "numpy": "1.24.4"
+  },
+  "checks": {
+    "python_compile_passed": true,
+    "new_file_trailing_whitespace_check_passed": true,
+    "git_diff_check_passed": true,
+    "all_13_existing_files_raw_bytes_unchanged": true,
+    "status_history_byte_preserved": true,
+    "git_index_empty": true,
+    "git_head_unchanged": true
+  },
+  "integrity_record_private_artifact": ".local/e2-encoder-matched/frozen-engineering-integrity.json",
+  "integrity_record_raw_sha256": "fc5ac9b08c52216ea4f35e1aa51c679566ab1a33ca4838931627dad3efc93751",
+  "engineering_evidence": [
+    "original empty/full/unique model FP32 and FP64 points, logits, mean BCE and all parameter gradients",
+    "same constructor RNG, 82433 parameters, tensor names and finite geometry/gradients",
+    "query inverse mapping and independence of unrelated entity features",
+    "complete filtered ranking, precise tie policy, cache invalidation and fixed degree contributions",
+    "strict native labels, permitted input scope and actual historical metadata schema",
+    "synthetic four update/checkpoint selections and fresh best ranking after loading a new model",
+    "initial snapshot and checkpoint source/config/data/tensor hash bindings",
+    "batch mismatch, partial valid, nonfinite, timeout and reload mismatch fail and retain evidence",
+    "source/config/user authorization/quality and native gate incompleteness or tampering rejected",
+    "23 exact CUDA comparison keys and 65 arrays per seed required; synthetic metadata tests only",
+    "independent worker hard deadline and import-free archive static entry"
+  ],
+  "pending_execution_gates": {
+    "native_torch_2_5_1_cpu_preflight": "not_executed",
+    "native_l40_cuda_fixture": "not_executed",
+    "seed11_science": "not_executed",
+    "seed23_science": "not_executed",
+    "supervisor_source_quality_review": "pending"
+  },
+  "execution": {
+    "real_prepared_or_checkpoint_opened": false,
+    "real_model_training_executed": false,
+    "gpu_executed": false,
+    "actual_gpu_seconds": 0
+  },
+  "limitations": [
+    "local torch2.0.1 CPU tests do not verify historical torch2.5.1 initialization or native CUDA equivalence",
+    "positive native gate records in unit tests are explicitly synthetic fixture metadata",
+    "historical GNN has no initial checkpoint; native initializer and MLP mapped tensor hashes are anchors",
+    "full data timing, GPU memory, hard resource feasibility and scientific metrics remain unmeasured",
+    "original E2 remains partly met and competitive backbone premise is not met"
+  ]
+}

@@ -2,6 +2,8 @@
 
 ## Current user approval gate — supersedes earlier automatic progression
 
+- Latest continuation after the frozen diagnostic (2026-09-17): the user read the E2 conclusions and concrete matched-encoder next-step suggestion, then said “围绕我们的主线讲清楚，继续实验，并及时汇报”. This authorizes the bounded two-seed matched encoder self-message control and its necessary quality checks in `docs/operations/E2_MATCHED_ENCODER_CONTROL.md`, after source/CPU/real-runtime quality gates pass. Do not ask again for this same authorized action. It is not blanket permission for new variants, extra seeds, arbitrary tuning, or E3–E5. Preserve the stage approval gate for subsequent key experiments. Current mainline claims and limits are in `docs/research/03_主线证据与下一步决策.md`.
+
 - Latest E2 continuation instruction (2026-09-17): “继续进行，不要自停E2”. Continue authorized E2 after diagnosing and fixing recoverable engineering issues; do not treat the supervisor's earlier one-attempt/no-retry wording as a new user-approval barrier for the same work. Preserve failures, verify repairs before rerunning, retain scientific/numerical gates, and avoid blind retries. Plan/review subsequent E2 work concretely under this continuation instruction; do not infer E3 or unrelated training authorization. See `docs/operations/E2_ENTRY_AND_PILOT.md`.
 
 - On 2026-09-16 the user explicitly required: “每一个关键实验步骤必须在质量验收和关键指标通过，以及我的同意后才能继续”. Every new key experiment requires completed quality review, the pre-agreed key metrics passing, AND explicit user agreement. The parent supervisor cannot substitute its approval for the user's. Earlier staged/conditional auto-run instructions are superseded; available compute is not experiment authorization. Follow `docs/operations/EXPERIMENT_APPROVAL_GATE.md`.
