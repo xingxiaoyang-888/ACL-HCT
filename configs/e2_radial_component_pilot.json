@@ -1,0 +1,177 @@
+{
+  "protocol": "E2-radial-components-v1/B",
+  "scope": "exploratory mechanism pilot reusing prior observed graph samples; not independent confirmation",
+  "old_science_source_commit": "293ca0beaa50dd9bedacf6f06001ec3b73b2b9b6",
+  "old_config_canonical_sha256": "8ecd462845cf6f413bf57186506cabf044dcd87a52b4b6d490744db4def27172",
+  "original_input_catalog_raw_sha256": "7b067d402222a1731800eeb082ceefac9770e825236e7e703cc1ac2ed049602e",
+  "old_source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "backbone_frozen_inputs.py": "98a4d5a44c5c03f1cae9fdda89dd5cbbb29abefaedc411736aa355287bc4ba5b",
+    "encoder_matched.py": "25bcfffb94b1ce77f2801b70165b416b5d50063a490e45fd6cdfca9664b157a8",
+    "encoder_matched_registration.py": "31c9681dd16c0d2bbdb6b83b5c20a0edeee6fe1ca3a214f3235586bfb0bc8bcc",
+    "encoder_matched_control.py": "19f0a24caa080a92abb4cb125e4bb1bdea8d7aed383ecace13ba6db0eee61188",
+    "evaluate_checkpoint.py": "0a255b3e545a4a93a4af5d5f76b432d6071cc9a03bf00cb9e9de95d194af1e16",
+    "development_view.py": "db6ddaaa6cc2c0061ba9e1f8178b28d60a6259d533b26b81ff4647f26d84cd1b",
+    "frozen_forward.py": "a2e335878d3aa4dc118210af61709e8ccfddc2c064c3378d16d468a1ca7a3184",
+    "frozen_stats.py": "a45fea311243ee1fd7ae1418f90e9ced94605a4d77895613c5b6ff3af2f5176d",
+    "frozen_structure.py": "3c4980051e60cbed1f3af9378f7342fdb660345794dde93910b890014649d2a0",
+    "frozen_fixture.py": "035144ce8e8cdc352bd6a8027c8f5d3c7929e11bc838c747fd22bae884d43847",
+    "vector_structure.py": "d8b2ed8ed586eebf8cdde4f91952513ab23282c8986e45aeb6e8f5a5548e61a2",
+    "diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "e2_pilot.py": "ba9f3f71d5e32ef9f961bed3990172087b087523de76e160bb61b18bb8bee816",
+    "model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1",
+    "data.py": "31761322b71548cafc8b105bb0332d5e64d71a7c912718f77a8be0eed67be0f2",
+    "text_capacity.py": "7d58ccdc91969af0da312bd5c64d7255d8d0080721dbf48a1400c4b23a1f0bdf",
+    "taxonomy.py": "a4fc2d18570357606c4e1e816033d073c72171e8077fff76ae8dea01c0bf3615",
+    "smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3",
+    "frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd",
+    "frozen_recovery.py": "6ea48bce5f2fa0db46abd6974816ac2a59fbae256f8994bcd6a8a8843a5279d5",
+    "recovery_inputs.py": "40211fd7f644a9b8dd8cd9963c79f5c75e5ef7ff3450c57dc7d51c2bbbd9cfae",
+    "recovery_registration.py": "2cf921ca9412eef04d5f91eb3d6e249ebdc8a4c6ad13b8da3cc71ebaa520aa5d",
+    "recovery_entry.py": "0ddec404a4bf21a2821b61525958edd99bb298e0d8c782548b1c865336fede41",
+    "recovery_analysis.py": "0b71c84761042c0b9c28b7d288d0961556ba69023da29f30d75c30a20eef8144"
+  },
+  "A_source_lf_sha256": {
+    "recovery_relations.py": "99ca59403339c0b252f1c1296ee9e57158f5386aad688738c40a0cc50d8a9358",
+    "relation_entry.py": "2801565d04eeb08e4a05ce953222a06a28dfd0a0cd79728f218dc1d583709adb"
+  },
+  "model": {
+    "input_dim": 128,
+    "hidden": 128,
+    "head_hidden": 128,
+    "c": 1.0,
+    "scaled_radius": 1.2,
+    "parameter_count": 82433
+  },
+  "runtime": {
+    "torch": "2.5.1+cu124",
+    "dtype": "float32",
+    "hardware": "NVIDIA L40",
+    "TF32": false,
+    "AMP": false,
+    "numpy": "1.26.4",
+    "intervention_geometry_device": "cpu",
+    "structure_geometry_device": "cpu",
+    "native_head_device": "cuda:0",
+    "scientific_CPU_threads": 4
+  },
+  "projection": {
+    "undefined_distance_minimum": 1e-10,
+    "floor_rule": "max(floor_i+floor_root,1e-10)",
+    "undefined": "R/T both copy native S; save unapplied b",
+    "conditions": [
+      "R",
+      "T"
+    ],
+    "new_samples": 0,
+    "new_random_streams": 0,
+    "train_updates": 0
+  },
+  "numeric": {
+    "cast_absolute_geodesic": 0.0001,
+    "cast_relative_resolved": 0.01,
+    "step_resolution_factor": 100.0,
+    "cast_proxy_epsilon_multiple": 8.0,
+    "cache_absolute": 1e-05,
+    "calibration_base_max_abs": 1e-05,
+    "roundtrip_max_abs": 1e-10,
+    "tangent_max_abs": 1e-09,
+    "full_valid_reproduction": 1e-08,
+    "status": "supervisor_reviewed_proposal_runtime_pending",
+    "coordinate_scale": "1 + ambient Euclidean norm of the analytic FP64 R/T point at each node",
+    "actual_step": "Lorentz geodesic distance between promoted native S and analytic FP64 R/T",
+    "cast_error": "Lorentz geodesic distance between analytic FP64 R/T and uniformly promoted once-cast native R/T",
+    "resolution_proxy": "max(archived full-L2 empirical numerical floor, 8 * float32 epsilon * coordinate_scale)",
+    "resolved": "actual_step >= 100 * resolution_proxy; all nodes retained in structure/task readouts"
+  },
+  "shards": [
+    {
+      "seed": 11,
+      "repeat_range": [
+        0,
+        8
+      ]
+    },
+    {
+      "seed": 11,
+      "repeat_range": [
+        8,
+        16
+      ]
+    },
+    {
+      "seed": 23,
+      "repeat_range": [
+        0,
+        8
+      ]
+    },
+    {
+      "seed": 23,
+      "repeat_range": [
+        8,
+        16
+      ]
+    }
+  ],
+  "statistics": {
+    "metrics": [
+      "direct",
+      "distant",
+      "micro_mrr"
+    ],
+    "comparisons": [
+      "R-S",
+      "T-S",
+      "R-T"
+    ],
+    "family_size": 18,
+    "n_per_model": 16,
+    "df": 15,
+    "interval": "marginal Student 95%; conditional fixed calibration, original samples reused",
+    "zero_variance": "inferable=false; interval=null; p placeholder1"
+  },
+  "ranking": {
+    "candidate_chunk": 4096,
+    "single_complete_seconds": 180,
+    "F_rows": "exact full saved rank rows and candidate counts before any R/T result"
+  },
+  "fixture": {
+    "only_synthetic": true,
+    "seeds": [
+      11,
+      23
+    ],
+    "cases": [
+      "mixed",
+      "zero"
+    ],
+    "nodes": 16,
+    "head_dimension": 128,
+    "explicit_CPU_generator_seed_base": 2026091707,
+    "score_absolute_tolerance": 1e-05,
+    "FP64_geometry_absolute_tolerance": 1e-10
+  },
+  "resources": {
+    "fixture_allocation_seconds": 300,
+    "fixture_worker_seconds": 240,
+    "science_allocation_seconds": 900,
+    "science_worker_seconds": 840,
+    "GPU_per_worker": 1,
+    "maximum_parallel_workers": 4,
+    "round_GPU_seconds_limit": 4800,
+    "initial_reserved_GPU_seconds": 3900,
+    "pre_result_feasibility": {
+      "remaining_complete_rankings": 16,
+      "nonranking_reserve_seconds": 180
+    }
+  },
+  "stop": "finish current E2 A/B and acceptance/delivery; discuss with user before any additional experiment/module/training/stage"
+}
