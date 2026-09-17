@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "phase": "A",
+  "purpose": "A engineering source, necessary synthetic checks and actual historical metadata schema accepted locally; no new scientific localization results",
+  "new_source_lf_sha256": {
+    "recovery_relations.py": "99ca59403339c0b252f1c1296ee9e57158f5386aad688738c40a0cc50d8a9358",
+    "relation_entry.py": "2801565d04eeb08e4a05ce953222a06a28dfd0a0cd79728f218dc1d583709adb"
+  },
+  "test_raw_sha256": "774167a81ec04de40a5dc47b68271109b266191f415d8e8fc21d773d37381785",
+  "test_lf_sha256": "774167a81ec04de40a5dc47b68271109b266191f415d8e8fc21d773d37381785",
+  "protocol_lf_sha256": "a038c5bb2941da0cb6c139b237c3b75444b68c0ebbc4c3fc5ae90ac04ccfcade",
+  "bindings_raw_sha256": "7b067d402222a1731800eeb082ceefac9770e825236e7e703cc1ac2ed049602e",
+  "tests": {
+    "command": "python -m pytest tests/test_recovery_relations.py -q --junitxml=.local/e2-radial-component-quality/a-tests.xml",
+    "passed": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 6.375,
+    "evidence_raw_sha256": "c55cff6647e37a6e25306178855ccad670a539fdc64221958689b1f940779355"
+  },
+  "local_runtime": {
+    "python": "3.10.11",
+    "torch": "2.0.1+cpu",
+    "numpy": "1.24.4",
+    "pytest": "8.2.0"
+  },
+  "scientific_runtime": {
+    "torch": "2.5.1+cu124",
+    "numpy": "1.26.4",
+    "device": "CPU",
+    "maximum_threads": 4
+  },
+  "old_files": {
+    "source_test_config_report_files_unchanged": 297,
+    "supervisor_owned_AGENTS_changed": [
+      "AGENTS.md"
+    ],
+    "old_four_untouched": true
+  },
+  "resources": {
+    "GPU_used": 0,
+    "real_archives_opened": 0,
+    "CPU_worker_seconds": 1680,
+    "CPU_allocation_seconds": 1800,
+    "GiB": 16,
+    "real_metadata_JSONs_verified": 12
+  },
+  "prior_harness_failure": {
+    "case": "subprocess missing pytest source path",
+    "record": "a-tests-first-harness-failure.xml",
+    "fixed": "explicit task PYTHONPATH src for subprocess",
+    "production_source_bug": false
+  },
+  "release": "await supervisor review; no stage/commit/push or execution",
+  "stop_after_current_E2_A_B_delivery": true,
+  "real_metadata_only_review": {
+    "status": "passed",
+    "records": 12,
+    "real_checkpoint_or_NPZ_opened": false,
+    "source_map": "original hash-bound progress.json; crosscheck source_commit/config/release with run.json",
+    "evidence_raw_sha256": "d70144cdea5254fcb202eb80ef2f35a7364b7b4ab1ec1ce1fe9742439fc4c773"
+  },
+  "prior_source_schema_failure": {
+    "status": "reproduced and fixed before publication/execution",
+    "failure": "original run.provenance does not contain source_lf_sha256; it is in progress.json",
+    "evidence_raw_sha256": "cec3c88ee7b21883c0c9e70a66d798169180011dbaa848890b709eb27a44afb9",
+    "old_originals_edited": false,
+    "gate_relaxed": false
+  }
+}
