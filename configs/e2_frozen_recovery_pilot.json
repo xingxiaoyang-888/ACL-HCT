@@ -1,0 +1,393 @@
+{
+  "protocol": "E2-frozen-recovery-v1",
+  "seeds": [
+    11,
+    23
+  ],
+  "scope": "bounded exploratory frozen recovery and mean-bias intervention; no training/test/E3",
+  "prepared": {
+    "manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+    "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+    "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+    "train_queries_hash": "443072ae213eb5567302777c7c99b1f841847a6067101c8c78a04a83ba5dd50d",
+    "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+    "input_raw_sha256": {
+      "input_manifest.json": "01fa131b858543bbe88eadb64f6ed452e770eec91eba64ac36d5a685ce94b8ab",
+      "observed_graph.json": "5cc31adff35651ab3da018424dfaa32da07b7348e22116e2ebc1669828ae6402",
+      "train_queries.json": "c5246c99bc7ca6b2bd45066a16e2d8e54c50c9e4ba876c4fbdf080f9eae91e52"
+    },
+    "nodes_count": 82115,
+    "train_groups_count": 67539,
+    "features_npz_raw_sha256": "b23f8697b95070da8ee33c18fb4345174b7e2293529e6532ba09308bf895dc70",
+    "evaluator_valid_raw_sha256": "9545d77aa19b7e905ef6eb32bd1e4469558c9d710dd11b7f46ac18d36a799a20"
+  },
+  "valid_query_count": 8456,
+  "model": {
+    "input_dim": 128,
+    "hidden": 128,
+    "head_hidden": 128,
+    "c": 1.0,
+    "scaled_radius": 1.2,
+    "parameter_count": 82433
+  },
+  "checkpoints": {
+    "11": {
+      "step": 768,
+      "sha256": "b3afb5f84fda3d893da21548e7f51165f029880fd4d3e9e85fcb544b344dac4d",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+      "training_config": {
+        "seed": 11,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    },
+    "23": {
+      "step": 768,
+      "sha256": "a28c65150297250a18b29cd3e1fc729c2fb3f2437cf1290dcf4105f943af00b1",
+      "training_commit": "b6269f24e33602c10c39ee6b9bac57fe0901a405",
+      "baseline_report_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+      "training_config": {
+        "seed": 23,
+        "hidden": 128,
+        "head_hidden": 128,
+        "c": 1.0,
+        "scaled_radius": 1.2,
+        "fanouts": [
+          16,
+          16
+        ],
+        "method": "none",
+        "batch_positives": 128,
+        "max_steps": 1024,
+        "learning_rate": 0.003,
+        "max_seconds": 3300.0,
+        "evaluation": "full_validation",
+        "probe_queries": 16,
+        "evaluation_max_seconds": 180.0,
+        "candidate_chunk": 4096,
+        "max_padded_messages": 32768,
+        "save_every": 50,
+        "evaluate_every": 256,
+        "threads": 2
+      }
+    }
+  },
+  "calibration": {
+    "11": {
+      "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+      "R": 256,
+      "half_counts": [
+        128,
+        128
+      ],
+      "sampling_stream": {
+        "seed": 2026091702,
+        "namespace": "E2-independent-confirmation-v1/seed11/fanout4",
+        "layer_seeds": [
+          8322620086161106752,
+          7637472522354916093
+        ],
+        "derivation": "SHA256(seed/namespace/layer1 or layer2), first 8 bytes big endian modulo 2^63"
+      },
+      "identity": {
+        "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+        "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+        "prepared_manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+        "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb"
+      },
+      "entry_manifest_raw_sha256": "8ca49fc9904824240d53ce6020f90c6ba65410a587f0f2a4f2c4d2a38ca50d04",
+      "entry_npz_raw_sha256": "eb24d7bc2f36d7ffeeef2322c5b9b285d2bbf9dd26c200a3152ce754b29fc00b",
+      "fanout_manifest_raw_sha256": "10f68e161bdcbb1612a2a163c125b18bfdf4ec04167b76351b80a222755009a6",
+      "fanout_npz_raw_sha256": "01a514f53858179aa1085f759b31917bb3541d1a6f5d161c4f27f30bbe74b1aa",
+      "fields": {
+        "nodes": {
+          "key": "a00000",
+          "shape": [
+            82115
+          ],
+          "dtype": "<U8",
+          "data_sha256": "aad147f8faf182f4b5c95f826600402125df6bacbcfaf453c0fdb281af91c09d"
+        },
+        "p": {
+          "key": "a00010",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8",
+          "data_sha256": "43d69037879e63c5151a17e23b3f6edaf786098f13a632dcbfdc7741dd65fb99"
+        },
+        "floor": {
+          "key": "a00011",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "71cf2cf42558bde95fc3ae431c398ec6e4345edeb76727cada58667e1cc8d4c8"
+        },
+        "b": {
+          "key": "a00036",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8",
+          "data_sha256": "6041e6808d525632233212d92205bd4f4b971bb6b9881329cb5b56ebbb8c9029"
+        },
+        "variance": {
+          "key": "a00038",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "c51305b489f377d3b4a7fa632b37a7f6fb5b1574bf46eac51f2432b945068d12"
+        },
+        "half_cross": {
+          "key": "a00042",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "e0f7cc1a33353a05701ff839e4f8a1bfaff1358ccfa2e4c675e59d9273009c2f"
+        },
+        "noise_corrected_bias_squared": {
+          "key": "a00041",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "d711af04442ef39295adc96b7c07e3110f15873dff0e96fafe429d98f7f2c01d"
+        }
+      },
+      "panels_hash": "23616b7e8b2639ded9d2b42e5f62cb044c316ac2621bc564e2e5680610d065bf",
+      "h_dev_hash": "ae570c31dafa19d1f21bbc5cd93d329f0a6e27c9b54f2b8031ccd94c9c156fd3",
+      "reference_root": "00001740"
+    },
+    "23": {
+      "source_commit": "49609014610fe86dbf6b19fe8a1fe94df7ecd019",
+      "R": 512,
+      "half_counts": [
+        256,
+        256
+      ],
+      "sampling_stream": {
+        "seed": 2026091702,
+        "namespace": "E2-independent-confirmation-v1/seed23/fanout4",
+        "layer_seeds": [
+          7546802264864846448,
+          7777107993745998625
+        ],
+        "derivation": "SHA256(seed/namespace/layer1 or layer2), first 8 bytes big endian modulo 2^63"
+      },
+      "identity": {
+        "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+        "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+        "prepared_manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+        "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb"
+      },
+      "entry_manifest_raw_sha256": "021c3a8c21cabcc6309a8c2d24aacc8c7ccf923d0e6a3766873ddd2bf1957b21",
+      "entry_npz_raw_sha256": "3de9863182d869ff852dca9e24998c0ff7e18c5510d9b13567175feff8b4391c",
+      "fanout_manifest_raw_sha256": "1f156bd360637249655b7037c8c2fb97a336574cc8ee26831a2daefabba900cb",
+      "fanout_npz_raw_sha256": "7289f186c05c3a25242a7dd32f9ab236d0405ddf7c1a86e8ac2c7629addcff8a",
+      "fields": {
+        "nodes": {
+          "key": "a00000",
+          "shape": [
+            82115
+          ],
+          "dtype": "<U8",
+          "data_sha256": "aad147f8faf182f4b5c95f826600402125df6bacbcfaf453c0fdb281af91c09d"
+        },
+        "p": {
+          "key": "a00010",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8",
+          "data_sha256": "b8a1dfdbed9c2f408c57eba5b3bb42c7529446379e9b1c061f16369766364f65"
+        },
+        "floor": {
+          "key": "a00011",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "7231c1c5ea6752a75e5cc37111dda4f8fce3df256ab58f583465e2a6876cf057"
+        },
+        "b": {
+          "key": "a00036",
+          "shape": [
+            82115,
+            129
+          ],
+          "dtype": "<f8",
+          "data_sha256": "0bb831730f28d4676112f83b82fddbbbb135ffcd9cac640f6e0fa46fee3f84e8"
+        },
+        "variance": {
+          "key": "a00038",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "5f3f0c36d69911ebae922793fd031b47f87cc2ebd84c9be58708dd1bd59edf32"
+        },
+        "half_cross": {
+          "key": "a00042",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "cb7e575499fd547567245579636964d7f9633bfe969568e8da7496de63d0cdee"
+        },
+        "noise_corrected_bias_squared": {
+          "key": "a00041",
+          "shape": [
+            82115
+          ],
+          "dtype": "<f8",
+          "data_sha256": "220059b81f9c6fb2933bc77356a85505d9007bc7b82c781d80e0f92d2717c049"
+        }
+      },
+      "panels_hash": "23616b7e8b2639ded9d2b42e5f62cb044c316ac2621bc564e2e5680610d065bf",
+      "h_dev_hash": "ae570c31dafa19d1f21bbc5cd93d329f0a6e27c9b54f2b8031ccd94c9c156fd3",
+      "reference_root": "00001740"
+    }
+  },
+  "frozen_source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd"
+  },
+  "pilot": {
+    "fanout": 4,
+    "repetitions_per_seed": 16,
+    "shards": [
+      [
+        0,
+        8
+      ],
+      [
+        8,
+        16
+      ]
+    ],
+    "conditions": [
+      "F",
+      "S",
+      "O",
+      "C",
+      "Q"
+    ],
+    "sampling_seed": 2026091705,
+    "sampling_namespace": "E2-frozen-recovery-v1/seed{seed}/repeat{repeat}",
+    "q_seed": 2026091706,
+    "q_namespace": "E2-frozen-recovery-v1/seed{seed}/equal-norm-control",
+    "threads": 2,
+    "candidate_chunk": 4096,
+    "ranking_seconds": 180,
+    "max_padded_messages": 32768,
+    "max_reach_visits": 2000000,
+    "structure_panel": "diagnostic_confirmation",
+    "correction": "third",
+    "max_step": 0.1
+  },
+  "numeric_proposal": {
+    "cast_absolute_geodesic": 0.0001,
+    "cast_relative_resolved": 0.01,
+    "step_resolution_factor": 100.0,
+    "cast_proxy_epsilon_multiple": 8.0,
+    "cache_absolute": 1e-05,
+    "calibration_base_max_abs": 1e-05,
+    "roundtrip_max_abs": 1e-10,
+    "tangent_max_abs": 1e-09,
+    "full_valid_reproduction": 1e-08,
+    "status": "supervisor_reviewed_proposal_runtime_pending",
+    "coordinate_scale": "1 + ambient Euclidean norm of the analytic FP64 O/Q point at each node",
+    "actual_step": "Lorentz geodesic distance between promoted native S and analytic FP64 O/Q",
+    "cast_error": "Lorentz geodesic distance between analytic FP64 O/Q and uniformly promoted once-cast native O/Q",
+    "resolution_proxy": "max(archived full-L2 empirical numerical floor, 8 * float32 epsilon * coordinate_scale)",
+    "resolved": "actual_step >= 100 * resolution_proxy; all nodes retained in structure/task readouts"
+  },
+  "precision": {
+    "native_points_and_head": "float32",
+    "O_Q_geometry": "float64",
+    "cast": "once to native; exact original S at zero amplitude",
+    "AMP": false,
+    "TF32": false
+  },
+  "analysis": {
+    "primary_metrics": [
+      "direct",
+      "distant",
+      "micro_mrr"
+    ],
+    "primary_comparisons": [
+      "C-S",
+      "O-S",
+      "O-Q"
+    ],
+    "family_size": 18,
+    "interval": "marginal two-sided Student t 95%, df15",
+    "multiplicity": "Holm across all 18 two-sided paired tests",
+    "independent_unit": "whole graph sampling repeat; conditional on fixed calibration"
+  },
+  "runtime": {
+    "torch": "2.5.1+cu124",
+    "dtype": "float32",
+    "hardware": "NVIDIA L40",
+    "TF32": false,
+    "AMP": false
+  },
+  "resources": {
+    "gpus_per_job": 1,
+    "max_concurrent_acl_gpus": 4,
+    "fixture_worker_seconds": 240,
+    "fixture_allocation_seconds": 300,
+    "science_worker_seconds": 1080,
+    "science_allocation_seconds": 1200,
+    "planned_gpu_seconds": 5100,
+    "whole_round_gpu_seconds_limit": 5400,
+    "cpu_preflight": {
+      "cpus": 2,
+      "memory_gib": 16,
+      "gpus": 0,
+      "allocation_seconds": 300,
+      "worker_seconds": 240
+    },
+    "run_feasibility": {
+      "after": "verified F ranking and F archive; before S/O/C/Q repeats",
+      "remaining_complete_rankings_per_shard": 32,
+      "nonranking_reserve_seconds": 180,
+      "estimate": "measured F ranking seconds * 32 + 180 seconds",
+      "reject_status": "resource_time_budget_inadequate",
+      "scope": "conservative runtime estimate; not scientific quality or effect; resource-only retry keeps global repeat IDs"
+    }
+  }
+}

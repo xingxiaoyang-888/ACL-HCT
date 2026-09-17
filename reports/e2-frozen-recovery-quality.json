@@ -1,0 +1,239 @@
+{
+  "status": "passed",
+  "scope": "offline CPU synthetic engineering only; no actual frozen-model scientific result",
+  "created_utc": "2026-09-17T07:51:43.144058+00:00",
+  "config_canonical_sha256": "8ecd462845cf6f413bf57186506cabf044dcd87a52b4b6d490744db4def27172",
+  "config_raw_sha256": "32f775581faa0d6d246c9c54407657563a49e46cfa1e26dc6a36c8ab52d91f64",
+  "source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "backbone_frozen_inputs.py": "98a4d5a44c5c03f1cae9fdda89dd5cbbb29abefaedc411736aa355287bc4ba5b",
+    "encoder_matched.py": "25bcfffb94b1ce77f2801b70165b416b5d50063a490e45fd6cdfca9664b157a8",
+    "encoder_matched_registration.py": "31c9681dd16c0d2bbdb6b83b5c20a0edeee6fe1ca3a214f3235586bfb0bc8bcc",
+    "encoder_matched_control.py": "19f0a24caa080a92abb4cb125e4bb1bdea8d7aed383ecace13ba6db0eee61188",
+    "evaluate_checkpoint.py": "0a255b3e545a4a93a4af5d5f76b432d6071cc9a03bf00cb9e9de95d194af1e16",
+    "development_view.py": "db6ddaaa6cc2c0061ba9e1f8178b28d60a6259d533b26b81ff4647f26d84cd1b",
+    "frozen_forward.py": "a2e335878d3aa4dc118210af61709e8ccfddc2c064c3378d16d468a1ca7a3184",
+    "frozen_stats.py": "a45fea311243ee1fd7ae1418f90e9ced94605a4d77895613c5b6ff3af2f5176d",
+    "frozen_structure.py": "3c4980051e60cbed1f3af9378f7342fdb660345794dde93910b890014649d2a0",
+    "frozen_fixture.py": "035144ce8e8cdc352bd6a8027c8f5d3c7929e11bc838c747fd22bae884d43847",
+    "vector_structure.py": "d8b2ed8ed586eebf8cdde4f91952513ab23282c8986e45aeb6e8f5a5548e61a2",
+    "diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "e2_pilot.py": "ba9f3f71d5e32ef9f961bed3990172087b087523de76e160bb61b18bb8bee816",
+    "model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1",
+    "data.py": "31761322b71548cafc8b105bb0332d5e64d71a7c912718f77a8be0eed67be0f2",
+    "text_capacity.py": "7d58ccdc91969af0da312bd5c64d7255d8d0080721dbf48a1400c4b23a1f0bdf",
+    "taxonomy.py": "a4fc2d18570357606c4e1e816033d073c72171e8077fff76ae8dea01c0bf3615",
+    "smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3",
+    "frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd",
+    "frozen_recovery.py": "93e464c40641ed18bedcc96eaa3814967eb298853571960db3067f0201beb5ca",
+    "recovery_inputs.py": "40211fd7f644a9b8dd8cd9963c79f5c75e5ef7ff3450c57dc7d51c2bbbd9cfae",
+    "recovery_registration.py": "2cf921ca9412eef04d5f91eb3d6e249ebdc8a4c6ad13b8da3cc71ebaa520aa5d",
+    "recovery_entry.py": "0ddec404a4bf21a2821b61525958edd99bb298e0d8c782548b1c865336fede41",
+    "recovery_analysis.py": "0b71c84761042c0b9c28b7d288d0961556ba69023da29f30d75c30a20eef8144"
+  },
+  "artifact_raw_sha256": {
+    "src/acl_hct/frozen_recovery.py": "93e464c40641ed18bedcc96eaa3814967eb298853571960db3067f0201beb5ca",
+    "src/acl_hct/recovery_inputs.py": "40211fd7f644a9b8dd8cd9963c79f5c75e5ef7ff3450c57dc7d51c2bbbd9cfae",
+    "src/acl_hct/recovery_registration.py": "2cf921ca9412eef04d5f91eb3d6e249ebdc8a4c6ad13b8da3cc71ebaa520aa5d",
+    "src/acl_hct/recovery_entry.py": "0ddec404a4bf21a2821b61525958edd99bb298e0d8c782548b1c865336fede41",
+    "src/acl_hct/recovery_analysis.py": "0b71c84761042c0b9c28b7d288d0961556ba69023da29f30d75c30a20eef8144",
+    "tests/test_frozen_recovery.py": "c50af637e3ee7b317e0b10017e09055d9215b635dbc6c748fec8300e414d6b07",
+    "configs/e2_frozen_recovery_pilot.json": "32f775581faa0d6d246c9c54407657563a49e46cfa1e26dc6a36c8ab52d91f64",
+    "reports/E2_FROZEN_RECOVERY_IMPLEMENTATION.md": "697d5ac9b582abb7bcdf4a456a7faac43479f6fcaa261b3dd6c1a2e21219637f"
+  },
+  "runtime": {
+    "python": "3.10.11",
+    "torch": "2.0.1+cpu",
+    "numpy": "1.24.4",
+    "scipy": "1.10.1",
+    "device": "CPU"
+  },
+  "tests": {
+    "command": "python -m pytest tests/test_frozen_recovery.py -q --junitxml=.local/e2-frozen-recovery/feasibility-tests.xml",
+    "exit_code": 0,
+    "tests": 41,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "warning": "PyTorch2.0.1 TypedStorage deprecation in synthetic checkpoint load",
+    "pytest_reported_seconds": 22.17,
+    "junit_seconds": 22.156,
+    "junit_raw_sha256": "e613cc5168337d3c39784aceab8b3aa7a60b9c8c2895a991f3108f1799508d5e"
+  },
+  "failure_history": {
+    "first_pass": {
+      "tests": 33,
+      "passed": 32,
+      "failed": 1,
+      "reason": "FP64 full encode received one layer instead of two complete layer plans",
+      "junit_raw_sha256": "a07d45fcd23a6fef848d7adee9c76ac9eff4bdfec847f2323f9bad82df5c56b7"
+    },
+    "repair": "two complete layer plans; no numerical limit relaxation",
+    "retained_intermediate_passes": [
+      {
+        "tests": 37,
+        "seconds": 31.1
+      },
+      {
+        "tests": 39,
+        "seconds": 36.85
+      },
+      {
+        "tests": 40,
+        "seconds": 33.88
+      },
+      {
+        "tests": 40,
+        "seconds": 37.88,
+        "version": "before supervisor resource feasibility addition"
+      }
+    ]
+  },
+  "checks": {
+    "exact_config_static_without_tensor_imports": true,
+    "new_source_test_compile": true,
+    "new_file_whitespace": true,
+    "source_dependency_table": "32 LF-bound sources; 23 loaded local modules checked, none unbound",
+    "legacy_loader_semantic_equivalence": true,
+    "legacy_module_globals_unchanged": true,
+    "each_original_file_single_path_read_and_full_hash": true,
+    "decode_same_verified_cached_bytes": true,
+    "paired_plans_q_rng_and_c_oracle_isolation": true,
+    "zero_native_points_logits_and_ranks": true,
+    "all_node_cast_gate_and_unresolved_retention": true,
+    "two_seed_production_dimension_fixture_archives": true,
+    "eight_repeat_complete_and_partial_stop_archive": true,
+    "full_archive_structure_rank_summary_recomputation": true,
+    "18_student_t_holm_and_constant_difference_noninferable": true,
+    "release_phase_source_config_and_artifact_rejections": true,
+    "whole_worker_deadline_partial_progress": true,
+    "resource_feasibility_preserves_F_and_zero_evaluation_repeats": true,
+    "load_run_phase_timing_and_peak_VRAM_evidence_fields": true
+  },
+  "original_integrity": {
+    "read_only_files": 84,
+    "changed_files": [],
+    "snapshot_raw_sha256": "c339d68ffe9f7817b2564d4e2fd0513496ef54b125440abf3dc17e5e0d420987",
+    "accepted_adapter_quality_raw_sha256": "a362ef0a7edd5b408688d9904e0e2ca8306032daf499ba87ae0604371bfa705a",
+    "old_untracked_files_preserved": true
+  },
+  "input_contract": {
+    "cpu_two_seed_selected_originals": 17,
+    "science_per_shard_selected_originals": 11,
+    "cache_owner": "supervised worker",
+    "outer_wrapper_bulk_reads_allowed": false,
+    "fixture_original_runtime_inputs_allowed": false,
+    "receipt_fields": [
+      "worker_input_receipts",
+      "all_bulk_inputs_verified_inside_worker"
+    ],
+    "receipt_entry_fields": [
+      "raw_sha256",
+      "bytes",
+      "original_path_reads",
+      "full_file_hash_checks",
+      "decoded_from_verified_cached_bytes"
+    ]
+  },
+  "cli": {
+    "entry_module": "acl_hct.recovery_entry",
+    "worker_module": "acl_hct.frozen_recovery",
+    "phases": [
+      "cpu_preflight",
+      "cuda_fixture",
+      "science"
+    ],
+    "common_execution_args": [
+      "--config",
+      "--execute",
+      "--phase",
+      "--source-commit",
+      "--approval-record",
+      "--quality-record",
+      "--output"
+    ],
+    "cpu_science_original_args": [
+      "--prepared-root",
+      "--checkpoint-root",
+      "--training-release",
+      "--reference-root",
+      "--calibration-root"
+    ],
+    "science_extra_args": [
+      "--seed",
+      "--repeat-start",
+      "--cpu-preflight-record",
+      "--cuda-fixture-record"
+    ],
+    "outputs": {
+      "cpu_preflight": "cpu-preflight.json",
+      "cuda_fixture": "cuda-fixture.json",
+      "science": "run.json"
+    },
+    "supervisor_output": "supervisor.json"
+  },
+  "config_change_history": [
+    {
+      "canonical_sha256": "89e3bc7b70bff13c7fb93260285600c3e190797a78751fa1c491b68579140150",
+      "state": "initial proposal"
+    },
+    {
+      "canonical_sha256": "8f704cb5282f8b81b2b4cefdd6ea63d6f5ec8276db395f02ec57dbddf62b95b7",
+      "state": "supervisor-reviewed numeric formula/status"
+    },
+    {
+      "canonical_sha256": "905d718e80158fea9c1b0160045de6f343557b7a3ba41752abe11af1a609297f",
+      "state": "supervisor-required 2CPU/16GiB/zero-GPU input preflight; scientific/GPU limits unchanged"
+    },
+    {
+      "canonical_sha256": "8ecd462845cf6f413bf57186506cabf044dcd87a52b4b6d490744db4def27172",
+      "state": "supervisor pre-result resource feasibility: measured F ranking * 32 + fixed180; no science/GPU-budget change"
+    }
+  ],
+  "resources": {
+    "gpus_per_job": 1,
+    "max_concurrent_acl_gpus": 4,
+    "fixture_worker_seconds": 240,
+    "fixture_allocation_seconds": 300,
+    "science_worker_seconds": 1080,
+    "science_allocation_seconds": 1200,
+    "planned_gpu_seconds": 5100,
+    "whole_round_gpu_seconds_limit": 5400,
+    "cpu_preflight": {
+      "cpus": 2,
+      "memory_gib": 16,
+      "gpus": 0,
+      "allocation_seconds": 300,
+      "worker_seconds": 240
+    },
+    "run_feasibility": {
+      "after": "verified F ranking and F archive; before S/O/C/Q repeats",
+      "remaining_complete_rankings_per_shard": 32,
+      "nonranking_reserve_seconds": 180,
+      "estimate": "measured F ranking seconds * 32 + 180 seconds",
+      "reject_status": "resource_time_budget_inadequate",
+      "scope": "conservative runtime estimate; not scientific quality or effect; resource-only retry keeps global repeat IDs"
+    }
+  },
+  "numerical_rules_status": "supervisor_reviewed_proposal_runtime_pending",
+  "actual_gpu_seconds_this_engineering": 0,
+  "actual_original_prepared_checkpoint_calibration_npz_reads": 0,
+  "native_cpu_preflight_status": "pending exact published source and supervisor release",
+  "native_cuda_fixture_status": "pending exact published source and independent runtime numerical review",
+  "scientific_status": "not run; four science shards require both reviewed native artifacts",
+  "publication_status": "pending supervisor exact whitelist; no Git mutation in this engineering work",
+  "scientific_limits": [
+    "fixed calibration uncertainty excluded from MC intervals",
+    "O final-layer oracle is not a strict C upper bound",
+    "fixed tangent covariance preservation does not imply manifold/task preservation",
+    "no new test or matched training"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "quality_scope": "offline_synthetic_fixed_tangent_O_Q_adapter_only",
+  "created_at_utc": "2026-09-17T06:44:19.876345+00:00",
+  "base_commit": "932b9edd78a86a1585b5011be7c2a13576b4663a",
+  "source_publication_status": "not_yet_published",
+  "source_lf_sha256": {
+    "__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd"
+  },
+  "test_dependency_lf_sha256": {
+    "frozen_fixture.py": "035144ce8e8cdc352bd6a8027c8f5d3c7929e11bc838c747fd22bae884d43847",
+    "frozen_forward.py": "a2e335878d3aa4dc118210af61709e8ccfddc2c064c3378d16d468a1ca7a3184",
+    "frozen_stats.py": "a45fea311243ee1fd7ae1418f90e9ced94605a4d77895613c5b6ff3af2f5176d",
+    "backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "development_view.py": "db6ddaaa6cc2c0061ba9e1f8178b28d60a6259d533b26b81ff4647f26d84cd1b",
+    "protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "frozen_structure.py": "3c4980051e60cbed1f3af9378f7342fdb660345794dde93910b890014649d2a0",
+    "mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "model.py": "2c18107f46fff6fd49935aac7ffe93ced2bf31b36b08288b09ba604358436fb1"
+  },
+  "reviewed_files_raw_sha256": {
+    "src/acl_hct/frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd",
+    "tests/test_frozen_bias_intervention.py": "f428d5da7925648d7b42a5492d7ba976114bb80f79a78f528a355a0d1643a359",
+    "reports/E2_FROZEN_BIAS_ADAPTER_IMPLEMENTATION.md": "6e58f98b885a099108e9d9044820a56d07710ea3350bee12ae7088eb2e8c0a46"
+  },
+  "tests": {
+    "passed": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 0,
+    "pytest_summary_seconds": 4.66,
+    "junit_suite_seconds": 4.67,
+    "command": "python -m pytest tests/test_frozen_bias_intervention.py -q --basetemp=.local/e2-frozen-bias-adapter/pytest-transport --junitxml=.local/e2-frozen-bias-adapter/transport-tests.xml",
+    "junit_private_artifact": ".local/e2-frozen-bias-adapter/transport-tests.xml",
+    "junit_raw_sha256": "f1561d1fa87497076b8123ae95de2c219c3abbb1d54903a4e21e0607ef851906"
+  },
+  "superseded_draft_history": {
+    "status": "superseded_direction_draft_only",
+    "passed": 28,
+    "junit_private_artifact": ".local/e2-frozen-bias-adapter/first-tests.xml",
+    "junit_raw_sha256": "f65be75b62cc556bbd81439ec3f57febb8970672333c2ac9302447d2121e2197",
+    "version_private_artifact": ".local/e2-frozen-bias-adapter/projected-direction-draft/version.json",
+    "version_raw_sha256": "baca51fb020e0b7870f0128353baa1b52b6dbbc6d658e1c4c6c39378dccdc431",
+    "reason": "Q refined to origin-isotropic Gaussian unit direction and parallel transport before release"
+  },
+  "software": {
+    "python": "3.10.11",
+    "torch": "2.0.1+cpu",
+    "numpy": "1.24.4"
+  },
+  "checks": {
+    "fixed_tangent_O_Q_and_log_exp": true,
+    "zero_amplitude_exact_sample_identity": true,
+    "fixed_centered_residuals_and_cross_node_covariance": true,
+    "legal_equal_lorentz_norm_control": true,
+    "parallel_transport_tangency_metric_inverse_and_log_formula": true,
+    "explicit_rng_and_namespace_isolation": true,
+    "no_label_or_file_input_interface": true,
+    "synthetic_f4_S_C_shared_plans_and_weights_unchanged": true,
+    "invalid_input_and_domain_failure_no_clipping_or_redraw": true,
+    "clone_input_output_metadata_isolation": true,
+    "python_compile_passed": true,
+    "new_file_trailing_whitespace_check_passed": true,
+    "git_diff_check_passed": true,
+    "existing_80_files_byte_unchanged": true,
+    "status_history_byte_preserved": true
+  },
+  "integrity_record_private_artifact": ".local/e2-frozen-bias-adapter/frozen-adapter-integrity.json",
+  "integrity_record_raw_sha256": "f722f5fc2c154addbc72a1668d17a8a5756e21fa2a95da1e2d560c3beb4bd9f1",
+  "execution": {
+    "real_prepared_or_checkpoint_opened": false,
+    "gpu_executed": false,
+    "actual_gpu_seconds_this_adapter_work": 0,
+    "science_executed": false,
+    "new_scientific_config_or_repetitions_defined": false,
+    "git_stage_or_commit": false
+  },
+  "old_calibration_readiness_private_artifact": ".local/e2-mean-bias-calibration-readiness/readiness.json",
+  "old_calibration_readiness_raw_sha256": "0a5adbe550164d72b140053c09cb5fce06f84a80dbb0c8debf2c8f4ffaf491b1",
+  "pending_pilot_gates": [
+    "exact old calibration base/weights/node order/provenance and uncertainty bindings at execution",
+    "uniform precision and native relation-head conversion contract",
+    "formal config binding of supervisor-fixed repetitions and resource/deadline settings",
+    "complete structure/ranking coverage and paired metric reproduction",
+    "native-runtime numerical review and supervisor quality release"
+  ],
+  "limitations": [
+    "namespace checks and vector hashes do not prove calibration provenance",
+    "Q is origin-isotropic Gaussian unit direction transported to p; no orthogonality to bias imposed",
+    "FP64 outputs only; no implicit conversion or task-score claim",
+    "O final-output intervention is not a strict upper bound on two-layer practical C",
+    "fixed tangent centered residual/covariance preservation is not a manifold variance invariant",
+    "fixture repetition counts do not specify pilot R; no full execution framework",
+    "local torch2.0.1 CPU engineering evidence does not release native GPU science"
+  ]
+}
