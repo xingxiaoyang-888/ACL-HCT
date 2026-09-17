@@ -231,6 +231,61 @@ def test_history_loader_rejects_raw_byte_tampering(tmp_path):
         load_batch_history(path, expected_sha, 11)
 
 
+@pytest.mark.parametrize('seed', [11, 23])
+def test_actual_capacity_multi_seed_schema_uses_explicit_per_run_settings(tmp_path, seed):
+    history, chosen = _tiny_history(seed)
+    history['config'] = {'protocol': 'E2-model-capacity-control-v1', 'seeds': [11, 23],
+                         'training': {'batch_positives': 2}}
+    path = tmp_path / 'multi_seed_run.json'
+    _write_json(path, history)
+    raw_sha = hashlib.sha256(path.read_bytes()).hexdigest()
+    loaded = load_batch_history(path, raw_sha, seed)
+    replayed = replay_batches(8, seed, [4, 5], 2, loaded, raw_sha)
+    assert all(torch.equal(replayed[step], chosen[step - 1]) for step in (4, 5))
+    with pytest.raises(ValueError, match='batch_positives mismatch'):
+        replay_batches(8, seed, [5], 3, loaded, raw_sha)
+
+
+@pytest.mark.parametrize('case', ['top_seed', 'settings_seed', 'config_seed', 'registration_membership',
+                                  'duplicate_registration', 'boolean_registration', 'missing_top_seed',
+                                  'missing_settings', 'missing_settings_seed', 'registration_batch',
+                                  'config_batch', 'malformed_config'])
+def test_multi_seed_schema_rejects_conflicts_in_both_loader_and_replay(tmp_path, case):
+    history, _ = _tiny_history()
+    history['config'] = {'seeds': [11, 23], 'training': {'batch_positives': 2}}
+    if case == 'top_seed':
+        history['seed'] = 23
+    elif case == 'settings_seed':
+        history['training_settings']['seed'] = 23
+    elif case == 'config_seed':
+        history['config']['seed'] = 23
+    elif case == 'registration_membership':
+        history['config']['seeds'] = [23]
+    elif case == 'duplicate_registration':
+        history['config']['seeds'] = [11, 11, 23]
+    elif case == 'boolean_registration':
+        history['config']['seeds'] = [True, 11, 23]
+    elif case == 'missing_top_seed':
+        del history['seed']
+    elif case == 'missing_settings':
+        del history['training_settings']
+    elif case == 'missing_settings_seed':
+        del history['training_settings']['seed']
+    elif case == 'registration_batch':
+        history['config']['training']['batch_positives'] = 3
+    elif case == 'config_batch':
+        history['config']['batch_positives'] = 3
+    else:
+        history['config'] = None
+    path = tmp_path / 'conflicting_multi_seed_run.json'
+    _write_json(path, history)
+    raw_sha = hashlib.sha256(path.read_bytes()).hexdigest()
+    with pytest.raises(ValueError):
+        load_batch_history(path, raw_sha, 11)
+    with pytest.raises(ValueError):
+        replay_batches(8, 11, [5], 2, history)
+
+
 @pytest.mark.parametrize('case', ['nonfinite', 'wrong_dtype', 'wrong_shape'])
 def test_feature_numerical_contract_is_not_replaced_by_hash_match(tiny_prepared, case):
     root, _ = tiny_prepared

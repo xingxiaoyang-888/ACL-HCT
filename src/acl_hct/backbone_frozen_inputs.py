@@ -152,15 +152,64 @@ def load_train_prepared(root, expected):
 
 
 def _history_seed(history, seed):
+    """Resolve per-run settings and reject every conflicting seed declaration.
+
+    Historical capacity runs contain a multi-seed registration in ``config``;
+    its ``seeds`` list is not a per-run seed. Those runs identify the selected
+    seed in both ``training_settings.seed`` and the top-level ``seed``. Legacy
+    single-seed config/settings records remain supported explicitly.
+    """
     if not isinstance(history, dict) or history.get('status') != 'complete':
         raise ValueError('batch history must be a completed run')
-    settings = history.get('config', history.get('training_settings'))
-    if not isinstance(settings, dict) or type(settings.get('seed')) is not int or settings['seed'] != seed:
-        raise ValueError('batch history configuration seed mismatch')
+    declared = {}
+    for name in ('config', 'training_settings'):
+        if name in history:
+            if not isinstance(history[name], dict):
+                raise ValueError(f'batch history {name} must be an object')
+            declared[name] = history[name]
+    config = declared.get('config')
+    settings = declared.get('training_settings')
+    for name, value in declared.items():
+        if name == 'config' and 'seed' not in value:
+            continue
+        if type(value.get('seed')) is not int or value['seed'] != seed:
+            raise ValueError(f'batch history {name} seed mismatch')
     if 'seed' in history and (type(history['seed']) is not int or history['seed'] != seed):
         raise ValueError('batch history top-level seed mismatch')
+    if config is not None and 'seeds' in config:
+        registered = config['seeds']
+        if (not isinstance(registered, list) or not registered
+                or any(type(value) is not int or not 0 <= value < 2**63 - 1 for value in registered)
+                or len(set(registered)) != len(registered) or seed not in registered):
+            raise ValueError('batch history registration seed mismatch')
+    if config is not None and 'seed' not in config:
+        if 'seeds' not in config or settings is None or 'seed' not in history:
+            raise ValueError('multi-seed registration requires explicit per-run settings and top-level seed')
+    if settings is None:
+        if config is None or 'seed' not in config:
+            raise ValueError('batch history requires explicit per-run seed settings')
+        settings = config
+    # The same resolved object supplies replay's batch-size check. Never select
+    # the multi-seed registration in one caller and per-run settings in another.
+    batch_sizes = []
+    for value in declared.values():
+        if 'batch_positives' in value:
+            _positive_int(value['batch_positives'], 'historical batch_positives')
+            batch_sizes.append(value['batch_positives'])
+    if config is not None and 'seed' not in config and 'training' in config:
+        if not isinstance(config['training'], dict):
+            raise ValueError('batch history registration training must be an object')
+        if 'batch_positives' in config['training']:
+            _positive_int(config['training']['batch_positives'], 'historical batch_positives')
+            batch_sizes.append(config['training']['batch_positives'])
+    if len(set(batch_sizes)) > 1:
+        raise ValueError('historical batch_positives declarations conflict')
     if not isinstance(history.get('steps'), list):
         raise ValueError('batch history requires ordered steps')
+    resolved = dict(settings)
+    if batch_sizes:
+        resolved['batch_positives'] = batch_sizes[0]
+    return resolved
 
 
 def load_batch_history(path, expected_sha256, seed):
@@ -197,9 +246,8 @@ def replay_batches(group_count, seed, steps, batch_positives, history, expected_
             or len(set(steps)) != len(steps)):
         raise ValueError('steps must be distinct positive one-based integers')
     if isinstance(history, dict):
-        _history_seed(history, seed)
+        settings = _history_seed(history, seed)
         records = history['steps']
-        settings = history.get('config', history.get('training_settings'))
         if ('batch_positives' in settings and settings['batch_positives'] != batch_positives):
             raise ValueError('historical batch_positives mismatch')
     else:
