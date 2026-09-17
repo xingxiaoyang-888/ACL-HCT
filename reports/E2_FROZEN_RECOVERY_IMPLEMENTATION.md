@@ -4,6 +4,14 @@
 
 2026-09-17，独立O/Q适配器的34项已验收检查保持原件；新增入口的41项本机CPU合成集成检查通过（22.17秒）。精确命令、版本、时间、源文件LF表与只读原件检查见 [机器质量记录](e2-frozen-recovery-quality.json)。本机PyTorch2.0.1+cpu，不能替代登记的2.5.1+cu124与L40数值门。新增工程未读取真实prepared、checkpoint或校准NPZ，未使用GPU，未产生科学效果数值。此前只读来源准备使用了校准readiness及旧JSON清单描述符。
 
+## 原环境CPU输入门的配置表示修复
+
+原环境首次CPU预检在`train_config.__dict__ != spec.training_config`处误报配置漂移，worker19.1748秒、时限240秒、无超时、0GPU，未做真实前向/反向/优化器。失败证据原件保留；不能将其视为CPU门通过或科学结果。
+
+原训练源码以asdict保存配置：Torch检查点保留fanouts元组，JSON登记和baseline报告将它编码为列表。TrainConfig.validate不转换它的类型，直接字典相等因此误拒绝相同配置。原verify_selection早已用canonical digest处理相同表示。joint入口只将这一处比较改为严格全字段canonical JSON比较，字段缺失、实值或标量类型变化仍拒绝；不改变登记配置、输入SHA、原checkpoint选择、科学源、抽样IDs或数值/资源门。
+
+本机用合成检查点的真实Torch序列化元组复现原报错，再验证双seed加载、17件单次读取/哈希与改fanout、seed、head_hidden、learning_rate及缺字段负例。两份真实旧baseline JSON另经登记rawSHA及全字段参数核对，并用于config-only合成Torch序列化回归；没有打开真实checkpoint或校准NPZ。新负例首版误用setattr修改frozen dataclass导致测试本身失败，现改用dataclasses.replace；所有失败JUnit保留，未改生产dataclass。修复后的46项目标检查通过（39.71秒，0失败/错误/跳过，1项本机TypedStorage弃用警告）。修复质量与新源身份须重绑定，随后仅重跑同一CPU输入步骤；CUDA和science尚未放行。
+
 ## 固定范围与实现
 
 [配置](../configs/e2_frozen_recovery_pilot.json)固定原seed11/23 best768、原G_obs、原FP32权重与关系头、原完整valid及diagnostic_confirmation结构面板。独立旧校准分别为256/512次，p是原FP32完整L2的统一FP64提升/归一化，b是该p上的逐节点平均切空间误差。原件及所选数组的形状、dtype、SHA均已登记；半均值向量未保存，不伪造它们。原方差使用总体分母R，均值估计协方差迹为variance/(R−1)；half_cross和noise_corrected_bias_squared保留有符号值。

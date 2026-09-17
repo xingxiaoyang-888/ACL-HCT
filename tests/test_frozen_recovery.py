@@ -1,6 +1,7 @@
 """Synthetic CPU integration; never opens real prepared inputs/checkpoints."""
 import copy
 from collections import defaultdict
+from dataclasses import replace
 import hashlib
 import io
 import json
@@ -276,7 +277,8 @@ def original_fixture(root):
         reference = refs / f'baseline-seed{seed}-run.json'; reference.write_text(json.dumps(baseline))
         spec['baseline_report_sha256'] = registration.file_sha256(reference)
         cp = {'source': baseline['source'], 'source_sha256_normalized_lf': hashes,
-              'run_status': 'step_limit_reached', 'completed_steps': 768, 'config': spec['training_config'],
+              'run_status': 'step_limit_reached', 'completed_steps': 768,
+              'config': {**spec['training_config'], 'fanouts': tuple(spec['training_config']['fanouts'])},
               'model': m.state_dict(), 'manifest_hash': baseline['manifest_hash'], 'valid_hash': baseline['validation_queries_hash'],
               'best_full_valid_mrr': full['query_micro_mrr'],
               'selection_status': 'selected by complete filtered all-candidate validation query-micro MRR'}
@@ -300,6 +302,7 @@ def test_two_model_loader_shared_allowlist_seventeen_reads_and_receipts(tmp_path
     models = {}
     for seed in (11, 23):
         model, data, view, cal, baseline, proof = runner.load_inputs(cfg, seed, *inputs, time.monotonic() + 60, cache=cache)
+        assert isinstance(cfg['checkpoints'][str(seed)]['training_config']['fanouts'], list)
         assert proof['selection']['selected_step'] == 768 and len(proof['worker_input_receipts']) == 11
         registration.validate_receipts(proof['worker_input_receipts'], registration.expected_receipts(cfg, (seed,)))
         assert proof['calibration_fields']['b'] == {k: cfg['calibration'][str(seed)]['fields']['b'][k] for k in ('shape', 'dtype', 'data_sha256')}
@@ -320,6 +323,27 @@ def test_two_model_loader_shared_allowlist_seventeen_reads_and_receipts(tmp_path
     evidence['models']['11']['worker_input_receipts']['prepared/features.npz']['original_path_reads'] = 2
     path.write_text(json.dumps(evidence))
     with pytest.raises(ValueError, match='single-read'): registration.verify_gate(path, registration.file_sha256(path), 'cpu_preflight', IDENTITY, cfg)
+
+
+@pytest.mark.parametrize('field', ['fanouts', 'seed', 'head_hidden', 'learning_rate', 'missing'])
+def test_training_config_rejects_substantive_drift_after_tuple_normalization(tmp_path, monkeypatch, field):
+    cfg, view, inputs = original_fixture(tmp_path)
+    monkeypatch.setattr(runner, 'grouped_split', lambda nodes, edges, seed: {'entities': {'valid': view.valid_entities}})
+    original = runner.checkpoint_from_cache
+    def changed(*args, **kwargs):
+        checkpoint, settings = original(*args, **kwargs)
+        assert isinstance(settings.fanouts, tuple)
+        assert settings.__dict__ != cfg['checkpoints']['11']['training_config']
+        assert registration.canonical(settings.__dict__) == registration.canonical(cfg['checkpoints']['11']['training_config'])
+        if field == 'missing':
+            # The dataclass default cannot excuse a field missing in the original payload.
+            del checkpoint['config']['learning_rate']
+        else:
+            settings = replace(settings, **{field: {'fanouts': (16, 4), 'seed': 23, 'head_hidden': 6, 'learning_rate': .004}[field]})
+        return checkpoint, settings
+    monkeypatch.setattr(runner, 'checkpoint_from_cache', changed)
+    with pytest.raises(ValueError, match='original training config drift|checkpoint/config/prepared selection provenance mismatch'):
+        runner.load_inputs(cfg, 11, *inputs, time.monotonic() + 60)
 
 
 def test_calibration_cache_identity_uncertainty_and_signed_fields(tmp_path, monkeypatch):

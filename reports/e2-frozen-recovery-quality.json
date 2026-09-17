@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "scope": "offline CPU synthetic engineering only; no actual frozen-model scientific result",
-  "created_utc": "2026-09-17T07:51:43.144058+00:00",
+  "created_utc": "2026-09-17T08:10:18.823110+00:00",
   "config_canonical_sha256": "8ecd462845cf6f413bf57186506cabf044dcd87a52b4b6d490744db4def27172",
   "config_raw_sha256": "32f775581faa0d6d246c9c54407657563a49e46cfa1e26dc6a36c8ab52d91f64",
   "source_lf_sha256": {
@@ -32,21 +32,21 @@
     "taxonomy.py": "a4fc2d18570357606c4e1e816033d073c72171e8077fff76ae8dea01c0bf3615",
     "smoke.py": "6e36340d555b2741d172005b78c9bd973d36a105171b1e1ab948c7c8c3ed1ee3",
     "frozen_bias_intervention.py": "f7de3c801ddf51f5166e43b04d55647401839e68612a8a998497f6fe7fdef6cd",
-    "frozen_recovery.py": "93e464c40641ed18bedcc96eaa3814967eb298853571960db3067f0201beb5ca",
+    "frozen_recovery.py": "6ea48bce5f2fa0db46abd6974816ac2a59fbae256f8994bcd6a8a8843a5279d5",
     "recovery_inputs.py": "40211fd7f644a9b8dd8cd9963c79f5c75e5ef7ff3450c57dc7d51c2bbbd9cfae",
     "recovery_registration.py": "2cf921ca9412eef04d5f91eb3d6e249ebdc8a4c6ad13b8da3cc71ebaa520aa5d",
     "recovery_entry.py": "0ddec404a4bf21a2821b61525958edd99bb298e0d8c782548b1c865336fede41",
     "recovery_analysis.py": "0b71c84761042c0b9c28b7d288d0961556ba69023da29f30d75c30a20eef8144"
   },
   "artifact_raw_sha256": {
-    "src/acl_hct/frozen_recovery.py": "93e464c40641ed18bedcc96eaa3814967eb298853571960db3067f0201beb5ca",
+    "src/acl_hct/frozen_recovery.py": "6ea48bce5f2fa0db46abd6974816ac2a59fbae256f8994bcd6a8a8843a5279d5",
     "src/acl_hct/recovery_inputs.py": "40211fd7f644a9b8dd8cd9963c79f5c75e5ef7ff3450c57dc7d51c2bbbd9cfae",
     "src/acl_hct/recovery_registration.py": "2cf921ca9412eef04d5f91eb3d6e249ebdc8a4c6ad13b8da3cc71ebaa520aa5d",
     "src/acl_hct/recovery_entry.py": "0ddec404a4bf21a2821b61525958edd99bb298e0d8c782548b1c865336fede41",
     "src/acl_hct/recovery_analysis.py": "0b71c84761042c0b9c28b7d288d0961556ba69023da29f30d75c30a20eef8144",
-    "tests/test_frozen_recovery.py": "c50af637e3ee7b317e0b10017e09055d9215b635dbc6c748fec8300e414d6b07",
+    "tests/test_frozen_recovery.py": "379e142deca2563a1fe8acc45d57d593977c3ba1bec1fd7f5d972e1be78d4350",
     "configs/e2_frozen_recovery_pilot.json": "32f775581faa0d6d246c9c54407657563a49e46cfa1e26dc6a36c8ab52d91f64",
-    "reports/E2_FROZEN_RECOVERY_IMPLEMENTATION.md": "697d5ac9b582abb7bcdf4a456a7faac43479f6fcaa261b3dd6c1a2e21219637f"
+    "reports/E2_FROZEN_RECOVERY_IMPLEMENTATION.md": "10341fb89b5d1a9af92b25923e0eaf9a5576776f089c762428b7aaad6e9ea3b6"
   },
   "runtime": {
     "python": "3.10.11",
@@ -56,17 +56,17 @@
     "device": "CPU"
   },
   "tests": {
-    "command": "python -m pytest tests/test_frozen_recovery.py -q --junitxml=.local/e2-frozen-recovery/feasibility-tests.xml",
+    "command": "python -m pytest tests/test_frozen_recovery.py -q --junitxml=.local/e2-frozen-recovery/tuple-repair-final-tests.xml",
     "exit_code": 0,
-    "tests": 41,
+    "tests": 46,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
     "warnings": 1,
     "warning": "PyTorch2.0.1 TypedStorage deprecation in synthetic checkpoint load",
-    "pytest_reported_seconds": 22.17,
-    "junit_seconds": 22.156,
-    "junit_raw_sha256": "e613cc5168337d3c39784aceab8b3aa7a60b9c8c2895a991f3108f1799508d5e"
+    "pytest_reported_seconds": 39.71,
+    "junit_seconds": 39.678,
+    "junit_raw_sha256": "8a5ef670158a90dc358911c8206f31aef332ae3c9181e49879b43d3fbc464edf"
   },
   "failure_history": {
     "first_pass": {
@@ -116,7 +116,8 @@
     "release_phase_source_config_and_artifact_rejections": true,
     "whole_worker_deadline_partial_progress": true,
     "resource_feasibility_preserves_F_and_zero_evaluation_repeats": true,
-    "load_run_phase_timing_and_peak_VRAM_evidence_fields": true
+    "load_run_phase_timing_and_peak_VRAM_evidence_fields": true,
+    "canonical_training_config_tuple_list_and_actual_drift_rejections": true
   },
   "original_integrity": {
     "read_only_files": 84,
@@ -226,14 +227,74 @@
   "numerical_rules_status": "supervisor_reviewed_proposal_runtime_pending",
   "actual_gpu_seconds_this_engineering": 0,
   "actual_original_prepared_checkpoint_calibration_npz_reads": 0,
-  "native_cpu_preflight_status": "pending exact published source and supervisor release",
+  "native_cpu_preflight_status": "attempt1 failed on representation comparison before actual forward; repaired candidate pending review/publication and same-scope repeat",
   "native_cuda_fixture_status": "pending exact published source and independent runtime numerical review",
   "scientific_status": "not run; four science shards require both reviewed native artifacts",
-  "publication_status": "pending supervisor exact whitelist; no Git mutation in this engineering work",
+  "publication_status": "initial engineering published 2f2a528981b8d43a2e42db9ae79353062ec886c9; minimal repair pending exact supervisor publication whitelist",
   "scientific_limits": [
     "fixed calibration uncertainty excluded from MC intervals",
     "O final-layer oracle is not a strict C upper bound",
     "fixed tangent covariance preservation does not imply manifold/task preservation",
     "no new test or matched training"
-  ]
+  ],
+  "repair": {
+    "base_commit": "2f2a528981b8d43a2e42db9ae79353062ec886c9",
+    "production_change": "canonical full-field training config comparison only; historical fanout tuple vs JSON list representation",
+    "config_canonical_sha256_unchanged": true,
+    "config_raw_sha256_unchanged": true,
+    "original_scientific_sources_and_SHA_gates_unchanged": true,
+    "reproduced_original_error": {
+      "tests": 1,
+      "failures": 1,
+      "junit_raw_sha256": "e77a94fa2cdbf79514fe28bbf0a5cf1902608c91664da45f0691b9b2352de64e"
+    },
+    "first_negative_test_harness": {
+      "tests": 45,
+      "passed": 41,
+      "failures": 4,
+      "reason": "setattr on frozen dataclass; test harness fixed using dataclasses.replace, production dataclass untouched",
+      "junit_raw_sha256": "8611107408e0e4fa848cf882d8a3185a856e18ec6250427c5b024f86a9d5e83c"
+    },
+    "verified_real_old_JSON_config_review_raw_sha256": "5403726dabc050b9e5fd1325a199ce547e13eb5fe500ecdaaf673b976006b205",
+    "verified_real_old_JSON_config_models": [
+      {
+        "seed": 11,
+        "historical_baseline_raw_sha256": "64305aefdfecb77bcdeffd94da912f1ae4b1d1683abf2c4aa706973d667fbe94",
+        "training_config_canonical_sha256": "571522d4adab29de5ae84fdcabfbdebb686d9281d679b91c269377e44a5edf79",
+        "source": "verified real historical JSON; config-only synthetic Torch serialization, no real checkpoint",
+        "original_dictionary_comparison": false,
+        "canonical_equivalent": true,
+        "substantive_and_missing_field_rejections": true
+      },
+      {
+        "seed": 23,
+        "historical_baseline_raw_sha256": "4de0b6a51555b2b16f17c4f003cb7b1fcce8278c00b4b6658b291f04566f329b",
+        "training_config_canonical_sha256": "3e88d1a6abc25f6c546284b9eb13f2fa3ee8c72cbe046845a34073790d37e6e1",
+        "source": "verified real historical JSON; config-only synthetic Torch serialization, no real checkpoint",
+        "original_dictionary_comparison": false,
+        "canonical_equivalent": true,
+        "substantive_and_missing_field_rejections": true
+      }
+    ],
+    "checks": {
+      "Torch_fanout_tuple_JSON_list_two_seed_equivalence": true,
+      "substantive_field_and_missing_field_rejection": true,
+      "original_full_checkpoint_opened_for_local_repair": false,
+      "local_gpu_seconds": 0
+    },
+    "native_CPU_attempt1": {
+      "status": "failed",
+      "source_commit": "2f2a528981b8d43a2e42db9ae79353062ec886c9",
+      "elapsed_worker_seconds": 19.174775721970946,
+      "deadline_seconds": 240,
+      "overrun_seconds": 0,
+      "gpu_seconds": 0,
+      "forward_backward_optimizer_called": false,
+      "error": "original training config drift",
+      "worker_failure_raw_sha256": "c1a998e5d18c08778c53279a9ae3285a1ab86e5118decbde65f6bfee5de4255d",
+      "supervisor_raw_sha256": "2e600c35cc5ee7250a17f81f32fc4e1a87b42475738647bedf6197aa3faec064"
+    },
+    "retry_scope": "same original-runtime CPU input gate only, after repair quality and published source rebinding; CUDA/science held"
+  },
+  "historical_baseline_JSON_read_scope": "readonly two registered original baseline JSONs for configuration-only regression; no original checkpoint or calibration NPZ opened locally"
 }

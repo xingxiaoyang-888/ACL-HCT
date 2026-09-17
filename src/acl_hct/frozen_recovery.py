@@ -195,7 +195,8 @@ def load_inputs(config, seed, prepared, checkpoint_root, training_release, refer
             or view.metadata['graph_hash'] != anchor['identity']['graph_hash']
             or view.metadata['node_order_hash'] != anchor['identity']['node_order_hash']):
         raise ValueError('original structure view/calibration identity mismatch')
-    if train_config.__dict__ != spec['training_config']:
+    # Torch preserves fanout tuples; the same historical config in JSON has lists.
+    if canonical(train_config.__dict__) != canonical(spec['training_config']):
         raise ValueError('original training config drift')
     stage('original_structure_view')
     with torch.random.fork_rng(devices=[]):
