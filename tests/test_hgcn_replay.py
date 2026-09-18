@@ -145,6 +145,39 @@ def test_contrived_runtime_fixture_saves_both_acceptance_and_rejection(tmp_path)
     assert saved['policy_sha256'] == POLICY_SHA256
 
 
+def test_historical_official_exception_requires_explicit_analysis_mode(tmp_path):
+    from acl_hct.hgcn_analysis import analyze, checked_run
+    from acl_hct.hgcn_evidence import atomic_json, file_hash
+    from acl_hct.hgcn_registration import canonical
+    cfg = {'scope': 'artificial metadata test'}; current = '1' * 40
+    release = {'source_commit': current, 'replay_policy_sha256': POLICY_SHA256}
+    path = tmp_path/'run.json'
+    def saved(source, phase='official'):
+        atomic_json(path, {'status': 'complete', 'phase': phase, 'source_commit': source,
+                          'config_sha256': canonical(cfg), 'result': {'scope': 'artificial'}})
+        return {'run_file': str(path), 'sha256': file_hash(path)}
+    item = saved(current)
+    checked_run(item, 'official', cfg, release)  # Sidecar alone must not change source.
+    with pytest.raises(ValueError, match='same-source/config'):
+        checked_run(item, 'official', cfg, release, historical_official=True)
+    item = saved(ORIGINAL_SOURCE)
+    checked_run(item, 'official', cfg, release, historical_official=True)
+    with pytest.raises(ValueError, match='same-source/config'):
+        checked_run(item, 'official', cfg, release)
+    with pytest.raises(ValueError, match='explicit amended'):
+        checked_run(item, 'official', cfg, {'source_commit': current}, historical_official=True)
+    with pytest.raises(ValueError, match='explicit amended'):
+        checked_run(saved(ORIGINAL_SOURCE, 'eval'), 'eval', cfg, release, historical_official=True)
+    # The explicit analysis argument must match the verified release sidecar.
+    cfg['protocol'] = 'artificial'
+    index = tmp_path/'index.json'
+    atomic_json(index, {'protocol': cfg['protocol'], 'config_sha256': canonical(cfg),
+                       'replay_policy_sha256': POLICY_SHA256, 'training': [], 'evaluation': []})
+    wrong = {**release, 'replay_policy_sha256': '0'*64, 'inputs': {'artifact_index_sha256': file_hash(index)}}
+    with pytest.raises(ValueError, match='verified release context'):
+        analyze(index, tmp_path/'not-opened', cfg, wrong, tmp_path, policy())
+
+
 def test_artificial_failed_train_recovery_preserves_source_files_and_fixed_F(tmp_path, monkeypatch):
     from acl_hct.hgcn_evidence import atomic_json, file_hash
     from acl_hct.hgcn_quality import load_train

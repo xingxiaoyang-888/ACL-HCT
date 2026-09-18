@@ -77,10 +77,15 @@ def test_artificial_end_to_end_training_selection_shards_reload_and_CPU_replay(t
     monkeypatch.setattr(Path, 'open', guarded)
     torch.set_num_threads(2)
     config = json.loads((Path(__file__).parents[1] / 'configs/mature_hgcn_validation.json').read_bytes())
-    result = integration_fixture(load_upstream(external), torch.device('cpu'), tmp_path / 'integration',
-                                 config, {'source_commit': '0' * 40})
-    assert result['status'] == 'passed' and result['complete_samples_replayed'] == 96
-    assert result['primary_comparisons_replayed'] == 12
-    analysis = json.loads((tmp_path / 'integration/analysis/run.json').read_bytes())['result']
+    from acl_hct.hgcn_validation import fixture
+    from acl_hct.hgcn_replay import POLICY_SHA256
+    policy = json.loads((Path(__file__).parents[1] / 'configs/mature_hgcn_replay_policy.json').read_bytes())
+    output = tmp_path / 'fixture'; output.mkdir()
+    result = fixture(load_upstream(external), torch.device('cpu'), output, config,
+                     {'source_commit': '0' * 40, 'replay_policy_sha256': POLICY_SHA256}, policy)
+    assert result['status'] == 'passed' and result['numeric_qualification_fixture']['policy_sha256'] == POLICY_SHA256
+    integration = result['integration_fixture']
+    assert integration['complete_samples_replayed'] == 96 and integration['primary_comparisons_replayed'] == 12
+    analysis = json.loads((output / 'artificial-integration/analysis/run.json').read_bytes())['result']
     assert len(analysis['primary_family']) == 12
     assert analysis['official_example']['epochs'] == 3

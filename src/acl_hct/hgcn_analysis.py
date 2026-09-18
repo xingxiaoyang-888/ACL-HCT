@@ -45,13 +45,15 @@ def numpy_tree(value):
     return value
 
 
-def checked_run(item, phase, config, release):
+def checked_run(item, phase, config, release, historical_official=False):
     path = Path(item['run_file'])
     if file_hash(path) != item['sha256']:
         raise ValueError('artifact index report hash mismatch')
     report = json.loads(path.read_bytes())
     from .hgcn_replay import ORIGINAL_SOURCE
-    accepted_source = (ORIGINAL_SOURCE if phase == 'official' and release.get('replay_policy_sha256') else release['source_commit'])
+    if historical_official and (phase != 'official' or not release.get('replay_policy_sha256')):
+        raise ValueError('historical official source requires explicit amended analysis context')
+    accepted_source = ORIGINAL_SOURCE if historical_official else release['source_commit']
     if (report['status'] != 'complete' or report['phase'] != phase
             or report['config_sha256'] != canonical(config) or report['source_commit'] != accepted_source):
         raise ValueError('complete same-source/config archived phase required')
@@ -122,6 +124,8 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
         raise ValueError('artifact index protocol/config mismatch')
     if policy is not None and index.get('replay_policy_sha256') != canonical(policy):
         raise ValueError('artifact index does not bind amended replay policy')
+    if policy is not None and release.get('replay_policy_sha256') != canonical(policy):
+        raise ValueError('amended analysis policy differs from verified release context')
     if len(index['training']) != 2 or len(index['evaluation']) != 8:
         raise ValueError('both models and all eight evaluation shards required')
     data = load_train(prepared_root, config)
@@ -244,7 +248,9 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
                                 'direct_gaps': [x['hierarchy']['direct']['metrics']['gap'] for x in group],
                                 'root_coverage': {k: full['bias'][k] for k in ('root_known_nodes', 'direction_known_nodes', 'weighted_direction_known_mass')}})
     primary = primary_family(differences)
-    _, official = checked_run(index['official'], 'official', config, release)
+    # The sidecar also accompanies current-source artificial quality fixtures.
+    # Only actual amended analysis uses the preserved historical example.
+    _, official = checked_run(index['official'], 'official', config, release, historical_official=policy is not None)
     # Official example provenance is distinct from WordNet's cleaner protocol.
     official_root = Path(index['official']['run_file']).parent
     official_data = read_archive(official_root / 'arrays', official['archive'])
