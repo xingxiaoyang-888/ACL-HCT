@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/HazyResearch/hgcn",
+  "commit": "a526385744da25fc880f3da346e17d0fe33817f8",
+  "license_status": "no LICENSE file in pinned tree; external checkout only, no upstream code or data redistributed",
+  "files": {
+    "README.md": {
+      "sha256": "50f52103cc4d9b04526ea2e23ea6ed664599b37ea590a35908597f379eb123b4",
+      "bytes": 12006,
+      "normalization": "LF"
+    },
+    "__init__.py": {
+      "sha256": "41bd6e4105fd36c7baafd7d87f83d8b7647f2acb9a42639ff124f726d2c65bd7",
+      "bytes": 70,
+      "normalization": "LF"
+    },
+    "config.py": {
+      "sha256": "9f9a028928d80d8aa84e08a201c5fb49f8cfecf72daea8b90d97fda0123a411f",
+      "bytes": 3417,
+      "normalization": "LF"
+    },
+    "data/airport/airport.p": {
+      "sha256": "ab16b04cea3666e87dbd8a5bff3de68da61330f4604fa21082f7a17e806e64d8",
+      "bytes": 554100,
+      "normalization": "raw"
+    },
+    "data/airport/airport_alldata.p": {
+      "sha256": "1b449aa6962dd8dee23111c06a3327790dcc98054ce149393ee0e145f4069557",
+      "bytes": 1163337,
+      "normalization": "raw"
+    },
+    "data/airport/routes.dat": {
+      "sha256": "bd373706238134f619c624c606dccc74c05c2582a977c489c81de501735f2390",
+      "bytes": 2377148,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.allx": {
+      "sha256": "9419ba2f26f5c35243db64aba110e0f35a04851609e0dc5433450676ca6b8543",
+      "bytes": 257305,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.ally": {
+      "sha256": "2b998f5cc7fedc86e7f97ca2498f47a1ffc1462c29e2d578b23bf3f62b6e7d71",
+      "bytes": 47959,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.graph": {
+      "sha256": "58f13302f39dde8852dad6fe6d15b89b077b6d7f837626bce671ef80344b383d",
+      "bytes": 59847,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.test.index": {
+      "sha256": "297ce89af2b51a6a194181c7dbe1796c6a1cf9cd9349a88383b1b1e227867875",
+      "bytes": 5000,
+      "normalization": "LF"
+    },
+    "data/cora/ind.cora.tx": {
+      "sha256": "b9afbaa4a400df991f6f02ef677e1e44da55ffc04801fd02f9e673987829226a",
+      "bytes": 148025,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.ty": {
+      "sha256": "41f5ac76596a1699cc33f53084a2419e92961c42bb75f36fc38e616d348532ad",
+      "bytes": 28135,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.x": {
+      "sha256": "23cfa55d91c6f624233f5eb7b6e3f141f1bd2b2ae39608a63cf5d084bb27baab",
+      "bytes": 22119,
+      "normalization": "raw"
+    },
+    "data/cora/ind.cora.y": {
+      "sha256": "94465c14eb53e04ca262198dcbb2521ee8af60fb3f3d546cd6ca24a511b0e7d1",
+      "bytes": 4054,
+      "normalization": "raw"
+    },
+    "data/disease_lp/disease_lp.edges.csv": {
+      "sha256": "b5b7e41bbfd28fc7f61590e5587622103ee9c3aa1b59911c74873a6f328dca07",
+      "bytes": 22152,
+      "normalization": "LF"
+    },
+    "data/disease_lp/disease_lp.feats.npz": {
+      "sha256": "b4a726b13598c036a75e1b49f08e92820553b972966ad950b8d4d5416eb339f8",
+      "bytes": 227859,
+      "normalization": "raw"
+    },
+    "data/disease_lp/disease_lp.labels.npy": {
+      "sha256": "8f2b26602764fbb785b93775d9f71194f1f36920e185af8bc5c31aea07dde858",
+      "bytes": 21448,
+      "normalization": "raw"
+    },
+    "data/disease_nc/disease_nc.edges.csv": {
+      "sha256": "08b2dcf00db1e6a8f491af5294dee98197f1251a63bc9190d05fb4e77507782e",
+      "bytes": 7851,
+      "normalization": "LF"
+    },
+    "data/disease_nc/disease_nc.feats.npz": {
+      "sha256": "41368ae452c6006120b239703642093cc660bf6530619ede3aa2b246bb1d4246",
+      "bytes": 8057589,
+      "normalization": "raw"
+    },
+    "data/disease_nc/disease_nc.labels.npy": {
+      "sha256": "70be7f91a854d924f3b7ac423615d75b1f9ee2506261c44113de27cc2caadd51",
+      "bytes": 8480,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.allx": {
+      "sha256": "508e538e2abdccdd54c4d3e9f49d638b4af7107d85845f66ddea5a5152658b7e",
+      "bytes": 7578385,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.ally": {
+      "sha256": "0c37bbe3b5014ec365e9d393cf4791925e5ed94fb194305d74f064a8d7b50f0e",
+      "bytes": 224739,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.graph": {
+      "sha256": "5b89f0036ca22909471f1e6558eb42fa06e0c730a577bde5b058b40638f81dc9",
+      "bytes": 471808,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.test.index": {
+      "sha256": "b101d421688bbaecbd82e8a18f1e282378d6830f3a37666f28ebc47f844341b5",
+      "bytes": 6000,
+      "normalization": "LF"
+    },
+    "data/pubmed/ind.pubmed.tx": {
+      "sha256": "4eb5f5d0f30f26497eb0ac6ac9719d09c67e284f1ed0385c93f3ef27a671da3d",
+      "bytes": 405505,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.ty": {
+      "sha256": "ee2e0d4819d9fbcc403689c3bf2e49face401b605932f093bc58ab6461130fdd",
+      "bytes": 12135,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.x": {
+      "sha256": "fbe9cb5c47200d1b7769a26e579be3b7130b556831f9d850e77c4c74f2599b33",
+      "bytes": 23172,
+      "normalization": "raw"
+    },
+    "data/pubmed/ind.pubmed.y": {
+      "sha256": "e6c807633307a07ed659249006536a147c7999c797f11a2560752990181b41b3",
+      "bytes": 854,
+      "normalization": "raw"
+    },
+    "environment.yml": {
+      "sha256": "29273747c0609575a8f9885de29ca5f1ba0ca9cb29f2da367918547107f84c54",
+      "bytes": 7905,
+      "normalization": "LF"
+    },
+    "layers/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "LF"
+    },
+    "layers/att_layers.py": {
+      "sha256": "16c1fd8b359d8153c5da6e2c36979d19b8a9a3a0312e28529ac92f1e2fb6fc96",
+      "bytes": 5148,
+      "normalization": "LF"
+    },
+    "layers/hyp_layers.py": {
+      "sha256": "0682860b018ff4f77b0a29e010925c92c53242b63ddba13315a002a87738331a",
+      "bytes": 5934,
+      "normalization": "LF"
+    },
+    "layers/layers.py": {
+      "sha256": "94bcce5b44c23bdc61be96273b4d590e2cf3ea702866bfae86b1ba6ac3c60762",
+      "bytes": 2382,
+      "normalization": "LF"
+    },
+    "manifolds/__init__.py": {
+      "sha256": "ae5d85136b0e9b5ce0e72009dda1bd4b07e2d51bba8e84b810cc37fe2fa158b9",
+      "bytes": 141,
+      "normalization": "LF"
+    },
+    "manifolds/base.py": {
+      "sha256": "b62495e0c4ad809ffed3d2d92e3bf27606d0fe7b95be10f2b3dd32f610757e86",
+      "bytes": 2579,
+      "normalization": "LF"
+    },
+    "manifolds/euclidean.py": {
+      "sha256": "73cc355012bcf282827244aed39c7d33c3cb5ae703fded1a070127fcfa69a0ca",
+      "bytes": 1351,
+      "normalization": "LF"
+    },
+    "manifolds/hyperboloid.py": {
+      "sha256": "c0f2178eca90719fbcf089981727642daf22c7ab76c7e79be7b699fb38d0ab4c",
+      "bytes": 5056,
+      "normalization": "LF"
+    },
+    "manifolds/poincare.py": {
+      "sha256": "32b74c178b9e44e9189d116bbabf59ac0acf6f7d32beaeaa16e3457dbf168e85",
+      "bytes": 4994,
+      "normalization": "LF"
+    },
+    "models/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "LF"
+    },
+    "models/base_models.py": {
+      "sha256": "fb1a5822c2e90027722f5af4f4f6bbd386459efd65b482f8d126c71876a49444",
+      "bytes": 4611,
+      "normalization": "LF"
+    },
+    "models/decoders.py": {
+      "sha256": "65104e6a5e0ba5a1659afc2f2de515781552c53ba30b2c1ed01f8280d03b011e",
+      "bytes": 2203,
+      "normalization": "LF"
+    },
+    "models/encoders.py": {
+      "sha256": "3e729904ec5ea03236d96fece12a9c40cec65dcf3e04afa4aa4c332a888a70b4",
+      "bytes": 6227,
+      "normalization": "LF"
+    },
+    "optimizers/__init__.py": {
+      "sha256": "519525a93514050151afc7b7689598d95397f7adb8e98d52bf3ba9dbcb885b98",
+      "bytes": 63,
+      "normalization": "LF"
+    },
+    "optimizers/radam.py": {
+      "sha256": "7f72a26365bc0b2cb6a8821e5c1d470138ffe3e0042de4b30cea908c6c5c6a91",
+      "bytes": 6970,
+      "normalization": "LF"
+    },
+    "requirements.txt": {
+      "sha256": "4f9b1b3a1a64064844a19c3670b1e60e8632a76d6ad2bd178c9fec3153cb3b0c",
+      "bytes": 81,
+      "normalization": "LF"
+    },
+    "set_env.sh": {
+      "sha256": "4d67e19bb2745ac1a99bc96491160d201396177a7efec38ce5915e27d0769428",
+      "bytes": 307,
+      "normalization": "LF"
+    },
+    "train.py": {
+      "sha256": "e7ccd4d94eea84c82476ad204aae13ec557b4893a9c6a8a5a51d9be35c0f761e",
+      "bytes": 6277,
+      "normalization": "LF"
+    },
+    "utils/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "LF"
+    },
+    "utils/data_utils.py": {
+      "sha256": "aa247d27c533baa8fbcc79416438cc84b5398e6209b934b0fdf3d8f8dee1d1bb",
+      "bytes": 9902,
+      "normalization": "LF"
+    },
+    "utils/eval_utils.py": {
+      "sha256": "9003cc77d9852f561ab39f8dada1cfae6bba9a662a16f503d653644576b2a149",
+      "bytes": 370,
+      "normalization": "LF"
+    },
+    "utils/hyperbolicity.py": {
+      "sha256": "d7183645d5cd88f1f91fafb803660ff1d066496f4f65779b4877fdbe2164eae2",
+      "bytes": 1713,
+      "normalization": "LF"
+    },
+    "utils/math_utils.py": {
+      "sha256": "5033322aa9de81b7ec4afaae8c16d8e1aa65c9bf8beefd7dcb2f7bf25688234f",
+      "bytes": 1544,
+      "normalization": "LF"
+    },
+    "utils/train_utils.py": {
+      "sha256": "325778c0357939cd6ffd23e65f2168402df5e201694b79447d1dba68e6ee8f43",
+      "bytes": 3074,
+      "normalization": "LF"
+    }
+  }
+}

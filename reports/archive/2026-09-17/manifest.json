@@ -1,0 +1,454 @@
+{
+  "date": "2026-09-17",
+  "original_zip_sha256": "a9035c886ea661592ac8b4dd47f199022cd8dab7f6178998cad7309a498319fd",
+  "documents": [
+    {
+      "original_path": "AGENTS.md",
+      "archived_path": "reports/archive/2026-09-17/history/AGENTS.md",
+      "current_topic": "reports/README.md",
+      "original_sha256": "9375e470c0d2c343f0f5f355e80216e013393e291dd6da8ed1ddfba4251063b8",
+      "archived_sha256": "00dc1ea5f5cfab55af8a6da0275e3e7f00ac4d0f6ba82b35da9a8cab4c0b81a8"
+    },
+    {
+      "original_path": "README.md",
+      "archived_path": "reports/archive/2026-09-17/history/README.md",
+      "current_topic": "reports/README.md",
+      "original_sha256": "bc61eb3b7c00625ca050a50755736fb7eefd822bf4e7a10544f24a1a12383edb",
+      "archived_sha256": "f86a819387b125a65ebdb7ebd473834557d1511afc42dee718a1b07d0de9f838"
+    },
+    {
+      "original_path": "docs/research/03_主线证据与下一步决策.md",
+      "archived_path": "reports/archive/2026-09-17/history/03_主线证据与下一步决策.md",
+      "current_topic": "reports/README.md",
+      "original_sha256": "fc625932b4761e457fc41e07ea7d511b40ab5e92cf5278fc044336a76a000704",
+      "archived_sha256": "3593dfce9d585775acb8b5cd1e0397ede63af4d7d8573c77109e66b96c2dd51c"
+    },
+    {
+      "original_path": "reports/BASELINE_TWO_SEED_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/03/BASELINE_TWO_SEED_RESULTS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "ca634d0cd3648b5d885b81472eacf4c3c06f8ba2d6e6102ae21f0712abb49711",
+      "archived_sha256": "e2be497806434146c988af62ea4ff3a379c76dccc4a8ec2d8907e0f4f7790023"
+    },
+    {
+      "original_path": "reports/CODE_QUALITY.md",
+      "archived_path": "reports/archive/2026-09-17/00/CODE_QUALITY.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "cf9c23edbed38e00f696a0ce55de57ab5e9341b03f6a2c91d8dfc11470b18c36",
+      "archived_sha256": "ad2c6332187fa3c6a5337e4a3ddcc482273fa3d6e37458b20896fa413bd228fd"
+    },
+    {
+      "original_path": "reports/E0_REMOTE_REGRESSION.md",
+      "archived_path": "reports/archive/2026-09-17/00/E0_REMOTE_REGRESSION.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "9850df0ac38b767f47c0982cee0edf1a954ab41dfcc3b58fa6abe7f843175f3f",
+      "archived_sha256": "8badd44c49233270b25aac41bbbd8c24970a097e3d2b95a1b352732b76d7c0c1"
+    },
+    {
+      "original_path": "reports/E1_CLOSURE_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/01/E1_CLOSURE_IMPLEMENTATION.md",
+      "current_topic": "reports/01_局部采样偏移与修正机制.md",
+      "original_sha256": "89eb3fe13ec139adda8c94c3ad74fe82988f89b5a3e669a84057eb186a2aeec4",
+      "archived_sha256": "55c96699963af4b7e44a39a95f6dff89ce1194da85313e51e5f78332a8b2d492"
+    },
+    {
+      "original_path": "reports/E1_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/01/E1_IMPLEMENTATION.md",
+      "current_topic": "reports/01_局部采样偏移与修正机制.md",
+      "original_sha256": "1bd5397be9d060cc1a520cdbd6a51d412e4bd3e68a1343752a67b8ce1b757553",
+      "archived_sha256": "4e6cbf0d3c535572a9c58cd7a2c01ac88dfae48d18d25a74e19af42b2fdeceb4"
+    },
+    {
+      "original_path": "reports/E1_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/01/E1_RESULTS.md",
+      "current_topic": "reports/01_局部采样偏移与修正机制.md",
+      "original_sha256": "2343b6eeea77e6ce0bd04156d8289c0afc5e84f01c8acae46c5b639b703aee29",
+      "archived_sha256": "8b0d7229028b92f76e107c400fe5285f26e98875551516ddc4b114ec99aa6072"
+    },
+    {
+      "original_path": "reports/E1_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/01/E1_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/01_局部采样偏移与修正机制.md",
+      "original_sha256": "2b520795fd5bc74470d4307d0b845635fa513b6f613088e423ed4e6f769217f3",
+      "archived_sha256": "afbe7f851b2c40997f7d72520a7a13145802eb5e02327cfc3256db48474bd3c4"
+    },
+    {
+      "original_path": "reports/E1_SUPPLEMENT_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/01/E1_SUPPLEMENT_RESULTS.md",
+      "current_topic": "reports/01_局部采样偏移与修正机制.md",
+      "original_sha256": "65b0c82081433adbed9658ef3c72e9e18cc4bbfdf5bd980bfc1b007ea7066dca",
+      "archived_sha256": "d66eebb7c8bf6d3575fe913665391f2c0d99cf00408f5833ebc51892e2dc6ba0"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_DATA_DIAGNOSIS.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_DATA_DIAGNOSIS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "f3609fa6da0ba70a9917875a004aeabbb8de391d1e469524aa4cf913d4d72b4b",
+      "archived_sha256": "e7a7fc97bac0d10cf22b88c6d2493b42a3f0f89619c858c0413e6263bc9f7a66"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_DIAGNOSIS_STAGE1.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_DIAGNOSIS_STAGE1.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "ec72131cc7918856175cb5c323b60022df39a168456eb5957ebf506b51e2e3a0",
+      "archived_sha256": "c73f467758a50125bff4cacb7cc36ba8b35f8527a00aaf0f78bf329d86fa7a41"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_FROZEN_ENGINEERING.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_FROZEN_ENGINEERING.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "8203114177c072d0926d66be25e61eaaf61575b6f0fe0b9b789d39efb0247a70",
+      "archived_sha256": "7604dab66a6386751d61ba3d39d40918b893fd88775340250c2836ba04a4d0f4"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_FROZEN_INPUT_REPAIR.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_FROZEN_INPUT_REPAIR.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "9a4b6257961cebc075263fb9557074842fb5b0467bd515390912de5bb2ec9716",
+      "archived_sha256": "b5f99094ba686c5b09eae2f82e93d1f853b22e26aca23f11515268b81e859235"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_FROZEN_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_FROZEN_RESULTS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "5b5b8814345d0979ab43560e8c7aa1d0cf92c67d0403484241bfeed8937766c9",
+      "archived_sha256": "b94624a4a54623acea0d7eaa23c791b16f927a8be966d1e398c66df457aa9b86"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_FROZEN_RUNTIME_RECOVERY.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_FROZEN_RUNTIME_RECOVERY.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "d1c0370ab0354168c5a46911ecd5f444f534f38402e39d00153380f88b13a47a",
+      "archived_sha256": "0b106b0739a35fed2f75876ee5cab3238db127a9fdffecd7eaa17a6a0c3d06cc"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_FROZEN_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_FROZEN_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "dac1726f783c8e613598f97a27e560e48ebd1c8fc12df44749e71ce18047533b",
+      "archived_sha256": "460f1677b4f773678d80c2e20d8e93eef03ce16fb3baf5e9d2161bf113ed13d9"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_IMPLEMENTATION_DIAGNOSIS.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_IMPLEMENTATION_DIAGNOSIS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "30546d8ea1e0d7300d626c687f1acdc1ec8b7ad7a4166fa552a94949812b89ad",
+      "archived_sha256": "d2cc8c86cfee8af5b0869b9fb5722796c214b36d34a6b6603a39ca4c4bce2336"
+    },
+    {
+      "original_path": "reports/E2_BACKBONE_LEARNING_DIAGNOSIS.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_BACKBONE_LEARNING_DIAGNOSIS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "5ba2e74b55a64498a3a8203457e062cc6305fdda9151259bcd63e93d74b43b6e",
+      "archived_sha256": "de58b3ccea3d3b726ad0785ef2c296bac7726924cf9e7e9d7c11e39190f4e735"
+    },
+    {
+      "original_path": "reports/E2_CAPACITY_CUDA_FIXTURE.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_CAPACITY_CUDA_FIXTURE.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "52101e9cffa65d856cf6f1469b85aeed5cc9968b0b94dc6b101d057fce99c514",
+      "archived_sha256": "cffbad824f8e716781fba749c05f64a0a57c2c1485a43a44a4dc332ac0306d83"
+    },
+    {
+      "original_path": "reports/E2_CAPACITY_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_CAPACITY_RESULTS.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "534f227654c5028d61b9b59df0fdcedc7c8d9740e6ff78ce53224fff2782e009",
+      "archived_sha256": "e4e9cf8a21d5f8f59c26d31b0c99cfaea8267e2380639646b3c1954c147673ad"
+    },
+    {
+      "original_path": "reports/E2_CONFIRMATION_CUDA_FIXTURE.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_CONFIRMATION_CUDA_FIXTURE.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "25a1d2f37b930fb16c30a3bce3d02379d19a6406aa245f81d4df08d0c1af0dd5",
+      "archived_sha256": "7962f433a27c39e0a4571cefa4a26194e9a7729c6f05f68761ad8f98b3961887"
+    },
+    {
+      "original_path": "reports/E2_CONFIRMATION_EXECUTION_PREPARATION.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_CONFIRMATION_EXECUTION_PREPARATION.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "f97f1e552e4ced5da3a6c25ef3c4006a06adbda48f9d432183b9308ef0c74b31",
+      "archived_sha256": "d66c5f078efc658c7890f232ca222805835b7f247c02e23b9ef96ed31fb86ef9"
+    },
+    {
+      "original_path": "reports/E2_CONFIRMATION_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_CONFIRMATION_IMPLEMENTATION.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "d998305f44d8939ccf88cd2bce3cf70e2cd03def68a51e30f2b36fe023ca9447",
+      "archived_sha256": "d80bae48adcc60d8f85cc6e5d2256835882905fd843fc75989c3512be2a1e704"
+    },
+    {
+      "original_path": "reports/E2_CONFIRMATION_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_CONFIRMATION_RESULTS.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "2ee52e2ec4bb06c7fb611dead4c1a6277675abdddc84ee754312e62950f64c43",
+      "archived_sha256": "1f7dcaf7b6e4605ac06ff99e06d534679c0e18dd73bf5484d39237f6c7918e0f"
+    },
+    {
+      "original_path": "reports/E2_CONFIRMATION_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_CONFIRMATION_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "f5730d2a3d51f3b06d936c12caf43207c2216c1f7ed6d0575c4eb8c13f9555c3",
+      "archived_sha256": "40bd371917ee2682b29cf2669180486dbd533e515a3781ca022595a00dde4855"
+    },
+    {
+      "original_path": "reports/E2_E3_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_E3_IMPLEMENTATION.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "5046416d695c2e5bcdc8a49bd76c6d34b01d89477eb342e919279e37407661a2",
+      "archived_sha256": "8163104a8ec62c9cf9c9db5da4a78d15d1b44a6f35f4d65797956d17a71a991a"
+    },
+    {
+      "original_path": "reports/E2_E3_PROTOCOL_DRAFT.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_E3_PROTOCOL_DRAFT.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "9ffe1e4d0c93665985da41f7ab22caa1f0a3e99d8c8ebec2d9c0933875a71a4f",
+      "archived_sha256": "9aed53b8b1c25149ade7e98e2592a78f236bafde1ff07472c0213342187ce4f6"
+    },
+    {
+      "original_path": "reports/E2_ENCODER_MATCHED_CONTROL_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_ENCODER_MATCHED_CONTROL_IMPLEMENTATION.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "b0f0c9bb52b48c02cd9be7765e119f3193ea6d079bed77101ce2462c08508070",
+      "archived_sha256": "c12a9cbc8a4385b1e900a549aff54a343681ff2b0bdfa72332ba847e357a31a5"
+    },
+    {
+      "original_path": "reports/E2_ENCODER_MATCHED_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_ENCODER_MATCHED_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "e01eb2c4455365aa23489729007d976ce880c29334de0abd11c7c0acb2d55969",
+      "archived_sha256": "d5b229563980f9945a33aeb6378fc77800a1886d66cf708f826f835d77463aee"
+    },
+    {
+      "original_path": "reports/E2_ENTRY_ATTEMPT1.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_ENTRY_ATTEMPT1.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "938839c5f64612884ed836d195338ac81717d57e2b47fcfc4b4014b12bafcdb6",
+      "archived_sha256": "6a5957e1410ca3bf2e34c3fca254114fef4165d1c09d0b9dd71dc00a19f117b0"
+    },
+    {
+      "original_path": "reports/E2_ENTRY_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_ENTRY_IMPLEMENTATION.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "55606e0486c8e45e946db1e8509964dc85ee60dae6f6cebf417d8ff22c234baf",
+      "archived_sha256": "a5185c6fe5902178ad0f63c4e1c39ad9781d80a622b3f5eef8b54034bd58f3b8"
+    },
+    {
+      "original_path": "reports/E2_FINAL_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_FINAL_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "55fc837b08e5f2d73bcdb5faad8cefdecb2af66636bde957431b94a6963b0036",
+      "archived_sha256": "5b3868dca6c2ffc33ec54807f21742fbadd7e1d75aa91bf13c7d932baa839025"
+    },
+    {
+      "original_path": "reports/E2_FROZEN_BIAS_ADAPTER_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_FROZEN_BIAS_ADAPTER_IMPLEMENTATION.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "6e58f98b885a099108e9d9044820a56d07710ea3350bee12ae7088eb2e8c0a46",
+      "archived_sha256": "a031de23e0ac292e61575170c4faa6b4a7341ed8569c6cb723ff89decd297468"
+    },
+    {
+      "original_path": "reports/E2_FROZEN_RECOVERY_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_FROZEN_RECOVERY_IMPLEMENTATION.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "10341fb89b5d1a9af92b25923e0eaf9a5576776f089c762428b7aaad6e9ea3b6",
+      "archived_sha256": "6cd53a1170c277dba56f622a87eb7ac56e35cffbecb7565e3a695f0d2bf25f03"
+    },
+    {
+      "original_path": "reports/E2_FROZEN_RECOVERY_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_FROZEN_RECOVERY_RESULTS.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "92a83fbaab71e4ed33dbc40a5ccc29d77db79023987042ec10375d12c80a7d6b",
+      "archived_sha256": "8f3b498934e1117d855496132731534633b88c6aa9de8a73438e1c4506302ae0"
+    },
+    {
+      "original_path": "reports/E2_LOCAL_PILOT_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_LOCAL_PILOT_RESULTS.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "1366ea24b02e428042696a05e00dc920b145edd58be221a610eaf6db1cbb19fa",
+      "archived_sha256": "54fd0aea735909aa4a1da2b4f6035407eafca1cf4d48d4afff3734f70a0d4253"
+    },
+    {
+      "original_path": "reports/E2_LOCAL_PILOT_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_LOCAL_PILOT_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "92f9b316d7c5f995d3935e5441139418b71fdeb60b5edf82331980de8578fb9d",
+      "archived_sha256": "ccddc4dd8fd8798d53b65345ac4f2788f766b189cf82fa510e07739b3446f9f6"
+    },
+    {
+      "original_path": "reports/E2_MODEL_CAPACITY_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_MODEL_CAPACITY_IMPLEMENTATION.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "0bd76c5c6aa6c5bf5ef7642339c534f798e6a40a335541a9fdf9ddbd33c051aa",
+      "archived_sha256": "e6318934fa26d4122f0ca6d614b26ac43d8f9acf993394acbd0b60c7d4c04b4c"
+    },
+    {
+      "original_path": "reports/E2_MODEL_CAPACITY_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/03/E2_MODEL_CAPACITY_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/03_骨干能力与实现诊断.md",
+      "original_sha256": "91232fb7c1b15e582eb92653823741ad582cb5d98a619ad7e3d5dfa84fbe1208",
+      "archived_sha256": "4e6452db4ffc106ca0e1c301cd446223ae09bb06a3ee750de0589393b604a17e"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_ALL_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_ALL_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "f57c7dea0c261bc9f0cc6f97734593343ee5f37a95f27f6f3133e9ab4f278078",
+      "archived_sha256": "2d665b0924bf83fa90678505f25cb5957c20df61ba1364d6de593f7facb6be68"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_CUDA_FIXTURE.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_CUDA_FIXTURE.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "03f9b8e182b4f6e70e4f1bdad28a4e690bc5f00af7e8d756c1bddf67a5dd3b4c",
+      "archived_sha256": "55335bcb9c19d3e873413a42397bb7436b4d6ddcba8916f69ddc325ac7857dcc"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_F4_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_F4_RESULTS.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "ec4d0c52bb665b92aa6103f255bce420f48306554db517bab0d7b79f6850de7e",
+      "archived_sha256": "693e9cf6391d1214cf5410dc32bbe710142a8ad38ebf889d509409319e758ce3"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_F4_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_F4_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "38b5a5e41d775e536a5245d3c04888f96edfd59772fce69de158ef44cca0c2c8",
+      "archived_sha256": "951ba33e53c952db45143c469fc5470d1924bd71b8b3abe50cdea020d5d8dabf"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_IMPLEMENTATION.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "9b07a7fb75a26ff45c7368255de5b5b1fa410abb0e6a0b8bf1fb053b9c5640a3",
+      "archived_sha256": "b87bf0b2a0b395ac6935cd9d0bda96d129d0373e87b0485de612c05408a5dd01"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_RESULTS.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "10aceba8b978e81d9e96430eb0b1f89fb8daabab8cfbcb739d24d555003435c9",
+      "archived_sha256": "4b858f6a17bd9b45e1eeb29d5d0fecf4f31c3c1f10f4444cf02cdf62a2fad826"
+    },
+    {
+      "original_path": "reports/E2_MULTIBUDGET_SUPERVISOR_REVIEW.md",
+      "archived_path": "reports/archive/2026-09-17/02/E2_MULTIBUDGET_SUPERVISOR_REVIEW.md",
+      "current_topic": "reports/02_真实图采样偏移与层级检索损伤.md",
+      "original_sha256": "5ce403f1606c4d860dd361ff0fafe1cac9f657126102d82d66be40d7fbef34d0",
+      "archived_sha256": "0abc76700ad917c95b1a51be00e7e8de8f6bb47e9035803981c9b0254eb44580"
+    },
+    {
+      "original_path": "reports/E2_RADIAL_COMPONENT_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_RADIAL_COMPONENT_IMPLEMENTATION.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "5724c3f8cd7540bf301d1323b196886bd35ad463bcdc38e7ed901d7d880a7627",
+      "archived_sha256": "b52b246b6d8497132705f09d3d6063f789afcfb7cf138e1c0cedd865affcdefc"
+    },
+    {
+      "original_path": "reports/E2_RADIAL_COMPONENT_RESULTS.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_RADIAL_COMPONENT_RESULTS.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "2fa6cbddd3eb3462c02b20209bb8b8435ee5fa524286d0bb6f639fdaa4f9aa12",
+      "archived_sha256": "2122cbf76f67e579fcdd1622cf33189055e135e2538f59d5f29e6757db3655ed"
+    },
+    {
+      "original_path": "reports/E2_RELATION_LOCALIZATION_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/04/E2_RELATION_LOCALIZATION_IMPLEMENTATION.md",
+      "current_topic": "reports/04_修正恢复与方向机制.md",
+      "original_sha256": "0edf44cb076829395f0064e7943fa9ea13ad7248e0bd9d4d32ac35938f597da4",
+      "archived_sha256": "63baffdb21a7bb59257d6c34f40fea710a18ad4862093c3b4681ff39f2bb39b2"
+    },
+    {
+      "original_path": "reports/FULL_VALID_ORIGINAL_PILOT.md",
+      "archived_path": "reports/archive/2026-09-17/00/FULL_VALID_ORIGINAL_PILOT.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "09a50b0153e381189b075bf77f6226253344d3bb52531548f8b333ed49aec1e8",
+      "archived_sha256": "62d7537f8e010319d43850b06afb47e59f46ebecde2aa132c4617696fc4a4ec9"
+    },
+    {
+      "original_path": "reports/PACKING_COMPARISON.md",
+      "archived_path": "reports/archive/2026-09-17/00/PACKING_COMPARISON.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "fc923ba768b5bec30aa66e39caf389ebb89cb359833062685ff2ef62d41d2409",
+      "archived_sha256": "e9e2a2e72a2177b99bc9552c7e70cf2594902fd5f1580d237d0ed181eef780e4"
+    },
+    {
+      "original_path": "reports/S1B_CHECKPOINT_EVALUATION.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_CHECKPOINT_EVALUATION.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "63acefc1f25eed8fe40d696f95df32c4ced885b202a7f8401178498be0317765",
+      "archived_sha256": "c3a284319acf1512c7a8f9ae62e1adf26bc0402b9b3864defe1e5a8a1628f335"
+    },
+    {
+      "original_path": "reports/S1B_CUDA_DIAGNOSIS.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_CUDA_DIAGNOSIS.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "46979c4ba052a915eb0217ceb2f0f2fd7b103ae6cc78b6477f45bd1d31afe7bd",
+      "archived_sha256": "a65fec0c65c32ceba24d5723ce34c6722f86fa9c02f2b146ef994ebcd09f9898"
+    },
+    {
+      "original_path": "reports/S1B_DEVELOPMENT_CONFIGS.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_DEVELOPMENT_CONFIGS.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "ca317ba1285010ba048369316db6cfb4fdbe8386a4c137ad486eaad70364f978",
+      "archived_sha256": "c88b94499eed7ae06939e0950bbec745086ddace1d41faa2661fa66f038ea9d4"
+    },
+    {
+      "original_path": "reports/S1B_EFFICIENCY.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_EFFICIENCY.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "d3bee3a8b5dc01323726be433d0bc0a5c1633fbb5fd993b04df8f7108a2a4401",
+      "archived_sha256": "b5bf93653f52fcdf553e521b8cf6e325d7f7dfaa603f258464ba1b4889fada1d"
+    },
+    {
+      "original_path": "reports/S1B_IMPLEMENTATION.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_IMPLEMENTATION.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "14bc8814c358133479a78913ed0a9280c63604f69730296807d522c14052371b",
+      "archived_sha256": "cacc40ad33cc10cbf70e63f3562c24b04e28ba4a6c52f68756f504bfcf4a3c93"
+    },
+    {
+      "original_path": "reports/S1B_PILOT.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_PILOT.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "43a43b98364dbbb6e89cb1d40d66a71a983286f5e1a33743570830206f946271",
+      "archived_sha256": "965368631d685a8aabe44042500491c06edcb4acd701afb2a32b7ca7bf9d8127"
+    },
+    {
+      "original_path": "reports/S1B_PREPROCESSING.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_PREPROCESSING.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "285c00ded12fac62372f33d2b5ff14de55eec8c31f4b25752aea8730f786d6ed",
+      "archived_sha256": "c38baabd44cfb525a412807b519087120d00fc153b8192a076508fcdcd21c9e4"
+    },
+    {
+      "original_path": "reports/S1B_PROTOCOL_DRAFT.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_PROTOCOL_DRAFT.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "ed61db103a2742a28982df9044685dca2cd61ea01306ac4ce66f21ed431aca7b",
+      "archived_sha256": "be72129e9c644630c1b7c96ab0763e3a7ae05df00fb1d85053c251294e5453c0"
+    },
+    {
+      "original_path": "reports/S1B_RUNNER.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1B_RUNNER.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "e2b56ab35490b3f9cf98bf05032addb911630a6cf396748b3081afe6781514ee",
+      "archived_sha256": "8eb146353f468d17564f3cf6240b21880a5c3d70b5dd142e35398b096c660da3"
+    },
+    {
+      "original_path": "reports/S1_SAMPLING_COVERAGE.md",
+      "archived_path": "reports/archive/2026-09-17/00/S1_SAMPLING_COVERAGE.md",
+      "current_topic": "reports/00_工程与数据准备.md",
+      "original_sha256": "73c65413b5a5b54a34535df80c55bd6a2b16e35ce8e1a72167256382b538d77c",
+      "archived_sha256": "3ab3e41f46bf9ee188cc116a7e82bf1952752377c150445e00f1f3a1fbe77dd7"
+    },
+    {
+      "original_path": "reports/STATUS.md",
+      "archived_path": "reports/archive/2026-09-17/history/STATUS.md",
+      "current_topic": "reports/README.md",
+      "original_sha256": "453f4228c2e2c74c45e9a68a6caa743622eb0467258442d62fef098044c73c93",
+      "archived_sha256": "0ed27587bc285ea24b6bcc686ee59e4dff734bed90ee3217eb1949777fe52bbd"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+> 历史快照：以下状态、建议和授权只代表原文写作时点，不是当前执行指令。当前结论见 [报告总览](../../../README.md)。原始字节另存于归档 ZIP。
+
 # ACL-HCT: When Sampling Breaks Hierarchy
 
 Initial research engineering for tangent-space correction of sampled Lorentz graph aggregation. **Real-network hierarchy collapse is a hypothesis, not a result.** The historical experiment matrix is not enabled.
@@ -72,23 +74,20 @@ Prepare dependencies and data before allocation. Supply authorized account, QOS,
 
 Raw downloads, private host inventory, job identifiers, caches and detailed scheduler logs remain untracked. Read the acceptance contract before extending scope.
 
-## 实验报告与工程追溯
+Implementation hardening evidence, known limitations and CPU-only measurements: [reports/CODE_QUALITY.md](../00/CODE_QUALITY.md). Historical GPU reports apply only to their recorded source revision.
 
-当前实验结论统一见[实验结果总览](reports/README.md)；E2恢复和机制实验已完成验收，用户已授权[成熟HGCN采样与损伤验证](docs/operations/MATURE_HGCN_SAMPLING_VALIDATION.md)。按主题更新报告，不再追加独立进度Markdown。
+E1实现入口：`python -m acl_hct.mechanisms --config configs/e1_cpu_check.json --output logs/e1.json`；用 `scripts/plot_e1.py --input logs/e1.json --output-dir logs/e1-figures` 从JSON重建图（可选 `[plots]` 依赖）。固定阈值枚举/MC、配对采样、共同切空间、未裁剪与保护版、MC不确定性和科学边界见 [reports/E1_IMPLEMENTATION.md](../01/E1_IMPLEMENTATION.md)。正式受控组配置 `configs/e1_s1.json` 尚待实验任务在固定commit运行。
 
-历史实现、命令、数值门及故障记录见[归档索引](reports/archive/2026-09-17/README.md)，原配置和科学源码保持。发布代码不构成新实验授权；执行仍遵守[用户批准门槛](docs/operations/EXPERIMENT_APPROVAL_GATE.md)。
+协议B预处理与两层自建骨干准备见 [reports/S1B_IMPLEMENTATION.md](../00/S1B_IMPLEMENTATION.md) 及父任务冻结决定 [docs/operations/S1B_PROTOCOL_DECISIONS.md](../../../../docs/operations/S1B_PROTOCOL_DECISIONS.md)。文本特征依赖可选 `[benchmark]`；split seed为20260914，train-only文本拟合，监督query边在采样前屏蔽。当前fixture通过，真实预处理/训练尚未执行，不能把TinyGNN或fixture结果当正式基线。
 
-## Mature HGCN engineering gate
+有界训练入口与pilot合同见 [reports/S1B_RUNNER.md](../00/S1B_RUNNER.md)。`configs/wordnet_b_pilot.json` 仅10步与固定validation probe，不能据probe选择最佳checkpoint；完整valid选择另用明确配置。所有GPU执行须由实验任务在单卡Slurm分配中运行，代码入口不自行调度。
 
-The adapter calls the actual [HazyResearch/hgcn](https://github.com/HazyResearch/hgcn/tree/a526385744da25fc880f3da346e17d0fe33817f8) classes from a separately prepared, unmodified checkout. The pinned tree contains no LICENSE file; upstream code and datasets are not bundled in this repository. All 53 upstream files are bound by [the source manifest](configs/hgcn_upstream.json). Install only the additional runtime imports with `python -m pip install -e '.[test,hgcn]'`; the old upstream requirements are provenance, not instructions to downgrade the current environment.
+后续已完成的真实 WordNet 10 步 pilot 与历史 CUDA 诊断见 [reports/S1B_PILOT.md](../00/S1B_PILOT.md)，其计算来源保持 fce0172。只读完整 valid 入口 `python -m acl_hct.evaluate_checkpoint` 的来源校验、时限、命令和 CPU 测试见 [reports/S1B_CHECKPOINT_EVALUATION.md](../00/S1B_CHECKPOINT_EVALUATION.md)；对 pilot last 的评估不追认最佳 checkpoint。等价索引组装补丁见 [reports/S1B_EFFICIENCY.md](../00/S1B_EFFICIENCY.md)，GPU 性能须以独立实验测量为准。
 
-Prepare the external checkout offline before testing. In PowerShell:
+当前优先补齐 E1 最小机制闭环，E2/E3 新增工作暂停。补充代码和102条件清单见 [reports/E1_CLOSURE_IMPLEMENTATION.md](../01/E1_CLOSURE_IMPLEMENTATION.md)，必要离线工程测试通过；用户已明确授权既定102条件的一次有界运行，待最终固定版本质量检查后由主管交实验任务执行。代码任务尚未运行科学补实验。每个关键实验必须遵守 [用户批准门槛](../../../../docs/operations/EXPERIMENT_APPROVAL_GATE.md)；`python -m acl_hct.e1_closure --config configs/e1_minimum_closure_proposal.json` 默认只做静态核算，发布代码不构成执行授权。
 
-```powershell
-$env:ACL_HGCN_UPSTREAM_PATH = "<absolute path to the pinned official checkout>"
-python -m pytest tests/test_hgcn_sampling.py tests/test_mature_hgcn.py tests/test_hgcn_inputs.py tests/test_hgcn_entry.py -q
-$env:PYTHONPATH = "src"
-python -m acl_hct.hgcn_entry --config configs/mature_hgcn_quality.json
-```
 
-Default pytest never downloads the external source and skips official comparisons when the explicit checkout is absent. A release requires those comparisons passing with no skips. The entry above is static only; executing `cpu_quality` or `cuda_quality` requires an exact supervisor release, source commit, external checkout, prepared input and fresh output. This entry has no scientific-training phase. See [engineering evidence](reports/00_工程与数据准备.md) for sampling weights, head adaptation and current test/runtime status. Official Disease LP uses its original distance decoder; WordNet directed parent retrieval is a separate task adaptation.
+E2后续状态：用户已授权逐步入口检查及局部试跑，先检查seed11/23的best768来源、完整前向/FP64对照及完整valid复现，再固定fanout16、local L1/F/S各16次。`python -m acl_hct.e2_pilot --config configs/e2_entry_local_pilot.json` 默认仅静态核验；真实运行需固定版本质量审查及对应批准记录。入口、阈值、停止行为和限制见 [E2_ENTRY_IMPLEMENTATION.md](../02/E2_ENTRY_IMPLEMENTATION.md)。本批不包含N1、E3或重训。
+
+
+E2原路线11节多预算开发入口已准备：`python -m acl_hct.e2_development --config configs/e2_multibudget_development.json` 默认静态检查。固定两个best768×五档fanout共十片，每片128次四路径、S/S前8次完整valid；新增CUDA工程fixture须独立验收后运行。源/配置/分片命令、NPZ归档读取及科学缺口见 [E2_MULTIBUDGET_IMPLEMENTATION.md](../02/E2_MULTIBUDGET_IMPLEMENTATION.md)。
