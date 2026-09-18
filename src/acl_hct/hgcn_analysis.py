@@ -50,8 +50,10 @@ def checked_run(item, phase, config, release):
     if file_hash(path) != item['sha256']:
         raise ValueError('artifact index report hash mismatch')
     report = json.loads(path.read_bytes())
+    from .hgcn_replay import ORIGINAL_SOURCE
+    accepted_source = (ORIGINAL_SOURCE if phase == 'official' and release.get('replay_policy_sha256') else release['source_commit'])
     if (report['status'] != 'complete' or report['phase'] != phase
-            or report['config_sha256'] != canonical(config) or report['source_commit'] != release['source_commit']):
+            or report['config_sha256'] != canonical(config) or report['source_commit'] != accepted_source):
         raise ValueError('complete same-source/config archived phase required')
     return path.parent, report['result']
 
@@ -112,24 +114,44 @@ def replay_training(root, trained, data, config, source_commit):
     return reference
 
 
-def analyze(artifact_index, prepared_root, config, release, output):
+def analyze(artifact_index, prepared_root, config, release, output, policy=None):
     if file_hash(artifact_index) != release['inputs']['artifact_index_sha256']:
         raise ValueError('reviewed complete artifact index hash mismatch')
     index = json.loads(Path(artifact_index).read_bytes())
     if index['protocol'] != config['protocol'] or index['config_sha256'] != canonical(config):
         raise ValueError('artifact index protocol/config mismatch')
+    if policy is not None and index.get('replay_policy_sha256') != canonical(policy):
+        raise ValueError('artifact index does not bind amended replay policy')
     if len(index['training']) != 2 or len(index['evaluation']) != 8:
         raise ValueError('both models and all eight evaluation shards required')
     data = load_train(prepared_root, config)
     data['valid'], data['truth'] = load_valid(prepared_root, data, config)
     view, panel = load_panel_design(prepared_root, config)
-    trained = {}; references = {}; evaluators = {}; baselines = {}; training_hashes = {}
+    trained = {}; references = {}; evaluators = {}; baselines = {}; training_hashes = {}; numeric_replays = []
     for item in index['training']:
-        root, run = checked_run(item, 'train', config, release); seed = run['seed']
+        root, run = checked_run(item, 'replay' if policy else 'train', config, release); seed = run['seed']
         if seed not in config['training']['seeds'] or seed in trained:
             raise ValueError('distinct registered trained model identities required')
-        ref = replay_training(root, run, data, config, release['source_commit'])
+        if policy:
+            from .hgcn_replay import ORIGINAL_SOURCE, historical_training, qualify_full, require_qualified
+            origin_root, original = historical_training(run['original_training']['run_file'], config, policy, seed)
+            for key in ('best', 'evaluations', 'initial_reference', 'initial_state_sha256', 'batch_history', 'last', 'original_training'):
+                equal_tree(run[key], original[key])
+            if run['replay_policy_sha256'] != canonical(policy):
+                raise ValueError('recovered baseline policy mismatch')
+            ref = replay_training(origin_root, run, data, config, ORIGINAL_SOURCE)
+        else:
+            ref = replay_training(root, run, data, config, release['source_commit'])
         evaluator, full = hierarchy_evaluator(view, panel, ref['native_ball_points'], config)
+        if policy:
+            saved_replay = read_archive(root / 'arrays', run['replay_archive'])
+            qualified = qualify_full(saved_replay['native_ball_points'], saved_replay['ranking'], ref, evaluator, config,
+                                     policy, data['valid'], data['truth'], saved_replay['model_state_sha256'],
+                                     checkpoint_binding(config, ORIGINAL_SOURCE, seed, run['best']['step']), saved_replay['full_plan'])
+            equal_tree(saved_replay['qualification'], qualified); equal_tree(run['replay_qualification'], qualified)
+            equal_tree(saved_replay['panel_design'], evaluator.archive_design())
+            equal_tree(saved_replay['replay_hierarchy'], evaluator.evaluate(saved_replay['native_ball_points']))
+            require_qualified(qualified); numeric_replays.append({'scope': 'baseline', 'seed': seed, **qualified})
         baseline = read_archive(root / 'arrays', run['full_baseline']['hierarchy_archive'])
         equal_tree(baseline['panel_design'], evaluator.archive_design())
         equal_tree(baseline['hierarchy'], full)
@@ -151,7 +173,18 @@ def analyze(artifact_index, prepared_root, config, release, output):
             raise ValueError('same best weights and complete shard required')
         control = read_archive(root / 'arrays', shard['full_control'])
         validate_ranking(control['ranking'], data['valid'], data['truth'], len(data['nodes']))
-        compare_full(control['native_ball_points'], control['ranking'], references[seed])
+        if policy:
+            if shard['replay_policy_sha256'] != canonical(policy) or shard['original_training'] != trained[seed]['original_training']:
+                raise ValueError('shard amended policy/original lineage mismatch')
+            qualified = qualify_full(control['native_ball_points'], control['ranking'], references[seed], evaluator, config,
+                                     policy, data['valid'], data['truth'], control['model_state_sha256'],
+                                     checkpoint_binding(config, ORIGINAL_SOURCE, seed, trained[seed]['best']['step']), control['full_plan'])
+            equal_tree(control['qualification'], qualified); equal_tree(shard['full_replay'], qualified); require_qualified(qualified)
+            if control['fixed_full_native_points_sha256'] != array_hash(references[seed]['native_ball_points']):
+                raise ValueError('shard fixed F replacement detected')
+            numeric_replays.append({'scope': 'shard', 'seed': seed, 'repeat_start': start, **qualified})
+        else:
+            compare_full(control['native_ball_points'], control['ranking'], references[seed])
         equal_tree(control['panel_design'], evaluator.archive_design())
         equal_tree(control['hierarchy'], baselines[seed])
         equal_tree(control['full_plan'], references[seed]['full_plan'])
@@ -219,6 +252,10 @@ def analyze(artifact_index, prepared_root, config, release, output):
     equal_tree(official_data['test'], official['test_after_final_best_reload'])
     load_checkpoint(official_root, official['best']['checkpoint'], official['best']['checkpoint']['binding'])
     return {'status': 'complete', 'replayed_sample_arrays': len(samples), 'primary_family': primary,
+            **({'replay_policy_sha256': canonical(policy), 'full_numeric_replays': numeric_replays,
+                'full_only_diagnostic_observations': policy['basis'],
+                'numeric_interpretation': 'report observed full repeat errors alongside effect sizes; engineering limits are not guaranteed error bounds, sampled-graph bounds or statistical null bands; tiny significance alone is not substantive damage',
+                'original_training_lineage': {str(s): trained[s]['original_training'] for s in trained}} if policy else {}),
             'full_baselines': {str(seed): {'direct_order': baselines[seed]['direct']['metrics']['score'],
                                'positive_order_necessary_premise': baselines[seed]['direct']['metrics']['score'] > .5,
                                'premise_limit': '>0.5 is necessary, not sufficient; inspect order, gaps, coverage and learning state, retain both models',
@@ -227,6 +264,6 @@ def analyze(artifact_index, prepared_root, config, release, output):
                                                      if k not in ('gap', 'score', 'child_values')} for kind in ('direct', 'distant')}}
                                for seed in (11, 23)},
             'bias_exploratory': bias, 'secondary_descriptive': descriptive, 'official_example': official,
-            'rank_replay_scope': 'all saved query identities, candidates, exact-tie rank bounds and aggregates; full logits were checked by source fixtures and GPU deterministic F replay, not independently CPU-rescored here',
+            'rank_replay_scope': 'all saved query identities, candidates, exact-tie rank bounds and aggregates; full logits checked by source fixtures and explicit full replay qualification, not independently CPU-rescored here',
             'generality': config['statistics']['generality'], 'stopping_boundary': config['stopping']['end'],
             'training_run_sha256': {str(s): h for s, h in training_hashes.items()}}

@@ -125,11 +125,26 @@ def train_wordnet(data, config, upstream, device, output, prepared_root, release
                                'requires_independent_review_before_sampling': True}}
 
 
-def training_input(training_run, config, release, seed):
+def training_input(training_run, config, release, seed, policy=None):
     path = Path(training_run)
     if file_hash(path) != release['inputs']['training_run_sha256']:
         raise ValueError('reviewed training report hash mismatch')
     run = json.loads(path.read_bytes())
+    if policy is not None:
+        from .hgcn_replay import historical_training
+        if (run['status'] != 'complete' or run['phase'] != 'replay' or run['source_commit'] != release['source_commit']
+                or run['config_sha256'] != canonical(config) or run['result']['replay_policy_sha256'] != canonical(policy)
+                or run['result']['seed'] != seed or run['result']['replay_qualification']['accepted'] is not True):
+            raise ValueError('accepted amended full-only replay required before sampling')
+        trained = run['result']
+        root, original = historical_training(trained['original_training']['run_file'], config, policy, seed)
+        for key in ('seed', 'completed_steps', 'best', 'evaluations', 'initial_reference', 'initial_state_sha256',
+                    'batch_history', 'last', 'original_training'):
+            if trained[key] != original[key]:
+                raise ValueError('recovered metadata changed original training lineage')
+        if trained['best']['checkpoint']['sha256'] != release['inputs']['best_checkpoint_sha256']:
+            raise ValueError('accepted replay checkpoint input mismatch')
+        return root, trained
     if (run['status'] != 'complete' or run['phase'] != 'train' or run['config_sha256'] != canonical(config)
             or run['source_commit'] != release['source_commit'] or run['result']['seed'] != seed
             or run['result']['completed_steps'] != config['training']['steps']
@@ -138,10 +153,63 @@ def training_input(training_run, config, release, seed):
     return path.parent, run['result']
 
 
-def evaluate_shard(data, config, upstream, device, output, prepared_root, training_run, release, seed, start):
-    root, trained = training_input(training_run, config, release, seed); best = trained['best']
+def replay_wordnet(data, config, upstream, device, output, prepared_root, training_run, release, seed, policy):
+    from .hgcn_analysis import replay_training
+    from .hgcn_replay import ORIGINAL_SOURCE, historical_training, qualify_full, require_qualified
+    if file_hash(training_run) != release['inputs']['training_run_sha256']:
+        raise ValueError('original failed training report input mismatch')
+    root, trained = historical_training(training_run, config, policy, seed)
+    valid, truth = load_valid(prepared_root, data, config)
+    replay_data = {**data, 'valid': valid, 'truth': truth}
+    reference = replay_training(root, trained, replay_data, config, ORIGINAL_SOURCE)
+    best = trained['best']; cp_binding = checkpoint_binding(config, ORIGINAL_SOURCE, seed, best['step'])
+    cp = load_checkpoint(root, best['checkpoint'], cp_binding)
+    model = new_model(upstream, config, device); model.load_state_dict(cp['model_state'], strict=True); model.eval()
+    before = state_hash(model.state_dict()); plan = make_plan(data['neighbors'], None, torch.Generator())
+    features = data['features'].to(device); adjacency = plan.matrix(device=device)
+    view, panel = load_panel_design(prepared_root, config)
+    evaluator, baseline = hierarchy_evaluator(view, panel, reference['native_ball_points'], config)
+    with torch.no_grad():
+        points = model.encode(features, [adjacency, adjacency])
+        ranks = complete_ranking(model, points, valid, truth, config['ranking'])
+    if state_hash(model.state_dict()) != before or any(p.grad is not None for p in model.parameters()):
+        raise ValueError('read-only full replay changed model state or gradients')
+    qualification = qualify_full(points, ranks, reference, evaluator, config, policy, valid, truth,
+                                 before, cp_binding, plan.archive())
+    replay_archive = write_archive(output / 'arrays', 'full-numeric-replay',
+                                   {'native_ball_points': points, 'ranking': ranks, 'qualification': qualification,
+                                    'binding': cp_binding, 'model_state_sha256': before, 'full_plan': plan.archive(),
+                                    'panel_design': evaluator.archive_design(), 'replay_hierarchy': evaluator.evaluate(points.cpu().numpy())})
+    atomic_json(output / 'replay-qualification.json', {'qualification': qualification, 'archive': replay_archive,
+                                                     'original_training': trained['original_training']})
+    require_qualified(qualification)  # Evidence exists even when a numeric limit fails.
+    hierarchy = write_archive(output / 'arrays', 'best-full-hierarchy',
+                              {'native_full_points_sha256': array_hash(reference['native_ball_points']),
+                               'model_state_sha256': before, 'panel_design': evaluator.archive_design(), 'hierarchy': baseline})
+    evaluations = trained['evaluations']; history = trained['history']; full_order = baseline['direct']['metrics']['score']
+    return {**trained, 'status': 'complete', 'replay_policy_sha256': canonical(policy),
+            'replay_qualification': qualification, 'replay_archive': replay_archive,
+            'matching_best_serialized_reload_full_rank': 'separate amended numeric qualification passed; original exact failure preserved',
+            'parameters_updated': False, 'optimizer_created': False, 'sampling_effects_inspected': False,
+            'train_files_opened': data['input_files_opened'], 'selection': config['training']['selection'],
+            'valid_hash': data['valid_hash'], 'query_count': len(valid),
+            'full_baseline': {'direct_order': full_order, 'distant_order': baseline['distant']['metrics']['score'],
+                              'micro_mrr': reference['ranking']['query_micro_mrr'], 'hierarchy_archive': hierarchy,
+                              'positive_order_necessary_premise': full_order is not None and full_order > .5,
+                              'interpretation': 'original fixed F; order >0.5 necessary, not sufficient; independent learning review required'},
+            'learning_state': {'initial_valid_micro_mrr': evaluations[0]['micro_mrr'],
+                               'best_valid_micro_mrr': best['micro_mrr'], 'last_valid_micro_mrr': evaluations[-1]['micro_mrr'],
+                               'best_step': best['step'], 'mean_first_32_losses': float(np.mean([r['loss'] for r in history[:32]])),
+                               'mean_last_32_losses': float(np.mean([r['loss'] for r in history[-32:]])),
+                               'requires_independent_review_before_sampling': True}}
+
+
+def evaluate_shard(data, config, upstream, device, output, prepared_root, training_run, release, seed, start, policy=None):
+    root, trained = training_input(training_run, config, release, seed, policy); best = trained['best']
     model = new_model(upstream, config, device)
-    cp = load_checkpoint(root, best['checkpoint'], binding(config, release, seed, best['step']))
+    from .hgcn_replay import ORIGINAL_SOURCE, qualify_full, require_qualified
+    cp_binding = checkpoint_binding(config, ORIGINAL_SOURCE, seed, best['step']) if policy else binding(config, release, seed, best['step'])
+    cp = load_checkpoint(root, best['checkpoint'], cp_binding)
     model.load_state_dict(cp['model_state'], strict=True); model.eval(); before = state_hash(model.state_dict())
     reference = read_archive(root / 'arrays', best['reference'])
     if (reference['binding'] != cp['binding'] or reference['model_state_sha256'] != before):
@@ -152,13 +220,24 @@ def evaluate_shard(data, config, upstream, device, output, prepared_root, traini
     with torch.no_grad():
         full = model.encode(features, [full_adj, full_adj])
         full_ranking = complete_ranking(model, full, valid, truth, config['ranking'])
-    compare_full(full, full_ranking, reference)
     view, panel = load_panel_design(prepared_root, config)
-    evaluator, baseline = hierarchy_evaluator(view, panel, full.detach().cpu().numpy(), config)
+    if policy:
+        evaluator, baseline = hierarchy_evaluator(view, panel, reference['native_ball_points'], config)
+        qualification = qualify_full(full, full_ranking, reference, evaluator, config, policy, valid, truth,
+                                     state_hash(model.state_dict()), cp_binding, full_plan.archive())
+    else:
+        compare_full(full, full_ranking, reference)
+        evaluator, baseline = hierarchy_evaluator(view, panel, full.detach().cpu().numpy(), config)
+        qualification = None
     design = write_archive(output / 'arrays', 'full-control',
                            {'binding': cp['binding'], 'model_state_sha256': before, 'native_ball_points': full,
                             'ranking': full_ranking, 'panel_design': evaluator.archive_design(), 'hierarchy': baseline,
-                            'queries': np.array(valid, dtype=np.int64), 'full_plan': full_plan.archive()})
+                            'queries': np.array(valid, dtype=np.int64), 'full_plan': full_plan.archive(),
+                            **({'qualification': qualification, 'fixed_full_native_points_sha256': array_hash(reference['native_ball_points'])} if policy else {})})
+    if policy:
+        atomic_json(output / 'replay-qualification.json', {'qualification': qualification, 'archive': design})
+        require_qualified(qualification)
+        full = torch.from_numpy(reference['native_ball_points']).to(device)  # Original F remains fixed.
     records = []
     for repeat in range(start, start + 4):
         for fanout in (4, 8, 16):
@@ -184,12 +263,13 @@ def evaluate_shard(data, config, upstream, device, output, prepared_root, traini
     if len(records) != 12 or state_hash(model.state_dict()) != before:
         raise ValueError('complete shard and unchanged model state required')
     return {'status': 'complete', 'seed': seed, 'repeat_start': start, 'repeats': list(range(start, start + 4)),
-            'full_control': design, 'full_replay': 'exact native points and ranks passed once at shard start',
+            'full_control': design, 'full_replay': qualification if policy else 'exact native points and ranks passed once at shard start',
+            **({'replay_policy_sha256': canonical(policy), 'original_training': trained['original_training']} if policy else {}),
             'best_checkpoint': best['checkpoint'], 'samples': records,
-            'full_control_inference_unit': 'shared deterministic reference, no duplicate independent F observations'}
+            'full_control_inference_unit': 'shared fixed reference, no duplicate independent F observations'}
 
 
-def fixture(upstream, device, output, config, release):
+def fixture(upstream, device, output, config, release, policy=None):
     # Official mathematical/gradient/state comparison remains the accepted fixture.
     official = run_fixture(upstream, device, output / 'arrays')
     from .hgcn_geometry import distance_ball_fp64, log_ball_orthonormal_fp64, mean_error_statistics
@@ -203,8 +283,11 @@ def fixture(upstream, device, output, config, release):
     archive = write_archive(output / 'arrays', 'science-native-geometry-fixture',
                             {'p': p, 'q': q, 'distance': distance, 'nodewise_log': error, 'moments': moments})
     integration = integration_fixture(upstream, device, output / 'artificial-integration', config, release)
+    from .hgcn_replay import qualification_fixture
+    qualification = qualification_fixture(output / 'arrays', device, policy) if policy else None
     return {'status': 'passed', 'scope': 'artificial engineering only; no prepared scientific model/effect inspected',
-            'official_fixture': official, 'native_geometry_archive': archive, 'integration_fixture': integration}
+            'official_fixture': official, 'native_geometry_archive': archive, 'integration_fixture': integration,
+            **({'numeric_qualification_fixture': qualification} if policy else {})}
 
 
 def integration_fixture(upstream, device, output, config, release):
@@ -254,17 +337,19 @@ def main():
     report = {'status': 'running', 'phase': args.phase, 'source_commit': args.source_commit}
     try:
         deadline(); config = json.loads(args.config.read_bytes())
-        released = verify_release(config, args.phase, args.source_commit, args.release_record, args.seed, args.repeat_start)
+        from .hgcn_replay import load_policy
+        policy = load_policy(args.replay_policy, config) if args.replay_policy else None
+        released = verify_release(config, args.phase, args.source_commit, args.release_record, args.seed, args.repeat_start, policy)
         before = source_hashes(); device = check_runtime(config, 'cpu_quality' if args.phase in ('cpu_fixture', 'analyze') else 'cuda_quality')
         report.update(config_sha256=canonical(config), release=released, torch=torch.__version__,
                       numpy=np.__version__, python=platform.python_version(), device=str(device))
         if args.phase == 'analyze':
             from .hgcn_analysis import analyze
-            result = analyze(args.artifact_index, args.prepared_root, config, released, output)
+            result = analyze(args.artifact_index, args.prepared_root, config, released, output, policy)
         else:
             upstream = load_upstream(args.upstream_root, args.upstream_manifest); report['upstream'] = upstream.identity
             if args.phase.endswith('fixture'):
-                result = fixture(upstream, device, output, config, released)
+                result = fixture(upstream, device, output, config, released, policy)
             elif args.phase == 'official':
                 from .hgcn_official import train_official
                 result = train_official(upstream, config, device, output, released)
@@ -272,9 +357,12 @@ def main():
                 data = load_train(args.prepared_root, config)
                 if args.phase == 'train':
                     result = train_wordnet(data, config, upstream, device, output, args.prepared_root, released, args.seed)
+                elif args.phase == 'replay':
+                    result = replay_wordnet(data, config, upstream, device, output, args.prepared_root,
+                                            args.training_run, released, args.seed, policy)
                 else:
                     result = evaluate_shard(data, config, upstream, device, output, args.prepared_root,
-                                            args.training_run, released, args.seed, args.repeat_start)
+                                            args.training_run, released, args.seed, args.repeat_start, policy)
             load_upstream(args.upstream_root, args.upstream_manifest)
         if source_hashes() != before:
             raise ValueError('source changed during worker')

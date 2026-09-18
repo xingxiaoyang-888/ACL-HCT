@@ -1,0 +1,109 @@
+{
+  "protocol": "MATURE-HGCN-numeric-replay-v1",
+  "status": "candidate_for_independent_supervisor_freeze",
+  "original_source_commit": "c2fdfb64efaa25b9ba067baeba2e81db2e16f3ba",
+  "original_config_sha256": "4a3b003a39b6bfcb74957e74a62a5a2b0329735f1dda0ae622172fbc205a3edc",
+  "upstream_commit": "a526385744da25fc880f3da346e17d0fe33817f8",
+  "scope": "same fixed original best weights, full-only replay; no training or sampled-effect-based tuning",
+  "fixed_F": "original matching-best native FP32 points and complete query-key ranks, shared unchanged across every shard",
+  "basis": {
+    "seed": 11,
+    "diagnosis_sha256": "cec4fa29670e30176ed66d128d8d62965ce430ba46378b18e29a0d4bc805b9dc",
+    "archive_manifest_sha256": "f63ca672b20c3cfb6fa6c7990f117068ecf50700fea666e5c7eafe9d78cc123c",
+    "archive_npz_sha256": "538445a8363cd388dbff29865304918ea36eed74fd3a86b22c6a0a70a09e3fa1",
+    "point_observation_names": [
+      "gpu-native-no-diagnostic-hooks-0",
+      "gpu-native-no-diagnostic-hooks-1",
+      "gpu-repeat0",
+      "gpu-repeat1",
+      "gpu-same-model-serialized-reload",
+      "gpu-new-instance"
+    ],
+    "ranking_observation_names": [
+      "gpu-repeat0",
+      "gpu-repeat1",
+      "gpu-same-model-serialized-reload"
+    ],
+    "observed_maxima": {
+      "max_coordinate": 7.394701242446899e-07,
+      "rms_coordinate": 1.0416826472786121e-08,
+      "max_geodesic": 5.79304737505912e-05,
+      "direct_max_pair_gap_delta": 1.8419459948404437e-05,
+      "direct_weighted_gap_delta": 3.520860127432603e-07,
+      "distant_max_pair_gap_delta": 1.9965563633483896e-05,
+      "distant_weighted_gap_delta": 1.6542347755923767e-07,
+      "changed_queries": 20,
+      "max_rank_delta": 3.0,
+      "micro_mrr_delta": 1.0058220138720042e-08,
+      "macro_mrr_delta": 1.0361574577510968e-08
+    },
+    "zero_change_requirements": "complete hit fractions, direct/distant order, pair signs, ties and unresolved fractions remain unchanged"
+  },
+  "limit_rule": "four times observed GPU-vs-original-F maximum; positive continuous values rounded upward to one significant digit; integer counts/rank deltas rounded upward to integer; zero observations remain zero",
+  "limits": {
+    "point_max_abs": 3e-06,
+    "point_RMS": 5e-08,
+    "max_geodesic": 0.0003,
+    "rank_changed_queries": 80,
+    "rank_max_abs_delta": 12,
+    "micro_mrr_abs_delta": 5e-08,
+    "macro_mrr_abs_delta": 5e-08,
+    "hits_abs_delta": 0.0,
+    "hierarchy": {
+      "direct": {
+        "pair_gap_max_abs_delta": 8e-05,
+        "weighted_gap_abs_delta": 2e-06
+      },
+      "distant": {
+        "pair_gap_max_abs_delta": 8e-05,
+        "weighted_gap_abs_delta": 7e-07
+      }
+    },
+    "hierarchy_order_abs_delta": 0.0,
+    "hierarchy_pair_sign_changes": 0,
+    "hierarchy_tie_or_unresolved_abs_delta": 0.0
+  },
+  "origins": {
+    "11": {
+      "source_commit": "c2fdfb64efaa25b9ba067baeba2e81db2e16f3ba",
+      "training_run_sha256": "9e19e81e629fc5f53b89bb5d52c64fe4fe75dab1b03394bf37d368485b7bc327",
+      "training_progress_sha256": "f7f495dcd8196bde49757c8242612114712f96e4daa64edfb93ddd9eee433b1b",
+      "best_checkpoint_sha256": "a34aefa42ed211da15895da3c8982cef7c0eeccd32adbb30862e7e81ac9b89b5",
+      "best_reference_manifest_sha256": "4c3fcefeba4756ae40434a19ad51287a6ed5aeeb0477c6745593c37415237f74",
+      "batch_history_manifest_sha256": "5385171c87890efbdd10f1b53742cc23a22be3de7d5e47b84a5a47edfdf44701",
+      "initial_reference_manifest_sha256": "87d8988409ddff22d17a13481681990439da59bd83751a76b5c083fe182dec1e",
+      "last_checkpoint_sha256": "5214d1a3ef1f2e3408d9a4524f313de771db3b3569ced3d7ce5d25bcc7b82c59",
+      "best_step": 4096
+    },
+    "23": {
+      "source_commit": "c2fdfb64efaa25b9ba067baeba2e81db2e16f3ba",
+      "training_run_sha256": "0af2750cbedfdc602b3e351946afbbb965786aa0a47c804509815ba2aea6777c",
+      "training_progress_sha256": "1b2ec3fc1956a1e8991b1e1cb2a3742e430fd8bd5d5bd391cf7d185c8d43a151",
+      "best_checkpoint_sha256": "f9d6819da775d8181cffd9dd1959ed09b0db6f9aec31abe215f558c97febc7d4",
+      "best_reference_manifest_sha256": "10aa0b18bbb8acb8b6274a1bdbd52ae1213dda95de903f99cf42386d3a4da9f1",
+      "batch_history_manifest_sha256": "78c164b5bf93a7e633cf0a2677ed5fc79b643a3a402286677f3a28ecaad944df",
+      "initial_reference_manifest_sha256": "8684148ac24879deaa36471cf329ebee95590d0d5cb556ef1bf8c677a01380e4",
+      "last_checkpoint_sha256": "a327176de7fc66ed0b7f51b752ef2484aacac81dcb97fd77d4097671a394274d",
+      "best_step": 3584
+    }
+  },
+  "immutable_math_source_sha256_normalized_lf": {
+    "acl_hct/development_view.py": "db6ddaaa6cc2c0061ba9e1f8178b28d60a6259d533b26b81ff4647f26d84cd1b",
+    "acl_hct/hgcn_geometry.py": "f9aa1e46764cb2bab6b9854cd959e57caef84197450af1d47b04bfc50924b6ee",
+    "acl_hct/hgcn_panels.py": "36ac86089c2e7cd814c93c4416a93da073f744a6285bfbee4766df73a22d1257"
+  },
+  "resources": {
+    "replay_worker_seconds": 240,
+    "replay_allocation_seconds": 300,
+    "minimum_spent_GPU_seconds": 4453
+  },
+  "qualification": "every limit independently passes AND all identities/weights/FP32 finite interior points/full graph/query/candidate identities pass exactly; failures preserved, no automatic widening or seed exclusion",
+  "limitations": [
+    "seed11 observed errors and fourfold engineering margins are not statistical confidence bounds or guaranteed numerical upper bounds",
+    "seed23 is an independent frozen-policy replay check; rejection triggers diagnosis without automatically enlarging limits",
+    "full-control error budgets do not guarantee numerical bounds on sampled graphs or define statistical null equivalence bands",
+    "report measured full repeat errors alongside sampling effect sizes; tiny significant effects do not automatically establish substantive hierarchy/task damage",
+    "original c2 bit-exact failures remain failed historical records; successful amended qualification is a separate result"
+  ],
+  "supersedes": "Only the original ranking.full_replay bit-exact admission rule and post-training replay gate; preserve original data/model/training/selection/sampling/statistical design and historical failure statuses."
+}

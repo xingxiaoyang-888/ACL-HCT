@@ -17,7 +17,7 @@ def config():
 
 def test_exact_candidate_and_baseline_source19_gate(config):
     assert validate_config(config) == canonical(config)
-    assert len(source_hashes()) == 30
+    assert len(source_hashes()) == 31
     changed = copy.deepcopy(config); changed['training']['steps'] = 1024
     with pytest.raises(ValueError, match='exact'):
         validate_config(changed)
@@ -27,6 +27,7 @@ def test_registered_roles_do_not_permit_seed_or_repeat_extensions(config):
     assert role(config, 'train', 11)['worker_seconds'] == 2400
     assert role(config, 'eval', 23, 12)['allocation_gpu_seconds'] == 540
     assert role(config, 'official')['worker_seconds'] == 480
+    assert role(config, 'replay', 23)['allocation_gpu_seconds'] == 300
     for args in (('train', 99, None), ('eval', 11, 1), ('official', 11, None), ('train', 11, 0)):
         with pytest.raises(ValueError):
             role(config, *args)
@@ -57,21 +58,31 @@ def test_release_requires_final_source_quality_ledger_and_phase_inputs(config, t
         ('accepted', 'complete_4096_and_scheduled_valid_reviewed', 'matching_best_reload_reviewed',
          'learning_state_reviewed', 'full_hierarchy_reviewed', 'order_above_half_necessary_not_sufficient')},
         **record['inputs'], 'review_sha256': '5' * 64}
+    policy = json.loads((Path(__file__).parents[1] / 'configs/mature_hgcn_replay_policy.json').read_bytes())
+    record['replay_policy_sha256'] = canonical(policy)
+    for gate in record['quality_gates'].values(): gate['replay_policy_sha256'] = canonical(policy)
+    record['accounting']['spent_gpu_seconds'] = 4453
+    record['baseline_acceptance'].update(replay_policy_sha256=canonical(policy),
+        original_training_run_sha256=policy['origins']['11']['training_run_sha256'])
     path = tmp_path / 'release.json'
     def write(value):
         path.write_text(json.dumps(value), encoding='utf-8')
     write(record)
-    assert verify_release(config, 'eval', head, path, 11, 0)['inputs'] == record['inputs']
+    assert verify_release(config, 'eval', head, path, 11, 0, policy)['inputs'] == record['inputs']
+    with pytest.raises(ValueError, match='policy required'):
+        verify_release(config, 'eval', head, path, 11, 0)
     for mutate in (lambda r: r['quality_gates']['cuda_fixture'].update(accepted=False),
                    lambda r: r['accounting'].update(spent_gpu_seconds=10800),
                    lambda r: r['accounting'].update(spent_gpu_seconds=float('nan')),
                    lambda r: r['inputs'].pop('best_checkpoint_sha256'),
                    lambda r: r['baseline_acceptance'].update(learning_state_reviewed=False),
+                   lambda r: r['baseline_acceptance'].update(original_training_run_sha256='0' * 64),
+                   lambda r: r.update(replay_policy_sha256='0' * 64),
                    lambda r: r.update(selectors={'seed': 11, 'repeat_start': 4}),
                    lambda r: r['source_sha256_normalized_lf'].update({'acl_hct/hgcn_geometry.py': '0' * 64})):
         bad = copy.deepcopy(record); mutate(bad); write(bad)
         with pytest.raises(ValueError):
-            verify_release(config, 'eval', head, path, 11, 0)
+            verify_release(config, 'eval', head, path, 11, 0, policy)
 
 
 def test_direct_worker_timeout_and_output_nonoverwrite(tmp_path):

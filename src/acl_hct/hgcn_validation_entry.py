@@ -48,7 +48,7 @@ def parser():
     p.add_argument('--execute', action='store_true'); p.add_argument('--seed', type=int)
     p.add_argument('--repeat-start', type=int)
     for name in ('source-commit', 'release-record', 'upstream-root', 'upstream-manifest',
-                 'prepared-root', 'training-run', 'artifact-index', 'output'):
+                 'prepared-root', 'training-run', 'artifact-index', 'replay-policy', 'output'):
         p.add_argument('--' + name)
     return p
 
@@ -64,14 +64,16 @@ def main():
             raise ValueError('exact phase/source/release and fresh output required')
         if args.phase != 'analyze' and args.upstream_root is None:
             raise ValueError('verified external upstream checkout required')
-        if args.phase in ('train', 'eval') and args.prepared_root is None:
+        if args.phase in ('train', 'replay', 'eval') and args.prepared_root is None:
             raise ValueError('frozen prepared inputs required')
-        if args.phase == 'eval' and args.training_run is None:
-            raise ValueError('reviewed complete training run required')
+        if args.phase in ('replay', 'eval') and args.training_run is None:
+            raise ValueError('reviewed training lineage required')
         if args.phase == 'analyze' and (args.artifact_index is None or args.prepared_root is None):
             raise ValueError('reviewed complete artifact index and development inputs required')
+        from .hgcn_replay import load_policy
+        policy = load_policy(args.replay_policy, config) if args.replay_policy else None
         released = verify_release(config, args.phase, args.source_commit, args.release_record,
-                                  args.seed, args.repeat_start)
+                                  args.seed, args.repeat_start, policy)
         command = [sys.executable, '-m', 'acl_hct.hgcn_validation']
         for name, value in vars(args).items():
             if name != 'execute' and value is not None:
