@@ -1,0 +1,390 @@
+{
+  "status": "candidate_requires_supervisor_freeze",
+  "protocol": "MATURE-HGCN-validation-v1",
+  "research_scope": "mature official HGCN inference sampling hierarchy AND complete directed retrieval damage; no correction training or later stages",
+  "upstream_commit": "a526385744da25fc880f3da346e17d0fe33817f8",
+  "quality_source_commit": "b7cf5202583197a2116e32252db39ff22931c71b",
+  "quality_source19_immutable": true,
+  "model": {
+    "input_dim": 128,
+    "hidden": 128,
+    "head_hidden": 128,
+    "manifold": "PoincareBall",
+    "c": 1.0,
+    "num_layers": 2,
+    "act": "relu",
+    "bias": 1,
+    "use_att": 0,
+    "local_agg": 0,
+    "dropout": 0.0,
+    "tangent_head": "2 * official origin logmap0; parent/child/parent-minus-child"
+  },
+  "runtime": {
+    "torch": "2.5.1+cu124",
+    "numpy": "1.26.4",
+    "dtype": "float32",
+    "TF32": false,
+    "AMP": false,
+    "hardware": "NVIDIA L40",
+    "threads": 2
+  },
+  "prepared": {
+    "manifest_hash": "b5fc4847260854e5401ffe0d5111f32b7d1138f1de5d11c881e2d4c312c25473",
+    "node_order_hash": "0f7903f7dff2f6d88f904ead16a6ff556ba9653db11ef3d450892051ce722352",
+    "graph_hash": "601da72c716825195861844f9ca4d15f967f449ff51560a5c3bbc052c8ff54ec",
+    "train_queries_hash": "443072ae213eb5567302777c7c99b1f841847a6067101c8c78a04a83ba5dd50d",
+    "valid_queries_hash": "7fa4f51d558393d69a523bccb9f21527805409e1ea914377141ce02fdce584eb",
+    "input_raw_sha256": {
+      "input_manifest.json": "01fa131b858543bbe88eadb64f6ed452e770eec91eba64ac36d5a685ce94b8ab",
+      "observed_graph.json": "5cc31adff35651ab3da018424dfaa32da07b7348e22116e2ebc1669828ae6402",
+      "train_queries.json": "c5246c99bc7ca6b2bd45066a16e2d8e54c50c9e4ba876c4fbdf080f9eae91e52"
+    },
+    "nodes_count": 82115,
+    "train_groups_count": 67539,
+    "features_npz_raw_sha256": "b23f8697b95070da8ee33c18fb4345174b7e2293529e6532ba09308bf895dc70",
+    "evaluator_valid_raw_sha256": "9545d77aa19b7e905ef6eb32bd1e4469558c9d710dd11b7f46ac18d36a799a20"
+  },
+  "valid_query_count": 8456,
+  "training": {
+    "seeds": [
+      11,
+      23
+    ],
+    "fresh_weights": true,
+    "steps": 4096,
+    "batch_positives": 128,
+    "negatives_per_positive": 4,
+    "optimizer": "Adam",
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "graph": "full official-normalized adjacency after per-batch target bidirectional mask",
+    "evaluate_every": 256,
+    "complete_valid_selection_steps": [
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048,
+      2304,
+      2560,
+      2816,
+      3072,
+      3328,
+      3584,
+      3840,
+      4096
+    ],
+    "initial_full_valid": "learning diagnostic only, excluded from best selection",
+    "selection": "first strict maximum complete original filtered micro-MRR; no sampled outputs in selection",
+    "save": "best weights+matching native full points/ranks; last and batch/RNG history",
+    "resume": "no automatic resume/extension; preserve failure, diagnose and review bounded repair",
+    "batch_rng": "CPU torch.Generator, training seed+1; randperm of fixed positive query groups each update",
+    "initialization_rng": "numpy and torch manual_seed(training seed), fresh weights",
+    "post_selection_acceptance": "independent full4096/scheduled complete valid, matching best reload, learning state and fixed full hierarchy review before per-model eval release; exact training run/checkpoint/review hashes bound"
+  },
+  "official_task": {
+    "task": "lp",
+    "dataset": "disease_lp",
+    "model": "HGCN",
+    "manifold": "PoincareBall",
+    "c": 1.0,
+    "dim": 16,
+    "num_layers": 2,
+    "act": "relu",
+    "bias": 1,
+    "dropout": 0.0,
+    "weight_decay": 0.0,
+    "lr": 0.01,
+    "optimizer": "Adam",
+    "normalize_feats": 0,
+    "normalize_adj": 1,
+    "split_seed": 1234,
+    "seed": 1234,
+    "val_prop": 0.05,
+    "test_prop": 0.1,
+    "r": 2.0,
+    "t": 1.0,
+    "quality_steps": null,
+    "patience": 100,
+    "min_epochs": 100,
+    "eval_freq": 1,
+    "lr_reduce_freq": 5000,
+    "gamma": 0.5,
+    "best_selection": "strict val average(ROC,AP) only; test report after best reload",
+    "early_stop": "original counter==patience and zero-based epoch>min_epochs",
+    "negative_pool": "faithful upstream nonedges + heldout val/test positive edge pairs; explicit boundary, not WordNet protocol",
+    "driver_differences": "preserve Slurm binding; save matching best weights/embeddings and last, no final-weight/best-embedding mismatch",
+    "claim_scope": "single seed1234 modern-runtime official example check, not paper ten-seed mean",
+    "epochs": 5000
+  },
+  "sampling": {
+    "conditions": [
+      "full",
+      4,
+      8,
+      16
+    ],
+    "repeats": 16,
+    "graphs_per_sample": "two independent layer plans; only nonself uniform without replacement; HT weights",
+    "seed_formula": "202609190000 + training_seed*10000 + repeat*100 + fanout; full uses deterministic no-consumption generator",
+    "shards": [
+      {
+        "seed": 11,
+        "repeats": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 11,
+        "repeats": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 11,
+        "repeats": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 11,
+        "repeats": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 23,
+        "repeats": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 23,
+        "repeats": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 23,
+        "repeats": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      },
+      {
+        "seed": 23,
+        "repeats": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "budgets": [
+          4,
+          8,
+          16
+        ],
+        "full_control_policy": "once at shard start: full re-encode and complete re-rank against matching best reference; shared fixed F, never independent duplicate observations"
+      }
+    ],
+    "dropout": false,
+    "update_weights": false
+  },
+  "hierarchy": {
+    "panel_rule": "existing make_panels(view,target=1000), development panel; all existing pool/degree/relation seeds unchanged",
+    "label_scope": "train+valid development DAG only; no test/truth",
+    "anchor": "outcome-independent largest-descendant zero-indegree development root; FIXED full root native point",
+    "primary": "direct exact-gap child-macro ordering, half credit exact ties, fixed inverse-inclusion child weights normalized over fixed covered children",
+    "secondary": "distant ordering/gaps/flips/numerically unresolved mass/root unknown and weighted coverage",
+    "geometry": "FP64 metrics on saved native FP32 Ball points; stable asinh distance and orthonormal fixed-F-point Log; no clipping/reprojection/old radius<=3 guard",
+    "near_zero_gap_floor": 1e-10,
+    "near_zero_rule": "unresolved secondary diagnostic only; does not rewrite primary exact-sign metric",
+    "full_premise": "Full direct order >0.5 is necessary, NOT sufficient: review order/gaps/coverage and learning state before each sampling release. Report both seeds and all comparisons; no effect-based model exclusion or collapse claim from tiny significance.",
+    "registration": {
+      "combined_hash": "23616b7e8b2639ded9d2b42e5f62cb044c316ac2621bc564e2e5680610d065bf",
+      "reference_root": "00001740",
+      "reference_root_index": 0,
+      "h_dev_hash": "ae570c31dafa19d1f21bbc5cd93d329f0a6e27c9b54f2b8031ccd94c9c156fd3",
+      "panel_name": "development",
+      "panel_hash": "582e6cb3e0232606bffdca988017e010fd380f511d2e9fa5c2e1e1e481e587d4",
+      "relation_hash": "579373fd3be223b9110b5f11085528121a6c3ff1423b89780886b0d50dd8cfa9",
+      "pool_size": 4105,
+      "target": 1000,
+      "seed": 2026091602,
+      "relation_seed": 2026091604,
+      "selected_root_reachable_children": 723,
+      "weighted_sampled_child_mass_in_pool": 0.999999999999987,
+      "coverage": {
+        "direct": {
+          "available_selected_pairs": 1034,
+          "covered_pairs": 743,
+          "unknown_pairs": 291,
+          "covered_children": 722,
+          "children_without_covered_relation": 278,
+          "weighted_covered_child_mass_in_pool": 0.718078081928322
+        },
+        "distant": {
+          "available_selected_pairs": 3243,
+          "covered_pairs": 2802,
+          "unknown_pairs": 441,
+          "covered_children": 722,
+          "children_without_covered_relation": 278,
+          "weighted_covered_child_mass_in_pool": 0.718078081928322
+        }
+      },
+      "reachable_including_root": 51836,
+      "entity_split_hash": "e7d5bae0cea3d23c2c01621970951aac7d13ee9cb445cf229aefde4fdc65edd3",
+      "entity_split_raw_sha256": "ab5b3b3327f80c81d188706c1ec2636c1c269158ba9e6f6da898738eba76659a"
+    }
+  },
+  "bias": {
+    "population": "same outcome-independent selected 1000-child node panel; fixed per-node full base points",
+    "error": "orthonormal Log at F_i of S_ri in FP64; basis fixed per node across 16 repeats",
+    "mean_vector": "save sample mean vector and norm; alone NOT evidence of systematic bias",
+    "centered_variance": "mean_r ||e_ri-mean_i||^2, denominator R; MSE = this + ||mean_i||^2 is algebraic identity",
+    "bias_squared_unbiased_estimate": "||mean_i||^2 - [sum_r ||e_ri-mean_i||^2/(R-1)]/R; preserve signed negative values",
+    "direction": "predefined outward unit = -orthonormal Log_Fi(full-root)/D(Fi,full-root); missing/nearzero direction retained as unknown",
+    "radial_projection": "repeat aggregate inverse-probability weighted signed outward projections, fixed known-direction denominator; conditional marginal t95 CI exploratory only",
+    "claims": "nonzero sample mean/norm is not bias proof; damage is not mean-causal proof; no replacement for Holm12 primary outcomes"
+  },
+  "statistics": {
+    "unit": "independent complete graph replicate, spatial covariance retained by repeat aggregation",
+    "primary_family_size": 12,
+    "comparisons": "2 fixed train seeds x 3 sampled budgets x direct order/micro-MRR, S-F",
+    "repeats": 16,
+    "SE": "sample SD / sqrt(16), df15",
+    "CI": "two-sided marginal Student95, not simultaneous CI",
+    "p": "two-sided Student test of zero conditional mean; Holm all12 at alpha .05",
+    "zero_variance": "no rejection, p1, undefined t/CI retained null",
+    "secondary": "descriptive/marginal exploratory, never substitutes primary",
+    "generality": "conditional on two trained checkpoints/graph/valid development view; not training-population or test/architecture-wide proof"
+  },
+  "stopping": {
+    "integrity": "any source/config/weight/array/probability/coverage/finite mismatch fails gate and preserves evidence",
+    "training_completion": "all4096 and scheduled complete rankings required; partial/wall-limited model is not accepted mature baseline",
+    "sampling_completion": "all16 x all budgets x both seeds and full replay required; no optional stopping",
+    "numerics": "default double() changes official projection eps; no claim of pure encoder roundoff from default double replay",
+    "scientific_conclusion": "joint decline requires interpretable F plus paired primary effects/intervals; negative/one-outcome/premise-insufficient results retained",
+    "end": "stop after independent archive/rank/statistics acceptance and discuss correction plan"
+  },
+  "quality_source_sha256_normalized_lf": {
+    "acl_hct/__init__.py": "548954848dec2021b37f32716b44e34e2fd26dbc3f8517ce5766a6f3bc5e43ce",
+    "acl_hct/aggregation.py": "074f1adb22f73588f890fc1ff58592a800bddfe7a91f435fbce956f070f4d686",
+    "acl_hct/backbone.py": "e747e48bf89448c4666d4c0d41d414176bb44ba260c6d676df52fa69ac964bf2",
+    "acl_hct/protocols.py": "cf2c8b0656a0f7485a32e099cc061edb25be24f3df6c0bbb486c3db82eaea45d",
+    "acl_hct/geometry.py": "3b7d67eb40bbc1e3af7df6dcca9ea08180dd06b0474ff196070091801e1503de",
+    "acl_hct/diagnostic_archive.py": "5b7de4acc8f2a06044d8fe5e45a0fdc052009abe9fc05b4e917a717ee73306bf",
+    "acl_hct/evaluate_checkpoint.py": "0a255b3e545a4a93a4af5d5f76b432d6071cc9a03bf00cb9e9de95d194af1e16",
+    "acl_hct/mechanisms.py": "ccf0695ee829a9d3fce0cf5cfd9e5c2e9e04393202c18c88f1ad59c0858b8094",
+    "acl_hct/train.py": "a723dc79f88a8fc9a14547faf130684cbfe5d44c73e9842ab53d9b12a82b99d9",
+    "acl_hct/ranking.py": "1a4b175108a63c724db8cc822fd97188290132fa57e7880fab7694bf918c39e4",
+    "acl_hct/text_capacity.py": "7d58ccdc91969af0da312bd5c64d7255d8d0080721dbf48a1400c4b23a1f0bdf",
+    "acl_hct/backbone_frozen_inputs.py": "98a4d5a44c5c03f1cae9fdda89dd5cbbb29abefaedc411736aa355287bc4ba5b",
+    "acl_hct/hgcn_upstream.py": "a14632014667ad9f3336da9b9340e3697b88a563aed23a81444d450475241ad5",
+    "acl_hct/hgcn_sampling.py": "65532b3b7963d7b726f4871cd5fc4ed94e29c556d4f82f7f4257514ea1b2adf0",
+    "acl_hct/mature_hgcn.py": "99e843cfa32674b52ea3aae95f0313493f4e261fac10c6a13f3cdc67aacc0c5d",
+    "acl_hct/hgcn_fixture.py": "3913d92c7b1830c9437b410fbece7501cba08b61c1d3296fc703d9c9b5fa14c5",
+    "acl_hct/hgcn_registration.py": "48f82bb140dd1baf9c0ac8146a25b210394a9318ae2d0e3be3a52836343996de",
+    "acl_hct/hgcn_quality.py": "8c936cdcaf5fac771b57265974c1b5ef62414b1914600b721673a70608833df2",
+    "acl_hct/hgcn_entry.py": "723ad35d9487f47926109f0980ecfa270653a5ca2b85e421855d64b136543b6a"
+  },
+  "resources": {
+    "gpus_per_job": 1,
+    "max_concurrency": 4,
+    "whole_round_GPU_seconds_limit": 10800,
+    "spent_quality_GPU_seconds": 63,
+    "train_worker_seconds": 2400,
+    "train_allocation_seconds": 2460,
+    "train_jobs": 2,
+    "eval_worker_seconds": 525,
+    "eval_allocation_seconds": 540,
+    "eval_jobs": 8,
+    "official_worker_seconds": 480,
+    "official_allocation_seconds": 540,
+    "official_jobs": 1,
+    "science_fixture_worker_seconds": 300,
+    "science_fixture_allocation_seconds": 360,
+    "science_fixture_jobs": 1,
+    "allocation_upper_sum_with_spent": 10203,
+    "unassigned_failure_margin_seconds": 597,
+    "accounting": "conservative actual ACL allocation/step seconds, failed attempts included; no default extension/reallocation; only ready jobs reserve resources",
+    "cpu_fixture_worker_seconds": 240,
+    "analysis_worker_seconds": 900
+  },
+  "ranking": {
+    "candidate_chunk": 4096,
+    "max_seconds": 60,
+    "full_replay": "native FP32 points exact; rows compared by query identity, not positional zip; metrics recomputed"
+  },
+  "quality_evidence": {
+    "CPU_quality_sha256": "8e7dfc657f2236f98be38385441cce828f1bf2bfd93f9f5ccb922cdbbe17d76e",
+    "CUDA_quality_sha256": "8fd2fa7522ee75a389c4d8baa57798cbb31cfb393690cef0c0695300df4cdcd6",
+    "independently_accepted": true,
+    "scope": "previous quality19 source compatibility and cost only; new science source requires own CPU/CUDA fixtures"
+  }
+}
