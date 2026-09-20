@@ -7,13 +7,20 @@ from .hgcn_registration import canonical
 
 POLICY_PROTOCOL = 'MATURE-HGCN-numeric-replay-v1'
 POLICY_SHA256 = 'a2eb9589b6e88fb20aa42ead081a5bbe9abfa294856e0f6c3d8bfce32c8d7d40'
+POLICY_V2_PROTOCOL = 'MATURE-HGCN-numeric-replay-v2'
+POLICY_V2_SHA256 = 'c07c5a6a5cb871ce896daea1e56e597f651b8da0bb8a97ae6ca6d43d182a0130'
+
+
+def is_v2(policy):
+    return policy.get('protocol') == POLICY_V2_PROTOCOL
 ORIGINAL_SOURCE = 'c2fdfb64efaa25b9ba067baeba2e81db2e16f3ba'
 ORIGINAL_CONFIG = '4a3b003a39b6bfcb74957e74a62a5a2b0329735f1dda0ae622172fbc205a3edc'
 ORIGINAL_FAILURE = 'ValueError: full native point replay differs from matching best reference'
 
 
 def validate_policy(policy, config):
-    if (canonical(policy) != POLICY_SHA256 or policy.get('protocol') != POLICY_PROTOCOL
+    if ((canonical(policy), policy.get('protocol')) not in ((POLICY_SHA256, POLICY_PROTOCOL),
+                                                           (POLICY_V2_SHA256, POLICY_V2_PROTOCOL))
             or canonical(config) != ORIGINAL_CONFIG or policy['original_source_commit'] != ORIGINAL_SOURCE):
         raise ValueError('exact separately frozen numerical replay policy required')
     root = Path(__file__).parent
@@ -21,7 +28,7 @@ def validate_policy(policy, config):
         actual = hashlib.sha256((root / Path(name).name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
         if actual != digest:
             raise ValueError('original hierarchy/geometry definition changed')
-    return POLICY_SHA256
+    return canonical(policy)
 
 
 def load_policy(path, config):
@@ -119,11 +126,37 @@ def qualify_full(points, ranking, reference, evaluator, config, policy, queries,
             bound(kind + '/' + name, values[name], limits['hierarchy'][kind][name])
         for name in ('order_abs_delta', 'pair_sign_changes', 'tie_or_unresolved_abs_delta'):
             bound(kind + '/' + name, values[name], limits['hierarchy_' + name])
-    return {'protocol': POLICY_PROTOCOL, 'policy_sha256': canonical(policy), 'accepted': not violations,
-            'measured': measured, 'limits': limits, 'violations': violations,
-            'original_bit_exact': {'native_points': bool(np.array_equal(native, fixed)), 'rank_rows': actual == original},
-            'fixed_reference': 'original matching-best points and ranks; no replacement by this replay',
-            'limits_are_guaranteed_error_bounds': False, 'original_failure_preserved': True}
+    result = {'protocol': POLICY_V2_PROTOCOL if is_v2(policy) else POLICY_PROTOCOL,
+              'policy_sha256': canonical(policy), 'accepted': not violations,
+              'measured': measured, 'limits': limits, 'violations': violations,
+              'original_bit_exact': {'native_points': bool(np.array_equal(native, fixed)), 'rank_rows': actual == original},
+              'fixed_reference': 'original matching-best points and ranks; no replacement by this replay',
+              'limits_are_guaranteed_error_bounds': False, 'original_failure_preserved': True}
+    if is_v2(policy):
+        report_only = ('micro_mrr_abs_delta', 'macro_mrr_abs_delta')
+        old_violations = violations
+        result['violations'] = [v for v in old_violations if v['metric'] not in report_only]
+        result['accepted'] = not result['violations']
+        counts = {}
+        for parent, child in actual:
+            counts[child] = counts.get(child, 0) + 1
+        contributions = []
+        for parent, child in sorted(actual):
+            old_rank = original[parent, child][0]; new_rank = actual[parent, child][0]
+            if new_rank != old_rank:
+                reciprocal = 1 / new_rank - 1 / old_rank
+                contributions.append({'parent': parent, 'child': child, 'F_rank': old_rank,
+                                      'full_rank': new_rank, 'micro_mrr': reciprocal / len(actual),
+                                      'macro_mrr': reciprocal / (len(counts) * counts[child])})
+        result['v1_diagnostic'] = {
+            'v1_policy_sha256': POLICY_SHA256, 'v1_accepted': not old_violations,
+            'v1_violations': old_violations,
+            'signed_micro_mrr_drift': ranking['query_micro_mrr'] - reference['ranking']['query_micro_mrr'],
+            'signed_macro_mrr_drift': ranking['child_macro_mrr'] - reference['ranking']['child_macro_mrr'],
+            'changed_query_contributions': contributions,
+            'unchanged_queries_have_zero_contribution': True,
+            'flat_MRR_limits_are_report_only_in_v2': True}
+    return result
 
 
 def require_qualified(qualification):

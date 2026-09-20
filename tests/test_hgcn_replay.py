@@ -310,3 +310,103 @@ def test_complete_amended_artificial_pipeline_keeps_two_original_F_and_Holm12(tm
     assert len(result['full_numeric_replays'])==10 and set(result['original_training_lineage'])=={'11','23'}
     assert all(q['accepted'] for q in result['full_numeric_replays'])
     assert all(file_hash(Path(p))==h for p,h in old_hashes.items())
+    # Full mixed-lineage archive path: three immutable v1 shards, five v2 shards,
+    # the preserved v1 pre-sampling failure, and both old accepted full-only replays.
+    import copy
+    from collections import defaultdict
+    from acl_hct.diagnostic_archive import write_archive
+    from acl_hct.hgcn_evidence import load_panel_design, hierarchy_evaluator, checkpoint_binding
+    from acl_hct.hgcn_replay import qualify_full
+    old_items={}
+    for item in index['evaluation']:
+        row=json.loads(Path(item['run_file']).read_bytes())['result']
+        old_items[f"{row['seed']}:{row['repeat_start']}"]=item
+    selected={key:old_items[key] for key in ('11:0','23:0','23:4')}
+    selected_hashes={str(p):file_hash(p) for item in selected.values()
+                     for p in Path(item['run_file']).parent.rglob('*') if p.is_file()}
+    failed_root=tmp_path/'preserved-v1-failed';failed_root.mkdir()
+    old_11_4=old_items['11:4'];old_control=read_archive(Path(old_11_4['run_file']).parent/'arrays',
+               json.loads(Path(old_11_4['run_file']).read_bytes())['result']['full_control'])
+    changed=copy.deepcopy(old_control); ranking=changed['ranking']
+    for row in ranking['rows']:
+        before_rank=row['rank']
+        for shift in (-1.,1.):
+            after_rank=before_rank+shift
+            if 1 <= after_rank <= row['candidates'] and all((before_rank<=k)==(after_rank<=k) for k in (1,3,10)):
+                row['rank']=after_rank;break
+        if row['rank']!=before_rank:break
+    else: pytest.fail('artificial rank-preserving-hits perturbation unavailable')
+    children=defaultdict(list)
+    for row in ranking['rows']:children[row['child']].append(1/row['rank'])
+    ranking['query_micro_mrr']=sum(1/row['rank'] for row in ranking['rows'])/len(ranking['rows'])
+    ranking['child_macro_mrr']=sum(sum(v)/len(v) for v in children.values())/len(children)
+    ranking['hits']={str(k):sum(row['rank']<=k for row in ranking['rows'])/len(ranking['rows']) for k in (1,3,10)}
+    oldroot,oldtrained=historical_training(old_runs[11],cfg,candidate,11)
+    original_F=read_archive(oldroot/'arrays',oldtrained['best']['reference'])
+    valid,truth=driver.load_valid(prepared,data,cfg);view,panel=load_panel_design(prepared,cfg)
+    evaluator,_=hierarchy_evaluator(view,panel,original_F['native_ball_points'],cfg)
+    old_q=qualify_full(changed['native_ball_points'],ranking,original_F,evaluator,cfg,candidate,valid,truth,
+                       changed['model_state_sha256'],checkpoint_binding(cfg,ORIGINAL_SOURCE,11,oldtrained['best']['step']),
+                       changed['full_plan'])
+    assert not old_q['accepted'] and {v['metric'] for v in old_q['violations']}=={'micro_mrr_abs_delta','macro_mrr_abs_delta'}
+    changed['qualification']=old_q
+    failed_desc=write_archive(failed_root/'arrays','full-control',changed)
+    atomic_json(failed_root/'replay-qualification.json',{'qualification':old_q,'archive':failed_desc})
+    atomic_json(failed_root/'run.json',{'status':'failed','phase':'eval','source_commit':new_source,
+       'config_sha256':driver.canonical(cfg),
+       'error':'ValueError: numerical full replay qualification failed: micro_mrr_abs_delta, macro_mrr_abs_delta'})
+    from acl_hct.hgcn_replay import POLICY_V2_PROTOCOL
+    second=copy.deepcopy(candidate);second['protocol']=POLICY_V2_PROTOCOL
+    second['rank_sensitive_amendment']={
+        'v1_policy_sha256':driver.canonical(candidate),'v1_source_commit':new_source,
+        'report_only_metrics':['micro_mrr_abs_delta','macro_mrr_abs_delta'],
+        'v1_accepted_replays':{str(seed):next(item['sha256'] for item in index['training']
+                   if json.loads(Path(item['run_file']).read_bytes())['result']['seed']==seed) for seed in (11,23)},
+        'v1_completed_shards':{key:item['sha256'] for key,item in selected.items()},
+        'v1_official_run_sha256':index['official']['sha256'],
+        'failed_v1_seed11_r4_run_sha256':file_hash(failed_root/'run.json'),
+        'failed_v1_seed11_r4_qualification_sha256':file_hash(failed_root/'replay-qualification.json')}
+    latest_source='2'*40
+    new_index={'protocol':cfg['protocol'],'config_sha256':driver.canonical(cfg),
+        'replay_policy_sha256':driver.canonical(second),'v1_policy_sha256':driver.canonical(candidate),
+        'training':index['training'][:],'evaluation':list(selected.values()),'official':index['official'],
+        'failed_v1_full_control':{'run_file':str((failed_root/'run.json').resolve()),
+             'sha256':file_hash(failed_root/'run.json'),
+             'qualification_file':str((failed_root/'replay-qualification.json').resolve()),
+             'qualification_sha256':file_hash(failed_root/'replay-qualification.json')}}
+    for seed in (11,23):
+        training=next(item for item in index['training'] if
+                      json.loads(Path(item['run_file']).read_bytes())['result']['seed']==seed)
+        for start in (0,4,8,12):
+            if f'{seed}:{start}' in selected:continue
+            newroot=tmp_path/f'v2-eval-{seed}-{start}';newroot.mkdir()
+            release={'source_commit':latest_source,'inputs':{'training_run_sha256':training['sha256'],
+                      'best_checkpoint_sha256':second['origins'][str(seed)]['best_checkpoint_sha256']}}
+            shard=driver.evaluate_shard(data,cfg,upstream,torch.device('cpu'),newroot,prepared,
+                                       training['run_file'],release,seed,start,second)
+            assert shard['full_replay']['accepted'] and shard['full_replay']['v1_diagnostic']['v1_policy_sha256']
+            new_index['evaluation'].append(save(newroot,'eval',shard,latest_source))
+    new_index_path=tmp_path/'v2-index.json';atomic_json(new_index_path,new_index)
+    new_analysis=tmp_path/'v2-analysis';new_analysis.mkdir()
+    amended=analyze(new_index_path,prepared,cfg,{'source_commit':latest_source,
+                  'replay_policy_sha256':driver.canonical(second),
+                  'inputs':{'artifact_index_sha256':file_hash(new_index_path)}},
+                  new_analysis,second,historical_policy=candidate)
+    assert amended['replayed_sample_arrays']==96 and len(amended['primary_family'])==12
+    assert amended['primary_family']==result['primary_family']
+    sensitivity=amended['ranking_sensitive_v2']
+    assert len(sensitivity['adjusted_primary_family_Holm12'])==12
+    assert len(sensitivity['full_control_observations_including_failed'])==12
+    assert any(x['scope'].startswith('frozen_v1_full_only_diagnostic_basis') for x in sensitivity['full_control_observations_including_failed'])
+    assert sum(x['scope']=='preserved_failed_v1_control' for x in sensitivity['full_control_observations_including_failed'])==1
+    assert sensitivity['max_observed_abs_full_MRR_drift_by_seed']['11']['micro']>=old_q['measured']['micro_mrr_abs_delta']
+    assert all(file_hash(Path(p))==h for p,h in selected_hashes.items())
+    assert all(file_hash(Path(p))==h for p,h in old_hashes.items())
+    wrong_index=copy.deepcopy(new_index)
+    wrong_index['evaluation'][0]=wrong_index['evaluation'][3]
+    wrong_path=tmp_path/'v2-index-replaced-old.json';atomic_json(wrong_path,wrong_index)
+    with pytest.raises(ValueError,match='all three preserved v1 completed shards'):
+        analyze(wrong_path,prepared,cfg,{'source_commit':latest_source,
+                'replay_policy_sha256':driver.canonical(second),
+                'inputs':{'artifact_index_sha256':file_hash(wrong_path)}},
+                tmp_path/'should-not-analyze',second,historical_policy=candidate)

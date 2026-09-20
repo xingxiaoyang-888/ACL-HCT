@@ -83,6 +83,24 @@ def test_release_requires_final_source_quality_ledger_and_phase_inputs(config, t
         bad = copy.deepcopy(record); mutate(bad); write(bad)
         with pytest.raises(ValueError):
             verify_release(config, 'eval', head, path, 11, 0, policy)
+    v2 = json.loads((Path(__file__).parents[1] / 'configs/mature_hgcn_replay_policy_v2.json').read_bytes())
+    amended = copy.deepcopy(record)
+    amended['replay_policy_sha256'] = canonical(v2)
+    amended['inputs']['training_run_sha256'] = v2['rank_sensitive_amendment']['v1_accepted_replays']['11']
+    amended['inputs']['best_checkpoint_sha256'] = v2['origins']['11']['best_checkpoint_sha256']
+    for gate in amended['quality_gates'].values():
+        gate['replay_policy_sha256'] = canonical(v2)
+    amended['baseline_acceptance'].update(training_run_sha256=amended['inputs']['training_run_sha256'],
+        best_checkpoint_sha256=amended['inputs']['best_checkpoint_sha256'],
+        replay_policy_sha256=canonical(policy), amendment_policy_sha256=canonical(v2))
+    write(amended)
+    assert verify_release(config, 'eval', head, path, 11, 0, v2)['inputs'] == amended['inputs']
+    for mutate in (lambda r: r['inputs'].update(training_run_sha256='0' * 64),
+                   lambda r: r['baseline_acceptance'].update(amendment_policy_sha256='0' * 64),
+                   lambda r: r['baseline_acceptance'].update(replay_policy_sha256=canonical(v2))):
+        bad = copy.deepcopy(amended); mutate(bad); write(bad)
+        with pytest.raises(ValueError):
+            verify_release(config, 'eval', head, path, 11, 0, v2)
 
 
 def test_direct_worker_timeout_and_output_nonoverwrite(tmp_path):

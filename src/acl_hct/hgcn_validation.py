@@ -131,9 +131,14 @@ def training_input(training_run, config, release, seed, policy=None):
         raise ValueError('reviewed training report hash mismatch')
     run = json.loads(path.read_bytes())
     if policy is not None:
-        from .hgcn_replay import historical_training
-        if (run['status'] != 'complete' or run['phase'] != 'replay' or run['source_commit'] != release['source_commit']
-                or run['config_sha256'] != canonical(config) or run['result']['replay_policy_sha256'] != canonical(policy)
+        from .hgcn_replay import historical_training, is_v2
+        amendment = policy['rank_sensitive_amendment'] if is_v2(policy) else None
+        expected_source = amendment['v1_source_commit'] if amendment else release['source_commit']
+        expected_policy = amendment['v1_policy_sha256'] if amendment else canonical(policy)
+        if amendment and release['inputs']['training_run_sha256'] != amendment['v1_accepted_replays'][str(seed)]:
+            raise ValueError('v2 must reuse exact whitelisted accepted v1 full-only replay')
+        if (run['status'] != 'complete' or run['phase'] != 'replay' or run['source_commit'] != expected_source
+                or run['config_sha256'] != canonical(config) or run['result']['replay_policy_sha256'] != expected_policy
                 or run['result']['seed'] != seed or run['result']['replay_qualification']['accepted'] is not True):
             raise ValueError('accepted amended full-only replay required before sampling')
         trained = run['result']

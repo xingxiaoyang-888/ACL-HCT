@@ -45,7 +45,19 @@ def numpy_tree(value):
     return value
 
 
-def checked_run(item, phase, config, release, historical_official=False):
+def retrieval_sensitivity_decision(original, adjusted, observed_max):
+    same_direction = np.sign(original['mean']) == np.sign(adjusted['mean'])
+    same_holm = original['reject_holm'] == adjusted['reject_holm']
+    return {'same_direction': bool(same_direction), 'same_Holm_decision': same_holm,
+            'original_mean_abs_exceeds_observed_max': abs(original['mean']) > observed_max,
+            'adjusted_mean_abs_exceeds_observed_max': abs(adjusted['mean']) > observed_max,
+            'robust_retrieval_damage_claim_allowed': bool(same_direction and same_holm and
+                original['reject_holm'] and adjusted['reject_holm'] and
+                original['mean'] < 0 and adjusted['mean'] < 0 and
+                abs(original['mean']) > observed_max and abs(adjusted['mean']) > observed_max)}
+
+
+def checked_run(item, phase, config, release, historical_official=False, accepted_source=None):
     path = Path(item['run_file'])
     if file_hash(path) != item['sha256']:
         raise ValueError('artifact index report hash mismatch')
@@ -53,7 +65,7 @@ def checked_run(item, phase, config, release, historical_official=False):
     from .hgcn_replay import ORIGINAL_SOURCE
     if historical_official and (phase != 'official' or not release.get('replay_policy_sha256')):
         raise ValueError('historical official source requires explicit amended analysis context')
-    accepted_source = ORIGINAL_SOURCE if historical_official else release['source_commit']
+    accepted_source = ORIGINAL_SOURCE if historical_official else accepted_source or release['source_commit']
     if (report['status'] != 'complete' or report['phase'] != phase
             or report['config_sha256'] != canonical(config) or report['source_commit'] != accepted_source):
         raise ValueError('complete same-source/config archived phase required')
@@ -116,7 +128,7 @@ def replay_training(root, trained, data, config, source_commit):
     return reference
 
 
-def analyze(artifact_index, prepared_root, config, release, output, policy=None):
+def analyze(artifact_index, prepared_root, config, release, output, policy=None, historical_policy=None):
     if file_hash(artifact_index) != release['inputs']['artifact_index_sha256']:
         raise ValueError('reviewed complete artifact index hash mismatch')
     index = json.loads(Path(artifact_index).read_bytes())
@@ -128,20 +140,46 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
         raise ValueError('amended analysis policy differs from verified release context')
     if len(index['training']) != 2 or len(index['evaluation']) != 8:
         raise ValueError('both models and all eight evaluation shards required')
+    from .hgcn_replay import is_v2, load_policy
+    amendment = policy['rank_sensitive_amendment'] if policy and is_v2(policy) else None
+    if historical_policy is not None and not amendment:
+        raise ValueError('historical policy override only for v2 mixed archive validation')
+    v1_policy = ((historical_policy or load_policy(Path(__file__).parents[2] / 'configs/mature_hgcn_replay_policy.json', config))
+                 if amendment else None)
+    if amendment and (index.get('v1_policy_sha256') != amendment['v1_policy_sha256']
+                      or canonical(v1_policy) != amendment['v1_policy_sha256']):
+        raise ValueError('exact older qualification policy required for mixed shards')
+    if amendment and not set(amendment['v1_completed_shards'].values()).issubset(
+            {item['sha256'] for item in index['evaluation']}):
+        raise ValueError('all three preserved v1 completed shards required in mixed batch')
     data = load_train(prepared_root, config)
     data['valid'], data['truth'] = load_valid(prepared_root, data, config)
     view, panel = load_panel_design(prepared_root, config)
     trained = {}; references = {}; evaluators = {}; baselines = {}; training_hashes = {}; numeric_replays = []
+    full_observations = []; shard_drifts = {}
+    if amendment:
+        basis = v1_policy['basis']
+        full_observations.append({'scope': 'frozen_v1_full_only_diagnostic_basis_maximum_of_three_complete_ranks',
+                                  'seed': basis['seed'], 'diagnosis_sha256': basis['diagnosis_sha256'],
+                                  'archive_manifest_sha256': basis['archive_manifest_sha256'],
+                                  'archive_npz_sha256': basis['archive_npz_sha256'],
+                                  'observed_abs_micro_mrr_drift': basis['observed_maxima']['micro_mrr_delta'],
+                                  'observed_abs_macro_mrr_drift': basis['observed_maxima']['macro_mrr_delta'],
+                                  'not_independent_graph_repeats': True})
     for item in index['training']:
-        root, run = checked_run(item, 'replay' if policy else 'train', config, release); seed = run['seed']
+        root, run = checked_run(item, 'replay' if policy else 'train', config, release,
+                                accepted_source=amendment['v1_source_commit'] if amendment else None); seed = run['seed']
         if seed not in config['training']['seeds'] or seed in trained:
             raise ValueError('distinct registered trained model identities required')
         if policy:
             from .hgcn_replay import ORIGINAL_SOURCE, historical_training, qualify_full, require_qualified
+            if amendment and item['sha256'] != amendment['v1_accepted_replays'][str(seed)]:
+                raise ValueError('baseline replay is not exact whitelisted v1 artifact')
             origin_root, original = historical_training(run['original_training']['run_file'], config, policy, seed)
             for key in ('best', 'evaluations', 'initial_reference', 'initial_state_sha256', 'batch_history', 'last', 'original_training'):
                 equal_tree(run[key], original[key])
-            if run['replay_policy_sha256'] != canonical(policy):
+            baseline_policy = v1_policy if amendment else policy
+            if run['replay_policy_sha256'] != canonical(baseline_policy):
                 raise ValueError('recovered baseline policy mismatch')
             ref = replay_training(origin_root, run, data, config, ORIGINAL_SOURCE)
         else:
@@ -150,12 +188,17 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
         if policy:
             saved_replay = read_archive(root / 'arrays', run['replay_archive'])
             qualified = qualify_full(saved_replay['native_ball_points'], saved_replay['ranking'], ref, evaluator, config,
-                                     policy, data['valid'], data['truth'], saved_replay['model_state_sha256'],
+                                     baseline_policy, data['valid'], data['truth'], saved_replay['model_state_sha256'],
                                      checkpoint_binding(config, ORIGINAL_SOURCE, seed, run['best']['step']), saved_replay['full_plan'])
             equal_tree(saved_replay['qualification'], qualified); equal_tree(run['replay_qualification'], qualified)
             equal_tree(saved_replay['panel_design'], evaluator.archive_design())
             equal_tree(saved_replay['replay_hierarchy'], evaluator.evaluate(saved_replay['native_ball_points']))
             require_qualified(qualified); numeric_replays.append({'scope': 'baseline', 'seed': seed, **qualified})
+            if amendment:
+                full_observations.append({'scope': 'accepted_full_only', 'seed': seed, 'run_sha256': item['sha256'],
+                                          'policy_sha256': canonical(baseline_policy),
+                                          'signed_micro_mrr_drift': saved_replay['ranking']['query_micro_mrr'] - ref['ranking']['query_micro_mrr'],
+                                          'signed_macro_mrr_drift': saved_replay['ranking']['child_macro_mrr'] - ref['ranking']['child_macro_mrr']})
         baseline = read_archive(root / 'arrays', run['full_baseline']['hierarchy_archive'])
         equal_tree(baseline['panel_design'], evaluator.archive_design())
         equal_tree(baseline['hierarchy'], full)
@@ -167,9 +210,44 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
         training_hashes[seed] = item['sha256']
     if len({run['initial_state_sha256'] for run in trained.values()}) != 2:
         raise ValueError('fresh seeds did not initialize distinct weights')
+    if amendment:
+        failed_item = index['failed_v1_full_control']
+        failed_path = Path(failed_item['run_file']); failed_qpath = Path(failed_item['qualification_file'])
+        if (file_hash(failed_path) != amendment['failed_v1_seed11_r4_run_sha256']
+                or file_hash(failed_qpath) != amendment['failed_v1_seed11_r4_qualification_sha256']
+                or failed_item['sha256'] != amendment['failed_v1_seed11_r4_run_sha256']
+                or failed_item['qualification_sha256'] != amendment['failed_v1_seed11_r4_qualification_sha256']):
+            raise ValueError('preserved failed v1 full-control evidence identity mismatch')
+        failure = json.loads(failed_path.read_bytes()); failed_q = json.loads(failed_qpath.read_bytes())
+        if (failure['status'] != 'failed' or failure['phase'] != 'eval'
+                or failure['source_commit'] != amendment['v1_source_commit']
+                or failure['config_sha256'] != canonical(config)
+                or failure['error'] != 'ValueError: numerical full replay qualification failed: micro_mrr_abs_delta, macro_mrr_abs_delta'
+                or failed_path.parent != failed_qpath.parent):
+            raise ValueError('old full-control failure must remain failed and local to its archive')
+        failed_control = read_archive(failed_path.parent / 'arrays', failed_q['archive'])
+        seed = 11; evaluator = evaluators[seed]
+        diagnosed = qualify_full(failed_control['native_ball_points'], failed_control['ranking'], references[seed],
+                                 evaluator, config, v1_policy, data['valid'], data['truth'],
+                                 failed_control['model_state_sha256'],
+                                 checkpoint_binding(config, ORIGINAL_SOURCE, seed, trained[seed]['best']['step']),
+                                 failed_control['full_plan'])
+        equal_tree(failed_control['qualification'], diagnosed); equal_tree(failed_q['qualification'], diagnosed)
+        if diagnosed['accepted'] or [v['metric'] for v in diagnosed['violations']] != [
+                'micro_mrr_abs_delta', 'macro_mrr_abs_delta']:
+            raise ValueError('preserved v1 MRR-only failure changed')
+        full_observations.append({'scope': 'preserved_failed_v1_control', 'seed': seed,
+                                  'run_sha256': failed_item['sha256'], 'policy_sha256': canonical(v1_policy),
+                                  'signed_micro_mrr_drift': failed_control['ranking']['query_micro_mrr'] - references[seed]['ranking']['query_micro_mrr'],
+                                  'signed_macro_mrr_drift': failed_control['ranking']['child_macro_mrr'] - references[seed]['ranking']['child_macro_mrr']})
     samples = {}; seen_shards = set()
     for item in index['evaluation']:
-        root, shard = checked_run(item, 'eval', config, release); seed = shard['seed']; start = shard['repeat_start']
+        older = bool(amendment and item['sha256'] in amendment['v1_completed_shards'].values())
+        root, shard = checked_run(item, 'eval', config, release,
+                                  accepted_source=amendment['v1_source_commit'] if older else None)
+        seed = shard['seed']; start = shard['repeat_start']
+        if amendment and older and item['sha256'] != amendment['v1_completed_shards'].get(f'{seed}:{start}'):
+            raise ValueError('old completed shard is not exact source/seed/start whitelist')
         if (seed, start) in seen_shards or (seed, start) not in {(s['seed'], s['repeats'][0]) for s in config['sampling']['shards']}:
             raise ValueError('all distinct registered shards required')
         seen_shards.add((seed, start)); evaluator = evaluators[seed]
@@ -178,15 +256,28 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
         control = read_archive(root / 'arrays', shard['full_control'])
         validate_ranking(control['ranking'], data['valid'], data['truth'], len(data['nodes']))
         if policy:
-            if shard['replay_policy_sha256'] != canonical(policy) or shard['original_training'] != trained[seed]['original_training']:
+            shard_policy = v1_policy if older else policy
+            if shard['replay_policy_sha256'] != canonical(shard_policy) or shard['original_training'] != trained[seed]['original_training']:
                 raise ValueError('shard amended policy/original lineage mismatch')
             qualified = qualify_full(control['native_ball_points'], control['ranking'], references[seed], evaluator, config,
-                                     policy, data['valid'], data['truth'], control['model_state_sha256'],
+                                     shard_policy, data['valid'], data['truth'], control['model_state_sha256'],
                                      checkpoint_binding(config, ORIGINAL_SOURCE, seed, trained[seed]['best']['step']), control['full_plan'])
             equal_tree(control['qualification'], qualified); equal_tree(shard['full_replay'], qualified); require_qualified(qualified)
             if control['fixed_full_native_points_sha256'] != array_hash(references[seed]['native_ball_points']):
                 raise ValueError('shard fixed F replacement detected')
             numeric_replays.append({'scope': 'shard', 'seed': seed, 'repeat_start': start, **qualified})
+            if amendment:
+                signed_micro = control['ranking']['query_micro_mrr'] - references[seed]['ranking']['query_micro_mrr']
+                signed_macro = control['ranking']['child_macro_mrr'] - references[seed]['ranking']['child_macro_mrr']
+                if not older and (signed_micro != qualified['v1_diagnostic']['signed_micro_mrr_drift']
+                                  or signed_macro != qualified['v1_diagnostic']['signed_macro_mrr_drift']):
+                    raise ValueError('signed v2 full-control drift identity mismatch')
+                full_observations.append({'scope': 'completed_shard', 'seed': seed, 'repeat_start': start,
+                                          'run_sha256': item['sha256'], 'policy_sha256': canonical(shard_policy),
+                                          'signed_micro_mrr_drift': signed_micro,
+                                          'signed_macro_mrr_drift': signed_macro})
+                for repeat in range(start, start + 4):
+                    shard_drifts[seed, repeat] = signed_micro
         else:
             compare_full(control['native_ball_points'], control['ranking'], references[seed])
         equal_tree(control['panel_design'], evaluator.archive_design())
@@ -222,7 +313,7 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
     expected = {(s, b, r) for s in (11, 23) for b in (4, 8, 16) for r in range(16)}
     if set(samples) != expected:
         raise ValueError('all 96 complete graph samples required, no optional stopping')
-    differences = {}; bias = []; descriptive = []
+    differences = {}; adjusted_differences = {}; bias = []; descriptive = []
     for seed in (11, 23):
         for budget in (4, 8, 16):
             group = [samples[seed, budget, r] for r in range(16)]; full = baselines[seed]
@@ -231,6 +322,10 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
                 raise ValueError('registered direct coverage must remain fixed and nonempty')
             differences[seed, budget, 'direct_order'] = np.array(direct) - full['direct']['metrics']['score']
             differences[seed, budget, 'micro_mrr'] = np.array([x['micro_mrr'] for x in group]) - references[seed]['ranking']['query_micro_mrr']
+            if amendment:
+                adjusted_differences[seed, budget, 'direct_order'] = differences[seed, budget, 'direct_order'].copy()
+                adjusted_differences[seed, budget, 'micro_mrr'] = differences[seed, budget, 'micro_mrr'] - np.array(
+                    [shard_drifts[seed, r] for r in range(16)], dtype=np.float64)
             errors = np.stack([x['hierarchy']['bias']['nodewise_error_fp64'] for x in group])
             moments = mean_error_statistics(errors); weights = evaluators[seed].weights
             corrected = float(np.sum(weights * moments['bias_squared_unbiased_per_node']) / weights.sum())
@@ -248,6 +343,37 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
                                 'direct_gaps': [x['hierarchy']['direct']['metrics']['gap'] for x in group],
                                 'root_coverage': {k: full['bias'][k] for k in ('root_known_nodes', 'direction_known_nodes', 'weighted_direction_known_mass')}})
     primary = primary_family(differences)
+    sensitivity = None
+    if amendment:
+        adjusted = primary_family(adjusted_differences)
+        by_comparison = {row['comparison']: row for row in adjusted}
+        maxima = {str(seed): {metric: max(abs(o['signed_' + metric + '_mrr_drift'])
+                                                if 'signed_' + metric + '_mrr_drift' in o
+                                                else o['observed_abs_' + metric + '_mrr_drift']
+                                                for o in full_observations if o['seed'] == seed)
+                              for metric in ('micro', 'macro')} for seed in config['training']['seeds']}
+        retrieval = []
+        for original in primary:
+            if original['metric'] != 'micro_mrr':
+                continue
+            corrected = by_comparison[original['comparison']]
+            largest = maxima[str(original['seed'])]['micro']
+            retrieval.append({'comparison': original['comparison'], 'original_mean': original['mean'],
+                              'adjusted_mean': corrected['mean'], 'original_marginal_student95': original['marginal_student95'],
+                              'adjusted_marginal_student95': corrected['marginal_student95'],
+                              'original_reject_holm': original['reject_holm'],
+                              'adjusted_reject_holm': corrected['reject_holm'],
+                              'max_observed_full_micro_drift_for_seed': largest,
+                              **retrieval_sensitivity_decision(original, corrected, largest)})
+        sensitivity = {'scope': 'descriptive_full_control_basis_sensitivity_not_extra_graph_repeats',
+                       'adjusted_primary_family_Holm12': adjusted, 'retrieval_interpretation': retrieval,
+                       'full_control_observations_including_failed': full_observations,
+                       'max_observed_abs_full_MRR_drift_by_seed': maxima,
+                       'full_drift_is_not_guaranteed_error_bound': True,
+                       'adjustment': 'each micro S-original-F minus its shard signed full-control-original-F; direct unchanged',
+                       'original_primary_family_unchanged': True}
+    if amendment and index['official']['sha256'] != amendment['v1_official_run_sha256']:
+        raise ValueError('historical official example is not exact v1 whitelist')
     # The sidecar also accompanies current-source artificial quality fixtures.
     # Only actual amended analysis uses the preserved historical example.
     _, official = checked_run(index['official'], 'official', config, release, historical_official=policy is not None)
@@ -259,6 +385,8 @@ def analyze(artifact_index, prepared_root, config, release, output, policy=None)
     load_checkpoint(official_root, official['best']['checkpoint'], official['best']['checkpoint']['binding'])
     return {'status': 'complete', 'replayed_sample_arrays': len(samples), 'primary_family': primary,
             **({'replay_policy_sha256': canonical(policy), 'full_numeric_replays': numeric_replays,
+                **({'ranking_sensitive_v2': sensitivity, 'v1_policy_sha256': amendment['v1_policy_sha256']}
+                   if amendment else {}),
                 'full_only_diagnostic_observations': policy['basis'],
                 'numeric_interpretation': 'report observed full repeat errors alongside effect sizes; engineering limits are not guaranteed error bounds, sampled-graph bounds or statistical null bands; tiny significance alone is not substantive damage',
                 'original_training_lineage': {str(s): trained[s]['original_training'] for s in trained}} if policy else {}),

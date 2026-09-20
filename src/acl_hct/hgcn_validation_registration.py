@@ -100,12 +100,18 @@ def verify_release(config, phase, source_commit, record_path, seed=None, repeat_
         if any(inputs[k] != origin[k] for k in required):
             raise ValueError('replay must bind original frozen training lineage')
     baseline = record.get('baseline_acceptance', {})
+    amendment = replay_policy.get('rank_sensitive_amendment') if replay_policy else None
+    baseline_policy = amendment['v1_policy_sha256'] if amendment else policy_digest
+    if phase == 'eval' and amendment and (
+            inputs['training_run_sha256'] != amendment['v1_accepted_replays'][str(seed)]
+            or baseline.get('amendment_policy_sha256') != policy_digest):
+        raise ValueError('v2 release must bind exact old accepted replay and current amendment')
     if phase == 'eval' and (any(baseline.get(k) is not True for k in
             ('accepted', 'complete_4096_and_scheduled_valid_reviewed', 'matching_best_reload_reviewed',
              'learning_state_reviewed', 'full_hierarchy_reviewed', 'order_above_half_necessary_not_sufficient'))
             or baseline.get('training_run_sha256') != inputs['training_run_sha256']
             or baseline.get('best_checkpoint_sha256') != inputs['best_checkpoint_sha256']
-            or baseline.get('replay_policy_sha256') != policy_digest
+            or baseline.get('replay_policy_sha256') != baseline_policy
             or baseline.get('original_training_run_sha256') != replay_policy['origins'][str(seed)]['training_run_sha256']
             or not _sha(baseline.get('review_sha256'))):
         raise ValueError('independent complete baseline/learning/full-hierarchy acceptance required before sampling')
