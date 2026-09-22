@@ -1,0 +1,16 @@
+{
+  "status": "candidate_requires_independent_review_and_release",
+  "protocol": "R-TSC-HGCN-stage-A-v1",
+  "upstream_commit": "a526385744da25fc880f3da346e17d0fe33817f8",
+  "original_config_sha256": "4a3b003a39b6bfcb74957e74a62a5a2b0329735f1dda0ae622172fbc205a3edc",
+  "replay_policy_sha256": "c07c5a6a5cb871ce896daea1e56e597f651b8da0bb8a97ae6ca6d43d182a0130",
+  "seeds": [11, 23],
+  "original_best_steps": {"11": 4096, "23": 3584},
+  "arms": {"task_only": 0.0, "task_relation": 0.1},
+  "module": {"hidden": 16, "directions": 3, "feature_count": 10, "parameters_per_layer": 227, "layers": 2, "tau": 0.05, "margin": 0.1, "eps": 1e-8, "chunk_edges": 4096},
+  "training": {"steps": 1024, "batch_positives": 128, "negatives_per_positive": 4, "fanout": 4, "optimizer": "Adam", "lr": 0.003, "weight_decay": 0.0, "grad_clip_norm": 1.0, "step_penalty_weight": 0.001},
+  "selection": {"steps": [0, 256, 512, 768, 1024], "repeats": 2, "fanout": 4, "direct_order_delta_floor": -0.002, "rule": "among qualified candidates first strict maximum mean full filtered micro MRR"},
+  "final": {"repeats": 16, "shard_repeats": 4, "fanouts": [4, 8, 16], "primary_family_size": 24, "relation_contrast_family_size": 12, "alpha": 0.05},
+  "rng": {"protocol": "R-TSC-HGCN-stage-A-v1", "formula": "lower 63 bits of SHA256 of canonical JSON [protocol, phase, seed, step, fanout, repeat, layer]", "streams": ["module_init", "train_batch", "train_layer", "selection_layer", "final_layer"]},
+  "ranking": {"candidate_chunk": 4096, "max_seconds": 60}
+}
