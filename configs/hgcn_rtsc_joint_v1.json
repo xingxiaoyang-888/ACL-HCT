@@ -1,0 +1,82 @@
+{
+  "status": "candidate_requires_independent_review_and_release",
+  "protocol": "R-TSC-HGCN-joint-v1",
+  "protocol_document_sha256": "b140bd63f73e9b418de5cab7f9a06d8f08dddaa665b8957e0b5b1bc27f4261a8",
+  "old_source_commit": "aadbecaa06b40da2f27042473eadf852290f92bd",
+  "old_config_sha256": "4047865a86d6dcf85939cfb40f0e34546156445c192e699f88ee7eef079a13fd",
+  "upstream_commit": "a526385744da25fc880f3da346e17d0fe33817f8",
+  "original_config_sha256": "4a3b003a39b6bfcb74957e74a62a5a2b0329735f1dda0ae622172fbc205a3edc",
+  "replay_policy_sha256": "c07c5a6a5cb871ce896daea1e56e597f651b8da0bb8a97ae6ca6d43d182a0130",
+  "seeds": [11, 23],
+  "original_best_steps": {"11": 4096, "23": 3584},
+  "arms": {
+    "plain_task": {"structure": "plain", "relation_weight": 0.0},
+    "plain_relation": {"structure": "plain", "relation_weight": 0.1},
+    "three_task": {"structure": "three", "relation_weight": 0.0},
+    "three_relation": {"structure": "three", "relation_weight": 0.1},
+    "single_task": {"structure": "single", "relation_weight": 0.0},
+    "single_relation": {"structure": "single", "relation_weight": 0.1}
+  },
+  "module": {
+    "hidden": 16,
+    "feature_count": 10,
+    "three_parameters_per_layer": 227,
+    "single_parameters_per_layer": 193,
+    "layers": 2,
+    "tau": 0.05,
+    "margin": 0.1,
+    "eps": 1e-8,
+    "chunk_edges": 4096,
+    "penalty": "mean clipped physical step norm squared over tau squared"
+  },
+  "training": {
+    "steps": 1024,
+    "batch_positives": 128,
+    "negatives_per_positive": 4,
+    "fanout": 4,
+    "optimizer": "Adam",
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "base_lr": 0.0003,
+    "module_lr": 0.003,
+    "weight_decay": 0.0,
+    "grad_clip_norm": 1.0,
+    "step_penalty_weight": 0.001
+  },
+  "selection": {
+    "steps": [0, 256, 512, 768, 1024],
+    "repeats": 2,
+    "fanout": 4,
+    "direct_order_from_common_S0_floor": -0.002,
+    "rule": "among candidates above common initial S0 direct-order mean minus 0.002, first strict maximum mean complete filtered micro MRR"
+  },
+  "final": {
+    "repeats": 16,
+    "shard_repeats": 4,
+    "fanouts": [4, 8, 16],
+    "conditions": ["plain_task", "plain_relation", "three_task", "three_relation", "single_task", "single_relation"],
+    "main_family_size": 16,
+    "protection_family_size": 32,
+    "relation_family_size": 36,
+    "mrr_protection_margin": 0.0005,
+    "hierarchy_noninferiority_margin": 0.002,
+    "alpha": 0.05
+  },
+  "benchmark": {
+    "fanout": 4,
+    "batch_positives": 128,
+    "warmups": 5,
+    "repetitions": 20,
+    "order": "interleaved",
+    "inference_overhead_limit": 0.1,
+    "training_overhead_limit": 0.15,
+    "memory_overhead_limit": 0.1,
+    "module_parameters_limit": 1000
+  },
+  "rng": {
+    "protocol": "R-TSC-HGCN-joint-v1",
+    "formula": "lower 63 bits of SHA256 of canonical JSON [protocol, phase, seed, step, fanout, repeat, layer]",
+    "streams": ["module_init", "train_batch", "train_layer", "selection_layer", "final_layer", "benchmark"]
+  },
+  "ranking": {"candidate_chunk": 4096, "max_seconds": 60}
+}
