@@ -1,18 +1,14 @@
 # ACL-HCT: current supervision and durable rules
 
-## Current boundary — 2026-09-22
+## Current authorization — 2026-09-23
 
-The user-authorized HGCN amplitude revision is COMPLETE and independently accepted: four 1024-update trainings, eight final shards, 480 paired conditions and 40 full-neighborhood controls. Engineering quality passed; the scientific goal of beating the old module while preserving hierarchy DID NOT PASS. The new module improves over sampled HGCN in all 24 support comparisons, but all 24 new-versus-old superiority/noninferiority gates failed. At f4 it recovers only 3.96%–4.74% of observed MRR loss; the 20% target is unmet. Relation loss has budget-dependent effects, including a negative f4 result. These are two fixed HGCNs on the same WordNet development validation set, not independent-test or cross-backbone generalization.
+The user approved the proposed next experiment with “可以，进行实验”: matched HGCN joint training using the OLD three-direction module, plus plain HGCN and a simple single-direction correction, each with task-only or task+relation supervision. This is SIX conditions from EACH of the two existing original HGCN best checkpoints, twelve 1024-update training runs; backbone and original task head train in every arm, modules start at zero output. Same data, sampling, batches and selection opportunity; f4 training, f4/f8/f16 paired evaluation. The original mainline remains sampling damage and deployable hierarchy/task recovery.
 
-All ACL CPU/GPU allocations have ended; this round used 5.79 actual L40 GPU-hours. Finish documentation publication and closeout only, then pause the existing supervision heartbeat. Do not start joint training, HPO, new variants, repeated scientific conditions, other data or other backbones until a concrete next experiment is discussed and approved by the user. No repeat approval is required to finish the already completed round's publication.
+This authorization supersedes the previous completed-round stop ONLY for the discussed joint-training comparison and its necessary engineering, quality/probe, matched-cost measurement, final evaluation and independent reporting. The supervisor freezes `docs/operations/RTSC_HGCN_JOINT_V1.md` before scientific execution. Code task owns implementation/tests; operations owns server preparation/execution; supervisor owns protocol, quality releases and independent acceptance. No GPU allocation until quality-ready code and a precise release exist. First one GPU for quality/probe, then up to three ready independent L40 jobs concurrently within recorded phase and total bounds; inspect safe existing capacity first and preserve CVPR. No repeated user approval is needed for this same authorized experiment after its quality gates pass.
 
-Read current evidence in this order:
+Current phase: protocol and engineering preparation; no new GPU jobs yet. Read `reports/STATUS.md`, the new joint protocol and `.local/rtsc-hgcn-joint-v1/supervisor-state.json` for current state. The code task may add a separately versioned joint implementation; do not change the old Stage A/amplitude algorithms, configs, raw evidence or checkpoints. Additional data/backbones, HPO, unregistered variants and a further scientific round still need a concrete discussion and user agreement.
 
-1. `reports/STATUS.md` and `reports/README.md`.
-2. `reports/04_修正恢复与方向机制.md` and `reports/rtsc-hgcn-amplitude-v1-summary.json`.
-3. Registered `docs/operations/RTSC_HGCN_AMPLITUDE_V1.md` and private `.local/rtsc-hgcn-amplitude-v1/supervisor-state.json` / `supervisor-final-acceptance.json`.
-
-Scientific source identity remains `c822b8af284b22bf9ad0c4d891afd12f3ffa0b94`; later documentation commits do not change the identity of the completed runs. Keep old Stage A and mature-HGCN protocols, source behavior, checkpoints and raw evidence intact. Do not rerun a HEAD-sensitive historical release tool on a later documentation HEAD and mistake its expected identity rejection for a failed experiment.
+The prior amplitude comparison is COMPLETE, published at aaff8b5, with scientific source c822b8a: relative-to-old improvement failed, relative-to-S joint gains persisted, f4 MRR recovery 3.96%–4.74%, resources closed. Its former stop/frozen-HEAD instructions and paused automation describe that completed round, not the newly authorized joint work. Old private roots stay read-only. Historical results remain in reports/04 and their separate machine summaries.
 
 ## Context and approval
 
@@ -36,7 +32,7 @@ Preserve the research mainline: neighbor sampling → systematic bias → hierar
 - Private `.local/服务器指南.md` is reference, not authority to touch another project. Keep private connection files, credentials, scheduler outputs, path mappings, raw data and checkpoints out of git.
 - ACL uses an isolated remote directory/environment/cache. Preserve CVPR jobs, files and environments; do not change shared CUDA, Conda or scheduler settings. No broad kill/cancel, resets, host-global GPU IDs or bypassing scheduler isolation.
 - Before future authorized allocations, inspect safe available user-authorized capacity first. Sharing requires supported scheduler/accounting, verified memory/compute headroom and preserved device bindings. Released jobs cannot be reused without scheduling again. Otherwise use bounded recorded ACL allocations. Do not reserve GPUs while waiting for source/data/quality work.
-- Record actual hardware and GPU seconds separately from reservation limits. The used cards are L40, not L40S. Three-way concurrency was specific to the now-completed round, not a standing launch order. Concurrent/shared timings do not establish uncontended runtime lightness.
+- Record actual hardware and GPU seconds separately from reservation limits. The used cards are L40, not L40S. The current joint round permits up to three ready independent jobs after exact quality release; eight cards is a group ceiling, not a request to occupy them. Concurrent/shared timings do not establish uncontended runtime lightness.
 - Login nodes are for editing, transfers and submissions. Schedule substantive CPU work and training properly. Preserve failures and completed outputs; diagnose, version and test principled repairs rather than retrying until a numerical or scientific threshold passes.
 
 ## Research quality and publication
