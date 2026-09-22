@@ -1,5 +1,9 @@
 # ACL-HCT research engineering
 
+## Stage A completion boundary (2026-09-22)
+
+The authorized R-TSC/HGCN Stage A is COMPLETE and independently accepted: four1024-update training arms, eight final shards,288 paired conditions and24 full controls. Both fixed HGCN checkpoints meet the f4 joint hierarchy/MRR improvement rule (Holm24), but MRR recovers only about5.3% of observed loss; the20% development target is unmet and no relation-versus-task contrast passes Holm12. Parameters454 are established, matched runtime lightness and generalization are not. See reports/04_修正恢复与方向机制.md and reports/rtsc-hgcn-stage-a-summary.json. All ACL CPU/GPU allocations are closed; actual Stage A total4.10 L40 GPU-hours. Finish publication/closeout only and pause this supervision heartbeat. Do not start joint-backbone training, HPO, other backbones, repeated conditions or further GPU jobs without a concrete newly agreed protocol. Prior multi-GPU authorization does not extend the completed scientific scope.
+
 ## Latest method authorization (2026-09-22)
 
 Latest resource clarification: the user subsequently explicitly says “可以多申请几个GPU资源”, superseding the preceding single-GPU restriction. The supervisor has released up to THREE independent ACL L40 jobs concurrently through .local/rtsc-hgcn-pilot/training-parallel-release-index.json. Keep the existing seed11/task-only attempt running; launch the two ready independent arms and admit the fourth when a slot is free. The same global three-GPU limit also applies to later quality-released final evaluation shards. Preserve CVPR and the four-arm scientific protocol, total compute bounds and all old release records; this is a resource-only amendment, not permission for extra conditions or joint training. The earlier sequential index is historical for scheduling, and is superseded by the parallel index.
