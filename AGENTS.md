@@ -1,5 +1,25 @@
 # ACL-HCT research engineering
 
+## Current completion boundary (2026-09-22)
+
+The registered mature-HGCN validation is COMPLETE and independently accepted: all96 raw sample rankings/hierarchy metrics, primary Holm12 plus numerical-drift sensitivity, and six bias-moment groups. See reports/STATUS.md and reports/02_真实图采样偏移与层级检索损伤.md. Both fixed HGCN seeds show joint hierarchy/retrieval damage at f4; retrieval damage holds at all3 budgets, hierarchy damage is conditional. Mean-bias causality, generality and correction recovery remain unproved. All ACL CPU/GPU allocations are closed. Finish documentation publication only, then discuss the next correction design with the user; do not start correction training/E3 or new experiments under earlier completion instructions. A separate request to stop CVPR CPU jobs does not authorize stopping ACL jobs; the mistaken cancellation of one ACL analysis attempt was preserved and corrected by a completed unchanged analysis attempt.
+
+## Latest user resumption (2026-09-22)
+
+The user reports that usage ran out and they closed resources. They explicitly authorize checking actual server progress first, then requesting resources to finish the remaining current batch. Reconcile Slurm accounting and saved artifacts before scheduling; do not assume old submitted jobs are still active or repeat completed samples. Preserve the mature-HGCN v2 protocol and existing quality releases, finish analysis/reporting, and retain the stopping boundary before new correction training/E3.
+
+## Latest completion instruction (2026-09-20)
+
+User: continue checking progress until this batch is complete. Finish the already registered mature-HGCN validation (96 samples, 36 already saved), necessary principled numerical diagnosis/repair, independent analysis and reporting. Do not stop on recoverable engineering issues or wait solely for unreliable inter-task notifications; read actual handoff/state files. Preserve failures and completed samples, never retry until a numerical gate happens to pass or tune rules to sampled effects. No new correction training/E3. Automatic supervision restored until delivery and resource closeout.
+
+## Latest user resumption (2026-09-20)
+
+User explicitly resumes the current mature-HGCN validation and requests inspection/reuse of free capacity on three running server GPUs. This supersedes the earlier pause only for the already bounded validation and necessary quality checks. First inspect memory, utilization, allocation ownership and supported sharing; preserve existing jobs and scheduler bindings. Supervisor exact releases still gate CPU/CUDA quality, fixed-weight replay acceptance and registered sampling. No new correction training or E3.
+
+## Latest user pause (2026-09-19)
+
+User explicitly requests no further training or experiments after the current code repair/tests. Local 70-test repair verification is complete. Finish only the reviewed code publication/archive; release all recorded ACL CPU/GPU running/pending allocations, preserve CVPR jobs. Do not submit new CPU/CUDA quality, replay, sampling, or training jobs. Supervision heartbeat is PAUSED. Resume only after the user explicitly instructs; tomorrow is not an automatic restart time. This pause supersedes previous continuation releases.
+
 ## Report organization (2026-09-17)
 
 Use `reports/README.md` as the result entry point and update the five thematic reports in place. Keep `reports/STATUS.md` current-only; do not append duplicate progress Markdown. Historical implementation/progress/review snapshots and original bytes are indexed in `reports/archive/2026-09-17/README.md`. Frozen protocols and raw results remain unchanged; resolve historical report paths through the archive mapping. Direction decomposition is a diagnostic tool, not the research contribution; retain the sampling → bias → hierarchy/task damage → deployable correction mainline. This documentation cleanup does not authorize new experiments.
