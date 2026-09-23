@@ -15,11 +15,15 @@ from acl_hct.hgcn_rtsc_joint_protocol import (
     ARMS, NamedStreams, analyze_final_shards, choose_checkpoint,
     final_families, validate_config)
 from acl_hct.hgcn_rtsc_joint_worker import (
-    _binding, _evaluate_candidate, _new_model, _optimizer,
+    _binding, _evaluate_candidate, _load_selected_arms, _new_model, _optimizer,
     _require_clean_benchmark_baseline, _training_step, final_shard,
-    small_quality, train_arm)
-from acl_hct.hgcn_evidence import complete_ranking, state_hash
-from acl_hct.diagnostic_archive import read_archive
+    reevaluate_completed_plain_arm, small_quality, train_arm)
+from acl_hct.hgcn_rtsc_joint_eval_v2 import (
+    encode_evaluation, make_evaluation_binding)
+from acl_hct.hgcn_registration import canonical
+from acl_hct.hgcn_evidence import (
+    complete_ranking, file_hash, save_checkpoint, state_hash)
+from acl_hct.diagnostic_archive import read_archive, write_archive
 from acl_hct.hgcn_panels import HierarchyPanel
 from acl_hct.hgcn_sampling import make_plan
 from acl_hct.hgcn_upstream import load_upstream
@@ -99,20 +103,50 @@ def test_three_registered_families_require_full_paired_grid_and_zero_variance_is
 
 def test_final_analysis_rejects_missing_controls_and_keeps_two_starting_models_separate():
     records = synthetic_grid()
+    settings, _, policy, _ = configs()
+    neighbors = [[1, 2, 3], [0, 2, 3], [0, 1, 3], [0, 1, 2]]
+
+    def evidence_binding(fanout, repeat, phase):
+        plans = [make_plan(
+            neighbors, fanout,
+            torch.Generator().manual_seed(1000 * (fanout or 0)
+                                           + 10 * repeat + layer))
+                 for layer in (0, 1)]
+        return make_evaluation_binding(
+            evaluation_source_commit='0' * 40,
+            training_source_commit='1' * 40,
+            config_sha256=canonical(settings),
+            replay_policy_sha256=canonical(policy),
+            checkpoint_sha256='2' * 64,
+            model_state_sha256='3' * 64,
+            plans=plans, plan_phase=phase, fanout=fanout,
+            repeat=repeat, device=torch.device('cpu'))
+
+    original_binding = evidence_binding(None, 0, 'original_full')
+    full_binding = evidence_binding(None, 0, 'candidate_full')
+    row_bindings = {(fanout, repeat): evidence_binding(
+        fanout, repeat, 'final_layer')
+                    for fanout in (4, 8, 16) for repeat in range(16)}
     shards = []
     for seed in (11, 23):
         for start in (0, 4, 8, 12):
             rows = [{'seed': seed, 'fanout': fanout, 'repeat': repeat,
-                     'arm': arm, **records[seed, fanout, repeat, arm]}
+                     'arm': arm,
+                     'evaluation_binding': row_bindings[fanout, repeat],
+                     **records[seed, fanout, repeat, arm]}
                     for fanout in (4, 8, 16)
                     for repeat in range(start, start + 4)
                     for arm in ARMS]
             shards.append({
                 'status': 'complete', 'seed': seed, 'repeat_start': start,
-                'original_F_qualification': {'accepted': True},
-                'full_qualifications': {arm: {'accepted': True} for arm in ARMS},
+                'original_F_qualification': {
+                    'accepted': True, 'evaluation_binding': original_binding},
+                'full_qualifications': {
+                    arm: {'accepted': True,
+                          'evaluation_binding': full_binding} for arm in ARMS},
                 'module_off_full_controls': {
-                    arm: {'accepted': True} for arm in ARMS
+                    arm: {'accepted': True,
+                          'evaluation_binding': full_binding} for arm in ARMS
                     if not arm.startswith('plain_')},
                 'selected': {arm: {'checkpoint': f'{seed}/{arm}'}
                              for arm in ARMS},
@@ -230,9 +264,20 @@ def test_discarded_probe_reloads_its_updated_own_full_reference(tmp_path, monkey
                                baseline_points.detach().cpu().numpy())
     monkeypatch.setenv('ACL_HGCN_VALIDATION_PID', str(os.getppid()))
     monkeypatch.setenv('ACL_HGCN_VALIDATION_DEADLINE', str(time.monotonic() + 300))
-    monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.full_control',
-                        lambda *args: (data['features'], queries, truth,
-                                       evaluator, {'accepted': True}))
+    original_eval_binding = make_evaluation_binding(
+        evaluation_source_commit='0' * 40,
+        training_source_commit='1' * 40,
+        config_sha256=canonical(joint),
+        replay_policy_sha256=canonical(policy),
+        checkpoint_sha256='2' * 64, model_state_sha256=base_sha,
+        plans=[full] * 2, plan_phase='original_full', fanout=None,
+        repeat=0, device=torch.device('cpu'))
+    monkeypatch.setattr(
+        'acl_hct.hgcn_rtsc_joint_worker._original_v2_control',
+        lambda *args: (
+            data['features'], queries, truth, evaluator,
+            {'accepted': True, 'evaluation_binding': original_eval_binding},
+            full, {'manifest': 'original-v2-F.json'}))
     monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.load_panel_design',
                         lambda *args: (view, panel))
     monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.hierarchy_evaluator',
@@ -275,7 +320,17 @@ def test_updated_candidate_uses_its_own_full_root_and_fresh_reload(tmp_path, mon
     sampled = [[make_plan(neighbors, 4,
                           torch.Generator().manual_seed(10 * repeat + layer))
                 for layer in (0, 1)] for repeat in (0, 1)]
-    frozen = [{'plans': plans, 'archive': {'manifest': f's0-{i}.json'}}
+    frozen = [{
+        'plans': plans, 'archive': {'manifest': f's0-{i}.json'},
+        'evaluation_binding': make_evaluation_binding(
+            evaluation_source_commit='0' * 40,
+            training_source_commit='0' * 40,
+            config_sha256=canonical(settings),
+            replay_policy_sha256=canonical(policy),
+            checkpoint_sha256='f' * 64,
+            model_state_sha256=state_hash(base.state_dict()),
+            plans=plans, plan_phase='selection_layer', fanout=4,
+            repeat=i, device=torch.device('cpu'))}
               for i, plans in enumerate(sampled)]
     full = make_plan(neighbors, None, torch.Generator())
     initial_points, _ = encode_joint(model, features, [full] * 2)
@@ -362,25 +417,53 @@ def test_final_shard_pairs_72_conditions_with_six_own_full_controls(tmp_path, mo
         with torch.no_grad():
             next(model.encoder.parameters() if arm.startswith('plain_')
                  else model.base.encoder.parameters()).add_(index * .0001)
-        model.eval()
-        points, _ = encode_joint(model, features, [full_plan] * 2)
+        frozen_model = copy.deepcopy(model).requires_grad_(False).eval()
+        with torch.inference_mode():
+            points, _ = encode_evaluation(
+                frozen_model, features, [full_plan] * 2)
         ranking = complete_ranking(
-            model if arm.startswith('plain_') else model.base,
+            frozen_model if arm.startswith('plain_') else frozen_model.base,
             points, valid, truth, original['ranking'])
         binding = _binding(settings, '0' * 40, policy, 11, arm, 0)
+        descriptor = {
+            'file': arm + '.pt', 'sha256': f'{index + 1:064x}',
+            'model_state_sha256': state_hash(model.state_dict()),
+            'binding': binding}
+        evaluation_binding = make_evaluation_binding(
+            evaluation_source_commit='0' * 40,
+            training_source_commit='0' * 40,
+            config_sha256=canonical(settings),
+            replay_policy_sha256=canonical(policy),
+            checkpoint_sha256=descriptor['sha256'],
+            model_state_sha256=descriptor['model_state_sha256'],
+            plans=[full_plan] * 2, plan_phase='candidate_full',
+            fanout=None, repeat=0, device=torch.device('cpu'))
         references[arm] = {
             'binding': binding, 'model_state_sha256': state_hash(model.state_dict()),
             'native_ball_points': points.detach().cpu().numpy(),
-            'ranking': ranking, 'full_plan': full_plan.archive()}
+            'ranking': ranking, 'full_plan': full_plan.archive(),
+            'checkpoint': descriptor,
+            'evaluation_binding': evaluation_binding}
         evaluators[arm] = HierarchyPanel(
             view, panel, points.detach().cpu().numpy())
-        selected[arm] = {'step': 0, 'checkpoint': {'file': arm + '.pt'},
+        selected[arm] = {'step': 0, 'checkpoint': descriptor,
                          'full_reference': {'manifest': arm + '-F.json'}}
         models[arm] = model
-    monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.full_control',
-                        lambda *args: (features, valid, truth,
-                                       evaluators['plain_task'],
-                                       {'accepted': True}))
+    original_eval_binding = make_evaluation_binding(
+        evaluation_source_commit='0' * 40,
+        training_source_commit='1' * 40,
+        config_sha256=canonical(settings),
+        replay_policy_sha256=canonical(policy),
+        checkpoint_sha256='f' * 64,
+        model_state_sha256=state_hash(base.state_dict()),
+        plans=[full_plan] * 2, plan_phase='original_full', fanout=None,
+        repeat=0, device=torch.device('cpu'))
+    monkeypatch.setattr(
+        'acl_hct.hgcn_rtsc_joint_worker._original_v2_control',
+        lambda *args: (
+            features, valid, truth, evaluators['plain_task'],
+            {'accepted': True, 'evaluation_binding': original_eval_binding},
+            full_plan, {'manifest': 'original-v2-F.json'}))
     monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.load_panel_design',
                         lambda *args: (view, panel))
     monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker._load_selected_arms',
@@ -402,6 +485,163 @@ def test_final_shard_pairs_72_conditions_with_six_own_full_controls(tmp_path, mo
     assert all(np.array_equal(plans[0][layer]['indices'],
                               candidate[layer]['indices'])
                for candidate in plans[1:] for layer in (0, 1))
+
+
+def test_completed_plain_v2_lifecycle_requires_review_and_loads_old_training_source(
+        tmp_path, monkeypatch):
+    upstream_root = os.environ.get('ACL_HGCN_UPSTREAM_PATH')
+    if not upstream_root:
+        pytest.skip('explicit pinned HGCN checkout required')
+    upstream = load_upstream(upstream_root)
+    settings, _, policy, _ = configs()
+    policy = copy.deepcopy(policy)
+    training_source = '6' * 40
+    evaluation_source = '7' * 40
+    seed, arm = 11, 'plain_task'
+    torch.manual_seed(105)
+    base = MatureHGCN(upstream, 3, 4, 5).eval()
+    original_state = state_hash(base.state_dict())
+    nodes = list(range(8))
+    neighbors = [[j for j in nodes if j != i] for i in nodes]
+    features = torch.randn(8, 3) * .1
+    data = {'nodes': nodes, 'neighbors': neighbors, 'features': features}
+    valid = [(1, 2), (1, 3)]
+    truth = {2: {1}, 3: {1}}
+    view = SimpleNamespace(nodes=nodes, root=0, reachable=set(nodes))
+    panel = {
+        'pool_size': 2,
+        'rows': [{'id': child, 'index': child,
+                  'inclusion_probability': 1., 'pool_mean_weight': .5}
+                 for child in (2, 3)],
+        'relations': [{'child': child, 'direct_parents': [1],
+                       'positive_distant_ancestors': [0]}
+                      for child in (2, 3)]}
+    original = {'model': {'hidden': 4, 'c': 1.},
+                'prepared': {'nodes_count': 8},
+                'ranking': {'candidate_chunk': 8, 'max_seconds': 60}}
+    original_binding = {'source_commit': '8' * 40,
+                        'scope': 'small lifecycle fixture'}
+    policy['origins']['11']['best_checkpoint_sha256'] = '9' * 64
+    full_plan = make_plan(neighbors, None, torch.Generator())
+    with torch.no_grad():
+        legacy_original_points = base.encode(
+            features, [full_plan.matrix()] * 2)
+    monkeypatch.setenv('ACL_HGCN_VALIDATION_PID', str(os.getppid()))
+    monkeypatch.setenv('ACL_HGCN_VALIDATION_DEADLINE',
+                       str(time.monotonic() + 300))
+    legacy_original_ranking = complete_ranking(
+        base, legacy_original_points, valid, truth, original['ranking'])
+    original_reference = {
+        'binding': original_binding, 'model_state_sha256': original_state,
+        'native_ball_points': legacy_original_points.detach().numpy(),
+        'ranking': legacy_original_ranking, 'full_plan': full_plan.archive()}
+    monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.load_valid',
+                        lambda *args: (valid, truth))
+    monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.load_panel_design',
+                        lambda *args: (view, panel))
+    monkeypatch.setattr(
+        'acl_hct.hgcn_rtsc_joint_worker.hierarchy_evaluator',
+        lambda view, panel, points, original: (
+            HierarchyPanel(view, panel, points),
+            HierarchyPanel(view, panel, points).evaluate(points)))
+
+    legacy_root = tmp_path / 'legacy'
+    legacy_root.mkdir()
+    checkpoints, legacy_evaluations, indexed = {}, [], []
+    checkpoint_hashes_before = {}
+    for step in settings['selection']['steps']:
+        candidate = copy.deepcopy(base).eval()
+        with torch.no_grad():
+            next(candidate.encoder.parameters()).add_(step * 1e-7)
+            legacy_points = candidate.encode(
+                features, [full_plan.matrix()] * 2)
+        binding = _binding(settings, training_source, policy, seed, arm, step)
+        descriptor = save_checkpoint(
+            legacy_root, f'joint-{arm}-step-{step}.pt', candidate, binding,
+            {'optimizer_state': {}, 'completed_steps': step})
+        ranking = complete_ranking(
+            candidate, legacy_points, valid, truth, original['ranking'])
+        reference = write_archive(
+            legacy_root / 'arrays', f'legacy-{arm}-step{step}-F', {
+                'binding': binding,
+                'model_state_sha256': descriptor['model_state_sha256'],
+                'native_ball_points': legacy_points,
+                'ranking': ranking, 'full_plan': full_plan.archive(),
+                'checkpoint': descriptor})
+        checkpoints[step] = descriptor
+        legacy_evaluations.append({'step': step,
+                                   'full_reference': reference})
+        indexed.append({'step': step, 'file': descriptor['file'],
+                        'sha256': descriptor['sha256']})
+        checkpoint_hashes_before[step] = file_hash(
+            legacy_root / descriptor['file'])
+    history = [{'step': step, 'sentinel': step * 3}
+               for step in range(1, 1025)]
+    history_before = copy.deepcopy(history)
+    legacy_run = {
+        'status': 'complete', 'phase': 'train', 'seed': seed, 'arm': arm,
+        'completed_steps': 1024, 'source_commit': training_source,
+        'config_sha256': canonical(settings),
+        'original_best_binding': original_binding,
+        'original_best_state_sha256': original_state,
+        'history': history, 'checkpoints': checkpoints,
+        'evaluations': legacy_evaluations,
+        'selected': {'step': 0},
+        'selected_checkpoint': checkpoints[0]}
+    legacy_result_path = legacy_root / 'result.json'
+    legacy_result_path.write_text(json.dumps(legacy_run), encoding='utf-8')
+    legacy_result_sha = file_hash(legacy_result_path)
+    input_index = {
+        'evaluation_suite':
+            'rtsc_hgcn_eval_composite_full_det_sampled_det_v2',
+        'steps': settings['selection']['steps'],
+        'arms': [{
+            'seed': seed, 'arm': arm,
+            'training_source_commit': training_source,
+            'training_result_sha256': legacy_result_sha,
+            'checkpoints': indexed}]}
+    output = tmp_path / 'reevaluated'
+    output.mkdir()
+    result = reevaluate_completed_plain_arm(
+        data, base, original_reference, original_binding, original_state,
+        original, policy, tmp_path, settings, seed, arm, output,
+        torch.device('cpu'), evaluation_source, legacy_root, legacy_run,
+        legacy_result_sha, input_index)
+    assert result['status'] == (
+        'provisional_selection_pending_independent_raw_audit')
+    assert not result['accepted_for_downstream_use']
+    assert len(result['evaluations']) == 5
+    assert len(result['common_S0']['repeats']) == 2
+    assert legacy_run['history'] == history_before
+    assert all(file_hash(legacy_root / checkpoints[step]['file'])
+               == checkpoint_hashes_before[step] for step in checkpoints)
+    selected_descriptor = result['provisional_selected_checkpoint']
+    assert file_hash(output / selected_descriptor['file']) == (
+        selected_descriptor['sha256'])
+
+    monkeypatch.setattr('acl_hct.hgcn_rtsc_joint_worker.ARMS', (arm,))
+    arm_inputs = {arm: (output, result, None)}
+    with pytest.raises(ValueError, match='exact complete'):
+        _load_selected_arms(
+            arm_inputs, copy.deepcopy(base).cpu(), features, full_plan,
+            view, panel, valid, truth, original, policy, settings, seed,
+            evaluation_source, original_binding, original_state,
+            torch.device('cpu'))
+    review = {'accepted': True,
+              'composite_v2_reevaluation_accepted': True,
+              'evaluation_source_commit': evaluation_source,
+              'result_sha256': file_hash(output / 'result.json')}
+    arm_inputs[arm] = (output, result, review)
+    models, references, _, selections = _load_selected_arms(
+        arm_inputs, copy.deepcopy(base).cpu(), features, full_plan,
+        view, panel, valid, truth, original, policy, settings, seed,
+        evaluation_source, original_binding, original_state,
+        torch.device('cpu'))
+    assert state_hash(models[arm].state_dict()) == (
+        selected_descriptor['model_state_sha256'])
+    assert references[arm]['binding']['source_commit'] == training_source
+    assert selections[arm]['training_source_commit'] == training_source
+    assert legacy_run['history'] == history_before
 
 
 @pytest.mark.skipif(not torch.cuda.is_available(),

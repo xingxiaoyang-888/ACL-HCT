@@ -31,6 +31,7 @@ def parser():
     p.add_argument('--probe-steps', type=int)
     for name in ('source-commit', 'release-record', 'upstream-root',
                  'upstream-manifest', 'prepared-root', 'original-training-run',
+                 'input-index', 'legacy-training-result', 'checkpoint-root',
                  'plain-task-result', 'plain-relation-result',
                  'three-task-result', 'three-relation-result',
                  'single-task-result', 'single-relation-result', 'output'):
@@ -57,8 +58,11 @@ def main():
             return 0
         required = ['phase', 'source_commit', 'release_record',
                     'upstream_root', 'output']
-        if args.phase in ('probe', 'train', 'final', 'benchmark'):
+        if args.phase in ('probe', 'train', 'reevaluate', 'final', 'benchmark'):
             required += ['prepared_root', 'original_training_run']
+        if args.phase == 'reevaluate':
+            required += ['input_index', 'legacy_training_result',
+                         'checkpoint_root']
         if args.phase in ('final', 'benchmark'):
             required += list(RESULT_FLAGS.values())
         if any(getattr(args, name) is None for name in required):
@@ -72,7 +76,8 @@ def main():
             config, original, policy, old, args.phase, args.release_record,
             args.source_commit, seed=args.seed, arm=args.arm,
             repeat_start=args.repeat_start, original_run=args.original_training_run,
-            training_runs=paths)
+            training_runs=paths, input_index=args.input_index,
+            legacy_training_result=args.legacy_training_result)
         command = [sys.executable, '-m', 'acl_hct.hgcn_rtsc_joint_worker']
         for name, value in vars(args).items():
             if value is not None and name != 'execute':

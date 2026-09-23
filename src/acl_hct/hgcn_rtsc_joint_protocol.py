@@ -15,12 +15,14 @@ from .hgcn_statistics import holm, student_summary
 
 
 PROTOCOL = 'R-TSC-HGCN-joint-v1'
-PHASES = ('cpu_quality', 'cuda_quality', 'probe', 'train', 'final', 'benchmark')
+PHASES = ('cpu_quality', 'cuda_quality', 'probe', 'train',
+          'reevaluate', 'final', 'benchmark')
 ARMS = ('plain_task', 'plain_relation', 'three_task', 'three_relation',
         'single_task', 'single_relation')
 STRUCTURES = ('plain', 'three', 'single')
 METRICS = ('micro_mrr', 'direct_order')
-SOURCES = ('hgcn_rtsc_joint', 'hgcn_rtsc_joint_protocol',
+SOURCES = ('hgcn_rtsc_joint', 'hgcn_rtsc_full_eval_v2',
+           'hgcn_rtsc_joint_eval_v2', 'hgcn_rtsc_joint_protocol',
            'hgcn_rtsc_joint_entry', 'hgcn_rtsc_joint_worker')
 OLD_SOURCE_COMMIT = 'aadbecaa06b40da2f27042473eadf852290f92bd'
 OLD_CONFIG_SHA256 = '4047865a86d6dcf85939cfb40f0e34546156445c192e699f88ee7eef079a13fd'
@@ -208,10 +210,14 @@ def final_families(records):
 
 
 def analyze_final_shards(shards):
+    from .hgcn_rtsc_joint_eval_v2 import (
+        require_compatible_evaluation_bindings)
+
     expected = {(seed, start) for seed in (11, 23) for start in (0, 4, 8, 12)}
     if len(shards) != 8:
         raise ValueError('eight complete joint final shards required')
     records, selected, fixed, observed = {}, {}, {}, set()
+    suite_core = None
     for shard in shards:
         key = shard.get('seed'), shard.get('repeat_start')
         if (shard.get('status') != 'complete' or key not in expected or key in observed
@@ -226,6 +232,18 @@ def analyze_final_shards(shards):
             raise ValueError('complete exact full-qualified joint shard required')
         observed.add(key)
         seed, start = key
+        bindings = [shard['original_F_qualification'].get(
+            'evaluation_binding')]
+        bindings.extend(value.get('evaluation_binding')
+                        for value in shard['full_qualifications'].values())
+        bindings.extend(value.get('evaluation_binding')
+                        for value in shard['module_off_full_controls'].values())
+        bindings.extend(row.get('evaluation_binding')
+                        for row in shard.get('rows', []))
+        current_core = require_compatible_evaluation_bindings(bindings)
+        if suite_core is not None and current_core != suite_core:
+            raise ValueError('final shards mixed composite-v2 suite identity')
+        suite_core = current_core
         if set(shard.get('selected', {})) != set(ARMS) or set(shard.get('fixed_F', {})) != set(ARMS):
             raise ValueError('six selected checkpoint and own-F identities required')
         if seed in selected and selected[seed] != shard['selected']:
@@ -241,6 +259,12 @@ def analyze_final_shards(shards):
                     or not start <= row['repeat'] < start + 4
                     or row['arm'] not in ARMS or name in records):
                 raise ValueError('duplicate or out-of-shard joint condition')
+            plan_rows = row['evaluation_binding']['plans']
+            if any(plan['phase'] != 'final_layer'
+                   or plan['fanout'] != row['fanout']
+                   or plan['step'] is not None
+                   or plan['repeat'] != row['repeat'] for plan in plan_rows):
+                raise ValueError('final row plan coordinate binding differs')
             records[name] = {metric: row[metric] for metric in METRICS}
     if observed != expected:
         raise ValueError('missing joint final shard')
@@ -258,12 +282,14 @@ def analyze_final_shards(shards):
             'main_holm16': main, 'protection_holm32': protection,
             'relation_holm36': relation, 'module_increment_by_loss': module_increment,
             'extra_directions_by_loss': extra_directions,
+            'evaluation_suite_core': suite_core,
             'selected': selected, 'fixed_F': fixed}
 
 
 def verify_release(config, original, policy, old, phase, record_path, source_commit,
                    *, seed=None, arm=None, repeat_start=None, original_run=None,
-                   training_runs=None):
+                   training_runs=None, input_index=None,
+                   legacy_training_result=None):
     from .hgcn_evidence import file_hash
 
     digest = validate_config(config, original, policy, old)
@@ -285,6 +311,9 @@ def verify_release(config, original, policy, old, phase, record_path, source_com
         raise ValueError('only registered seed11 three-relation discarded probe allowed')
     if phase == 'train' and (seed not in (11, 23) or arm not in ARMS):
         raise ValueError('registered joint training selector required')
+    if phase == 'reevaluate' and (seed != 11 or arm not in
+                                  ('plain_task', 'plain_relation')):
+        raise ValueError('registered completed plain-arm reevaluation required')
     if phase in ('final', 'benchmark') and (seed not in (11, 23) or arm is not None):
         raise ValueError('registered selected six-arm seed required')
     if phase in ('cpu_quality', 'cuda_quality') and (seed is not None or arm is not None):
@@ -314,7 +343,7 @@ def verify_release(config, original, policy, old, phase, record_path, source_com
                     or value.get('config_sha256') != digest
                     or not re.fullmatch('[0-9a-f]{64}', str(value.get('report_sha256')))):
                 raise ValueError('same-source joint CPU/CUDA quality acceptance required')
-    if phase in ('probe', 'train', 'final', 'benchmark'):
+    if phase in ('probe', 'train', 'reevaluate', 'final', 'benchmark'):
         if original_run is None or file_hash(original_run) != policy['origins'][str(seed)]['training_run_sha256']:
             raise ValueError('exact original accepted training lineage required')
         inputs = record.get('inputs', {})
@@ -330,6 +359,21 @@ def verify_release(config, original, policy, old, phase, record_path, source_com
                 != policy['origins'][str(seed)]['best_checkpoint_sha256']
                 or not re.fullmatch('[0-9a-f]{64}', str(baseline.get('review_sha256')))):
             raise ValueError('independently accepted original HGCN required')
+    if phase == 'reevaluate':
+        if input_index is None or legacy_training_result is None:
+            raise ValueError('reviewed plain input index and legacy result required')
+        inputs = record.get('inputs', {})
+        if (inputs.get('plain_v2_input_index_sha256') != file_hash(input_index)
+                or inputs.get('legacy_training_result_sha256')
+                != file_hash(legacy_training_result)):
+            raise ValueError('released immutable plain reevaluation inputs differ')
+        gate = record.get('composite_v2_integration_gate', {})
+        if (gate.get('accepted') is not True
+                or gate.get('source_commit') != source_commit
+                or gate.get('config_sha256') != digest
+                or not re.fullmatch('[0-9a-f]{64}',
+                                     str(gate.get('report_sha256')))):
+            raise ValueError('same-source composite-v2 integration gate required')
     if phase in ('train', 'final', 'benchmark'):
         probe = record.get('probe_acceptance', {})
         if (probe.get('accepted') is not True
@@ -342,6 +386,13 @@ def verify_release(config, original, policy, old, phase, record_path, source_com
                 or budget.get('phase') != phase
                 or not re.fullmatch('[0-9a-f]{64}', str(budget.get('record_sha256')))):
             raise ValueError('post-probe phase resource bound required')
+    if phase == 'reevaluate':
+        budget = record.get('phase_budget', {})
+        if (budget.get('accepted') is not True
+                or budget.get('phase') != phase
+                or not re.fullmatch('[0-9a-f]{64}',
+                                     str(budget.get('record_sha256')))):
+            raise ValueError('plain reevaluation resource bound required')
     if phase in ('final', 'benchmark'):
         if training_runs is None or set(training_runs) != set(ARMS):
             raise ValueError('six selected joint training results required')
