@@ -17,7 +17,7 @@ from acl_hct.hgcn_rtsc_joint_eval_v2 import (
     require_evaluation_binding)
 from acl_hct.hgcn_rtsc_joint_worker import (
     _report_only_full_bridge, _training_step)
-from acl_hct import hgcn_rtsc_full_eval_v2
+from acl_hct import hgcn_rtsc_full_eval_v2, hgcn_rtsc_joint_worker
 from acl_hct.hgcn_sampling import make_plan
 
 
@@ -54,6 +54,75 @@ class Stateful(nn.Module):
 def _state(model):
     return {name: value.detach().clone()
             for name, value in model.state_dict().items()}
+
+
+def test_fresh_reload_restores_advanced_cpu_and_simulated_cuda_rng(monkeypatch):
+    template = nn.Linear(2, 2)
+    state = _state(template)
+    state_sha = hgcn_rtsc_joint_worker.state_hash(state)
+    descriptor = {'model_state_sha256': state_sha}
+    payload = {'model_state': state}
+    simulated_cuda = [torch.tensor([4, 5, 6], dtype=torch.uint8)]
+
+    monkeypatch.setattr(torch.cuda, 'is_available', lambda: True)
+    monkeypatch.setattr(
+        torch.cuda, 'get_rng_state_all',
+        lambda: [value.clone() for value in simulated_cuda])
+
+    def set_cuda_rng(states):
+        simulated_cuda[:] = [value.clone() for value in states]
+
+    monkeypatch.setattr(torch.cuda, 'set_rng_state_all', set_cuda_rng)
+    monkeypatch.setattr(
+        hgcn_rtsc_joint_worker, 'load_checkpoint',
+        lambda *_args, **_kwargs: payload)
+
+    def new_model(base, *_args):
+        torch.manual_seed(991)
+        simulated_cuda[0].add_(17)
+        return base
+
+    monkeypatch.setattr(hgcn_rtsc_joint_worker, '_new_model', new_model)
+    torch.manual_seed(73)
+    torch.rand(9)
+    cpu_before = torch.random.get_rng_state().clone()
+    cuda_before = simulated_cuda[0].clone()
+    model, loaded = hgcn_rtsc_joint_worker._fresh_reload(
+        template, 'three', {}, [], '.', descriptor, {}, torch.device('cpu'))
+    assert loaded is payload
+    assert hgcn_rtsc_joint_worker.state_hash(model.state_dict()) == state_sha
+    assert torch.equal(torch.random.get_rng_state(), cpu_before)
+    assert torch.equal(simulated_cuda[0], cuda_before)
+
+
+def test_fresh_reload_restores_rng_when_construction_raises(monkeypatch):
+    template = nn.Linear(2, 2)
+    simulated_cuda = [torch.tensor([9, 8, 7], dtype=torch.uint8)]
+    monkeypatch.setattr(torch.cuda, 'is_available', lambda: True)
+    monkeypatch.setattr(
+        torch.cuda, 'get_rng_state_all',
+        lambda: [value.clone() for value in simulated_cuda])
+
+    def set_cuda_rng(states):
+        simulated_cuda[:] = [value.clone() for value in states]
+
+    monkeypatch.setattr(torch.cuda, 'set_rng_state_all', set_cuda_rng)
+
+    def fail_new_model(*_args):
+        torch.manual_seed(404)
+        simulated_cuda[0].zero_()
+        raise RuntimeError('expected construction failure')
+
+    monkeypatch.setattr(hgcn_rtsc_joint_worker, '_new_model', fail_new_model)
+    torch.manual_seed(81)
+    torch.rand(5)
+    cpu_before = torch.random.get_rng_state().clone()
+    cuda_before = simulated_cuda[0].clone()
+    with pytest.raises(RuntimeError, match='expected construction failure'):
+        hgcn_rtsc_joint_worker._fresh_reload(
+            template, 'three', {}, [], '.', {}, {}, torch.device('cpu'))
+    assert torch.equal(torch.random.get_rng_state(), cpu_before)
+    assert torch.equal(simulated_cuda[0], cuda_before)
 
 
 def test_snapshot_preserves_live_model_optimizer_rng_modes_and_flags():

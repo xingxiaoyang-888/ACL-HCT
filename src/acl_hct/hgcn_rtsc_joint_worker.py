@@ -333,14 +333,22 @@ def qualify_joint_full(points, ranking, reference, evaluator, original, policy,
 
 def _fresh_reload(template, structure, settings, init_seeds, checkpoint_root,
                   descriptor, binding, device):
-    base = copy.deepcopy(template).to(device)
-    model = _new_model(base, structure, settings, init_seeds)
-    payload = load_checkpoint(checkpoint_root, descriptor, binding)
-    model.load_state_dict(payload['model_state'], strict=True)
-    if state_hash(model.state_dict()) != descriptor['model_state_sha256']:
-        raise ValueError('fresh joint checkpoint state differs')
-    model.eval()
-    return model, payload
+    torch_rng = torch.random.get_rng_state().clone()
+    cuda_rng = ([state.clone() for state in torch.cuda.get_rng_state_all()]
+                if torch.cuda.is_available() else None)
+    try:
+        base = copy.deepcopy(template).to(device)
+        model = _new_model(base, structure, settings, init_seeds)
+        payload = load_checkpoint(checkpoint_root, descriptor, binding)
+        model.load_state_dict(payload['model_state'], strict=True)
+        if state_hash(model.state_dict()) != descriptor['model_state_sha256']:
+            raise ValueError('fresh joint checkpoint state differs')
+        model.eval()
+        return model, payload
+    finally:
+        torch.random.set_rng_state(torch_rng)
+        if cuda_rng is not None:
+            torch.cuda.set_rng_state_all(cuda_rng)
 
 
 def _full_reference(model, features, full_plan, valid, truth, view, panel,
