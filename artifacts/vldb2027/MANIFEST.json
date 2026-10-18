@@ -2,7 +2,7 @@
   "schema": "vldb2027_artifact_manifest_v1",
   "release_tag": "vldb2027-artifact-v1",
   "file_count": 273,
-  "payload_bytes": 27858030,
+  "payload_bytes": 27858022,
   "hash_algorithm": "SHA256",
   "files": [
     {
@@ -237,8 +237,8 @@
     },
     {
       "path": "paper/main.tex",
-      "bytes": 47814,
-      "sha256": "33fb5452b93a83954a256887525e46e7aad85c7cd8c2c565e398d7fc6fbb6545"
+      "bytes": 47806,
+      "sha256": "5148c8921e01ed0b2f42b23711b30e700e5fd6872ee883b46f3292434a16687f"
     },
     {
       "path": "paper/pvldb.sty",
