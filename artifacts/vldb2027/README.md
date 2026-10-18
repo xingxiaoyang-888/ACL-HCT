@@ -1,6 +1,6 @@
 # Sampling mechanisms: reproducibility artifact
 
-This artifact studies why neighbor sampling changes prediction quality and computation cost across GNN operators. It includes the completed frozen-model study and the historical evidence used in the paper.
+This artifact studies why neighbor sampling changes prediction quality and computation cost across GNN operators. It includes the completed frozen-model study and the historical evidence used in the study.
 
 | Evidence | Models / data | Scope |
 |---|---|---|
@@ -11,7 +11,6 @@ This artifact studies why neighbor sampling changes prediction quality and compu
 
 ## Start here
 
-- [Paper](paper/main.pdf), [supplement](paper/supplement.pdf), and [LaTeX source](paper/main.tex).
 - [Final per-seed results](results/final/per-seed.csv), [per-repeat results](results/final/per-repeat.csv), [three-seed summaries](results/final/across-seeds.csv).
 - [Mechanism results](results/mechanisms/), including margins, corrections, harms and interactions.
 - [Historical 24-checkpoint results](results/historical-task-a/).
@@ -27,10 +26,9 @@ From the repository root, use Python 3.10 or later:
 python -m pip install -r artifacts/vldb2027/environment/requirements-figures.txt
 python artifacts/vldb2027/scripts/verify_artifact.py
 python artifacts/vldb2027/scripts/render_figures.py --output build/vldb-figures
-python artifacts/vldb2027/scripts/render_decision_guide.py --output build/vldb-guide
 ```
 
-The first renderer checks every plotted scalar against the published figure record before drawing Figures 1–4. Figure 5 is a conceptual decision guide. Its portable default uses STIX Roman; supply `--font-regular` and `--font-bold` paths to locally installed Times New Roman faces to match the published typography. Font binaries are not redistributed. Use a fresh output directory for each rendering.
+The renderer checks every plotted scalar against the published figure record before drawing the four empirical figures. Use a fresh output directory for each rendering.
 
 ## Run the frozen models
 
@@ -73,20 +71,3 @@ python artifacts/vldb2027/scripts/aggregate_task_a.py --inputs artifacts/vldb202
 ```
 
 These commands do not train models or generate new predictions. Historical Task A files contain the original development targets and predictions; the final mechanism files contain stored correctness, margins and estimator errors.
-
-## Build the manuscript
-
-Use the repository’s **Actions → Build paper → Run workflow** to compile both PDFs on GitHub without a local or research-server TeX installation. The workflow uses pinned actions and TeX Live 2026, checks the official front-matter blocks and page limit, and stores PDFs and rendered review pages as a build artifact.
-
-
-With a TeX distribution containing `acmart`, `natbib`, `amsmath` and the standard graphics packages:
-
-```bash
-cd artifacts/vldb2027/paper
-pdflatex main
-bibtex main
-pdflatex main
-pdflatex main
-```
-
-Use `supplement` in place of `main` for the supplement. The included template files retain their original notices. The supplied PDFs are the reviewed builds; do not substitute the old root-level research drafts.
