@@ -14,7 +14,8 @@ for name in ('main', 'supplement'):
     info = subprocess.check_output(['pdfinfo', str(pdf)], text=True)
     count = int(re.search(r'^Pages:\s+(\d+)', info, re.M).group(1))
     text = subprocess.check_output(['pdftotext', '-layout', str(pdf), '-'], text=True)
-    normal = [' '.join(p.split()) for p in text.split('\f')[:count]]
+    logical = subprocess.check_output(['pdftotext', str(pdf), '-'], text=True)
+    normal = [' '.join(p.split()) for p in logical.split('\f')[:count]]
     (out / (name + '.txt')).write_text(text)
     log = (paper / (name + '.log')).read_text(errors='replace')
     errors = [s for s in ('There were undefined references', 'There were undefined citations', 'LaTeX Error:', 'Missing character:') if s in log]
