@@ -195,5 +195,26 @@
   "new_prediction_or_test_scoring_executed": false,
   "path_repair": "Public archive path spelling was aligned with the exact ZIP member names. Scientific identifiers and original record hashes were unchanged.",
   "figure_scope": "All four empirical figures verify the published numerical points before rendering. The conceptual guide uses portable STIX Roman by default; the supplied manuscript uses Times New Roman.",
-  "validation_boundary": "Full GPU inference was not repeated for packaging; its scientific outputs are the original accepted records. Historical source-audit modules are not a portable historical collector."
+  "validation_boundary": "Full GPU inference was not repeated for packaging; its scientific outputs are the original accepted records. Historical source-audit modules are not a portable historical collector.",
+  "download_transport": {
+    "status": "passed",
+    "original_archives_restored_exactly": [
+      {
+        "name": "final-mechanism-arrays.zip",
+        "bytes": 188076743,
+        "sha256": "8f0011a6273864d2912246f0920eefecf40e1af28f5c74947fc6995b39aa85e1",
+        "parts": 12
+      },
+      {
+        "name": "historical-task-a-records.zip",
+        "bytes": 288095428,
+        "sha256": "959343221a2c24fa4dd3787da51172d50828c20e835d0626888cff756c805662",
+        "parts": 18
+      }
+    ],
+    "manifest_sha256": "1a92dc8c211e2d39dfcd3cb40ceaac4136644075cea080353a788eb9a9cced1c",
+    "helper_sha256": "6925525efaf94d99a0f66b2497b48cb2ee72b8e78300e2a98dfeb5f5a180d64a",
+    "network_actions": 0,
+    "gpu_seconds": 0
+  }
 }

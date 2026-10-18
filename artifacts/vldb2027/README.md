@@ -57,7 +57,15 @@ The detailed JSON/cost records needed for the final deployment tables are alread
 python artifacts/vldb2027/scripts/aggregate_final_scalars.py --inputs artifacts/vldb2027/results/scalar-inputs.json --output build/final-scalars
 ```
 
-To recompute mechanism tables, download and extract `final-mechanism-arrays.zip` and `historical-task-a-records.zip` from the linked release into `downloads/`. Retain their `raw/` directory structure and check their manifests. These are previously collected results, not new model executions. Use the recorded NumPy 1.24.4 and PyTorch 2.0.1 for exact historical reductions:
+The two large result ZIPs are distributed as small release parts for reliable downloads. This standard-library helper resumes verified parts and checks each reconstructed ZIP against its original SHA256:
+
+```bash
+python artifacts/vldb2027/scripts/download_results.py --output downloads
+python -m zipfile -e downloads/final-mechanism-arrays.zip downloads
+python -m zipfile -e downloads/historical-task-a-records.zip downloads
+```
+
+Retain the extracted `raw/` directory structure. These are previously collected results, not new model executions. Use the recorded NumPy 1.24.4 and PyTorch 2.0.1 for exact historical reductions:
 
 ```bash
 python artifacts/vldb2027/scripts/aggregate_mechanisms.py --inputs artifacts/vldb2027/results/mechanism-inputs.json --raw-root downloads --output build/mechanism-scalars

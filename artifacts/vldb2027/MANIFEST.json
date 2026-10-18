@@ -1,8 +1,8 @@
 {
   "schema": "vldb2027_artifact_manifest_v1",
   "release_tag": "vldb2027-artifact-v1",
-  "file_count": 270,
-  "payload_bytes": 27843263,
+  "file_count": 272,
+  "payload_bytes": 27854536,
   "hash_algorithm": "SHA256",
   "files": [
     {
@@ -312,8 +312,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6559,
-      "sha256": "d651a6e6388423d27932cbab49c3267fd62edaf3126279be04118dcd8390e000"
+      "bytes": 6811,
+      "sha256": "c67e2859031ab79e90e5beeb29c1943e1442b8f4370fe1c3b6bd6f80fbc5f32d"
     },
     {
       "path": "results/checkpoints-manifest.json",
@@ -469,6 +469,11 @@
       "path": "results/published-figure-points.json",
       "bytes": 110603,
       "sha256": "89425ef380a0f024e6a951dc51b2ad24db6352f2b25bf645ba70d4cfec89e956"
+    },
+    {
+      "path": "results/raw-downloads.json",
+      "bytes": 6600,
+      "sha256": "1a92dc8c211e2d39dfcd3cb40ceaac4136644075cea080353a788eb9a9cced1c"
     },
     {
       "path": "results/raw-final/ogbn-arxiv-gat-seed11/budget-lock.json",
@@ -1036,6 +1041,11 @@
       "sha256": "d7d3a1f8fc8c446454634aca801ac4199ba188a24080cc436e41ded04ed12eb1"
     },
     {
+      "path": "scripts/download_results.py",
+      "bytes": 3671,
+      "sha256": "6925525efaf94d99a0f66b2497b48cb2ee72b8e78300e2a98dfeb5f5a180d64a"
+    },
+    {
       "path": "scripts/render_decision_guide.py",
       "bytes": 7361,
       "sha256": "cd359c9d1f5a5d73475fadffc4838667a5a112a9e7bdc506da31e0475ea0de40"
@@ -1352,8 +1362,8 @@
     },
     {
       "path": "validation.json",
-      "bytes": 6669,
-      "sha256": "267c99889a0273014ba806178d68eb7dffbad9e33559db623fa7ce677e7f4613"
+      "bytes": 7419,
+      "sha256": "33edb167b079ad6c0636c8338d6b13eebd6ace9fa51dcab010818ccc51dd95d7"
     }
   ]
 }

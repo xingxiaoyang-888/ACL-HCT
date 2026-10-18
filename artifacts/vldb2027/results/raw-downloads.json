@@ -1,0 +1,171 @@
+{
+  "schema": "vldb2027_chunked_downloads_v1",
+  "release_base_url": "https://github.com/xingxiaoyang-888/ACL-HCT/releases/download/vldb2027-artifact-v1",
+  "part_bytes": 16777216,
+  "archives": [
+    {
+      "name": "final-mechanism-arrays.zip",
+      "bytes": 188076743,
+      "sha256": "8f0011a6273864d2912246f0920eefecf40e1af28f5c74947fc6995b39aa85e1",
+      "parts": [
+        {
+          "name": "final-mechanism-arrays.zip.part001",
+          "bytes": 16777216,
+          "sha256": "390c2775d73c88f6670fdbdee1503305aa57b728893a1243be2a0de3c7200f1b"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part002",
+          "bytes": 16777216,
+          "sha256": "02b6ec532ae07fc3f59484d5c825843c58e7a2ad0e931865c62c6d3011d7ebc8"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part003",
+          "bytes": 16777216,
+          "sha256": "b8e3ec553aae682c35fa63502257f88929e40ed09e666b8f8af0abfa693cd3d5"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part004",
+          "bytes": 16777216,
+          "sha256": "a45ed98cb22ca43f6b2b502092ec215cd92c6c5c539fc7993cfe00a1204af5c1"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part005",
+          "bytes": 16777216,
+          "sha256": "71576b3b33ea6e7d7bdd4ea8a9b9022dcc2fe72dc1722fca6a4ebd79c7f2d29e"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part006",
+          "bytes": 16777216,
+          "sha256": "962d59913fc8768b2598531bd49c11436a965a7d485ab50af0f6f25359ab4b92"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part007",
+          "bytes": 16777216,
+          "sha256": "d3176d205e55051a08e86fc900d339220d1f4c53f6438a2c6f30868df2e56e8e"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part008",
+          "bytes": 16777216,
+          "sha256": "6989b6aa33458ad7399e0e53d54393425d7b7f99cd0a7d9b4f10506547824fdc"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part009",
+          "bytes": 16777216,
+          "sha256": "b4d9165a7a7fba65ea15e2b0f40cd23ec1b94b8475dc4b3c94729a1f08d4b7af"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part010",
+          "bytes": 16777216,
+          "sha256": "4c46c9a880189cbbe8f0b1ec122b5ddcf087571d35369a6bb52a25c723d0515f"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part011",
+          "bytes": 16777216,
+          "sha256": "bb109c92563d08e7c326385d002ef7a52ea277d0febce05931cc31d746d675d3"
+        },
+        {
+          "name": "final-mechanism-arrays.zip.part012",
+          "bytes": 3527367,
+          "sha256": "2a585d0dbad4ddc47360c834e0d2d89ce5fb85d4020c9796323367a6b62e6b29"
+        }
+      ]
+    },
+    {
+      "name": "historical-task-a-records.zip",
+      "bytes": 288095428,
+      "sha256": "959343221a2c24fa4dd3787da51172d50828c20e835d0626888cff756c805662",
+      "parts": [
+        {
+          "name": "historical-task-a-records.zip.part001",
+          "bytes": 16777216,
+          "sha256": "cb0839c870ebe8dd19c1d4b271472b88f9c635c286002f6cffda4c8cd35195bd"
+        },
+        {
+          "name": "historical-task-a-records.zip.part002",
+          "bytes": 16777216,
+          "sha256": "fdc7743b5a18d49a71ea45c905f79c9cea42c59bc8d42fcce9c21e618e5ceab7"
+        },
+        {
+          "name": "historical-task-a-records.zip.part003",
+          "bytes": 16777216,
+          "sha256": "64cbcc020f48bea39031e265f36f765c81067fb7be41afa85c223e34c037b4ab"
+        },
+        {
+          "name": "historical-task-a-records.zip.part004",
+          "bytes": 16777216,
+          "sha256": "9b670b083c4104311875495cfcd23f54cdbfb6c55f49a4094d601123a8ea0644"
+        },
+        {
+          "name": "historical-task-a-records.zip.part005",
+          "bytes": 16777216,
+          "sha256": "ad39f0d8223170df8bf9e2f833499a6082007c8a4bdceb95434e9a5b9275ceed"
+        },
+        {
+          "name": "historical-task-a-records.zip.part006",
+          "bytes": 16777216,
+          "sha256": "718b9c3c366e712354e922db1215aaae7b60a9ece577cbf56f3d941fdd734fae"
+        },
+        {
+          "name": "historical-task-a-records.zip.part007",
+          "bytes": 16777216,
+          "sha256": "7b7219c4713c72e5fb90c9decf72869f4aec8f7e5b14191972f749a781e6bee3"
+        },
+        {
+          "name": "historical-task-a-records.zip.part008",
+          "bytes": 16777216,
+          "sha256": "31aadce5bddc5db8772dd58dd8add12bd29dc2ac3e6d84d0d6af4a6fcce6813d"
+        },
+        {
+          "name": "historical-task-a-records.zip.part009",
+          "bytes": 16777216,
+          "sha256": "a1720a0c113c49797d4283f3a2cb78d1ee501e659b5ac63049f297b3a6dfdb67"
+        },
+        {
+          "name": "historical-task-a-records.zip.part010",
+          "bytes": 16777216,
+          "sha256": "e8f0e145e2fe64f0291f253212dfbdd9a89a012bc1f7012c2391465457819318"
+        },
+        {
+          "name": "historical-task-a-records.zip.part011",
+          "bytes": 16777216,
+          "sha256": "991f981e43077cc720b9038736e823821688c74053be02d6333fbf6dab549361"
+        },
+        {
+          "name": "historical-task-a-records.zip.part012",
+          "bytes": 16777216,
+          "sha256": "e9b9e29efcccfddfb8f22c7e9149816829c54fa39359bc0feb60efc118cca02f"
+        },
+        {
+          "name": "historical-task-a-records.zip.part013",
+          "bytes": 16777216,
+          "sha256": "08d1602d9a096734ff379aec8cd647f322aebe4706ce954e24862407bc8be301"
+        },
+        {
+          "name": "historical-task-a-records.zip.part014",
+          "bytes": 16777216,
+          "sha256": "0e3021d85e477e0b408cae2d7af37de2789c0e0d7b214648ffc502cf43ac9187"
+        },
+        {
+          "name": "historical-task-a-records.zip.part015",
+          "bytes": 16777216,
+          "sha256": "2ba4ffdf74f9b0bbce569599bdef6ef4edc435dd572018e6d4daad821206f2b3"
+        },
+        {
+          "name": "historical-task-a-records.zip.part016",
+          "bytes": 16777216,
+          "sha256": "a3506ee038246a2d1b470d0431c64b511f2317daaf2fdc72a9e77059e090ad91"
+        },
+        {
+          "name": "historical-task-a-records.zip.part017",
+          "bytes": 16777216,
+          "sha256": "1a5eb6f87538a56e12858f97717074df0a0c6528bf29d4bcfc8b45e72a9dbe52"
+        },
+        {
+          "name": "historical-task-a-records.zip.part018",
+          "bytes": 2882756,
+          "sha256": "36aaece9290679c2034a8d5c14bf74c2bf939e54fa9ec25cca1f2cdcf31fa384"
+        }
+      ]
+    }
+  ]
+}
