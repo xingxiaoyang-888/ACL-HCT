@@ -1,0 +1,16 @@
+{
+  "schema": "vldb_pubmed_sage_config_v1",
+  "status": "source_preparation_requires_root_binding_and_release",
+  "dataset": "PubMed",
+  "model": "GraphSAGE_mean",
+  "seeds": [11, 23, 37],
+  "architecture": {"input_features": 500, "hidden": 256, "output_classes": 3, "layers": 3, "dropout": 0.5, "hidden_processing": "BatchNorm-ReLU-dropout", "root_transform": "independent_native_lin_r"},
+  "graph": "canonical_simple_symmetric_nonself_from_bound_Planetoid_graph",
+  "features": "fixed_row_L1_normalization",
+  "split": {"official_train": 60, "official_valid": 1000, "fit": 500, "dev": 500, "official_test": 1000, "hash_prefix": "vldb-sampling-mechanisms-v1:pubmed:valid-split:"},
+  "training": {"epochs": 500, "fanouts": [4, 4, 4], "batch_size": 1024, "learning_rate": 0.01, "weight_decay": 0.0, "selection_every": 5, "selection_repeats": 4, "selection_metric": "sum_correct_then_earliest_tie"},
+  "selection": "same four fixed fit sampling streams at every selection epoch; no dev or test selection",
+  "no_hpo": true,
+  "no_correction": true,
+  "prior_test_disclosure": "PubMed official test was evaluated for older HyboNet/LResNet experiments; this new ordinary-model configuration and splits are fixed without selecting on those test results."
+}

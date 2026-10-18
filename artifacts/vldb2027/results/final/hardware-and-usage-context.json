@@ -1,0 +1,488 @@
+[
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "6526c7bb8303d3f8305214498f48ef2feb896fa21d5172804f477d262c20551f"
+      },
+      "model": "hgcn",
+      "release_sha256": "fcd18abb68e9fd6e4a196a451d279361ae60e087265274831309b8ce0d2e89be",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hgcn",
+    "science_status": "completed",
+    "seed": 11,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "6526c7bb8303d3f8305214498f48ef2feb896fa21d5172804f477d262c20551f"
+      },
+      "model": "hgcn",
+      "release_sha256": "fcd18abb68e9fd6e4a196a451d279361ae60e087265274831309b8ce0d2e89be",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hgcn",
+    "science_status": "completed",
+    "seed": 23,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "6526c7bb8303d3f8305214498f48ef2feb896fa21d5172804f477d262c20551f"
+      },
+      "model": "hgcn",
+      "release_sha256": "fcd18abb68e9fd6e4a196a451d279361ae60e087265274831309b8ce0d2e89be",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hgcn",
+    "science_status": "completed",
+    "seed": 37,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "9724a8c93204b87e1c82ff83e02769f67ab5d4f00b6ae3ef88d400e7b66a4b6e"
+      },
+      "model": "hybonet",
+      "release_sha256": "c7b5858646c1cbfed2c215c9cb880833d4d67a27a0cf7ea1208519c30d91b8c3",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hybonet",
+    "science_status": "completed",
+    "seed": 11,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "9724a8c93204b87e1c82ff83e02769f67ab5d4f00b6ae3ef88d400e7b66a4b6e"
+      },
+      "model": "hybonet",
+      "release_sha256": "c7b5858646c1cbfed2c215c9cb880833d4d67a27a0cf7ea1208519c30d91b8c3",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hybonet",
+    "science_status": "completed",
+    "seed": 23,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "9724a8c93204b87e1c82ff83e02769f67ab5d4f00b6ae3ef88d400e7b66a4b6e"
+      },
+      "model": "hybonet",
+      "release_sha256": "c7b5858646c1cbfed2c215c9cb880833d4d67a27a0cf7ea1208519c30d91b8c3",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "hybonet",
+    "science_status": "completed",
+    "seed": 37,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "09d06c72563ff5f63b2646771d74da6d08c4dd7b9c42e46c6216412cc044c22a"
+      },
+      "model": "sage",
+      "release_sha256": "641c55994d88a5f29d8f1f0a86e6d99faf2b2e94340269f4f7e22b73bafec1ac",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": {
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "hardware_binding": {
+        "sha256": "0a7a35e2dd304aebd81f91327e7b2f55d4fa7dd15e76fe4c3cde0da541f20090"
+      },
+      "legacy_source_manifest": {
+        "sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+      },
+      "recalibrated": false,
+      "sampling_model_and_timing_sources_unchanged": true
+    },
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 11,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "09d06c72563ff5f63b2646771d74da6d08c4dd7b9c42e46c6216412cc044c22a"
+      },
+      "model": "sage",
+      "release_sha256": "641c55994d88a5f29d8f1f0a86e6d99faf2b2e94340269f4f7e22b73bafec1ac",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": {
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "hardware_binding": {
+        "sha256": "0a7a35e2dd304aebd81f91327e7b2f55d4fa7dd15e76fe4c3cde0da541f20090"
+      },
+      "legacy_source_manifest": {
+        "sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+      },
+      "recalibrated": false,
+      "sampling_model_and_timing_sources_unchanged": true
+    },
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 23,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "09d06c72563ff5f63b2646771d74da6d08c4dd7b9c42e46c6216412cc044c22a"
+      },
+      "model": "sage",
+      "release_sha256": "641c55994d88a5f29d8f1f0a86e6d99faf2b2e94340269f4f7e22b73bafec1ac",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": {
+      "budget_lock": {
+        "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+      },
+      "hardware_binding": {
+        "sha256": "0a7a35e2dd304aebd81f91327e7b2f55d4fa7dd15e76fe4c3cde0da541f20090"
+      },
+      "legacy_source_manifest": {
+        "sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+      },
+      "recalibrated": false,
+      "sampling_model_and_timing_sources_unchanged": true
+    },
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 37,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "0c0a3c5d108b732e34a3014a46ee42ca9214c556f8cf37ef78f60a00a2df6c7a"
+      },
+      "model": "gat",
+      "release_sha256": "d267e5803eddb8e482eb6632c94436564da82935a5d71414c6ca956e65fe3113",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "gat",
+    "science_status": "completed",
+    "seed": 11,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "0c0a3c5d108b732e34a3014a46ee42ca9214c556f8cf37ef78f60a00a2df6c7a"
+      },
+      "model": "gat",
+      "release_sha256": "d267e5803eddb8e482eb6632c94436564da82935a5d71414c6ca956e65fe3113",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "gat",
+    "science_status": "completed",
+    "seed": 23,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+      },
+      "dataset": "ogbn-arxiv",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "0c0a3c5d108b732e34a3014a46ee42ca9214c556f8cf37ef78f60a00a2df6c7a"
+      },
+      "model": "gat",
+      "release_sha256": "d267e5803eddb8e482eb6632c94436564da82935a5d71414c6ca956e65fe3113",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "ogbn-arxiv",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "gat",
+    "science_status": "completed",
+    "seed": 37,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+      },
+      "dataset": "PubMed",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "2d3f62936184a31ece1da487a216b9bad0c94129712235aa5ce8709664cd6f3d"
+      },
+      "model": "sage",
+      "release_sha256": "6ace134104a42a537c7927eed553941fae60dd0743717c4dab347dbf00f67503",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "PubMed",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 11,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+      },
+      "dataset": "PubMed",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "2d3f62936184a31ece1da487a216b9bad0c94129712235aa5ce8709664cd6f3d"
+      },
+      "model": "sage",
+      "release_sha256": "6ace134104a42a537c7927eed553941fae60dd0743717c4dab347dbf00f67503",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "PubMed",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 23,
+    "worker_status": "passed"
+  },
+  {
+    "CPU_scope": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+    "budget_hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "budget_lock": {
+        "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+      },
+      "dataset": "PubMed",
+      "hardware_class": "A800",
+      "job": {
+        "sha256": "2d3f62936184a31ece1da487a216b9bad0c94129712235aa5ce8709664cd6f3d"
+      },
+      "model": "sage",
+      "release_sha256": "6ace134104a42a537c7927eed553941fae60dd0743717c4dab347dbf00f67503",
+      "schema": "vldb_hardware_cost_binding_v1",
+      "seed": 11,
+      "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+    },
+    "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+    "dataset": "PubMed",
+    "hardware": {
+      "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+      "class": "A800"
+    },
+    "legacy_budget_source": null,
+    "model": "sage",
+    "science_status": "completed",
+    "seed": 37,
+    "worker_status": "passed"
+  }
+]

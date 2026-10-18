@@ -1,0 +1,10 @@
+{
+  "schema": "vldb_gpu_worker_completion_v1",
+  "status": "passed",
+  "worker_wall_seconds": 1357.46294683218,
+  "worker_CPU_seconds": 2920.11832,
+  "maximum_RSS_KiB": 1497328,
+  "CPU_source": "RUSAGE_SELF user+system from main entry; excludes guard subprocess CPU and overlaps scheduler TotalCPU",
+  "contention_limitation": "Scheduler CPU/memory allocations and discrete UUID checks do not prove absent external host bandwidth/network contention",
+  "host_isolation_rule": "timing exclusive against all owned jobs on this signed host; training may share host"
+}

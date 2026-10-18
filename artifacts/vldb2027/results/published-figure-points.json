@@ -1,0 +1,3552 @@
+{
+  "status": "rendered_pending_visual_review",
+  "renderer_variant": "systems-v1",
+  "input_manifest_sha256": "06a6ee8e40f861987baf57c437fa37f82b0a13e2e0f5ad5d8930a694c45cc581",
+  "source_script_sha256": "fc3a9f525ec4f1d6b27336332d559b4852bd8ad0b84a176926450d421c2c7d27",
+  "input_provenance": [
+    {
+      "role": "scalar_summary",
+      "sha256": "684cc4c40908914609897838f08bcdf8fda7eee4c49d70a374def6bf6984c0d8",
+      "bytes": 1199
+    },
+    {
+      "role": "scalar_per_seed",
+      "sha256": "33af530b946b7578ce7487ccbe94ca5f4c27fd3b41eb75bf02c3e597774b451f",
+      "bytes": 319766
+    },
+    {
+      "role": "scalar_across_seeds",
+      "sha256": "975b1879d52ed564dbe1066bae2c06737c51761ffc635a9b97b4d2c33c038e61",
+      "bytes": 107655
+    },
+    {
+      "role": "frozen_budgets",
+      "sha256": "f5263633ff5c225b38769ad4657d456031014db14a31484ef196f6d40bc2be2a",
+      "bytes": 1651
+    },
+    {
+      "role": "hardware_context",
+      "sha256": "8a7906ca3c6252ee61604631daf0a831a5d367803dfbdc983ebdacbfdc5779b2",
+      "bytes": 28040
+    },
+    {
+      "role": "mechanism_summary",
+      "sha256": "2e7a7f314faf2f279d46a7bd71a6f828f03f7c2f23700b8989c2aa643721f386",
+      "bytes": 1243
+    },
+    {
+      "role": "mechanism_per_seed",
+      "sha256": "7548c11ad4cbddf3a530f9fc2851411bf3742ca9ca809421a52bf1c67bdd7c8d",
+      "bytes": 176663
+    },
+    {
+      "role": "mechanism_across_seeds",
+      "sha256": "0a80e23f846d0e6b7d6861d5829918052e091a74027ba8175df447329e832216",
+      "bytes": 68489
+    },
+    {
+      "role": "mechanism_per_repeat",
+      "sha256": "f3cb712d21a2d80841a610312fa21f8c237ca5cd207bccf86e01d3e18c9b69c6",
+      "bytes": 691657
+    }
+  ],
+  "accepted_result_review_refs": [
+    {
+      "sha256": "09bd47fbc1ad872f61c155b901a39da9d3c4600e69339d5b2b693ce8d9a36f05"
+    }
+  ],
+  "workload_scope": {
+    "ogbn-arxiv": "48,603 fixed official-test targets;380 requests of at most128 nodes, identical full target workload for sampled/exact/RAM.",
+    "PubMed": "1,000 fixed official-test targets;8 requests of at most128 nodes, identical full target workload for sampled/exact/RAM."
+  },
+  "hardware_scope": "NVIDIA A800-SXM4-80GB",
+  "exact_plotted_scalars_and_coefficients": {
+    "mechanism": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.06429644260642346
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.09773059276176367
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.06069584182046376
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.03137666399193466
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.05452338333024711
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.07355513034174845
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.09052939118984425
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.14505277452009135
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.11521922515071086
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.11161862436475113
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.07715573112770817
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.11058988128304836
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.1476246322243483
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.09978807892516922
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.025204205501718
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.20626298788140648
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.1887743554924593
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.10287430817027755
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.09412999197580396
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.0792132172911137
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.06481081414727485
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.15482583379626771
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.11161862436475116
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.007201201571919428
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.2273522210563134
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.18260189700224266
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.05143715408513878
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.09052939118984424
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.09927370738431783
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.045264695594922126
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.19957615785033844
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.08538567578133037
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.07664135958685678
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.2643869719976133
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.17180009464436352
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.12190605518177891
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": -0.05
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.05
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": -0.125
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.575
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.0
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.25
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 1.0
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.17500000000000002
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.3
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.125
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.15
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.0
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.2
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": -0.2
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.6
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.75
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": -0.025
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.625
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.1805444108388371
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.22117976256609673
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.14505277452009135
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.20111927247289263
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.05298026870769293
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.17900129621628297
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.3158241260827521
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.24381211036355782
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.2906199205810341
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.28959117749933133
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.25049894039462584
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.2823899759274119
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.42898586507005737
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.5709524103450404
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.421784663498138
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.6090159043680431
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.8019052321873135
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.6589099438306277
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.14350965989753717
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.1337366006213608
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.08281381807707343
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.01131617389873053
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.14916774684690248
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.04475032405407074
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.11830545439581919
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.24792708269036892
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.11213299590560252
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.10596053741538589
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.12756414213114414
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "local_restored",
+        "accuracy_delta_pp": 0.09875933584346645
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.1759150669711746
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.20214801555459538
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "upstream_restored",
+        "accuracy_delta_pp": 0.13167911445795527
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 11,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.2690163158652758
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 23,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.311709153755941
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "seed": 37,
+        "branch": "both_restored",
+        "accuracy_delta_pp": 0.22580910643375923
+      }
+    ],
+    "gain_annotations": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "uniform",
+        "branch_means_pp": {
+          "local_restored": 0.07424095906288362,
+          "upstream_restored": 0.05315172588797674,
+          "both_restored": 0.11693379695354883
+        },
+        "maximum_branch_mean_pp": 0.11693379695354883,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.010458887997311551
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "sampler": "labor",
+        "branch_means_pp": {
+          "local_restored": 0.09978807892516922,
+          "upstream_restored": 0.09087230555041184,
+          "both_restored": 0.16597055051471443
+        },
+        "maximum_branch_mean_pp": 0.16597055051471443,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.024689833960866613
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "uniform",
+        "branch_means_pp": {
+          "local_restored": 0.0793846744713975,
+          "upstream_restored": 0.09121521991097943,
+          "both_restored": 0.15379709071456493
+        },
+        "maximum_branch_mean_pp": 0.15379709071456493,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.016802803667812
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "sampler": "labor",
+        "branch_means_pp": {
+          "local_restored": 0.07835593138969474,
+          "upstream_restored": 0.12053439773950853,
+          "both_restored": 0.18603104060791856
+        },
+        "maximum_branch_mean_pp": 0.18603104060791856,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.012859288521284694
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "uniform",
+        "branch_means_pp": {
+          "local_restored": -0.04166666666666667,
+          "upstream_restored": 0.27499999999999997,
+          "both_restored": 0.49166666666666664
+        },
+        "maximum_branch_mean_pp": 0.49166666666666664,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": 0.2583333333333333
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "sampler": "labor",
+        "branch_means_pp": {
+          "local_restored": 0.09166666666666666,
+          "upstream_restored": 0.2,
+          "both_restored": 0.44999999999999996
+        },
+        "maximum_branch_mean_pp": 0.44999999999999996,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": 0.15833333333333335
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "uniform",
+        "branch_means_pp": {
+          "local_restored": 0.18225898264167506,
+          "upstream_restored": 0.14436694579895618,
+          "both_restored": 0.28341871900911464
+        },
+        "maximum_branch_mean_pp": 0.28341871900911464,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.043207209431516576
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "sampler": "labor",
+        "branch_means_pp": {
+          "local_restored": 0.2741600312737897,
+          "upstream_restored": 0.47390764630441196,
+          "both_restored": 0.6899436934619948
+        },
+        "maximum_branch_mean_pp": 0.6899436934619948,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.05812398411620682
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "uniform",
+        "branch_means_pp": {
+          "local_restored": 0.12002002619865713,
+          "upstream_restored": 0.06841141493323458,
+          "both_restored": 0.15945517766393022
+        },
+        "maximum_branch_mean_pp": 0.15945517766393022,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.028976263467961512
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "sampler": "labor",
+        "branch_means_pp": {
+          "local_restored": 0.11076133846333217,
+          "upstream_restored": 0.16991406566124176,
+          "both_restored": 0.268844858684992
+        },
+        "maximum_branch_mean_pp": 0.268844858684992,
+        "maximum_scope": "max of local/upstream/joint three-seed means; not best seed",
+        "interaction_pp": -0.011830545439581919
+      }
+    ],
+    "native_pair": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "local_error_delta_native_squared_l2": 0.00032292484048441247,
+        "sampled_accuracy_delta_pp": -0.1157335966915668,
+        "sampled_native_margin_delta": 0.0022647005261527964,
+        "error_range": {
+          "low": 0.00021262968936811184,
+          "high": 0.0005145416037543866,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.00021262968936811184,
+              0.00029981280508709117,
+              0.0002647152637280602,
+              0.0005145416037543866
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.3086229245108374,
+          "high": -0.018517375470650244,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.00018517375470650244,
+              -0.003086229245108374,
+              -0.0010081682200687725,
+              -0.00034977264777902306
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "local_error_delta_native_squared_l2": 0.0003800839973498218,
+        "sampled_accuracy_delta_pp": -0.043721580972369556,
+        "sampled_native_margin_delta": 0.0014036859180082129,
+        "error_range": {
+          "low": 0.0001830530042593475,
+          "high": 0.0006967535921243947,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.0006967535921243947,
+              0.00026910870167617647,
+              0.0003714206913393685,
+              0.0001830530042593475
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.15019648992860013,
+          "high": 0.08435693269962519,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0006583955722898605,
+              0.0008435693269962519,
+              -0.00043207209431517235,
+              -0.0015019648992860013
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "local_error_delta_native_squared_l2": 0.000549282634606899,
+        "sampled_accuracy_delta_pp": 0.01234491698043072,
+        "sampled_native_margin_delta": -0.008164942900116656,
+        "error_range": {
+          "low": 0.00011842388207899783,
+          "high": 0.0008672916081636046,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.00011842388207899783,
+              0.0007225170124504996,
+              0.0004888980357344941,
+              0.0008672916081636046
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.19751867168693593,
+          "high": 0.1892887270333099,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.001892887270333099,
+              -0.0006789704339238423,
+              0.0012550665596773314,
+              -0.0019751867168693593
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "local_error_delta_native_squared_l2": 0.14720125485149543,
+        "sampled_accuracy_delta_pp": -0.03703475094130049,
+        "sampled_native_margin_delta": -0.00444765411890824,
+        "error_range": {
+          "low": 0.02207415028914106,
+          "high": 0.342142566236197,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.09445631367765328,
+              0.1301319892029904,
+              0.02207415028914106,
+              0.342142566236197
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.22838096413801967,
+          "high": 0.06789704339238423,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0004937966792173398,
+              0.0006789704339238423,
+              -0.0022838096413801967,
+              0.0006172458490216748
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "local_error_delta_native_squared_l2": 0.3251253282915959,
+        "sampled_accuracy_delta_pp": 0.010801802357882084,
+        "sampled_native_margin_delta": 0.0026641179426410977,
+        "error_range": {
+          "low": 0.07342830930382682,
+          "high": 0.6609377292474039,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.6609377292474039,
+              0.2009582479882881,
+              0.3651770266268648,
+              0.07342830930382682
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.04937966792173398,
+          "high": 0.06995452955579351,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.00022632347797457708,
+              0.0004526469559492652,
+              -0.0004937966792173398,
+              0.0006995452955579351
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "local_error_delta_native_squared_l2": 0.2534942232142079,
+        "sampled_accuracy_delta_pp": -0.0704689010966375,
+        "sampled_native_margin_delta": -0.030440180779559456,
+        "error_range": {
+          "low": 0.1605222125490502,
+          "high": 0.3486412652433395,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.1605222125490502,
+              0.33869060774395576,
+              0.16612280732048612,
+              0.3486412652433395
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.1666563792358411,
+          "high": 0.051437154085132164,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.0005143715408513216,
+              -0.0005760961257534891,
+              -0.001666563792358411,
+              -0.0010904676666049218
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "local_error_delta_native_squared_l2": -0.18172223577089447,
+        "sampled_accuracy_delta_pp": 0.2500000000000002,
+        "sampled_native_margin_delta": 0.00548024271428571,
+        "error_range": {
+          "low": -0.2163612768277503,
+          "high": -0.14350535950809606,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.14350535950809606,
+              -0.1912253418639282,
+              -0.2163612768277503,
+              -0.17579696488380325
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.10000000000000009,
+          "high": 0.6000000000000005,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.0040000000000000036,
+              0.006000000000000005,
+              0.0010000000000000009,
+              -0.0010000000000000009
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "local_error_delta_native_squared_l2": -0.17828305030101757,
+        "sampled_accuracy_delta_pp": 0.20000000000000018,
+        "sampled_native_margin_delta": -0.00766495046019533,
+        "error_range": {
+          "low": -0.22430425108596547,
+          "high": -0.12479261380061407,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.12479261380061407,
+              -0.22430425108596547,
+              -0.20519232827983577,
+              -0.158843008037655
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.10000000000000009,
+          "high": 0.5000000000000004,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0010000000000000009,
+              0.0,
+              0.0050000000000000044,
+              0.0040000000000000036
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "local_error_delta_native_squared_l2": -0.15339228152669804,
+        "sampled_accuracy_delta_pp": -0.3250000000000003,
+        "sampled_native_margin_delta": -0.03629029107093795,
+        "error_range": {
+          "low": -0.17465789447724642,
+          "high": -0.11308651419728843,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.17118384344130647,
+              -0.17465789447724642,
+              -0.11308651419728843,
+              -0.1546408739909508
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -1.4000000000000012,
+          "high": 0.8000000000000007,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.014000000000000012,
+              -0.0030000000000000027,
+              -0.0040000000000000036,
+              0.008000000000000007
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "local_error_delta_native_squared_l2": 4.144070464024666,
+        "sampled_accuracy_delta_pp": -0.3266259284406353,
+        "sampled_native_margin_delta": -0.0415121673821926,
+        "error_range": {
+          "low": 4.069766147979165,
+          "high": 4.215924841956049,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              4.172247858271232,
+              4.069766147979165,
+              4.118343007892217,
+              4.215924841956049
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.40943974651771464,
+          "high": -0.19751867168693593,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.004094397465177146,
+              -0.0033742773079851185,
+              -0.0019751867168693593,
+              -0.0036211756475937884
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "local_error_delta_native_squared_l2": 4.817557206684494,
+        "sampled_accuracy_delta_pp": -0.5447194617616224,
+        "sampled_native_margin_delta": -0.06228765054150748,
+        "error_range": {
+          "low": 4.631715328214625,
+          "high": 4.993155024991416,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              4.92175564844123,
+              4.7236028250907065,
+              4.631715328214625,
+              4.993155024991416
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.8806040779375746,
+          "high": -0.29010554904018715,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.004361870666419798,
+              -0.0029010554904018715,
+              -0.005719811534267483,
+              -0.008806040779375746
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "local_error_delta_native_squared_l2": 3.2743191763738775,
+        "sampled_accuracy_delta_pp": -0.35543073472830977,
+        "sampled_native_margin_delta": -0.0633604272429269,
+        "error_range": {
+          "low": 3.0955801011064614,
+          "high": 3.372439398913247,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              3.3705920081124896,
+              3.258665197363313,
+              3.372439398913247,
+              3.0955801011064614
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.5226014855050143,
+          "high": -0.19546118552352665,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0019546118552352665,
+              -0.004156122050079203,
+              -0.005226014855050143,
+              -0.0028804806287677787
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "local_error_delta_native_squared_l2": 0.03753239343037108,
+        "sampled_accuracy_delta_pp": -0.15071086146945523,
+        "sampled_native_margin_delta": -0.007266109280067989,
+        "error_range": {
+          "low": 0.0371788276065519,
+          "high": 0.03816775902942724,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.03740823208555343,
+              0.03737475499995178,
+              0.03816775902942724,
+              0.0371788276065519
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.32302532765466907,
+          "high": -0.061724584902156376,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0006172458490215638,
+              -0.0006583955722898605,
+              -0.0015225397609200941,
+              -0.0032302532765466907
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "local_error_delta_native_squared_l2": 0.0394225627651969,
+        "sampled_accuracy_delta_pp": -0.06378207106557121,
+        "sampled_native_margin_delta": 0.0018132319556433685,
+        "error_range": {
+          "low": 0.037849933570792055,
+          "high": 0.04146833550373864,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.04146833550373864,
+              0.03834444694267925,
+              0.037849933570792055,
+              0.04002753504357766
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.5061415961977622,
+          "high": 0.20780610250397125,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.005061415961977622,
+              0.0020780610250397125,
+              0.0007406950188258987,
+              -0.0003086229245108374
+            ]
+          }
+        }
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "local_error_delta_native_squared_l2": 0.03676628217581845,
+        "sampled_accuracy_delta_pp": -0.11367611052815474,
+        "sampled_native_margin_delta": -0.012996072928885771,
+        "error_range": {
+          "low": 0.03591597623337989,
+          "high": 0.03822967704355556,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              0.03611350131862585,
+              0.03591597623337989,
+              0.03822967704355556,
+              0.0368059741077125
+            ]
+          }
+        },
+        "accuracy_range_pp": {
+          "low": -0.15019648992860013,
+          "high": -0.06995452955578241,
+          "mode": "paired_repeat_range",
+          "evidence": {
+            "paired_repeat_contrasts": [
+              -0.0006995452955578241,
+              -0.0015019648992860013,
+              -0.0009875933584346797,
+              -0.0013579408678476845
+            ]
+          }
+        }
+      }
+    ],
+    "deployment": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 69.05592247392136,
+        "workload_seconds": 18.178637273143977,
+        "peak_allocated_GiB": 0.05029916763305664,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.48381787132482,
+        "workload_seconds": 43.04574714927003,
+        "peak_allocated_GiB": 0.10562372207641602,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.60778141267001,
+        "workload_seconds": 89.90241956850514,
+        "peak_allocated_GiB": 0.16182518005371094,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": false,
+        "accuracy_pct": 67.98654404049132,
+        "workload_seconds": 18.4376890193671,
+        "peak_allocated_GiB": 0.04656553268432617,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.48844721519248,
+        "workload_seconds": 36.30216389102861,
+        "peak_allocated_GiB": 0.08901357650756836,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.58051972100488,
+        "workload_seconds": 82.87464677449316,
+        "peak_allocated_GiB": 0.15082073211669922,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 69.3666028845956,
+        "workload_seconds": 18.22266796696931,
+        "peak_allocated_GiB": 0.050296783447265625,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.74974795794499,
+        "workload_seconds": 43.12678074929863,
+        "peak_allocated_GiB": 0.10545635223388672,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.86239532539143,
+        "workload_seconds": 90.12344410736114,
+        "peak_allocated_GiB": 0.16189908981323242,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": false,
+        "accuracy_pct": 68.28693702034853,
+        "workload_seconds": 18.421956297475845,
+        "peak_allocated_GiB": 0.04653120040893555,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.73688866942369,
+        "workload_seconds": 36.452571392059326,
+        "peak_allocated_GiB": 0.08906221389770508,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.88091270086208,
+        "workload_seconds": 83.086254268419,
+        "peak_allocated_GiB": 0.15132951736450195,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 69.89691994321339,
+        "workload_seconds": 18.51279527740553,
+        "peak_allocated_GiB": 0.05029916763305664,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 71.34076085838323,
+        "workload_seconds": 43.43231400148943,
+        "peak_allocated_GiB": 0.10582590103149414,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 71.4045429294488,
+        "workload_seconds": 91.046471927315,
+        "peak_allocated_GiB": 0.16173887252807617,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": false,
+        "accuracy_pct": 69.01477275065325,
+        "workload_seconds": 18.442968608345836,
+        "peak_allocated_GiB": 0.04667949676513672,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 71.25280332489764,
+        "workload_seconds": 36.686505559366196,
+        "peak_allocated_GiB": 0.08873462677001953,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 71.33818900067898,
+        "workload_seconds": 84.37885784963146,
+        "peak_allocated_GiB": 0.1512293815612793,
+        "peak_reserved_GiB": 0.23046875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 70.8089006851429,
+        "workload_seconds": 18.17896539811045,
+        "peak_allocated_GiB": 0.1930680274963379,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.05779478633006,
+        "workload_seconds": 44.617387908976525,
+        "peak_allocated_GiB": 1.2221431732177734,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.23216673867869,
+        "workload_seconds": 94.0918245636858,
+        "peak_allocated_GiB": 3.008255958557129,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 70.39020225088987,
+        "workload_seconds": 18.303514456842095,
+        "peak_allocated_GiB": 0.16600656509399414,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.00532888916322,
+        "workload_seconds": 37.73160365270451,
+        "peak_allocated_GiB": 0.9213299751281738,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.17970084151185,
+        "workload_seconds": 74.6198083232157,
+        "peak_allocated_GiB": 2.3426127433776855,
+        "peak_reserved_GiB": 7.986328125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 71.0501409378022,
+        "workload_seconds": 18.486565046943724,
+        "peak_allocated_GiB": 0.19321680068969727,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.22187930786166,
+        "workload_seconds": 45.02823087852448,
+        "peak_allocated_GiB": 1.2217121124267578,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.34172787688003,
+        "workload_seconds": 95.1112551628612,
+        "peak_allocated_GiB": 3.0091519355773926,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 70.6108676419151,
+        "workload_seconds": 18.73115726839751,
+        "peak_allocated_GiB": 0.16369152069091797,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.1472954344382,
+        "workload_seconds": 38.31326710851863,
+        "peak_allocated_GiB": 0.9239687919616699,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.38082011398474,
+        "workload_seconds": 75.05717390961945,
+        "peak_allocated_GiB": 2.3480401039123535,
+        "peak_reserved_GiB": 5.912109375
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 71.26669135650062,
+        "workload_seconds": 18.29317525913939,
+        "peak_allocated_GiB": 0.1935586929321289,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.19873258852334,
+        "workload_seconds": 44.80729771312326,
+        "peak_allocated_GiB": 1.2309956550598145,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.18895952924717,
+        "workload_seconds": 94.69977286551148,
+        "peak_allocated_GiB": 3.0047249794006348,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 70.88811390243401,
+        "workload_seconds": 18.345737450756133,
+        "peak_allocated_GiB": 0.16641950607299805,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 72.14369483365223,
+        "workload_seconds": 37.92642960185185,
+        "peak_allocated_GiB": 0.9081168174743652,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 72.2373104540872,
+        "workload_seconds": 75.00921450695023,
+        "peak_allocated_GiB": 2.343964099884033,
+        "peak_reserved_GiB": 10.591796875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 1,
+        "lock_feasible": true,
+        "accuracy_pct": 72.85,
+        "workload_seconds": 0.29763762606307864,
+        "peak_allocated_GiB": 0.036876678466796875,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 4,
+        "lock_feasible": true,
+        "accuracy_pct": 74.725,
+        "workload_seconds": 0.32929669599980116,
+        "peak_allocated_GiB": 0.0472874641418457,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 75.0,
+        "workload_seconds": 0.38782057678326964,
+        "peak_allocated_GiB": 0.06194448471069336,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.125,
+        "workload_seconds": 0.36088872933760285,
+        "peak_allocated_GiB": 0.05283021926879883,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.125,
+        "workload_seconds": 0.3604205446317792,
+        "peak_allocated_GiB": 0.05283021926879883,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.125,
+        "workload_seconds": 0.36499177385121584,
+        "peak_allocated_GiB": 0.05283021926879883,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 1,
+        "lock_feasible": true,
+        "accuracy_pct": 73.625,
+        "workload_seconds": 0.28520858846604824,
+        "peak_allocated_GiB": 0.03688669204711914,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 4,
+        "lock_feasible": true,
+        "accuracy_pct": 75.55000000000001,
+        "workload_seconds": 0.32659964822232723,
+        "peak_allocated_GiB": 0.04727649688720703,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 75.825,
+        "workload_seconds": 0.37767733354121447,
+        "peak_allocated_GiB": 0.06072521209716797,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.575,
+        "workload_seconds": 0.3510062098503113,
+        "peak_allocated_GiB": 0.053002357482910156,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.575,
+        "workload_seconds": 0.3450768650509417,
+        "peak_allocated_GiB": 0.053002357482910156,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 75.575,
+        "workload_seconds": 0.33034214470535517,
+        "peak_allocated_GiB": 0.053002357482910156,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 1,
+        "lock_feasible": true,
+        "accuracy_pct": 73.575,
+        "workload_seconds": 0.285183466039598,
+        "peak_allocated_GiB": 0.03688526153564453,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 4,
+        "lock_feasible": true,
+        "accuracy_pct": 74.3,
+        "workload_seconds": 0.3304031458683312,
+        "peak_allocated_GiB": 0.04709959030151367,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 74.325,
+        "workload_seconds": 0.36165881017223,
+        "peak_allocated_GiB": 0.06176280975341797,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 74.225,
+        "workload_seconds": 0.33399875927716494,
+        "peak_allocated_GiB": 0.05263805389404297,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 74.225,
+        "workload_seconds": 0.33219782914966345,
+        "peak_allocated_GiB": 0.05263805389404297,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 6,
+        "lock_feasible": true,
+        "accuracy_pct": 74.225,
+        "workload_seconds": 0.3390275347046554,
+        "peak_allocated_GiB": 0.05263805389404297,
+        "peak_reserved_GiB": 0.076171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 66.92436680863321,
+        "workload_seconds": 22.869701012969017,
+        "peak_allocated_GiB": 0.09361648559570312,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.12993025121906,
+        "workload_seconds": 48.516262823715806,
+        "peak_allocated_GiB": 0.29535675048828125,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.41437771330988,
+        "workload_seconds": 98.04224210046232,
+        "peak_allocated_GiB": 0.4371514320373535,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 68.61562043495258,
+        "workload_seconds": 27.033624412026256,
+        "peak_allocated_GiB": 0.12482929229736328,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 12,
+        "lock_feasible": true,
+        "accuracy_pct": 69.73849350863115,
+        "workload_seconds": 34.621049729175866,
+        "peak_allocated_GiB": 0.19289588928222656,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.35882558689794,
+        "workload_seconds": 91.7525684768334,
+        "peak_allocated_GiB": 0.4231081008911133,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 66.67592535440198,
+        "workload_seconds": 22.64607773721218,
+        "peak_allocated_GiB": 0.09363365173339844,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 69.9221241487151,
+        "workload_seconds": 48.38525601057336,
+        "peak_allocated_GiB": 0.2979602813720703,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.10061107339052,
+        "workload_seconds": 98.44033185997978,
+        "peak_allocated_GiB": 0.4370865821838379,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 68.41913050634734,
+        "workload_seconds": 27.10055359173566,
+        "peak_allocated_GiB": 0.12519454956054688,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 12,
+        "lock_feasible": true,
+        "accuracy_pct": 69.52554369071868,
+        "workload_seconds": 34.6499257418327,
+        "peak_allocated_GiB": 0.1935138702392578,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.15359134209822,
+        "workload_seconds": 91.36991925304756,
+        "peak_allocated_GiB": 0.4233059883117676,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 68.1645165936259,
+        "workload_seconds": 23.782478790730238,
+        "peak_allocated_GiB": 0.09370183944702148,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.3845441639405,
+        "workload_seconds": 49.12760758586228,
+        "peak_allocated_GiB": 0.2981128692626953,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.65561796596917,
+        "workload_seconds": 98.11689943401143,
+        "peak_allocated_GiB": 0.43721914291381836,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 8,
+        "lock_feasible": true,
+        "accuracy_pct": 69.4195831533033,
+        "workload_seconds": 28.12027928652242,
+        "peak_allocated_GiB": 0.12375259399414062,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 12,
+        "lock_feasible": true,
+        "accuracy_pct": 70.2734399111166,
+        "workload_seconds": 35.43839438119903,
+        "peak_allocated_GiB": 0.19118261337280273,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.67567845606239,
+        "workload_seconds": 90.89669479802251,
+        "peak_allocated_GiB": 0.42522382736206055,
+        "peak_reserved_GiB": 1.1171875
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 67.33689278439603,
+        "workload_seconds": 17.91401881305501,
+        "peak_allocated_GiB": 0.06021451950073242,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 69.92932535028702,
+        "workload_seconds": 42.53114319080487,
+        "peak_allocated_GiB": 0.15566778182983398,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.1325021089233,
+        "workload_seconds": 89.50266895163804,
+        "peak_allocated_GiB": 0.2259383201599121,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 65.6060325494311,
+        "workload_seconds": 17.97355378093198,
+        "peak_allocated_GiB": 0.05212831497192383,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 69.8120486389729,
+        "workload_seconds": 36.009196494240314,
+        "peak_allocated_GiB": 0.12892436981201172,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.12272904964713,
+        "workload_seconds": 82.58657192531973,
+        "peak_allocated_GiB": 0.2199721336364746,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 67.19286875295764,
+        "workload_seconds": 17.887290570884943,
+        "peak_allocated_GiB": 0.06022024154663086,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 69.83982470217887,
+        "workload_seconds": 42.32854304788634,
+        "peak_allocated_GiB": 0.15686750411987305,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.04197271773347,
+        "workload_seconds": 89.32872273446992,
+        "peak_allocated_GiB": 0.2258739471435547,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 65.29895273954283,
+        "workload_seconds": 17.74570845346898,
+        "peak_allocated_GiB": 0.05210161209106445,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 69.75649651256094,
+        "workload_seconds": 35.83402315154672,
+        "peak_allocated_GiB": 0.12944507598876953,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.01162479682324,
+        "workload_seconds": 82.55919765681028,
+        "peak_allocated_GiB": 0.21943950653076172,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 67.54006954303232,
+        "workload_seconds": 17.884925606194884,
+        "peak_allocated_GiB": 0.06025409698486328,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.20451412464251,
+        "workload_seconds": 42.2264105072245,
+        "peak_allocated_GiB": 0.15693140029907227,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "uniform",
+        "tier": "high",
+        "fanout": 30,
+        "lock_feasible": true,
+        "accuracy_pct": 70.2734399111166,
+        "workload_seconds": 89.08685305388644,
+        "peak_allocated_GiB": 0.22600603103637695,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "low",
+        "fanout": 5,
+        "lock_feasible": true,
+        "accuracy_pct": 65.59934571940003,
+        "workload_seconds": 17.750191629398614,
+        "peak_allocated_GiB": 0.052335262298583984,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "middle",
+        "fanout": 15,
+        "lock_feasible": true,
+        "accuracy_pct": 70.09340987181861,
+        "workload_seconds": 35.83679420175031,
+        "peak_allocated_GiB": 0.12803363800048828,
+        "peak_reserved_GiB": 0.453125
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "sampler": "labor",
+        "tier": "high",
+        "fanout": 36,
+        "lock_feasible": true,
+        "accuracy_pct": 70.2734399111166,
+        "workload_seconds": 82.51996401557699,
+        "peak_allocated_GiB": 0.22086095809936523,
+        "peak_reserved_GiB": 0.453125
+      }
+    ],
+    "full": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "accuracy_pct": 70.62321255889555,
+        "workload_seconds": 0.18709643185138702,
+        "peak_allocated_GiB": 0.8700828552246094
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "accuracy_pct": 70.88039832932124,
+        "workload_seconds": 0.1773342490196228,
+        "peak_allocated_GiB": 0.8700828552246094
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "accuracy_pct": 71.40505730098965,
+        "workload_seconds": 0.18791747465729713,
+        "peak_allocated_GiB": 0.8700828552246094
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "accuracy_pct": 72.27743143427361,
+        "workload_seconds": 0.3070198241621256,
+        "peak_allocated_GiB": 1.9314613342285156
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "accuracy_pct": 72.3885356870975,
+        "workload_seconds": 0.29791033640503883,
+        "peak_allocated_GiB": 1.9314613342285156
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "accuracy_pct": 72.21982182169825,
+        "workload_seconds": 0.2929122671484947,
+        "peak_allocated_GiB": 1.9314613342285156
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "accuracy_pct": 75.8,
+        "workload_seconds": 0.08521785773336887,
+        "peak_allocated_GiB": 0.16593217849731445
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "accuracy_pct": 75.4,
+        "workload_seconds": 0.07814104482531548,
+        "peak_allocated_GiB": 0.16593217849731445
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "accuracy_pct": 74.6,
+        "workload_seconds": 0.07517939247190952,
+        "peak_allocated_GiB": 0.16593217849731445
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "accuracy_pct": 70.55531551550315,
+        "workload_seconds": 0.26543340645730495,
+        "peak_allocated_GiB": 0.8705320358276367
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "accuracy_pct": 70.13558833816843,
+        "workload_seconds": 0.22138608060777187,
+        "peak_allocated_GiB": 0.8705320358276367
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "accuracy_pct": 70.7178569224122,
+        "workload_seconds": 0.22990947775542736,
+        "peak_allocated_GiB": 0.8705320358276367
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "accuracy_pct": 70.12941587967822,
+        "workload_seconds": 0.34026406332850456,
+        "peak_allocated_GiB": 0.47125720977783203
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "accuracy_pct": 70.05534637779562,
+        "workload_seconds": 0.28420980647206306,
+        "peak_allocated_GiB": 0.47125720977783203
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "accuracy_pct": 70.3104746620579,
+        "workload_seconds": 0.3934804294258356,
+        "peak_allocated_GiB": 0.47125720977783203
+      }
+    ],
+    "cost_coefficients": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 11,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.15854418836534023,
+            "slope_seconds_per_workload": 0.02855224348604679
+          },
+          "ram": {
+            "intercept_seconds": 0.18571891263127327,
+            "slope_seconds_per_workload": 0.008204426616430283
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 43.04574714927003
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 36.30216389102861
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.15854418836534023,
+          "full_e2e_median_seconds": 0.02855224348604679,
+          "cache_build_median_seconds": 0.027174724265933037,
+          "target_gather_median_seconds": 0.0014931224286556244,
+          "RAM_workload_median_seconds": 0.008204426616430283
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.18709643185138702,
+            "paid_full_RAM_seconds": 0.19392333924770355
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.44406662322580814,
+            "paid_full_RAM_seconds": 0.2677631787955761
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 3.0137685369700193,
+            "paid_full_RAM_seconds": 1.0061615742743015
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 23,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.14852252416312695,
+            "slope_seconds_per_workload": 0.028811724856495857
+          },
+          "ram": {
+            "intercept_seconds": 0.1759866438806057,
+            "slope_seconds_per_workload": 0.008640751242637634
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 43.12678074929863
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 36.452571392059326
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.14852252416312695,
+          "full_e2e_median_seconds": 0.028811724856495857,
+          "cache_build_median_seconds": 0.027464119717478752,
+          "target_gather_median_seconds": 0.001347605139017105,
+          "RAM_workload_median_seconds": 0.008640751242637634
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.1773342490196228,
+            "paid_full_RAM_seconds": 0.18462739512324333
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.4366397727280855,
+            "paid_full_RAM_seconds": 0.26239415630698204
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 3.0296950098127127,
+            "paid_full_RAM_seconds": 1.0400617681443691
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "seed": 37,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.15815670602023602,
+            "slope_seconds_per_workload": 0.02976076863706112
+          },
+          "ram": {
+            "intercept_seconds": 0.18654789589345455,
+            "slope_seconds_per_workload": 0.00912252813577652
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 43.43231400148943
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 36.686505559366196
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.15815670602023602,
+          "full_e2e_median_seconds": 0.02976076863706112,
+          "cache_build_median_seconds": 0.028391189873218536,
+          "target_gather_median_seconds": 0.0015780255198478699,
+          "RAM_workload_median_seconds": 0.00912252813577652
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.18791747465729713,
+            "paid_full_RAM_seconds": 0.19567042402923107
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.4557643923908472,
+            "paid_full_RAM_seconds": 0.27777317725121975
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 3.134233569726348,
+            "paid_full_RAM_seconds": 1.0988007094711065
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 11,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.11903181672096252,
+            "slope_seconds_per_workload": 0.18798800744116306
+          },
+          "ram": {
+            "intercept_seconds": 0.293439619243145,
+            "slope_seconds_per_workload": 0.14110464788973331
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 44.617387908976525
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 37.73160365270451
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.11903181672096252,
+          "full_e2e_median_seconds": 0.18798800744116306,
+          "cache_build_median_seconds": 0.17440780252218246,
+          "target_gather_median_seconds": 0.01433594897389412,
+          "RAM_workload_median_seconds": 0.14110464788973331
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.3070198241621256,
+            "paid_full_RAM_seconds": 0.4345442671328783
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.9989118911325932,
+            "paid_full_RAM_seconds": 1.7044860981404781
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 18.91783256083727,
+            "paid_full_RAM_seconds": 14.403904408216476
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 23,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.12435041554272175,
+            "slope_seconds_per_workload": 0.17355992086231709
+          },
+          "ram": {
+            "intercept_seconds": 0.2969033792614937,
+            "slope_seconds_per_workload": 0.008047111332416534
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 45.02823087852448
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 38.31326710851863
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.12435041554272175,
+          "full_e2e_median_seconds": 0.17355992086231709,
+          "cache_build_median_seconds": 0.17255296371877193,
+          "target_gather_median_seconds": 0.0010069571435451508,
+          "RAM_workload_median_seconds": 0.008047111332416534
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.29791033640503883,
+            "paid_full_RAM_seconds": 0.3049504905939102
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.8599496241658926,
+            "paid_full_RAM_seconds": 0.377374492585659
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 17.48034250177443,
+            "paid_full_RAM_seconds": 1.1016145125031471
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "seed": 37,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.1197174396365881,
+            "slope_seconds_per_workload": 0.17319482751190662
+          },
+          "ram": {
+            "intercept_seconds": 0.29189061746001244,
+            "slope_seconds_per_workload": 0.007337912917137146
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 44.80729771312326
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 37.92642960185185
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.1197174396365881,
+          "full_e2e_median_seconds": 0.17319482751190662,
+          "cache_build_median_seconds": 0.17217317782342434,
+          "target_gather_median_seconds": 0.0011146366596221924,
+          "RAM_workload_median_seconds": 0.007337912917137146
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.2929122671484947,
+            "paid_full_RAM_seconds": 0.2992285303771496
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.8516657147556543,
+            "paid_full_RAM_seconds": 0.3652697466313839
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 17.43920019082725,
+            "paid_full_RAM_seconds": 1.025681909173727
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 11,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.07744751870632172,
+            "slope_seconds_per_workload": 0.007770339027047157
+          },
+          "ram": {
+            "intercept_seconds": 0.08508616499602795,
+            "slope_seconds_per_workload": 0.00024785473942756653
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.32929669599980116
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.3604205446317792
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.07744751870632172,
+          "full_e2e_median_seconds": 0.007770339027047157,
+          "cache_build_median_seconds": 0.00763864628970623,
+          "target_gather_median_seconds": 0.00013169273734092712,
+          "RAM_workload_median_seconds": 0.00024785473942756653
+        },
+        "RAM_cache_bytes": 236604.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.08521785773336887,
+            "paid_full_RAM_seconds": 0.08533401973545551
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.1551509089767933,
+            "paid_full_RAM_seconds": 0.08756471239030361
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 0.8544814214110374,
+            "paid_full_RAM_seconds": 0.1098716389387846
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 23,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.07177253812551498,
+            "slope_seconds_per_workload": 0.006368506699800491
+          },
+          "ram": {
+            "intercept_seconds": 0.07802695780992508,
+            "slope_seconds_per_workload": 0.00025564245879650116
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.32659964822232723
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.3450768650509417
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.07177253812551498,
+          "full_e2e_median_seconds": 0.006368506699800491,
+          "cache_build_median_seconds": 0.006254419684410095,
+          "target_gather_median_seconds": 0.00011408701539039612,
+          "RAM_workload_median_seconds": 0.00025564245879650116
+        },
+        "RAM_cache_bytes": 236604.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.07814104482531548,
+            "paid_full_RAM_seconds": 0.07828260026872158
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.1354576051235199,
+            "paid_full_RAM_seconds": 0.08058338239789009
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 0.7086232081055641,
+            "paid_full_RAM_seconds": 0.1035912036895752
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "seed": 37,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.06891191750764847,
+            "slope_seconds_per_workload": 0.006267474964261055
+          },
+          "ram": {
+            "intercept_seconds": 0.075061259791255,
+            "slope_seconds_per_workload": 0.00021818093955516815
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.3304031458683312
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 0.33219782914966345
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.06891191750764847,
+          "full_e2e_median_seconds": 0.006267474964261055,
+          "cache_build_median_seconds": 0.006149342283606529,
+          "target_gather_median_seconds": 0.00011813268065452576,
+          "RAM_workload_median_seconds": 0.00021818093955516815
+        },
+        "RAM_cache_bytes": 236604.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.07517939247190952,
+            "paid_full_RAM_seconds": 0.07527944073081017
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.13158666715025902,
+            "paid_full_RAM_seconds": 0.07724306918680668
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 0.695659413933754,
+            "paid_full_RAM_seconds": 0.09687935374677181
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 11,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.1962156631052494,
+            "slope_seconds_per_workload": 0.06921774335205555
+          },
+          "ram": {
+            "intercept_seconds": 0.2577272467315197,
+            "slope_seconds_per_workload": 0.009218389168381691
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 48.516262823715806
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 34.621049729175866
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.1962156631052494,
+          "full_e2e_median_seconds": 0.06921774335205555,
+          "cache_build_median_seconds": 0.061511583626270294,
+          "target_gather_median_seconds": 0.006202731281518936,
+          "RAM_workload_median_seconds": 0.009218389168381691
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.26543340645730495,
+            "paid_full_RAM_seconds": 0.2669456358999014
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.8883930966258049,
+            "paid_full_RAM_seconds": 0.3499111384153366
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 7.117989998310804,
+            "paid_full_RAM_seconds": 1.1795661635696888
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 23,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.16022262163460255,
+            "slope_seconds_per_workload": 0.06116345897316933
+          },
+          "ram": {
+            "intercept_seconds": 0.2195896040648222,
+            "slope_seconds_per_workload": 0.007699470967054367
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 48.38525601057336
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 34.6499257418327
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.16022262163460255,
+          "full_e2e_median_seconds": 0.06116345897316933,
+          "cache_build_median_seconds": 0.05936698243021965,
+          "target_gather_median_seconds": 0.0017964765429496765,
+          "RAM_workload_median_seconds": 0.007699470967054367
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.22138608060777187,
+            "paid_full_RAM_seconds": 0.22728907503187656
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.7718572113662958,
+            "paid_full_RAM_seconds": 0.29658431373536587
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 6.276568518951535,
+            "paid_full_RAM_seconds": 0.9895367007702589
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "seed": 37,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.16587285324931145,
+            "slope_seconds_per_workload": 0.06403662450611591
+          },
+          "ram": {
+            "intercept_seconds": 0.2288573831319809,
+            "slope_seconds_per_workload": 0.009060220792889595
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 49.12760758586228
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 35.43839438119903
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.16587285324931145,
+          "full_e2e_median_seconds": 0.06403662450611591,
+          "cache_build_median_seconds": 0.06298452988266945,
+          "target_gather_median_seconds": 0.0010520946234464645,
+          "RAM_workload_median_seconds": 0.009060220792889595
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.22990947775542736,
+            "paid_full_RAM_seconds": 0.2379176039248705
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 0.8062390983104706,
+            "paid_full_RAM_seconds": 0.31945959106087685
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 6.569535303860903,
+            "paid_full_RAM_seconds": 1.1348794624209404
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 11,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.1746524553745985,
+            "slope_seconds_per_workload": 0.16561160795390606
+          },
+          "ram": {
+            "intercept_seconds": 0.32568638399243355,
+            "slope_seconds_per_workload": 0.008382560685276985
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 42.53114319080487
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 36.009196494240314
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.1746524553745985,
+          "full_e2e_median_seconds": 0.16561160795390606,
+          "cache_build_median_seconds": 0.15103392861783504,
+          "target_gather_median_seconds": 0.001825304701924324,
+          "RAM_workload_median_seconds": 0.008382560685276985
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.34026406332850456,
+            "paid_full_RAM_seconds": 0.33406894467771053
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.830768534913659,
+            "paid_full_RAM_seconds": 0.4095119908452034
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 16.735813250765204,
+            "paid_full_RAM_seconds": 1.163942452520132
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 23,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.14345695450901985,
+            "slope_seconds_per_workload": 0.1407528519630432
+          },
+          "ram": {
+            "intercept_seconds": 0.282196082174778,
+            "slope_seconds_per_workload": 0.007443657144904137
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 42.32854304788634
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 35.83402315154672
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.14345695450901985,
+          "full_e2e_median_seconds": 0.1407528519630432,
+          "cache_build_median_seconds": 0.13873912766575813,
+          "target_gather_median_seconds": 0.0012837480753660202,
+          "RAM_workload_median_seconds": 0.007443657144904137
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.28420980647206306,
+            "paid_full_RAM_seconds": 0.2896397393196821
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.550985474139452,
+            "paid_full_RAM_seconds": 0.35663265362381935
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 14.218742150813341,
+            "paid_full_RAM_seconds": 1.0265617966651917
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hybonet",
+        "seed": 37,
+        "routes": {
+          "full": {
+            "intercept_seconds": 0.2167505007237196,
+            "slope_seconds_per_workload": 0.176729928702116
+          },
+          "ram": {
+            "intercept_seconds": 0.3751436937600374,
+            "slope_seconds_per_workload": 0.007138527929782867
+          },
+          "uniform": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 42.2264105072245
+          },
+          "labor": {
+            "intercept_seconds": 0.0,
+            "slope_seconds_per_workload": 35.83679420175031
+          }
+        },
+        "full_timing_components": {
+          "format_setup_seconds": 0.2167505007237196,
+          "full_e2e_median_seconds": 0.176729928702116,
+          "cache_build_median_seconds": 0.15839319303631783,
+          "target_gather_median_seconds": 0.013507595285773277,
+          "RAM_workload_median_seconds": 0.007138527929782867
+        },
+        "RAM_cache_bytes": 27094880.0,
+        "original_q": [
+          {
+            "q": 1,
+            "full_recompute_seconds": 0.3934804294258356,
+            "paid_full_RAM_seconds": 0.3822822216898203
+          },
+          {
+            "q": 10,
+            "full_recompute_seconds": 1.9840497877448797,
+            "paid_full_RAM_seconds": 0.4465289730578661
+          },
+          {
+            "q": 100,
+            "full_recompute_seconds": 17.88974337093532,
+            "paid_full_RAM_seconds": 1.0889964867383242
+          }
+        ],
+        "common_graph_checkpoint_setup_excluded": true,
+        "sampled_scope": "q times the accepted four-repeat mean middle-tier complete-workload time; no unrecorded setup imputed",
+        "exact_RAM_scope": "original median-based registered coefficients; analytic extension, not new measurements"
+      }
+    ],
+    "cost_crossings": [
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "sage",
+        "comparison": "ram_vs_full",
+        "seed_scope": "three-seed mean formula",
+        "q_star": 1.35765311885925,
+        "cost_seconds": 0.1945028631462847,
+        "ram_cheaper_condition": "q > q_star",
+        "scope": "continuous formula intersection; integer q and unchanged graph/features/weights required"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "gat",
+        "comparison": "ram_vs_full",
+        "seed_scope": "three-seed mean formula",
+        "q_star": 1.3724513202089743,
+        "cost_seconds": 0.3656693576970951,
+        "ram_cheaper_condition": "q > q_star",
+        "scope": "continuous formula intersection; integer q and unchanged graph/features/weights required"
+      },
+      {
+        "dataset": "PubMed",
+        "model": "sage",
+        "comparison": "ram_vs_full",
+        "seed_scope": "three-seed mean formula",
+        "q_star": 1.0181748641573813,
+        "cost_seconds": 0.07963639237903558,
+        "ram_cheaper_condition": "q > q_star",
+        "scope": "continuous formula intersection; integer q and unchanged graph/features/weights required"
+      },
+      {
+        "dataset": "ogbn-arxiv",
+        "model": "hgcn",
+        "comparison": "ram_vs_full",
+        "seed_scope": "three-seed mean formula",
+        "q_star": 1.091565977812771,
+        "cost_seconds": 0.24484367441284996,
+        "ram_cheaper_condition": "q > q_star",
+        "scope": "continuous formula intersection; integer q and unchanged graph/features/weights required"
+      }
+    ]
+  },
+  "figure2_interval_mode": "paired_repeat_range",
+  "statistical_scope": "Existing scalar means and four-repeat ranges; no node aggregation, scoring, CI or inferential fit.",
+  "limits": [
+    "Whole-graph diagnostic prefixes differ from dependency-cone deployment.",
+    "Native local-error and margin scales compare only within model/dataset.",
+    "L-M-H line segments are navigation, not interpolation or a feasible frontier.",
+    "Fast exact time does not imply three-dimensional dominance or highest accuracy.",
+    "Analytic a+bq curves and intersections use existing coefficients, not new executions.",
+    "Sampled curves use accepted mean workload times; exact/RAM use registered median coefficients.",
+    "Common graph/CP setup is separate; route-specific exact setup/build are paid.",
+    "Peaks are observed allocator high-water marks, not isolated minimum capacities.",
+    "The guide includes explicitly unmeasured systems alternatives and conditional historical controls.",
+    "Missing or partial values are refused; there is no silent range fallback."
+  ],
+  "worker_process_CPU_seconds": 18.53125,
+  "wall_seconds": 22.25201960001141,
+  "no_raw_payloads_or_models_loaded": true,
+  "visual_inspection_pending": true
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "vldb_hardware_cost_binding_v1",
+  "dataset": "ogbn-arxiv",
+  "model": "hybonet",
+  "seed": 11,
+  "hardware_class": "A800",
+  "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+  "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+}

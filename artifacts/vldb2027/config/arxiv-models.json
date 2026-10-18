@@ -1,0 +1,213 @@
+{
+  "schema": "dasfaa_cross_model_model_config_v1",
+  "status": "frozen_for_training",
+  "created_date": "2026-10-12",
+  "task": {
+    "dataset": "ogbn-arxiv",
+    "input_features": 128,
+    "classes": 40,
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "variants": [
+      "plain",
+      "candidate",
+      "generic"
+    ],
+    "test_parse_or_score": false,
+    "confirmation_effects_sealed": true,
+    "partition_policy": "reuse existing train/fit/gate/sealed-confirmation IDs and bindings; no new split"
+  },
+  "runtime_native_roots": {
+    "hgcn": null,
+    "hybonet": null
+  },
+  "shared_training": {
+    "dtype": "float32",
+    "fanouts_forward_encoding_order": [
+      15,
+      15,
+      15
+    ],
+    "sampler": "uniform_without_replacement",
+    "batch_size": 1024,
+    "selection_partition": "development-fit",
+    "selection_every_epochs": 5,
+    "selection_paired_repeats": 4,
+    "selection_metric": "sum_correct_then_earliest_tie",
+    "gate_used_for_checkpoint_selection": false,
+    "warm_start": "same accepted plain state including native head and BN for all three arms",
+    "optimizer_reset": "all adaptation arms reset optimizer and scheduler; no old moments",
+    "backbone_trainable_in_all_arms": true,
+    "correction_initial_output": "exact_zero",
+    "extra_regularization_loss": null,
+    "training_stream_namespace": {
+      "domain": "dasfaa-cross-model-correction-v1",
+      "batch_order": "{stage}-batch-order",
+      "dropout": "{stage}-dropout",
+      "sample": "{stage}-train",
+      "selection": "{stage}-fit-selection; epoch0; repeats0..3",
+      "arm_in_seed": false
+    },
+    "feature_policy": "same existing prepared 128 features; retain native Euclidean-to-manifold mapping; no task-label features",
+    "graph_policy": "Bound existing simple bidirected nonself arxiv public graph; native self handling; exact five input hashes in each runtime manifest.",
+    "low_high_full_inference_budgets": {
+      "primary": 15,
+      "secondary": [
+        5,
+        30,
+        "full"
+      ],
+      "fixed_final_weights": true,
+      "plan_sha256": "88d1be2644a72dbe22dc9af9b6c76b6612da5b88710aefde220a78b05b53e980"
+    },
+    "early_stopping_or_effect_guided_extension": false
+  },
+  "models": {
+    "sage": {
+      "actual_message_layers": 3,
+      "hidden": 256,
+      "dropout": 0.5,
+      "architecture": "128->256->256->40; mean, independent root transform; BN-ReLU-dropout after first two layers",
+      "head": "native final SAGEConv and log_softmax",
+      "task_loss": "mean NLL on native log_softmax scores",
+      "optimizer": "torch.optim.Adam",
+      "weight_decay": 0.0,
+      "stages": {
+        "pretrain": {
+          "enabled": false,
+          "epochs": 0,
+          "learning_rate": null,
+          "warmup_epochs": 0
+        },
+        "adapt": {
+          "enabled": true,
+          "epochs": 50,
+          "learning_rate": 0.001,
+          "warmup_epochs": 0
+        }
+      },
+      "warm_start_source": "existing accepted seed11/23/37 500-epoch matched-K15 SAGE model_state; exact CP identities supplied by release"
+    },
+    "hgcn": {
+      "actual_message_layers": 3,
+      "native_num_layers_argument": 4,
+      "ambient_input": 129,
+      "ambient_hidden": 128,
+      "intrinsic_hidden": 127,
+      "manifold": "Hyperboloid",
+      "curvature": 1.0,
+      "learnable_curvature": false,
+      "activation": "relu",
+      "dropout": 0.0,
+      "bias": true,
+      "attention": false,
+      "local_aggregation": false,
+      "head": "native LinearDecoder on native logmap0/proj_tan0",
+      "task_loss": "native log_softmax+NLL, implemented equivalently as mean CE on raw decoder scores; class weights all one",
+      "optimizer": "torch.optim.Adam",
+      "weight_decay": 0.0,
+      "stages": {
+        "pretrain": {
+          "enabled": true,
+          "epochs": 500,
+          "learning_rate": 0.01,
+          "warmup_epochs": 0
+        },
+        "adapt": {
+          "enabled": true,
+          "epochs": 50,
+          "learning_rate": 0.001,
+          "warmup_epochs": 0
+        }
+      },
+      "adaptation": "three actual message layers, arxiv dimensions, one uniform sampled training budget; no claim of prior arxiv qualification"
+    },
+    "hybonet": {
+      "actual_message_layers": 3,
+      "native_num_layers_argument": 4,
+      "ambient_input": 129,
+      "ambient_hidden": 128,
+      "intrinsic_hidden": 127,
+      "manifold": "Lorentz",
+      "curvature": 1.0,
+      "native_k_radius_squared": 1.0,
+      "learnable_curvature": false,
+      "activation": null,
+      "dropout": 0.0,
+      "bias": true,
+      "attention": false,
+      "local_aggregation": false,
+      "head": "native LorentzDecoder trainable manifold prototypes and native class bias",
+      "task_loss": "mean over batch AND all 40 classes of relu(margin-score_true+score_class), including native correct-class constant",
+      "margin": 2.0,
+      "optimizer": "native optim.RiemannianAdam",
+      "weight_decay": 0.0,
+      "stabilize_every": 10,
+      "stages": {
+        "pretrain": {
+          "enabled": true,
+          "epochs": 500,
+          "learning_rate": 0.01,
+          "warmup_epochs": 0
+        },
+        "adapt": {
+          "enabled": true,
+          "epochs": 50,
+          "learning_rate": 0.001,
+          "warmup_epochs": 0
+        }
+      },
+      "adaptation": "three actual message layers, arxiv dimensions, same sampled budget; preserve native norm/clamp and manifold optimizer"
+    },
+    "gat": {
+      "actual_message_layers": 3,
+      "hidden_head_dim": 250,
+      "hidden_heads": 3,
+      "hidden_concatenated_width": 750,
+      "output_heads": 1,
+      "output_channels": 40,
+      "input_dropout": 0.1,
+      "hidden_dropout": 0.75,
+      "attention_dropout": 0.0,
+      "hidden_batch_norm": true,
+      "hidden_activation": "relu",
+      "residual": true,
+      "negative_slope": 0.2,
+      "hidden_bias": false,
+      "output_bias": true,
+      "task_loss": "mean(log(epsilon+CE_per_node)-log(epsilon)); epsilon=1-log(2), official DGL arxiv/gat.py",
+      "optimizer": "torch.optim.RMSprop",
+      "weight_decay": 0.0,
+      "stages": {
+        "pretrain": {
+          "enabled": true,
+          "epochs": 500,
+          "learning_rate": 0.002,
+          "warmup_epochs": 50
+        },
+        "adapt": {
+          "enabled": true,
+          "epochs": 50,
+          "learning_rate": 0.0002,
+          "warmup_epochs": 0
+        }
+      },
+      "warmup_rule": "target_learning_rate*min(epoch_1based/warmup_epochs,1); no warmup when zero",
+      "architecture_source": "https://github.com/dmlc/dgl/blob/master/examples/pytorch/ogb/ogbn-arxiv/models.py",
+      "optimizer_loss_source": "https://github.com/dmlc/dgl/blob/master/examples/pytorch/ogb/ogbn-arxiv/gat.py",
+      "operator_source": "installed official PyG 2.6.1 GATConv bound in code/ADAPTERS_EUCLIDEAN.md",
+      "explicit_sampling_adaptations": [
+        "Use the source-reviewed PyG block attention adapter; PyG parameter initialization is retained, not DGL initialization equivalence",
+        "Uniform-WOR minibatch dependency blocks replace the reference full-graph operator calls; softmax is over the actual sampled set plus one self edge",
+        "BatchNorm uses each layer's destination rows during training and saved moments during evaluation",
+        "500 sampled epochs are a proposed adequate-budget baseline, not the official 2000 full-batch epochs or a score reproduction",
+        "No labels in input, label iteration, symmetric attention normalization, edge dropout, or half-training-node mask",
+        "All training IDs are visited each epoch; fit-only model selection; no test or confirmation scoring"
+      ]
+    }
+  },
+  "portable_note": "Scientific constructor, optimizer, and stage settings retained. Historical administrative provenance removed; public CLI enables plain pretrain only."
+}

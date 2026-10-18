@@ -1,0 +1,157 @@
+{
+  "schema": "quant_native_raw_views_v1",
+  "registration_sha256": "565e6e2cdc4743f4721e7d3ae181f3a2e4ae02041bee1cb58416d982482b4d3e",
+  "raw_privileged": {
+    "path": "raw/full-state.pt or raw/{fit,evaluation}/streamS-kK.pt",
+    "common_fields": [
+      "layers",
+      "head",
+      "native_logits",
+      "native_metric_output",
+      "native_predictions",
+      "plan_hashes",
+      "timing"
+    ],
+    "actual_message_definition": {
+      "HyboNet": "observed LorentzLinear outputs Z; actual native sparse A*Z then Lorentz normalization",
+      "HGCN": "observed logmap0(HypLinear output); actual native sparse tangent support then Exp/projection/Log/ReLU/Exp/projection"
+    },
+    "layer_FP_fields": [
+      "aggregate_native",
+      "aggregate_ht_real_fp64",
+      "aggregate_stored_plan_fp64",
+      "coefficient_rounding_residual_fp64",
+      "sparse_summation_residual_fp64"
+    ],
+    "FP_identity": "Approximate FP64 reconstruction uses rounded double N/k and sums. The two residual estimates decompose native minus that approximate reconstruction up to FP64 arithmetic; not an exact real-HT identity or native FP32 certificate. Feature producer separately records outward real-center intervals and reconstruction bounds.",
+    "HyboNet_layer_fields": [
+      "linear_input",
+      "affine_input_after_activation_dropout",
+      "affine_output",
+      "linear_output",
+      "messages",
+      "aggregate_native",
+      "normalizer_native",
+      "output_native",
+      "q_fp32_recomputed_from_native_aggregate"
+    ],
+    "HyboNet_q_status": "denominator is actual native observer output; pre-abs q explicitly reconstructed with the native inner operation from the observed aggregate",
+    "HGCN_layer_fields": [
+      "linear_input",
+      "linear_mobius_output",
+      "linear_first_projection",
+      "linear_bias_tangent",
+      "linear_bias_exp_raw",
+      "linear_bias_projection",
+      "linear_bias_add_raw",
+      "linear_output",
+      "messages",
+      "aggregate_native",
+      "agg_exp_raw",
+      "agg_projection",
+      "activation_pre_relu_native",
+      "activation_relu_native",
+      "activation_tangent_projection",
+      "activation_exp_raw",
+      "output_native"
+    ],
+    "HGCN_head_fields": [
+      "head_tangent_native",
+      "inverse_head_tangent_residual",
+      "inverse_tangent_relu_linear_logits",
+      "native_vs_inverse_expression_residual"
+    ],
+    "first_input_alias": "All sampled/restored first inputs must equal the full first input exactly; store once in raw/full-state.pt, with lossless raw-only alias. S contains no full-state reference.",
+    "plans": "sample raw tapes include actual_plans; full native adjacency in guarded/public input",
+    "not_predictor_input": true
+  },
+  "O": {
+    "path": "views/O-preplan-full.pt",
+    "schema": "O_preplan_full_v1",
+    "API": "views.OracleView(payload,requested_budget).node(node); .unlabeled_training_scores(); .public_graph()",
+    "contains": "pre-plan full messages/state/head scores, frozen weights and public graph only",
+    "forbidden": [
+      "realized sampled plan",
+      "sampled outcomes",
+      "full-minus-sample errors",
+      "labels",
+      "interventions"
+    ]
+  },
+  "S": {
+    "path": "views/S/{fit,evaluation}/streamS-kK.pt",
+    "schema": "S_one_path_row_local_v1",
+    "API": "views.SampleView(payload,requested_budget).node(node); .unlabeled_training_scores(); .public_graph()",
+    "contains": "one path, row-local selected incoming messages/original coefficients/HT coefficients, observed local state and native head scores; public graph and frozen weights",
+    "covariance": "Use original_native_coefficients times selected_incoming_messages, excluding deterministic self. Never use HT_native_coefficients as x_j coefficients. k1<N unavailable; k=N or N<=1 exact zero.",
+    "same_path_plugins": "sample center, g/r, head pair and training-node tau are correlated random plugins, not unbiased nonlinear/signed forecasts",
+    "row_local_rule": "A feature for node i may not read another row's deterministic self message as i's omitted message. The API enforces row-local retrieval; it is an algorithmic information contract, not a cryptographic boundary.",
+    "forbidden": [
+      "full output/messages",
+      "omitted messages",
+      "second view/history/teacher",
+      "outcomes/labels/interventions",
+      "O finite envelope when k<N"
+    ],
+    "finite_envelope": "S omitted-population envelope unavailable for k<N. HGCN pointwise inverse-safe permits smooth structural zeros only; whole-segment safety separately required for finite envelope zero."
+  },
+  "targets": {
+    "fit": "fit/outcomes/*.pt",
+    "heldout": "sealed/evaluation/outcomes/*.pt",
+    "fields": [
+      "validation_ids",
+      "validation_labels",
+      "full_native_logits",
+      "sample_native_logits",
+      "full_native_metric_output",
+      "sample_native_metric_output",
+      "full_predictions",
+      "sample_predictions",
+      "harm",
+      "benefit",
+      "event_class_H_B_neither",
+      "mismatch",
+      "full_true_margin",
+      "sample_true_margin",
+      "signed_true_margin_change",
+      "full_true_rival",
+      "sample_true_rival"
+    ],
+    "margin": "Native raw-head true-class minus best-other raw score, with rival switching. HGCN predictions use the actual native log_softmax output.",
+    "heldout_lock": "Root hash-locks fit inputs/scalers/coefficients and all corresponding heldout predictions before reading targets. Code/Ops print only file/work counts, never aggregate evaluation effects."
+  },
+  "fit_interventions": {
+    "path": "fit/interventions",
+    "fourway": [
+      "AhatZhat",
+      "AZhat",
+      "AhatZ",
+      "AZ"
+    ],
+    "HyboNet": "16 central first-full restorations per CP with actual incoming messages and unchanged sampled suffix; cheap final continuations; four all-class scaled projection/normalizer accounting channels",
+    "HGCN": "one aggregation: AhatZ=AhatZhat, AZhat=AZ and first-full=AZ; two actual conditions; no additional encode",
+    "channels": "2<m,p_c>_L + nu(m)b_c; omit common 2nu. Accounting channel is neither a manifold intervention nor a deployable native score."
+  },
+  "operator_constants": {
+    "HyboNet": "native abs/clamp 1e-8; sigmoid time+1.1 and native trainable scale; weights from CP",
+    "HGCN": "fixed c=1; Poincare FP32 eps4e-3, min_norm1e-15; tanh helper clamps[-15,15]; native artanh clamps[-1+1e-15,1-1e-15] then float64 log/cast"
+  },
+  "head_weight_keys": {
+    "HyboNet": [
+      "decoder.cls",
+      "decoder.bias"
+    ],
+    "HGCN": [
+      "decoder.cls.linear.weight",
+      "decoder.cls.linear.bias"
+    ]
+  },
+  "affine_weight_keys": {
+    "HyboNet": "encoder.layers.L.linear.weight.weight",
+    "HGCN": "encoder.layers.L.linear.weight"
+  },
+  "no_dense_covariance_or_model_derivatives": true,
+  "predictors_owner": "Root; Code supplies prospectively fixed analytic features and raw data, no fits",
+  "ReLU_envelope": "Root's registered raw sum_j abs(w_j)*d_j; not log-transformed or divided by tau by Code",
+  "public_export_note": "Historical source-review configuration; not an execution authorization. Original collector output is already collected; use public fit scalar summary."
+}

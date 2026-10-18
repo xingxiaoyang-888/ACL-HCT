@@ -1,0 +1,18 @@
+{
+  "interpretation": [
+    "Native error/margin scales remain separated by dataset and model; no cross-model pooling or ranking.",
+    "All same-CP/repeat LABOR-minus-Uniform scalar contrasts are retained, including negative or mixed effects.",
+    "Four-corner differences are paired by original stored row; interaction is D-B-C+A, not an additive attribution fraction.",
+    "Stored correctness/margins are reduced, never recalculated from scores. Fix/break are Boolean transitions from sampled.",
+    "Means use float64 accumulation of existing values; no threshold, fitting, filtering, correlations or inferential tests.",
+    "Error reduction and accuracy change are exported together descriptively; no monotonic link is assumed or asserted before data.",
+    "Four repeats enter each training-seed mean; only seeds11/23/37 enter sample std(ddof1). Missing stays pending/null."
+  ],
+  "pending": [],
+  "pending_group_metrics": 0,
+  "process_CPU_seconds": 2.90625,
+  "schema": "vldb_mechanism_descriptive_summary_v1",
+  "scope": "Existing global sampled-prefix diagnostic at original target ids; not dependency-cone deployment states or deployment errors.",
+  "status": "complete",
+  "wall_seconds": 4.406091000011656
+}

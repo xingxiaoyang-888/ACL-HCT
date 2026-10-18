@@ -1,0 +1,94 @@
+# ACL-HCT: When Sampling Breaks Hierarchy
+
+Initial research engineering for tangent-space correction of sampled Lorentz graph aggregation. **Real-network hierarchy collapse is a hypothesis, not a result.** The historical experiment matrix is not enabled.
+
+## Install and reproduce
+
+Python >=3.10; PyTorch >=2.0, NumPy and pytest. Install PyTorch separately using the [official version selector](https://pytorch.org/get-started/previous-versions/), then:
+
+```bash
+python -m pip install -e '.[test]'
+python -m pytest -q
+python -m acl_hct.smoke --device cpu --output logs/local-smoke.json
+```
+
+Tests are offline. The smoke runs eight optimization steps per method on a 40-node synthetic tree, plus exhaustive five-point frozen diagnostics. It has a hard 30-step ceiling. Training loss, synthetic parent-child radius order and a semantic branch distance gap are not held-out real-data results. Timings include Python loops and validation checks and do not establish production throughput or relative efficiency.
+
+Without editable installation, use `PYTHONPATH=src python ...`. On PowerShell set `$env:PYTHONPATH="src"`.
+
+## Mathematics and numerical scope
+
+Coordinates are `(time, spatial...)`; Lorentz product is `-x0*y0 + sum(xi*yi)`; curvature is `-c`, c>0. Geometry supports FP32/FP64, broadcast batch dimensions and a final coordinate axis. Supported engineering domain: scaled radius from the coordinate origin <=3. Out-of-domain points raise errors. This origin-based numerical restriction is not a locality assumption or a global isometry-invariance claim. Validation synchronizes GPU execution; optimize only after correctness evidence.
+
+`exp` projects ambient vectors to the tangent space. Series branches in `exp` and `log` have finite unused branches, including at zero. Exact distance is nonsmooth at coincidence; use squared tangent norms for differentiable zero-distance objectives. `normalize` rejects non-future-timelike inputs. Complete aggregation supports positive weights; correction is **equal-weight only**.
+
+`correct(sample, population_size, c, method)` sees selected messages and actual visible count N only, never unsampled hidden states or hierarchy labels:
+
+- `none`: normalized Lorentz mean.
+- `third`: candidate local third-central-moment correction, with the finite-population coefficient in the research note. Requires fixed vectors, uniform sampling without replacement, equal weights and small local spread. No universal improvement is claimed.
+- `jackknife`: cached-sum leave-one-out comparator with finite-population factor `(N-k)/N`; an approximate geometric comparator, not an exact unbiased estimator. Both corrections cost O(kd).
+
+k=N returns the original output exactly; k=1/2 return it with fallback recorded. Step norm is capped at 0.1; clipping/fallback rates and step norms are recorded. Lower bias need not imply lower MSE. The reference `correct` path retains scalar summary metadata. `correct_batched` returns per-node device tensors; `TinyGNN.forward(..., batched=True)` enables it without changing sampling or the correction formula.
+
+The batched contract is `correct_batched(sample, N, mask, ..., self_points=None)`: points have shape `[..., K, D]` with K>=1, a boolean mask has shape `[..., K]`, and integer N broadcasts to the leading batch shape. For nonempty rows, 1<=k<=N. Empty rows require N=0 and explicit self points, returned exactly. Padding (including NaNs) is ignored and has zero gradient. Diagnostics `fallback`, `empty`, `full`, `small_sample`, `clipped`, `raw_step`, `step`, `k`, `N` are detached tensors on the input device. `none` means masked complete/sample aggregation. Full and small samples return the uncorrected mean exactly; fallback reason flags may overlap. Empty rows are marked fallback even with `none`.
+
+Batch dimensions broadcast; coordinate count, dtype and device must match. Validation still synchronizes at batch level. Padding costs O(batch * maximum fanout * dimension); sampling and index packing still use Python loops. This is a small-model optional path, not a scalable graph engine. Compare the paths offline:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m pytest -q
+python -m acl_hct.smoke --device cpu --batched --output logs/batched-smoke.json
+python scripts/benchmark_aggregation.py --output logs/cpu-benchmark.json
+```
+
+Sampling uses an explicit CPU `torch.Generator`; full fanout preserves input order. GNN neighbor IDs are deduplicated. An empty neighborhood explicitly uses self; other self loops must be explicit. Semantic truth stays separate from message adjacency. The synthetic training demo uses the known tree graph and all-node depth regression; it is not link prediction or a held-out task benchmark.
+
+## Data
+
+```bash
+PYTHONPATH=src python scripts/acquire_data.py --download-only
+# Parse and audit on a scheduled CPU allocation on HPC:
+PYTHONPATH=src python scripts/acquire_data.py --audit-only
+```
+
+Pinned sources: [Princeton WordNet 3.0](https://wordnetcode.princeton.edu/3.0/) and [NLM MeSH 2026 XML](https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/). [WordNet license](https://wordnet.princeton.edu/license-and-commercial-use) and [MeSH terms](https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html) apply; raw data are not redistributed. Curl resumes interrupted transfers into `.part` and renames only after successful transport. Existing final files are reused; archive decoding and structural audit are still required. An old partial file created by the previous downloader must be moved to `.part` explicitly before resuming. Download-only and audit-only are mutually exclusive. Manifests record URL, version, audit time (not relabeled as retrieval time), bytes, SHA256 and structure. Hashes are local integrity records, not upstream signatures. Amazon reviews are not downloaded.
+
+WordNet parses noun semantic hypernym and instance-hypernym links, parent->child. MeSH parses immediate tree parents collapsed onto descriptor IDs. Multiple parents and isolates are preserved; the DAG audit detects cycles instead of fabricating depth. Depth is longest root path. `split_relations` is a conservative **small-graph** helper: held-out pairs and reverse pairs are excluded from training; held-out relations still inferable through training paths in either direction are quarantined. This repeated reachability implementation needs a scalable redesign before full-corpus use. No real-data benchmark split is claimed yet.
+
+The downloaded official MeSH 2026 release assigns three tree positions to both D047991 and D048013. The parser retains both descriptors but quarantines links touching these ambiguous positions, and lists the collisions and excluded-link count in the manifest. It never silently chooses an owner. Reported MeSH edges therefore describe this explicitly filtered view.
+
+## HPC isolation
+
+Prepare dependencies and data before allocation. Supply authorized account, QOS, partition, CPUs, memory, output path and time explicitly to Slurm. Start with a CPU run of `scripts/smoke.slurm`; after audit passes, use `ACL_DEVICE=cuda`, one L40 and <=30 minutes. Private resource commands and JobIDs belong under `.local/`. Preserve Slurm GPU binding. The runner records versions, tests and smoke metrics, then exits; it contains no sweep or automatic retry campaign.
+
+## Layout and evidence
+
+- `src/acl_hct/`: geometry, aggregation, model, parsers, diagnostics and smoke CLI.
+- `tests/`: FP64/reference/gradient/sampling/leakage/integration checks.
+- `scripts/`: official data acquisition and bounded Slurm runner.
+- `reports/STATUS.md`: milestone status and reproducible evidence.
+- `research/legacy/`: inherited independent NumPy reference, not experimental proof.
+- `docs/research/`: hypotheses and bounded initial acceptance contract.
+
+Raw downloads, private host inventory, job identifiers, caches and detailed scheduler logs remain untracked. Read the acceptance contract before extending scope.
+
+## 实验报告与工程追溯
+
+当前实验结论统一见[实验结果总览](reports/README.md)；E2恢复和机制实验已完成验收，用户已授权[成熟HGCN采样与损伤验证](docs/operations/MATURE_HGCN_SAMPLING_VALIDATION.md)。按主题更新报告，不再追加独立进度Markdown。
+
+历史实现、命令、数值门及故障记录见[归档索引](reports/archive/2026-09-17/README.md)，原配置和科学源码保持。发布代码不构成新实验授权；执行仍遵守[用户批准门槛](docs/operations/EXPERIMENT_APPROVAL_GATE.md)。
+
+## Mature HGCN engineering gate
+
+The adapter calls the actual [HazyResearch/hgcn](https://github.com/HazyResearch/hgcn/tree/a526385744da25fc880f3da346e17d0fe33817f8) classes from a separately prepared, unmodified checkout. The pinned tree contains no LICENSE file; upstream code and datasets are not bundled in this repository. All 53 upstream files are bound by [the source manifest](configs/hgcn_upstream.json). Install only the additional runtime imports with `python -m pip install -e '.[test,hgcn]'`; the old upstream requirements are provenance, not instructions to downgrade the current environment.
+
+Prepare the external checkout offline before testing. In PowerShell:
+
+```powershell
+$env:ACL_HGCN_UPSTREAM_PATH = "<absolute path to the pinned official checkout>"
+python -m pytest tests/test_hgcn_sampling.py tests/test_mature_hgcn.py tests/test_hgcn_inputs.py tests/test_hgcn_entry.py -q
+$env:PYTHONPATH = "src"
+python -m acl_hct.hgcn_entry --config configs/mature_hgcn_quality.json
+```
+
+Default pytest never downloads the external source and skips official comparisons when the explicit checkout is absent. A release requires those comparisons passing with no skips. The entry above is static only; executing `cpu_quality` or `cuda_quality` requires an exact supervisor release, source commit, external checkout, prepared input and fresh output. This entry has no scientific-training phase. See [engineering evidence](reports/00_工程与数据准备.md) for sampling weights, head adaptation and current test/runtime status. Official Disease LP uses its original distance decoder; WordNet directed parent retrieval is a separate task adaptation.

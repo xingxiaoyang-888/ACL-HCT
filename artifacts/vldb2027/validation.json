@@ -1,0 +1,199 @@
+{
+  "schema": "vldb2027_publication_validation_v1",
+  "status": "passed",
+  "scope": "CPU validation of public source bindings, native source reconstruction, archived-result aggregation, and manuscript figure reproduction.",
+  "source_manifest_sha256": "9406e38ed8ffa5e9ead49e2b7d00db04106264348d34df33a91cd92433b617c9",
+  "checks": [
+    {
+      "name": "source-manifest",
+      "exit_code": 0
+    },
+    {
+      "name": "help-run_frozen",
+      "exit_code": 0
+    },
+    {
+      "name": "help-run_training",
+      "exit_code": 0
+    },
+    {
+      "name": "help-prepare_inputs",
+      "exit_code": 0
+    },
+    {
+      "name": "help-reconstruct_native",
+      "exit_code": 0
+    },
+    {
+      "name": "help-aggregate_final_scalars",
+      "exit_code": 0
+    },
+    {
+      "name": "help-aggregate_mechanisms",
+      "exit_code": 0
+    },
+    {
+      "name": "help-aggregate_task_a",
+      "exit_code": 0
+    },
+    {
+      "name": "help-render_figures",
+      "exit_code": 0
+    },
+    {
+      "name": "help-render_decision_guide",
+      "exit_code": 0
+    },
+    {
+      "name": "public-relative-binding-positive-negative",
+      "status": "passed"
+    },
+    {
+      "name": "native-hgcn",
+      "exit_code": 0
+    },
+    {
+      "name": "native-hybonet",
+      "exit_code": 0
+    },
+    {
+      "name": "public-scalars",
+      "exit_code": 0
+    },
+    {
+      "name": "public-mechanisms",
+      "exit_code": 0
+    },
+    {
+      "name": "historical-task-a-records-case-sensitive-member-bindings",
+      "status": "passed",
+      "file_count": 1344
+    },
+    {
+      "name": "final-mechanism-arrays-case-sensitive-member-bindings",
+      "status": "passed",
+      "file_count": 120
+    },
+    {
+      "name": "public-task-a",
+      "exit_code": 0
+    },
+    {
+      "name": "scalars-all-csv-byte-comparison",
+      "status": "passed",
+      "csv_count": 4,
+      "files": [
+        {
+          "path": "results/final/across-seeds.csv",
+          "sha256": "975b1879d52ed564dbe1066bae2c06737c51761ffc635a9b97b4d2c33c038e61"
+        },
+        {
+          "path": "results/final/frozen-budgets.csv",
+          "sha256": "f5263633ff5c225b38769ad4657d456031014db14a31484ef196f6d40bc2be2a"
+        },
+        {
+          "path": "results/final/per-repeat.csv",
+          "sha256": "042653711ebc905f3776a709ab9cec83b434978329dc869e00eecad393e91aec"
+        },
+        {
+          "path": "results/final/per-seed.csv",
+          "sha256": "33af530b946b7578ce7487ccbe94ca5f4c27fd3b41eb75bf02c3e597774b451f"
+        }
+      ]
+    },
+    {
+      "name": "mechanisms-all-csv-byte-comparison",
+      "status": "passed",
+      "csv_count": 4,
+      "files": [
+        {
+          "path": "results/mechanisms/across-seeds.csv",
+          "sha256": "0a80e23f846d0e6b7d6861d5829918052e091a74027ba8175df447329e832216"
+        },
+        {
+          "path": "results/mechanisms/error-accuracy-pairs.csv",
+          "sha256": "a90814b23f55f6beda3ac537aa8e57f84dac1902e69e103e5eaf6013549d6ae1"
+        },
+        {
+          "path": "results/mechanisms/per-repeat.csv",
+          "sha256": "f3cb712d21a2d80841a610312fa21f8c237ca5cd207bccf86e01d3e18c9b69c6"
+        },
+        {
+          "path": "results/mechanisms/per-seed.csv",
+          "sha256": "7548c11ad4cbddf3a530f9fc2851411bf3742ca9ca809421a52bf1c67bdd7c8d"
+        }
+      ]
+    },
+    {
+      "name": "task-a-all-csv-byte-comparison",
+      "status": "passed",
+      "csv_count": 12,
+      "files": [
+        {
+          "path": "results/historical-task-a/per-cp-conditions.csv",
+          "sha256": "8d4974c860797b13f3924128b432421753e5da74a4cdd02e9f0566080409b2be"
+        },
+        {
+          "path": "results/historical-task-a/per-cp-contrasts.csv",
+          "sha256": "6715252d35c296fcbc6ab01a1deb35346cec28442b9a359fae942868853a9467"
+        },
+        {
+          "path": "results/historical-task-a/per-cp-interactions.csv",
+          "sha256": "8e91128322d0f48cabfcc808c13f929f392bf86624c386c275bca5925cc973fd"
+        },
+        {
+          "path": "results/historical-task-a/per-cp-training-regime.csv",
+          "sha256": "89afd531faba46dfdc7fb859238b876eec3cb70920f0e6325507899f2b189f4f"
+        },
+        {
+          "path": "results/historical-task-a/plan-conditions.csv",
+          "sha256": "518143c81a2689de0ce888c9ee03eff665a47428e50351eca2b2653e28c4f58d"
+        },
+        {
+          "path": "results/historical-task-a/plan-contrasts.csv",
+          "sha256": "c89263bffb88728919bddf87216e78ce85c483a7ee3b84cb353c295ef2ba684c"
+        },
+        {
+          "path": "results/historical-task-a/plan-head-accounting.csv",
+          "sha256": "48f0ecd0cff6cd0787729fa32eab38fc5cf2b7c3f2e6342f512a654fe0a931d1"
+        },
+        {
+          "path": "results/historical-task-a/plan-interactions.csv",
+          "sha256": "37edddb1124859af57f11d12adaa060352a52890a813f63cdca6b9947597fcc6"
+        },
+        {
+          "path": "results/historical-task-a/plan-low-budget.csv",
+          "sha256": "ceefd7f6cc18075d60bfe0bf26ecf3a52079c4930dac5e23783f616bd6f28c42"
+        },
+        {
+          "path": "results/historical-task-a/plan-representation.csv",
+          "sha256": "a40a87599e3e4666682e88f6a86ef9374b97a0f8dfba2e78d4ef034a18feefce"
+        },
+        {
+          "path": "results/historical-task-a/plan-training-regime.csv",
+          "sha256": "e231a0b316215331501e62507d4a9800fc49ad3cb924a25cc1fe9e1f1e85855e"
+        },
+        {
+          "path": "results/historical-task-a/three-seed-summary.csv",
+          "sha256": "f9abee68f64fd6d9459f0e05e7abfb0b173ca4b7a8b87af8142add63a95a3dab"
+        }
+      ]
+    },
+    {
+      "name": "figures",
+      "exit_code": 0
+    },
+    {
+      "name": "decision-guide",
+      "exit_code": 0
+    }
+  ],
+  "no_new_experiment": true,
+  "gpu_seconds": 0,
+  "model_forward_executed": false,
+  "training_executed": false,
+  "new_prediction_or_test_scoring_executed": false,
+  "path_repair": "Public archive path spelling was aligned with the exact ZIP member names. Scientific identifiers and original record hashes were unchanged.",
+  "figure_scope": "All four empirical figures verify the published numerical points before rendering. The conceptual guide uses portable STIX Roman by default; the supplied manuscript uses Times New Roman.",
+  "validation_boundary": "Full GPU inference was not repeated for packaging; its scientific outputs are the original accepted records. Historical source-audit modules are not a portable historical collector."
+}

@@ -1,0 +1,173 @@
+{
+  "schema": "public_checkpoint_inventory_v1",
+  "weights_included": false,
+  "availability": "https://github.com/xingxiaoyang-888/ACL-HCT/releases/download/vldb2027-artifact-v1/checkpoints.zip",
+  "entries": [
+    {
+      "id": "ogbn-arxiv-hgcn-seed11",
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 11,
+      "sha256": "73f5bac8cd4661c75195b624dbcf0ee8580ae396d728eabe8083335ea5300094",
+      "metadata_sha256": "3082c02eea927ce83d8c0439083239791af782a5005fa8b8154a983edb42321f",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 70,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-hgcn-seed23",
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 23,
+      "sha256": "ec3d978a6a43a426e8585fa383209cf06d33e49d3e13ca6bdf6c51c49f375953",
+      "metadata_sha256": "53a6b66eea9295050f78124e88f8d750e8898184b20af4c51a8721d149745ef4",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 140,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-hgcn-seed37",
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 37,
+      "sha256": "cb273dc81128abdd1748e59d17d3d23c25e8f3647a90bda8c5094fbc320cd307",
+      "metadata_sha256": "89890c3fc55fb82d0bd1ad4083bdcb0aa7df01fb66590f36cdbbac711a5def7d",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 20,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-hybonet-seed11",
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 11,
+      "sha256": "4ae73768392b92204b11100a672c9f5df02e14a693d72a2c15101fdcfb48d7d3",
+      "metadata_sha256": "61fced0c726df0d8f30ea4e90e1f4cc7f34f5fef9ba326b180ee203c0aba1bdd",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 450,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-hybonet-seed23",
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 23,
+      "sha256": "ea24c0137131a75f73079e1236c3e81c17fa06c88e3a936e863aeae2831cd575",
+      "metadata_sha256": "d3e8ec4bbd6c8c9595a60853263b1183976e6c986955d8d0c3aeff31b6f83970",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 360,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-hybonet-seed37",
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 37,
+      "sha256": "5947dc34d5c96f1552b7f25ded92835b4cbc2cc3ffe62bd802551ebef226ea4a",
+      "metadata_sha256": "65551d5f99948ffcb100964c547c126f3aa92e7b95eef87f5c7b08046cc67836",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 495,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-sage-seed11",
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 11,
+      "sha256": "2f6b8607ae00572ec61929ffe900ca9a5d2ae7c882a25e407b19928f7f0e0734",
+      "metadata_sha256": "bd2c24af4400343e17cc42ca8e85ec6c2a2a5b3f2156f0876d6acc33f11f30b0",
+      "schema": "icml_ca_sage_weights_v1",
+      "selected_epoch": 355,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-sage-seed23",
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 23,
+      "sha256": "bfb6505b58ab077503e0845dde6996164b2a7734f7045da5b97b6d4027148d0c",
+      "metadata_sha256": "ff5a44c0a87c53317ab5ec318dcc975952a8de5600d4db931dbc16d52c69e90d",
+      "schema": "icml_ca_sage_weights_v1",
+      "selected_epoch": 365,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-sage-seed37",
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 37,
+      "sha256": "1c4513961db6a71e0dc59f328296aca93e8461fc02e1e10b534e76f8f17f5872",
+      "metadata_sha256": "f86cb51050a8d940eb018ffb90e29efbb93323eba3552c3b413279cab03507c4",
+      "schema": "icml_ca_sage_weights_v1",
+      "selected_epoch": 80,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-gat-seed11",
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 11,
+      "sha256": "43b72451e57532b66d496ea29ec05e08fc2ef033ed9ae149b9d384c33eb702ad",
+      "metadata_sha256": "83a7ee9cdfdf3148c14fd8ed10e934630140ad9562af25cc35a7b5eadaff40fc",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 315,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-gat-seed23",
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 23,
+      "sha256": "ff14c7ba092eeff0dced7a5d93ac9bff07464347ff4155fb3b31f0d3a7f036a1",
+      "metadata_sha256": "cfc8037f82ece018b1b3cdf4645518bb84a81b3731fb4c0ff494f52701b69dc4",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 495,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "ogbn-arxiv-gat-seed37",
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 37,
+      "sha256": "893769a83393cd178fed2f85710db5c46fc5f13a91f295f2e3a76d7d53dbd46f",
+      "metadata_sha256": "4324f2e8f5a2834552cff26d34d62c967bc39903e25548186238f1393c8132af",
+      "schema": "dasfaa_shared_correction_weights_v1",
+      "selected_epoch": 395,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "PubMed-sage-seed11",
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 11,
+      "sha256": "9f86c43575c01ac9f0d6ff8261d633fd0f80c8315dd1c9e1059f4122acb9066e",
+      "metadata_sha256": "9c316bb003429b1361944c12f9f445f9da278a36ac39e3e1a32615667984c163",
+      "schema": "vldb_pubmed_sage_weights_v1",
+      "selected_epoch": 430,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "PubMed-sage-seed23",
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 23,
+      "sha256": "8fec281f9c67bf2486fa1956c424f707eb0897bd9055b06521a13390f1d25667",
+      "metadata_sha256": "0fcad1b757d4e1d836dd04c1d4108db180834fae654f9140354217df08ce1be3",
+      "schema": "vldb_pubmed_sage_weights_v1",
+      "selected_epoch": 220,
+      "source_training_epochs": 500
+    },
+    {
+      "id": "PubMed-sage-seed37",
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 37,
+      "sha256": "13af5b4596049640dc4e707cfcfda639b8677638149113093bde7cfd943a6b51",
+      "metadata_sha256": "ce5f71c96161c26e2ca62528c30edbfb70a654dd88ba6f1c546892441aa8c544",
+      "schema": "vldb_pubmed_sage_weights_v1",
+      "selected_epoch": 500,
+      "source_training_epochs": 500
+    }
+  ],
+  "public_archive_inventory": "results/checkpoints-manifest.json"
+}

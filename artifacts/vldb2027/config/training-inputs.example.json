@@ -1,0 +1,29 @@
+{
+  "schema": "public_training_inputs_v1",
+  "dataset": "ogbn-arxiv",
+  "model": "gat",
+  "seed": 11,
+  "files": {
+    "graph": {
+      "path": "../data/arxiv/public/graph.npz",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "ids": {
+      "path": "../data/arxiv/public/ids.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "preparation": {
+      "path": "../data/arxiv/public/preparation.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "train": {
+      "path": "../data/arxiv/development/train.npz",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "fit": {
+      "path": "../data/arxiv/development/fit.npz",
+      "sha256": "REPLACE_WITH_SHA256"
+    }
+  },
+  "native_root": null
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "vldb_frozen_sampling_completion_v1",
+  "status": "completed",
+  "dataset": "ogbn-arxiv",
+  "model": "sage",
+  "seed": 11,
+  "stage": "final",
+  "CP_model_setup_seconds": 0.2671235501766205,
+  "public_graph_setup_seconds": 1.5193127449601889,
+  "worker_wall_seconds": 1330.762419231236,
+  "worker_process_cpu_seconds": 2900.132541447,
+  "child_process_CPU_seconds": null,
+  "common_CPU_feature_CSR_bytes": 107937896
+}

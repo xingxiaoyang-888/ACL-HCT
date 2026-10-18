@@ -1,0 +1,49 @@
+{
+  "schema": "public_vldb_figure_inputs_v1",
+  "inputs": {
+    "scalar_summary": {
+      "path": "results/final/summary.json",
+      "sha256": "e44397df3530a4569d4c4bbd100dd5a20aa7cff500c293c95ce660059079935d"
+    },
+    "scalar_per_seed": {
+      "path": "results/final/per-seed.csv",
+      "sha256": "33af530b946b7578ce7487ccbe94ca5f4c27fd3b41eb75bf02c3e597774b451f"
+    },
+    "scalar_across_seeds": {
+      "path": "results/final/across-seeds.csv",
+      "sha256": "975b1879d52ed564dbe1066bae2c06737c51761ffc635a9b97b4d2c33c038e61"
+    },
+    "frozen_budgets": {
+      "path": "results/final/frozen-budgets.csv",
+      "sha256": "f5263633ff5c225b38769ad4657d456031014db14a31484ef196f6d40bc2be2a"
+    },
+    "hardware_context": {
+      "path": "results/final/hardware-and-usage-context.json",
+      "sha256": "82ae7aa0aa2a87817a060ea39380584a112a46f3da89c503f7c27563af2c294a"
+    },
+    "mechanism_summary": {
+      "path": "results/mechanisms/summary.json",
+      "sha256": "833b2a0ab42890f881bbfee74d77cf4195fb2133d551e6cbe5323a92b99965db"
+    },
+    "mechanism_per_seed": {
+      "path": "results/mechanisms/per-seed.csv",
+      "sha256": "7548c11ad4cbddf3a530f9fc2851411bf3742ca9ca809421a52bf1c67bdd7c8d"
+    },
+    "mechanism_across_seeds": {
+      "path": "results/mechanisms/across-seeds.csv",
+      "sha256": "0a80e23f846d0e6b7d6861d5829918052e091a74027ba8175df447329e832216"
+    },
+    "mechanism_per_repeat": {
+      "path": "results/mechanisms/per-repeat.csv",
+      "sha256": "f3cb712d21a2d80841a610312fa21f8c237ca5cd207bccf86e01d3e18c9b69c6"
+    }
+  },
+  "figure2_interval_mode": "paired_repeat_range",
+  "hardware_scope": "NVIDIA A800-SXM4-80GB",
+  "workload_scope": {
+    "ogbn-arxiv": "48,603 fixed official-test targets;380 requests of at most128 nodes, identical full target workload for sampled/exact/RAM.",
+    "PubMed": "1,000 fixed official-test targets;8 requests of at most128 nodes, identical full target workload for sampled/exact/RAM."
+  },
+  "original_renderer_sha256": "fc3a9f525ec4f1d6b27336332d559b4852bd8ad0b84a176926450d421c2c7d27",
+  "scientific_source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75"
+}

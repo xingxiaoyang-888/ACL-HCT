@@ -1,0 +1,150 @@
+\section{Interventions and Decision-Level Analysis}
+\label{sec:analysis}
+\subsection{A four-corner intervention}
+The message-passing abstraction follows the established MPNN framework \cite{gilmer2017neural}; its use here does not introduce a new general model family. Let $G$, features, and trained parameters be fixed. At a chosen layer, let $X$ be the incoming messages from the exact prefix and $\widehat X$ those from the sampled prefix. Write $f_b(X)$ for this layer's native computation, where $b=0$ uses the specified sampled neighborhood and $b=1$ uses all neighbors. Thus $f_b$ includes message weighting, normalization, and the relevant activation, rather than just a matrix product. The four states are
+\begin{align}
+H_{00}&=f_0(\widehat X), & H_{10}&=f_1(\widehat X),\\
+H_{01}&=f_0(X), & H_{11}&=f_1(X).
+\label{eq:corners}
+\end{align}
+The first subscript indicates restoration of local computation; the second indicates restoration of upstream representations. Sampling randomness is paired whenever the operation is sampled. At the final message-passing layer, the original task head maps each state to scores. At an earlier layer, the original suffix is recomputed using the registered paired sampling plan. Intervening at one node without updating its affected descendants would define a different experiment.
+
+For a fixed attention operator, ``restore local'' means recomputing full-neighborhood attention on the \emph{same incoming messages}; it does not replace sampled attention weights with weights computed from another upstream state. Attention's dependence on $X$ makes the functional definition in Equation~\eqref{eq:corners} preferable to assuming one constant aggregation matrix. The primary new intervention is fixed at the final message-passing layer before new effects are inspected.
+
+Using the standard two-factor interaction framework \cite{nist2012handbook}, with 0/1 baseline differences rather than a $\pm1$-coded effect normalization, for scalar quality $Q$ define
+\begin{align}
+\Delta_{\mathrm{local}}&=Q_{10}-Q_{00},\\
+\Delta_{\mathrm{up}}&=Q_{01}-Q_{00},\\
+\Delta_{\mathrm{joint}}&=Q_{11}-Q_{00},\\
+I_Q&=Q_{11}-Q_{10}-Q_{01}+Q_{00}.
+\label{eq:interaction}
+\end{align}
+Then $\Delta_{\mathrm{joint}}=\Delta_{\mathrm{local}}+\Delta_{\mathrm{up}}+I_Q$ exactly. A nonzero $I_Q$ records nonadditivity on this metric and intervention scale. It is not evidence for a particular causal mechanism by itself, and the three improvements are not independent percentages of a total error source. Accuracy is discontinuous and can be nonadditive even when an intermediate representation decomposes linearly.
+
+\subsection{Finite source decomposition and propagation}
+For linear aggregation of fixed messages, exact matrices $A$ and sampled matrices $\widehat A$ give the bookkeeping identity
+\begin{align}
+\widehat A\widehat X-AX
+={}&(\widehat A-A)X+A(\widehat X-X)\notag\\
+&+(\widehat A-A)(\widehat X-X).
+\label{eq:linear}
+\end{align}
+Equation~\eqref{eq:linear} is direct algebra, not a new decomposition theorem. The terms correspond to a local operator change, an inherited message change, and a cross term relative to this reference. Squared norms retain cross inner products. Even a zero conditional mean for one term does not justify discarding its correlations with other layers. For attention, one may instantiate matrices at their actual endpoint inputs and still obtain this algebraic identity; its terms then mix weight adaptation and sampling. They are not equivalent to the functional interventions in Equation~\eqref{eq:corners} unless the relevant dependencies are held fixed.
+
+A finite formulation avoids assuming that a first-order approximation dominates. Let the exact layer map be $F_\ell$ and the sampled one $\widehat F_\ell$, with $\delta_\ell=\widehat H_\ell-H_\ell$. Define the local residual on actual incoming states as
+\begin{equation}
+e_\ell=\widehat F_\ell(\widehat H_{\ell-1})-F_\ell(\widehat H_{\ell-1}).
+\end{equation}
+Then, for any selected linear map $J_\ell$,
+\begin{equation}
+\begin{aligned}
+\delta_\ell&=J_\ell\delta_{\ell-1}+e_\ell+r_\ell,\\
+r_\ell&=F_\ell(\widehat H_{\ell-1})-F_\ell(H_{\ell-1})-J_\ell\delta_{\ell-1}.
+\end{aligned}
+\label{eq:prop}
+\end{equation}
+With identical input features, recursive substitution gives
+\begin{equation}
+\delta_L=\sum_{\ell=1}^{L}\left(\prod_{j=L}^{\ell+1}J_j\right)(e_\ell+r_\ell).
+\label{eq:unroll}
+\end{equation}
+The ordered empty product is the identity. These are exact identities with the stated residuals, not small-error guarantees. On a differentiable, common coordinate branch, choose $J_\ell=DF_\ell(H_{\ell-1})$. If the entire segment between $H_{\ell-1}$ and $\widehat H_{\ell-1}$ lies in that branch and the Jacobian obeys $\norm{DF_\ell(u)-DF_\ell(v)}\leq K_\ell\norm{u-v}$ along it, integrating the Jacobian difference gives the standard Taylor bound \cite{nocedal2006numerical}
+\begin{equation}
+\norm{r_\ell}\leq \frac{K_\ell}{2}\norm{\delta_{\ell-1}}^2.
+\end{equation}
+This conditional bound is classical; the experiment does not certify its smoothness assumptions for every encountered state. ReLU boundary changes, clipping, nonadmissible manifold coordinates, and numerical error need their own treatment. In manifold-valued layers, subtracting ambient coordinates is permitted as bookkeeping but is not automatically an intrinsic distance.
+
+The measurable implication is narrow: a final layer can have $e_L=0$ while $\delta_L\ne0$ because its incoming representations differ. A one-message-layer model with identical raw inputs has no sampled upstream message-passing prefix. It is a structural boundary case, not a failed replication of an upstream effect in a deeper model.
+
+\subsection{Why smaller local error need not improve accuracy}
+Let $s_c$ be a class score, $y$ the true label, and
+\begin{equation}
+m_y=s_y-\max_{c\ne y}s_c=\min_{c\ne y} M_{yc},\qquad M_{ab}=s_a-s_b.
+\end{equation}
+Correctness is determined by signed margins and the declared tie rule. For a linear head $s_c(h)=w_c^\top h+b_c$, direct subtraction for a finite representation change $d$ gives the elementary identity
+\begin{equation}
+M_{ab}(h+d)-M_{ab}(h)=(w_a-w_b)^\top d.
+\label{eq:euclideanmargin}
+\end{equation}
+Error magnitude alone therefore does not determine the sign of the margin change. For example, with a reference binary margin $0.1$ and head difference $(1,0)$, the error $d_1=(-0.2,0)$ changes the prediction, while the larger error $d_2=(0,1)$ leaves its margin unchanged. This elementary construction concerns decisions of a fixed head, not the expected behavior of a trained architecture.
+
+If $m_y(h)>0$, a sufficient condition for preserving the correct prediction is
+\begin{equation}
+\max_{c\ne y}\left|(w_y-w_c)^\top d\right|<m_y(h).
+\label{eq:stability}
+\end{equation}
+The norm bound $\norm{w_y-w_c}_*\norm d$ is sufficient but may be loose because it discards direction. Reducing this bound need not change any label. Conversely, moving across a narrow decision boundary can change a label at small displacement. A reference full prediction can itself be wrong; agreeing with it and improving label accuracy are different objectives.
+
+For each intervention we record corrected events $C$ (sampled wrong to intervention correct) and harmed events $H$ (sampled correct to intervention wrong). On the same $N$ node--plan events,
+\begin{equation}
+\Acc_{\mathrm{intervention}}-\Acc_{00}=\frac{C-H}{N}.
+\label{eq:transitions}
+\end{equation}
+Corrections and harms reveal offsetting changes that a net gain can conceal. The archived development synthesis additionally reports changed predictions for which both endpoints are wrong, using its retained class predictions; correctness flags alone do not identify those events in the new summary. True-label margins, full-winner margins, and representation errors remain separately named quantities.
+
+\subsection{Sampling guarantees depend on the estimator}
+For fixed messages $x_j$ and a fixed linear aggregation target $a=\sum_j a_jx_j$, the Horvitz--Thompson estimator \cite{horvitz1952generalization} with inclusion indicators $I_j$ and positive inclusion probabilities $\pi_j$ is
+\begin{equation}
+\widehat a=\sum_j I_j\frac{a_jx_j}{\pi_j},\qquad \E[\widehat a\mid X]=a.
+\label{eq:ht}
+\end{equation}
+Its covariance depends on joint inclusion probabilities $\pi_{jk}$, not only marginal probabilities. Uniform sampling without replacement with a fixed, nonzero sample size gives an unbiased sample mean for fixed messages. The LABOR-0 bridge, distinguished from the estimator guarantee in the original LABOR work \cite{balin2023labor}, accepts no extra importance weights: a nonempty returned importance-weight array is rejected. Its GraphSAGE mean divides the sampled message sum by the realized random neighbor count and returns a zero neighbor aggregate when that count is zero. Random count and empty-neighborhood events prevent inheriting unconditional unbiasedness from the fixed-count Uniform statement. Historical HyboNet SUM uses weights $A_{ij}/\min(1,k/d_i)$ on its specified eligible neighbors, which is a different estimator contract. For correlated layer sampling, neither conditional independence across messages nor across layers may be assumed. Every estimator must be mapped to its actual self-message, duplicate, and empty-neighborhood handling before Equation~\eqref{eq:ht} is invoked. If a shared random seed correlates the upstream state and current plan, conditioning on the state can change the sampling law.
+
+Attention is a crucial exception to a naive extension. For fixed inputs, define full attention values $z_j$ and positive unnormalized weights $q_j=\exp(e_j)$. The output is $a=N/D$, where $N=\sum_jq_jz_j$ and $D=\sum_jq_j$. Even if probability weighting makes $\widehat N$ and $\widehat D$ separately unbiased, their ratio generally is not. Writing $\widehat N=N+\delta N$, $\widehat D=D+\delta D>0$ gives the exact identity
+\begin{equation}
+\frac{\widehat N}{\widehat D}-\frac ND
+=\frac{\delta N-a\,\delta D}{D+\delta D}.
+\label{eq:ratio}
+\end{equation}
+For centered perturbations $\E[\delta N]=\E[\delta D]=0$, applying the standard delta method \cite{oehlert1992delta}, with the denominator bounded away from zero, suitable concentration and controlled expected remainder, gives the approximate second-order mean term $(a\Var(\delta D)-\Cov(\delta N,\delta D))/D^2$. Without centering, first-order mean terms also remain. The approximation is not a finite-sample unbiasedness claim. Native sampled-neighborhood softmax and a probability-weighted ratio can also be different operators; the chosen implementation must be declared before effects. Applying a local variance result to post-softmax output or accuracy without this mapping would change the mathematical object being analyzed.
+
+\subsection{A Lorentz-head specialization}
+The bound implementation of the fully hyperbolic architecture \cite{chen2022fully} first forms the weighted ambient sum $m$ of transformed messages, then returns $h=m/\rho(m)$, where
+\begin{equation}
+\rho(m)=\sqrt{\max\{|\ip{m}{m}|,10^{-8}\}}.
+\label{eq:nativerho}
+\end{equation}
+Its native prototype score is $s_c(h)=2+2\ip{h}{p_c}+b_c$, with no subsequent projection, distance clipping, or softmax in the decoder. The decoder uses a fixed unit-radius Lorentz manifold; its class prototypes are manifold parameters with projected initialization, but decoding does not recheck or project loaded prototypes. We therefore separate the following real-arithmetic identity from an empirical certificate of unit-norm checkpoint values. For fixed finite $D_{ab}=p_a-p_b$ and $\beta_{ab}=b_a-b_b$, the positive scale $\rho$ preserves the sign of the pairwise margin:
+\begin{equation}
+\psi^\rho_{ab}(m)=\rho(m)M_{ab}(h)=2\ip{m}{D_{ab}}+\rho(m)\beta_{ab}.
+\label{eq:psi}
+\end{equation}
+For finite $m,d$ in this domain,
+\begin{align}
+\psi^\rho_{ab}(m+d)-\psi^\rho_{ab}(m)
+={}&2\ip{d}{D_{ab}}\notag\\
+&+[\rho(m+d)-\rho(m)]\beta_{ab}.
+\label{eq:lorentzfinite}
+\end{align}
+This follows by substitution, without linearization or a unit-prototype assumption. If every class bias is equal, the positive final normalization scale alone does not alter the ordering of a \emph{fixed} aggregate. Unequal biases make the scale explicitly task relevant. This does not make preceding aggregation or earlier normalizations harmless. Floating-point evaluation can leave a finite arithmetic residual; the identity is not a bitwise-equality claim.
+
+If $m$ is future-pointing timelike and $-\ip{m}{m}\geq10^{-8}$, then $\rho(m)=\nu(m)=\sqrt{-\ip{m}{m}}$. Substituting $\nu$ at both endpoints of Equation~\eqref{eq:lorentzfinite} requires these conditions at both $m$ and $m+d$. With unit future-pointing prototypes as well, $2+2\ip{h}{p_c}$ is the negative chordal distance proxy $-( -2-2\ip{h}{p_c})$, rather than negative squared geodesic distance. Outside that domain, Equation~\eqref{eq:lorentzfinite} still describes this native scalar-normalization head in real arithmetic, but does not establish hyperbolic distance semantics. Historical native FP32 records include nonunit intermediate messages and violations of idealized intermediate conditions. Thus domain coverage and arithmetic residuals require their own evidence. The factorization does not transfer unchanged to HGCN's linear decoder, a Poincar\'e distance head, or another curvature convention; model-level comparisons also cannot isolate curvature from depth, head, or normalization.
+
+\section{Workload-Matched Cost and Selection}
+\label{sec:cost}
+Let $T$ be an ordered target-node workload with a fixed batching rule. A deployable sampling request includes CPU neighborhood planning, construction of the required blocks, host--device movement, and synchronized model computation. We distinguish
+\begin{equation}
+t_{\mathrm{request}}=t_{\mathrm{plan}}+t_{\mathrm{prepare}}+t_{\mathrm{transfer}}+t_{\mathrm{forward}}+t_{\mathrm{other}},
+\end{equation}
+only when the components are nonoverlapping intervals of the same clock. If instrumentation overlaps or clocks differ, components are reported separately rather than summed. Graph preprocessing, loading, format construction, and model loading are one-time costs with their own scope. Request latency distributions and aggregate workload wall time answer different questions and are both retained.
+
+\paragraph{Same fanout is not the same cost.}
+Layer-level sharing, node reuse, duplicates, attention calculation, and block preparation can differ between samplers at the same fanout. Three budgets are therefore fixed using label-free timing and a predetermined discrete candidate rule. All realized cost deviations are reported. Points on an observed quality--time--memory curve are not treated as a continuous interpolated algorithm: an equal-time comparison is valid only at a measured feasible operating point or a prospectively specified randomized mixture, which this round does not add.
+
+\paragraph{Exact outputs and reuse.}
+For $q$ repetitions of the same target workload, let $S_s$ be the sampled route's setup, $T_s(T)$ its per-workload cost, $S_f$ the exact route's setup, $P_f$ full-output precomputation, and $T_c(T)$ the cached query cost. Then
+\begin{align}
+C_s(q)&=S_s+qT_s(T),\\
+C_c(q)&=S_f+P_f+qT_c(T).
+\label{eq:cache}
+\end{align}
+By elementary comparison of these accounting expressions, when $T_s(T)>T_c(T)$ caching is cheaper for
+\begin{equation}
+q>\frac{S_f+P_f-S_s}{T_s(T)-T_c(T)}.
+\label{eq:breakeven}
+\end{equation}
+The smallest valid integer is obtained from the strict inequality, and negative setup differences are retained. If the denominator is nonpositive, this inequality does not give the stated crossover. Host output bytes, GPU working memory, and invalidation after graph or parameter changes are part of the comparison. A whole-graph full forward cannot be compared directly with one small sampled target batch; both routes must serve the same total requested outputs.
+
+\paragraph{Decision rule and reporting.}
+For each frozen model, seed, and workload, report the measured discrete frontier over the two samplers and three budgets, together with the exact and amortized-cache routes. A method is dominated only when another measured feasible point is no worse in the reported quality, time, and memory dimensions under the same accounting scope. Near-equal-quality tolerance and feasibility thresholds are frozen before the new final evaluation. Development outcomes may inform the written interpretation, but cannot change the set of final methods, checkpoints, or budgets.
+

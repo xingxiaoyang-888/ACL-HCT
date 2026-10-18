@@ -26,3 +26,7 @@ wandb/
 *.tar
 *.tar.gz
 *.zip
+
+# Public preparation source is code, not a downloaded dataset.
+!artifacts/vldb2027/src/data/
+!artifacts/vldb2027/src/data/*.py

@@ -1,0 +1,318 @@
+{
+  "schema": "public_native_reconstruction_v1",
+  "status": "source correspondence documented; transform verifies all input/output hashes before writing",
+  "groups": [
+    {
+      "model": "hgcn",
+      "repository": "https://github.com/HazyResearch/hgcn",
+      "revision": "a526385744da25fc880f3da346e17d0fe33817f8",
+      "source_prefix": "",
+      "license": "No redistribution license verified at this revision; upstream sources are not included.",
+      "files": [
+        {
+          "path": "models/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "models/base_models.py",
+          "upstream_lf_sha256": "fb1a5822c2e90027722f5af4f4f6bbd386459efd65b482f8d126c71876a49444",
+          "accepted_sha256": "5fa561254c8e690fd2fc811d9678e72c1683272e1936c017350a9739f12bf21a",
+          "accepted_bytes": 4747
+        },
+        {
+          "path": "models/decoders.py",
+          "upstream_lf_sha256": "65104e6a5e0ba5a1659afc2f2de515781552c53ba30b2c1ed01f8280d03b011e",
+          "accepted_sha256": "2eba52e6ea981790e8aec971cb889429830547421d03a1768cbe4fc1ea579f92",
+          "accepted_bytes": 2286
+        },
+        {
+          "path": "models/encoders.py",
+          "upstream_lf_sha256": "3e729904ec5ea03236d96fece12a9c40cec65dcf3e04afa4aa4c332a888a70b4",
+          "accepted_sha256": "89a1fa859ee4291eab7dd2fc2fcacbae0c112006bc9f4a46e7d0eccef7c36d2b",
+          "accepted_bytes": 6412
+        },
+        {
+          "path": "layers/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "layers/att_layers.py",
+          "upstream_lf_sha256": "16c1fd8b359d8153c5da6e2c36979d19b8a9a3a0312e28529ac92f1e2fb6fc96",
+          "accepted_sha256": "22502c5cf8c1c56f0ab875a1e41e74d100eb813c980da9efb981812745cbfd49",
+          "accepted_bytes": 5292
+        },
+        {
+          "path": "layers/hyp_layers.py",
+          "upstream_lf_sha256": "0682860b018ff4f77b0a29e010925c92c53242b63ddba13315a002a87738331a",
+          "accepted_sha256": "d2c1d73eb8ec6624b958ff68c80eeabe247e5842278e7eeb536eb453bdd8d43f",
+          "accepted_bytes": 6113
+        },
+        {
+          "path": "layers/layers.py",
+          "upstream_lf_sha256": "94bcce5b44c23bdc61be96273b4d590e2cf3ea702866bfae86b1ba6ac3c60762",
+          "accepted_sha256": "d3c940c391d853c76e8c93ef4a49e7dde43f24ba191ac777dd09328e09dc3f50",
+          "accepted_bytes": 2470
+        },
+        {
+          "path": "manifolds/__init__.py",
+          "upstream_lf_sha256": "ae5d85136b0e9b5ce0e72009dda1bd4b07e2d51bba8e84b810cc37fe2fa158b9",
+          "accepted_sha256": "ef47ab9558965d19ddeb3a238161fb4f715f154e21367bed49084c16cc5b810d",
+          "accepted_bytes": 145
+        },
+        {
+          "path": "manifolds/base.py",
+          "upstream_lf_sha256": "b62495e0c4ad809ffed3d2d92e3bf27606d0fe7b95be10f2b3dd32f610757e86",
+          "accepted_sha256": "9ed71a8984db9cfc07be90b3a6effb4ec9efda2d18feef2f9460af02e1a2cc38",
+          "accepted_bytes": 2667
+        },
+        {
+          "path": "manifolds/euclidean.py",
+          "upstream_lf_sha256": "73cc355012bcf282827244aed39c7d33c3cb5ae703fded1a070127fcfa69a0ca",
+          "accepted_sha256": "938cf715c31e2d8b50140c7b98aab1793bd25f0d6cf2e056f6fc044b922624e2",
+          "accepted_bytes": 1418
+        },
+        {
+          "path": "manifolds/hyperboloid.py",
+          "upstream_lf_sha256": "c0f2178eca90719fbcf089981727642daf22c7ab76c7e79be7b699fb38d0ab4c",
+          "accepted_sha256": "84046dbb9254116fbb635e13f534b539f3ea1268b08f792ce0960f4e501009b1",
+          "accepted_bytes": 5209
+        },
+        {
+          "path": "manifolds/poincare.py",
+          "upstream_lf_sha256": "32b74c178b9e44e9189d116bbabf59ac0acf6f7d32beaeaa16e3457dbf168e85",
+          "accepted_sha256": "385fe872d49654a5d941cd3191895c77d422f5c04f969caf295d120595ac5a40",
+          "accepted_bytes": 5139
+        },
+        {
+          "path": "utils/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "utils/data_utils.py",
+          "upstream_lf_sha256": "aa247d27c533baa8fbcc79416438cc84b5398e6209b934b0fdf3d8f8dee1d1bb",
+          "accepted_sha256": "512741dde21e174f787545405c2c7c82b3cf852b11a67ba99b6e107920a85c7d",
+          "accepted_bytes": 10158
+        },
+        {
+          "path": "utils/eval_utils.py",
+          "upstream_lf_sha256": "9003cc77d9852f561ab39f8dada1cfae6bba9a662a16f503d653644576b2a149",
+          "accepted_sha256": "1091242be5bb818107ce20b20374ba496c59b1168fed1fd4459f862891cc3afb",
+          "accepted_bytes": 381
+        },
+        {
+          "path": "utils/hyperbolicity.py",
+          "upstream_lf_sha256": "d7183645d5cd88f1f91fafb803660ff1d066496f4f65779b4877fdbe2164eae2",
+          "accepted_sha256": "9f8f7e8ac286901e4e8b7468b282264339a855e0d5ff377203be9f04df67d7bb",
+          "accepted_bytes": 1759
+        },
+        {
+          "path": "utils/math_utils.py",
+          "upstream_lf_sha256": "5033322aa9de81b7ec4afaae8c16d8e1aa65c9bf8beefd7dcb2f7bf25688234f",
+          "accepted_sha256": "67bf844504dc57977fa0cfaf31dc45fb76acda9ac3b6767e681985009011e65f",
+          "accepted_bytes": 1613
+        },
+        {
+          "path": "utils/train_utils.py",
+          "upstream_lf_sha256": "325778c0357939cd6ffd23e65f2168402df5e201694b79447d1dba68e6ee8f43",
+          "accepted_sha256": "bc28386d7eb1191919de88a3a8583196735366ea4ade5296b515c7ad4a376f90",
+          "accepted_bytes": 3168
+        }
+      ]
+    },
+    {
+      "model": "hybonet",
+      "repository": "https://github.com/chenweize1998/fully-hyperbolic-nn",
+      "revision": "7ba8e1a06d0504971134edbb2520d75d9887ba7a",
+      "source_prefix": "gcn",
+      "license": "No redistribution license verified at this revision; upstream sources are not included.",
+      "files": [
+        {
+          "path": "models/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "models/base_models.py",
+          "upstream_lf_sha256": "c5ff7353e8cf104bf23fe6c3cde72a89facd05a2247d6af85d851c33ffdfabc7",
+          "accepted_sha256": "c2288b151d93f89d74c7d40ed34068a18b6714d849f0cf0c877262cc34b3478f",
+          "accepted_bytes": 4911
+        },
+        {
+          "path": "models/decoders.py",
+          "upstream_lf_sha256": "a7dae2fcf9c40aaea6d6e82c9679ab1fce172041d752d9a1635f6e70afa3cd17",
+          "accepted_sha256": "5dcd2634110987db801f29a02530af858d2f7a6b354c5ab1dd4526821e8428f0",
+          "accepted_bytes": 3171
+        },
+        {
+          "path": "models/encoders.py",
+          "upstream_lf_sha256": "2949abfa7d9ba3311f39e8ebedff8c3b5dead44e825bfa36089a46bccfcefb6d",
+          "accepted_sha256": "a8b83af0a942ffb9b585e5bb20fefce843d1750ae7aa125546419a53fb1bc624",
+          "accepted_bytes": 9901
+        },
+        {
+          "path": "layers/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "layers/att_layers.py",
+          "upstream_lf_sha256": "258ce7e95337527b5ab47d175923cce301c244e58e38532044d41fa2d8afa5e8",
+          "accepted_sha256": "af703223892abd88164967ac4e92431da3ef4c0cb4770d382ec4e71e4d754ac5",
+          "accepted_bytes": 5296
+        },
+        {
+          "path": "layers/hyp_layers.py",
+          "upstream_lf_sha256": "015f8f4f55ba3f7dd19baeea987f0dbad098ea9ef184b7fe5944bd0457c32d21",
+          "accepted_sha256": "474982e64604ede23ae7309cd2f5f3512fdfbda7a606b05ad688e5f98e08f11a",
+          "accepted_bytes": 11062
+        },
+        {
+          "path": "layers/layers.py",
+          "upstream_lf_sha256": "bdab3ce269bbf0e7df05b2b0368b60f386c17eede5769e274622da0678e10ffa",
+          "accepted_sha256": "c8abced04cbd515277eca63f670cac8cfe6e9cd1bbdbe42a1a74519b3314e0a7",
+          "accepted_bytes": 2487
+        },
+        {
+          "path": "manifolds/__init__.py",
+          "upstream_lf_sha256": "91ce3120beb15bca082a598a2b06293c6f14ff300e95bf4fc9f5d0e0eeb19008",
+          "accepted_sha256": "429e8d8b477ae6d6bc9549e843800b097bc9a949f7623c6ad0c4f4ef4ef8aebd",
+          "accepted_bytes": 175
+        },
+        {
+          "path": "manifolds/base.py",
+          "upstream_lf_sha256": "b62495e0c4ad809ffed3d2d92e3bf27606d0fe7b95be10f2b3dd32f610757e86",
+          "accepted_sha256": "9ed71a8984db9cfc07be90b3a6effb4ec9efda2d18feef2f9460af02e1a2cc38",
+          "accepted_bytes": 2667
+        },
+        {
+          "path": "manifolds/euclidean.py",
+          "upstream_lf_sha256": "73cc355012bcf282827244aed39c7d33c3cb5ae703fded1a070127fcfa69a0ca",
+          "accepted_sha256": "938cf715c31e2d8b50140c7b98aab1793bd25f0d6cf2e056f6fc044b922624e2",
+          "accepted_bytes": 1418
+        },
+        {
+          "path": "manifolds/hyperboloid.py",
+          "upstream_lf_sha256": "c0f2178eca90719fbcf089981727642daf22c7ab76c7e79be7b699fb38d0ab4c",
+          "accepted_sha256": "84046dbb9254116fbb635e13f534b539f3ea1268b08f792ce0960f4e501009b1",
+          "accepted_bytes": 5209
+        },
+        {
+          "path": "manifolds/lmath.py",
+          "upstream_lf_sha256": "423a12a7f5b586cc0cc9bd218d02ea10205d9f87ef5603ca16cbdb191f0878c0",
+          "accepted_sha256": "840bf478f69cae878476311e950da609f601d6c1f8b64a18d18effd64d1888df",
+          "accepted_bytes": 19561
+        },
+        {
+          "path": "manifolds/lorentz.py",
+          "upstream_lf_sha256": "3f541e9e7e7e89f0669f532f216a4dbb88a1a254d08685f8b9594f02ea411612",
+          "accepted_sha256": "cf2f83025d9c1e88e6b4e849ee68e73023dc4e1387f969046e9ad8fcf3afa7bf",
+          "accepted_bytes": 9416
+        },
+        {
+          "path": "manifolds/poincare.py",
+          "upstream_lf_sha256": "32b74c178b9e44e9189d116bbabf59ac0acf6f7d32beaeaa16e3457dbf168e85",
+          "accepted_sha256": "385fe872d49654a5d941cd3191895c77d422f5c04f969caf295d120595ac5a40",
+          "accepted_bytes": 5139
+        },
+        {
+          "path": "manifolds/utils.py",
+          "upstream_lf_sha256": "a67e96731867a552d4ea9968ca8be5ace3d658f61964ebd98ae42a4f28895dfd",
+          "accepted_sha256": "c69f456d72856e227445bb3d6a6d97059a4c498c3379f43c8ed98368c194c681",
+          "accepted_bytes": 7895
+        },
+        {
+          "path": "utils/__init__.py",
+          "upstream_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "accepted_bytes": 0
+        },
+        {
+          "path": "utils/data_utils.py",
+          "upstream_lf_sha256": "d81f1c57914c813627c766f3008276d2baea77a3c935cbb2c6845ba4b520fadf",
+          "accepted_sha256": "342c8e764dafe65246b68f2b7c0d84a08e1a8861737a0d9c5648b209ee9d2c03",
+          "accepted_bytes": 10209
+        },
+        {
+          "path": "utils/eval_utils.py",
+          "upstream_lf_sha256": "a287669eaa50e381aa3539350c1aae8f4c73a312166d0e81f771cdf2a87c558d",
+          "accepted_sha256": "5ae94ae1d874d6d3a354196cdd6bd1c08ed58c3201e4e2ebc96f5550b2278423",
+          "accepted_bytes": 689
+        },
+        {
+          "path": "utils/hyperbolicity.py",
+          "upstream_lf_sha256": "d7183645d5cd88f1f91fafb803660ff1d066496f4f65779b4877fdbe2164eae2",
+          "accepted_sha256": "9f8f7e8ac286901e4e8b7468b282264339a855e0d5ff377203be9f04df67d7bb",
+          "accepted_bytes": 1759
+        },
+        {
+          "path": "utils/math_utils.py",
+          "upstream_lf_sha256": "5033322aa9de81b7ec4afaae8c16d8e1aa65c9bf8beefd7dcb2f7bf25688234f",
+          "accepted_sha256": "67bf844504dc57977fa0cfaf31dc45fb76acda9ac3b6767e681985009011e65f",
+          "accepted_bytes": 1613
+        },
+        {
+          "path": "utils/train_utils.py",
+          "upstream_lf_sha256": "d26d2ac8b9cc6244c4e6274dba3038d2c2230b97efa62449386540f05ebbc82e",
+          "accepted_sha256": "1232d527ec22a29ca1ee74a6bab84c63674e9b3b266ab774a798a89a2ecfb106",
+          "accepted_bytes": 5625
+        },
+        {
+          "path": "optim/mix.py",
+          "upstream_lf_sha256": "484eb36cae2d85f30dcafa431b84240c206e21d6f931faa5715a715f47a178ff",
+          "accepted_sha256": "124fed6f09f7e31ef65bbb2ab4f423e6339115712d2c77e564e4d883d42795f7",
+          "accepted_bytes": 1705
+        },
+        {
+          "path": "optim/mixin.py",
+          "upstream_lf_sha256": "a231fea186250de68e7112f67135bbda144033d345ff592391087c24c4096aca",
+          "accepted_sha256": "bc5deaec5600ca1adf5297f213f311f71ec38e1f0245172a34eeb0da4766c348",
+          "accepted_bytes": 1570
+        },
+        {
+          "path": "optim/radam.py",
+          "upstream_lf_sha256": "f66322e5b28e3648ce7fe13c25275aceb82c901feec0fa0aa0f34a94a0cc5380",
+          "accepted_sha256": "a6b29dccfc622f06415ed5b34891ddadcddb877fcb590086f227d8f61a81f2c3",
+          "accepted_bytes": 6570
+        },
+        {
+          "path": "optim/rlinesearch.py",
+          "upstream_lf_sha256": "b8f874b047f199501165f8cf522e94183a8641f02b4347fd690c5b3b2c719729",
+          "accepted_sha256": "f63ed498aadd7c5c34fc821d266bc3178fee20552703935041d52ff4da45251a",
+          "accepted_bytes": 25785
+        },
+        {
+          "path": "optim/rsgd.py",
+          "upstream_lf_sha256": "60d08181f4ce29520cc659ca6cc539fd59bd7afe15cd7ef12d02fcd8b4d000eb",
+          "accepted_sha256": "87c86fa47033489e526e0060e06924206f4563e282a5422647162bf63460f03a",
+          "accepted_bytes": 5652
+        },
+        {
+          "path": "optim/sparse_radam.py",
+          "upstream_lf_sha256": "a038763131a14bdbdbb4aabf2549591919ce5d48c78f12f5c4c7dde2ddf67cc7",
+          "accepted_sha256": "34f3fd2f9e6b10412aa079c7b6a5a8fa47063458c87ad401925347a4abacfb9d",
+          "accepted_bytes": 7290
+        },
+        {
+          "path": "optim/sparse_rsgd.py",
+          "upstream_lf_sha256": "5108cbbe8a273b133a87f5b962018bd96c76e65b4f68cf303091474599fa573d",
+          "accepted_sha256": "5930a158632e39dac9980521eeb2c145c9e036be79e23092d9a1f00fefaa19d7",
+          "accepted_bytes": 5555
+        },
+        {
+          "path": "optim/__init__.py",
+          "upstream_lf_sha256": "7450c05985e3d3d887d683aa3e81c30d2e5e1d5dd1813ded9a771b382ee913b6",
+          "accepted_sha256": "b97495cfad08856e8fb7939258a5d06a34a78510a23b4152c3742864325c5ca8",
+          "accepted_bytes": 34
+        }
+      ]
+    }
+  ]
+}

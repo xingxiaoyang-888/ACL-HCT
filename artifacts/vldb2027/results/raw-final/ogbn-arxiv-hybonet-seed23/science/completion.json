@@ -1,0 +1,14 @@
+{
+  "schema": "vldb_frozen_sampling_completion_v1",
+  "status": "completed",
+  "dataset": "ogbn-arxiv",
+  "model": "hybonet",
+  "seed": 23,
+  "stage": "final",
+  "CP_model_setup_seconds": 0.551992554217577,
+  "public_graph_setup_seconds": 1.1563213150948286,
+  "worker_wall_seconds": 1318.1249051112682,
+  "worker_process_cpu_seconds": 2900.839459511,
+  "child_process_CPU_seconds": null,
+  "common_CPU_feature_CSR_bytes": 107937896
+}

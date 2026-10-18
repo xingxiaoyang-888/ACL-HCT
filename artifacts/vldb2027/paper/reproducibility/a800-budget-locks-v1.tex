@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\caption{Frozen label-free A800 calibration, seed 11; seeds 23/37 inherit each lock. Times are median request milliseconds over 24 timings per point. These are budget-selection observations, not official-test quality or final speedup results. The infeasible minimum-cost point is retained.}
+\label{tab:a800-locks}
+\centering
+\begin{tabular}{llrrrrl}
+\toprule
+Dataset / model & Tier & Uniform $K$ & Uniform ms & LABOR $K$ & LABOR ms & Feasible? \\
+\midrule
+ogbn-arxiv / HGCN & low & 5 & 70.151 & 8 & 61.559 & Yes \\
+ogbn-arxiv / HGCN & middle & 15 & 113.843 & 12 & 95.815 & Yes \\
+ogbn-arxiv / HGCN & high & 30 & 250.854 & 36 & 226.308 & Yes \\
+\addlinespace
+ogbn-arxiv / HyboNet & low & 5 & 41.329 & 5 & 37.245 & Yes \\
+ogbn-arxiv / HyboNet & middle & 15 & 98.561 & 15 & 93.485 & Yes \\
+ogbn-arxiv / HyboNet & high & 30 & 223.856 & 36 & 217.241 & Yes \\
+\addlinespace
+ogbn-arxiv / GraphSAGE & low & 5 & 35.030 & 5 & 35.134 & No \\
+ogbn-arxiv / GraphSAGE & middle & 15 & 95.080 & 15 & 83.924 & Yes \\
+ogbn-arxiv / GraphSAGE & high & 30 & 215.652 & 36 & 205.791 & Yes \\
+\addlinespace
+ogbn-arxiv / GAT & low & 5 & 43.810 & 5 & 41.547 & Yes \\
+ogbn-arxiv / GAT & middle & 15 & 100.699 & 15 & 92.426 & Yes \\
+ogbn-arxiv / GAT & high & 30 & 227.070 & 30 & 189.839 & Yes \\
+\addlinespace
+PubMed / GraphSAGE & low & 1 & 33.723 & 6 & 33.339 & Yes \\
+PubMed / GraphSAGE & middle & 4 & 37.158 & 6 & 33.339 & Yes \\
+PubMed / GraphSAGE & high & 8 & 34.552 & 6 & 33.339 & Yes \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,172 @@
+{
+  "calibration_seed": 11,
+  "contention_certification": "discrete fixed-group checks only; actual host conditions in Ops receipt",
+  "dataset": "ogbn-arxiv",
+  "labels_read": false,
+  "model": "sage",
+  "outcome_guided_selection": false,
+  "plan_sha256": "3d76001157abd29ca81be1bb6f0eccc7157e5711e39981bf38be3c095256ed6a",
+  "points": [
+    {
+      "fanout": 5,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.035029846243560314,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 0.9957650173455477,
+      "sampler": "uniform"
+    },
+    {
+      "fanout": 15,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.09507959149777889,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 2.588215846568346,
+      "sampler": "uniform"
+    },
+    {
+      "fanout": 30,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.21565189398825169,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 5.520419608801603,
+      "sampler": "uniform"
+    },
+    {
+      "fanout": 5,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.03513408079743385,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 0.9901831727474928,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 8,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.048490239307284355,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 1.3320048823952675,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 12,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.06759228743612766,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 1.813971346244216,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 15,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.08392436802387238,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 2.3249997179955244,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 20,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.1181167084723711,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 3.0359546169638634,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 24,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.14338313695043325,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 3.6992569528520107,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 30,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.17215686477720737,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 4.472225334495306,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 36,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.20579109527170658,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 5.227415971457958,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 48,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.2635412374511361,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 6.861619113013148,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 64,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.32683378364890814,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 8.414899326860905,
+      "sampler": "labor"
+    },
+    {
+      "fanout": 80,
+      "measured_requests": 24,
+      "median_e2e_seconds": 0.3652531784027815,
+      "outer_includes_guard_and_output_writes": true,
+      "paid_warmups": 1,
+      "point_outer_wall_seconds": 9.223197218030691,
+      "sampler": "labor"
+    }
+  ],
+  "round": "vldb-sampling-mechanisms-v1",
+  "schema": "vldb_sampling_budget_lock_v1",
+  "source_manifest_sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a",
+  "target_ids_sha256": "7ba50d0ef4d253fb43c611099f65e816c94001b22197e0d429f607541a4243b1",
+  "tiers": [
+    {
+      "cost_match_feasible": false,
+      "labor_fanout": 5,
+      "labor_median_seconds": 0.03513408079743385,
+      "labor_over_uniform_time_ratio": 1.0029755926745667,
+      "tier": "low",
+      "uniform_fanout": 5,
+      "uniform_median_seconds": 0.035029846243560314
+    },
+    {
+      "cost_match_feasible": true,
+      "labor_fanout": 15,
+      "labor_median_seconds": 0.08392436802387238,
+      "labor_over_uniform_time_ratio": 0.8826748906029207,
+      "tier": "middle",
+      "uniform_fanout": 15,
+      "uniform_median_seconds": 0.09507959149777889
+    },
+    {
+      "cost_match_feasible": true,
+      "labor_fanout": 36,
+      "labor_median_seconds": 0.20579109527170658,
+      "labor_over_uniform_time_ratio": 0.9542744627270359,
+      "tier": "high",
+      "uniform_fanout": 30,
+      "uniform_median_seconds": 0.21565189398825169
+    }
+  ],
+  "timing_scope": "independent_target_dependency_cone_requests; not equal diagnostic cost",
+  "weights_sha256": "2f6b8607ae00572ec61929ffe900ca9a5d2ae7c882a25e407b19928f7f0e0734"
+}

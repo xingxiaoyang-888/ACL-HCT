@@ -1,0 +1,40 @@
+{
+  "schema": "public_frozen_inputs_v1",
+  "dataset": "ogbn-arxiv",
+  "model": "sage",
+  "seed": 11,
+  "public": {
+    "graph": {
+      "path": "../data/arxiv/public/graph.npz",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "ids": {
+      "path": "../data/arxiv/public/ids.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    "preparation": {
+      "path": "../data/arxiv/public/preparation.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    }
+  },
+  "checkpoint": {
+    "weights": {
+      "path": "../checkpoints/frozen/ogbn-arxiv/sage/seed11/label-free-weights.pt",
+      "sha256": "2f6b8607ae00572ec61929ffe900ca9a5d2ae7c882a25e407b19928f7f0e0734"
+    },
+    "metadata": null
+  },
+  "native_root": null,
+  "targets": {
+    "path": "../data/test/arxiv/targets.json",
+    "sha256": "REPLACE_WITH_SHA256"
+  },
+  "labels": {
+    "path": "../data/test/arxiv/labels.npz",
+    "sha256": "REPLACE_WITH_SHA256"
+  },
+  "budget_lock": {
+    "path": "budget-ogbn-arxiv-sage.json",
+    "sha256": "fbaae381315a3aedd7c9227f140b61debac77911f74a0a04d09a072fc233a031"
+  }
+}

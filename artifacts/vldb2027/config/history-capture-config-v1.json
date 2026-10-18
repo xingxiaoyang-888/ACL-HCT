@@ -1,0 +1,121 @@
+{
+  "registration_sha256": "565e6e2cdc4743f4721e7d3ae181f3a2e4ae02041bee1cb58416d982482b4d3e",
+  "matrix": [
+    {
+      "model": "HyboNet",
+      "dataset": "Airport",
+      "budgets": [
+        4,
+        8,
+        16,
+        "full"
+      ],
+      "matched_training_budget": 8,
+      "native_message_layers": 5,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 6
+    },
+    {
+      "model": "HyboNet",
+      "dataset": "Disease-NC",
+      "budgets": [
+        1,
+        2,
+        4,
+        "full"
+      ],
+      "matched_training_budget": 2,
+      "native_message_layers": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    },
+    {
+      "model": "HGCN",
+      "dataset": "Airport",
+      "budgets": [
+        4,
+        8,
+        16,
+        "full"
+      ],
+      "matched_training_budget": 8,
+      "native_message_layers": 1,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    },
+    {
+      "model": "HGCN",
+      "dataset": "Disease-NC",
+      "budgets": [
+        1,
+        2,
+        4,
+        "full"
+      ],
+      "matched_training_budget": 2,
+      "native_message_layers": 1,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    }
+  ],
+  "checkpoint_count": 24,
+  "entry": "scientific/collect.py",
+  "max_full_state_captures": 24,
+  "core_sampled_captures": 1920,
+  "fit_per_CP": {
+    "families": 16,
+    "budgets": "registered low and central",
+    "encodes": 32
+  },
+  "evaluation_per_CP": {
+    "families": 16,
+    "budgets": "registered low, central and high",
+    "encodes": 48,
+    "raw_outcomes_sealed": true
+  },
+  "additional_Hybo_first_full_encodes": 192,
+  "HGCN_alias_encodes": 0,
+  "release_job_fields": [
+    "action=capture",
+    "model",
+    "dataset",
+    "regime",
+    "seed",
+    "checkpoint_sha256"
+  ],
+  "output_refuses_overwrite": true,
+  "no_retraining_or_predictor_fitting": true,
+  "public_export_note": "Historical source-review configuration; not an execution authorization. Original collector output is already collected; use public fit scalar summary."
+}

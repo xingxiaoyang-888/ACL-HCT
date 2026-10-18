@@ -1,0 +1,293 @@
+{
+  "registration_sha256": "565e6e2cdc4743f4721e7d3ae181f3a2e4ae02041bee1cb58416d982482b4d3e",
+  "matrix": [
+    {
+      "model": "HyboNet",
+      "dataset": "Airport",
+      "budgets": [
+        4,
+        8,
+        16,
+        "full"
+      ],
+      "matched_training_budget": 8,
+      "native_message_layers": 5,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 6
+    },
+    {
+      "model": "HyboNet",
+      "dataset": "Disease-NC",
+      "budgets": [
+        1,
+        2,
+        4,
+        "full"
+      ],
+      "matched_training_budget": 2,
+      "native_message_layers": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    },
+    {
+      "model": "HGCN",
+      "dataset": "Airport",
+      "budgets": [
+        4,
+        8,
+        16,
+        "full"
+      ],
+      "matched_training_budget": 8,
+      "native_message_layers": 1,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    },
+    {
+      "model": "HGCN",
+      "dataset": "Disease-NC",
+      "budgets": [
+        1,
+        2,
+        4,
+        "full"
+      ],
+      "matched_training_budget": 2,
+      "native_message_layers": 1,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "regimes": [
+        "full",
+        "central_matched"
+      ],
+      "inherited_checkpoints": 0
+    }
+  ],
+  "native_model_args": {
+    "HyboNet_Airport_inherited": {
+      "task": "nc",
+      "dataset": "airport",
+      "model": "HyboNet",
+      "manifold": "Lorentz",
+      "dim": 16,
+      "num_layers": 6,
+      "c": 1.0,
+      "bias": 1,
+      "act": "relu",
+      "dropout": 0.0,
+      "use_att": 0,
+      "local_agg": 0,
+      "lr": 0.02,
+      "optimizer": "radam",
+      "weight_decay": 0.0001,
+      "grad_clip": 1.0,
+      "margin": 2.0,
+      "epochs": 5000,
+      "patience": 500,
+      "min_epochs": 100,
+      "eval_freq": 1,
+      "log_freq": 5,
+      "double_precision": "0",
+      "normalize_adj": 1,
+      "normalize_feats": 1,
+      "use_feats": 1,
+      "split_seed": 1234,
+      "lr_reduce_freq": 5000,
+      "gamma": 0.5
+    },
+    "HyboNet_Disease": {
+      "lr": 0.005,
+      "dropout": 0.1,
+      "cuda": 0,
+      "epochs": 5000,
+      "weight_decay": 0.0,
+      "optimizer": "radam",
+      "momentum": 0.999,
+      "patience": 500,
+      "log_freq": 5,
+      "eval_freq": 1,
+      "save": 0,
+      "save_dir": null,
+      "sweep_c": 0,
+      "lr_reduce_freq": 5000,
+      "gamma": 0.5,
+      "print_epoch": true,
+      "grad_clip": 0.5,
+      "min_epochs": 100,
+      "task": "nc",
+      "model": "HyboNet",
+      "dim": 16,
+      "manifold": "Lorentz",
+      "c": 1.0,
+      "r": 2.0,
+      "t": 1.0,
+      "margin": 2.0,
+      "pretrained_embeddings": null,
+      "pos_weight": 0,
+      "num_layers": 4,
+      "bias": 1,
+      "act": null,
+      "n_heads": 4,
+      "alpha": 0.2,
+      "double_precision": "0",
+      "use_att": 0,
+      "local_agg": 0,
+      "dataset": "disease_nc",
+      "val_prop": 0.05,
+      "test_prop": 0.1,
+      "use_feats": 1,
+      "normalize_feats": 1,
+      "normalize_adj": 1,
+      "split_seed": 1234,
+      "training_seeds": [
+        11,
+        23,
+        37
+      ]
+    },
+    "HGCN_Disease": {
+      "lr": 0.01,
+      "dropout": 0.0,
+      "cuda": 0,
+      "epochs": 5000,
+      "weight_decay": 0.0,
+      "optimizer": "Adam",
+      "momentum": 0.999,
+      "patience": 100,
+      "log_freq": 5,
+      "eval_freq": 1,
+      "save": 0,
+      "save_dir": null,
+      "sweep_c": 0,
+      "lr_reduce_freq": 5000,
+      "gamma": 0.5,
+      "print_epoch": true,
+      "grad_clip": null,
+      "min_epochs": 100,
+      "task": "nc",
+      "model": "HGCN",
+      "dim": 16,
+      "manifold": "PoincareBall",
+      "c": 1.0,
+      "r": 2.0,
+      "t": 1.0,
+      "pretrained_embeddings": null,
+      "pos_weight": 0,
+      "num_layers": 2,
+      "bias": 1,
+      "act": "relu",
+      "n_heads": 4,
+      "alpha": 0.2,
+      "double_precision": "0",
+      "use_att": 0,
+      "local_agg": 0,
+      "dataset": "disease_nc",
+      "val_prop": 0.05,
+      "test_prop": 0.1,
+      "use_feats": 1,
+      "normalize_feats": 1,
+      "normalize_adj": 1,
+      "split_seed": 1234,
+      "training_seeds": [
+        11,
+        23,
+        37
+      ]
+    },
+    "HGCN_Airport_fixed_Disease_recipe_transfer": {
+      "lr": 0.01,
+      "dropout": 0.0,
+      "cuda": 0,
+      "epochs": 5000,
+      "weight_decay": 0.0,
+      "optimizer": "Adam",
+      "momentum": 0.999,
+      "patience": 100,
+      "log_freq": 5,
+      "eval_freq": 1,
+      "save": 0,
+      "save_dir": null,
+      "sweep_c": 0,
+      "lr_reduce_freq": 5000,
+      "gamma": 0.5,
+      "print_epoch": true,
+      "grad_clip": null,
+      "min_epochs": 100,
+      "task": "nc",
+      "model": "HGCN",
+      "dim": 16,
+      "manifold": "PoincareBall",
+      "c": 1.0,
+      "r": 2.0,
+      "t": 1.0,
+      "pretrained_embeddings": null,
+      "pos_weight": 0,
+      "num_layers": 2,
+      "bias": 1,
+      "act": "relu",
+      "n_heads": 4,
+      "alpha": 0.2,
+      "double_precision": "0",
+      "use_att": 0,
+      "local_agg": 0,
+      "dataset": "airport",
+      "val_prop": 0.05,
+      "test_prop": 0.1,
+      "use_feats": 1,
+      "normalize_feats": 1,
+      "normalize_adj": 1,
+      "split_seed": 1234,
+      "training_seeds": [
+        11,
+        23,
+        37
+      ]
+    }
+  },
+  "FP32": {
+    "tf32": false,
+    "deterministic_algorithms": false,
+    "warn_only": false,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false
+  },
+  "training_entry": "scientific/training.py",
+  "no_epoch_override": true,
+  "release_schema": {
+    "status": "released",
+    "registration_sha256": "565e6e2cdc4743f4721e7d3ae181f3a2e4ae02041bee1cb58416d982482b4d3e",
+    "source_manifest_sha256": "sha256(training-source-manifest-v1.json)",
+    "jobs": "exact action=train/model/dataset/regime/seed objects; inherited arms rejected"
+  },
+  "CPU_checks": "3 new adapters on synthetic graphs; full equivalence, loss/gradient wiring, one update; accepted historical qualifications reused",
+  "pending": "capture/cost implementation and final manifest; no GPU release",
+  "public_export_note": "Historical source-review configuration; not an execution authorization. Original collector output is already collected; use public fit scalar summary."
+}

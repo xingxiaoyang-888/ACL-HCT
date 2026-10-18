@@ -1,0 +1,502 @@
+{
+  "schema": "public_source_manifest_v1",
+  "science_closure_original_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75",
+  "arxiv_base_source_closure_original_sha256": "4d4e57d457a1cf911947a30d48037ab9ce83048289747314754708cff3728d53",
+  "history_capture_source_closure_original_sha256": "5cb6311e3d4f51aa5190a3a514502a05fdce4b9ff20bd6ad96eed01097f671f6",
+  "export_validation": "Source preparation and AST inspection only. See separate public validation record for subsequent CPU checks. No new model execution.",
+  "private_binary_inputs_included": false,
+  "files": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "original_sha256": null,
+      "published_sha256": "0a384e9e8ad3f64d8c0a8a0379275528a7f889a05b8988d884754df851a24270",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "config/arxiv-models.json",
+      "original_sha256": "014295ef6a827b243c568fdc77b95a961f5ee5422df29bb10978c3106a1fb473",
+      "published_sha256": "59812eedc3807f6eedcb69e8f377c550451315cf5a7e9ad9356ac63e86a50e32",
+      "change": "remove private provenance paths and administrative budget/pending metadata; all consumed scientific model/stage settings preserved"
+    },
+    {
+      "path": "config/budget-ogbn-arxiv-gat.json",
+      "original_sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe",
+      "published_sha256": "41ad35972effe74d8a719b87de910a77318a3f14233d9470ab81e02a1c75446d",
+      "change": "JSON formatting only; original five label-free budget locks, no new calibration"
+    },
+    {
+      "path": "config/budget-ogbn-arxiv-hgcn.json",
+      "original_sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523",
+      "published_sha256": "f92a4e6c6ee69f243a525d1fc83a1fbac4fced76041c164cf040b84382a40c72",
+      "change": "JSON formatting only; original five label-free budget locks, no new calibration"
+    },
+    {
+      "path": "config/budget-ogbn-arxiv-hybonet.json",
+      "original_sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439",
+      "published_sha256": "08b0e84b10d5274f073bced806347e6d05a0869eb570a7e00de8451b294bfa75",
+      "change": "JSON formatting only; original five label-free budget locks, no new calibration"
+    },
+    {
+      "path": "config/budget-ogbn-arxiv-sage.json",
+      "original_sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5",
+      "published_sha256": "fbaae381315a3aedd7c9227f140b61debac77911f74a0a04d09a072fc233a031",
+      "change": "JSON formatting only; original five label-free budget locks, no new calibration"
+    },
+    {
+      "path": "config/budget-pubmed-sage.json",
+      "original_sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0",
+      "published_sha256": "6f9bf2980232f29d21876adcc11d006ef19e843e46328666248885e3200611d4",
+      "change": "JSON formatting only; original five label-free budget locks, no new calibration"
+    },
+    {
+      "path": "config/checkpoints.json",
+      "original_sha256": null,
+      "published_sha256": "996f5a2dcb48b6c4e840d4ec8a5955908304498c52323be407921e3581ef3cb6",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "config/data-provenance.json",
+      "original_sha256": "f26abd27890082b79ebcc552c66788f0391d99086b29cda6ba16918bece101c6",
+      "published_sha256": "f26abd27890082b79ebcc552c66788f0391d99086b29cda6ba16918bece101c6",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "config/history-capture-config-v1.json",
+      "original_sha256": "4141c6dcf61ae419344176462e5760f866bcd82c9c492e71f8eca153d618781f",
+      "published_sha256": "c246e29e2edec62b9b0f020bec59501d92c88a35a3e71b7d0f5462c4c0ae9b62",
+      "change": "scientific history configuration with private storage references redacted and audit-only note"
+    },
+    {
+      "path": "config/history-effective-config-addendum.json",
+      "original_sha256": "b2d1330616361683c8a860ee4b74c3d671900007018a4e08201a2dfa21d53a0a",
+      "published_sha256": "d8f2dd44e641c0526d6b69cdd6c84adca4391429baff87c7043c735103dfb243",
+      "change": "scientific history configuration with private storage references redacted and audit-only note"
+    },
+    {
+      "path": "config/history-raw-capture-schema-v1.json",
+      "original_sha256": "424cee275f170dab2c34ce940ee942eafca6b9da21f362161f73e3de4cd03f00",
+      "published_sha256": "38d9eed549452d2c0686197e01fad4de91dcb48e7ceaf2476d5a590e52fa0c70",
+      "change": "scientific history configuration with private storage references redacted and audit-only note"
+    },
+    {
+      "path": "config/history-training-config-v1.json",
+      "original_sha256": "25865779c23b982fc3b9b894402bbfe8722e6e243d7119d7aac18acb01893c76",
+      "published_sha256": "1ec870bbc2afe860c928cf395549eb3fc1aac7cad67b1898da17bbe87a26cc12",
+      "change": "scientific history configuration with private storage references redacted and audit-only note"
+    },
+    {
+      "path": "config/inference-inputs.example.json",
+      "original_sha256": null,
+      "published_sha256": "0c281c56d04e9c63be260dd37370786d7f8b86582f09a97832ce0d59127c43f9",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "config/native-sources.json",
+      "original_sha256": null,
+      "published_sha256": "16032d54cf118e5749ef2343e2543470c08f19eaf7e768305bf71ec9f7e19b20",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "config/plan.json",
+      "original_sha256": "3d76001157abd29ca81be1bb6f0eccc7157e5711e39981bf38be3c095256ed6a",
+      "published_sha256": "3d76001157abd29ca81be1bb6f0eccc7157e5711e39981bf38be3c095256ed6a",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "config/pubmed-sage.json",
+      "original_sha256": "64d415e9c9f2561d79885ca51e2f1ee6a25bd2ac6f8c80eb03ca6ac4efc1786f",
+      "published_sha256": "64d415e9c9f2561d79885ca51e2f1ee6a25bd2ac6f8c80eb03ca6ac4efc1786f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "config/training-inputs.example.json",
+      "original_sha256": null,
+      "published_sha256": "90aa44ca7050af909ed5bd047270c77e39c56ff63494a7c2c2602bb662bd1b15",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "docs/reproduce-inference.md",
+      "original_sha256": null,
+      "published_sha256": "80c1ce6fa8cc11435c14335590a3f331842fe05309c3674379b12a78e5ec6065",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "environment/README.md",
+      "original_sha256": null,
+      "published_sha256": "f841657d467f3d944cfab87413e572d8a6637cbb67a37a30e34be1c29413fcdc",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "environment/requirements-figures.txt",
+      "original_sha256": null,
+      "published_sha256": "b1a03a8f6a9706f9a9de1036b0397b719d3ac70b77bb87d0374e346a0caad70d",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "environment/requirements-scientific.txt",
+      "original_sha256": "94f154eb9547545345d62ec395ab0540faa8287d6df3f30d7546d44791bd494b",
+      "published_sha256": "94f154eb9547545345d62ec395ab0540faa8287d6df3f30d7546d44791bd494b",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "environment/runtime-provenance.json",
+      "original_sha256": "20c23f5dc9f7b70e68745542ef244408bdcf6fac8e66f944bf2b298ad86aff7f",
+      "published_sha256": "20c23f5dc9f7b70e68745542ef244408bdcf6fac8e66f944bf2b298ad86aff7f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/data/extract_final_labels.py",
+      "original_sha256": "a72c5f99ccaf4dc60ff65cb261022fb349f0d39075e2696f46a40f517428b61d",
+      "published_sha256": "a72c5f99ccaf4dc60ff65cb261022fb349f0d39075e2696f46a40f517428b61d",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/calibration.py",
+      "original_sha256": "48b409b8b5557203cfe69a267289757072307dd2ef8506cf6be0d54f9ed29f41",
+      "published_sha256": "48b409b8b5557203cfe69a267289757072307dd2ef8506cf6be0d54f9ed29f41",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/core.py",
+      "original_sha256": "862f1b80964f551b0e7fa1a6f056c28ff119c59d916006622a735137c69d452f",
+      "published_sha256": "862f1b80964f551b0e7fa1a6f056c28ff119c59d916006622a735137c69d452f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/deployment.py",
+      "original_sha256": "d82998ae1e660b8ba1ab245fe41986129c4558c0ce7120053b57aac60643b932",
+      "published_sha256": "d82998ae1e660b8ba1ab245fe41986129c4558c0ce7120053b57aac60643b932",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/euclidean_adapters.py",
+      "original_sha256": "8633144c2d1323410407125353f44537faf86bb7c59ee191b049106d94c20b0f",
+      "published_sha256": "8633144c2d1323410407125353f44537faf86bb7c59ee191b049106d94c20b0f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/exact_full.py",
+      "original_sha256": "793dc11644cd17521c5b92c1f7d254cdecdfcb0c9097d351647dabb7b73fd9a0",
+      "published_sha256": "793dc11644cd17521c5b92c1f7d254cdecdfcb0c9097d351647dabb7b73fd9a0",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/final_evaluation.py",
+      "original_sha256": "4e88cef4597834bc12b0f62099c704d3c73cefc63516369ec3edcd472265f6b7",
+      "published_sha256": "4e88cef4597834bc12b0f62099c704d3c73cefc63516369ec3edcd472265f6b7",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/geometry.py",
+      "original_sha256": "1c7863fee9d14ea8cf2d090658fd690597cc4aba6ddbf76678e0f9941aba3639",
+      "published_sha256": "187e1e9788e9bea41e47f36bc46650e1201fc03919eb91dfb84a16081cfe0f94",
+      "change": "private provenance comment replaced with upstream reference; executable code unchanged"
+    },
+    {
+      "path": "src/frozen/hyperbolic_adapters.py",
+      "original_sha256": "8da3c5dd5428daa728d6a21adb86b443869c6089a679cd7d98c65abf70b48d64",
+      "published_sha256": "8da3c5dd5428daa728d6a21adb86b443869c6089a679cd7d98c65abf70b48d64",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/mechanism.py",
+      "original_sha256": "f3f1d4ae675ae3d10a2b3e34fd194262a438db939d185482eb49ea16f55cdfea",
+      "published_sha256": "f3f1d4ae675ae3d10a2b3e34fd194262a438db939d185482eb49ea16f55cdfea",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/model_builders.py",
+      "original_sha256": "e96d54708eff9f1aa08201f7083d790ab3d64d24f11e09f8dd91c20c7ed4370a",
+      "published_sha256": "e96d54708eff9f1aa08201f7083d790ab3d64d24f11e09f8dd91c20c7ed4370a",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/qualification.py",
+      "original_sha256": "ac60e6de045a5655c343945901ba00a1e0a0e55111166b78dc815527ac415dde",
+      "published_sha256": "ac60e6de045a5655c343945901ba00a1e0a0e55111166b78dc815527ac415dde",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/runner.py",
+      "original_sha256": "f53513f5af6bf2706b59d501f48b6fd77381eb4d2327a2e97ae3ca2302bdf873",
+      "published_sha256": "de483e77c655c999530c2d17229deba4b874a3305ceeb93361bbb534e4788d40",
+      "change": "portable controller replaces campaign-specific scheduler/replay/metadata-repair bindings; preserved estimator/model/intervention/scoring/timing implementations and CP canonical metadata comparison; exact public input hashes and fresh output required"
+    },
+    {
+      "path": "src/frozen/sampling_bridge.py",
+      "original_sha256": "eafe2db89695b1ee577fd3fd45afa9f62ee30fa53fec243c4fe8dcfecb377775",
+      "published_sha256": "eafe2db89695b1ee577fd3fd45afa9f62ee30fa53fec243c4fe8dcfecb377775",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/shared_blocks.py",
+      "original_sha256": "856024511492facc94ebb4358a0f49473fc67a39e938b648a208e87a55932240",
+      "published_sha256": "856024511492facc94ebb4358a0f49473fc67a39e938b648a208e87a55932240",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/study_io.py",
+      "original_sha256": "07f77f464607b9be86b7226dbdeeeb69cccc0e58241bc88eb55bf27be6e9410d",
+      "published_sha256": "07f77f464607b9be86b7226dbdeeeb69cccc0e58241bc88eb55bf27be6e9410d",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/test_native_correspondence.py",
+      "original_sha256": "38a37c6d044e1188fc7d4d7182324f2ff953998febf72aea23270b043bd5f6a0",
+      "published_sha256": "38a37c6d044e1188fc7d4d7182324f2ff953998febf72aea23270b043bd5f6a0",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/frozen/test_new_sampler_semantics.py",
+      "original_sha256": "ed2183c1521c0aa62f0a1269ffa74ca29aa7c1cf0908f4ddecbcc793db6ff4e5",
+      "published_sha256": "ed2183c1521c0aa62f0a1269ffa74ca29aa7c1cf0908f4ddecbcc793db6ff4e5",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/history/source_audit/checkpoints.py",
+      "original_sha256": "689d7b96c9f8c53a151a4f71b3c30b198a2755666127d404f332f4622e0ed616",
+      "published_sha256": "a94c95393c566ff2d620002e0659bc39484529b86bcff14232aa349fbeaf8f35",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/collect.py",
+      "original_sha256": "92660b79798cfdf1739dea947ca58b95e6f344329a1bf4e1fd98b11f874d2706",
+      "published_sha256": "3c98b37debb8fd87ef5c6eb088263e57981d86dfa2658064c7afc49b5f566aea",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/contract.py",
+      "original_sha256": "bc1600fd54863ea77f15517492f23cd3812040bd935135df14bf8584749cd1f8",
+      "published_sha256": "c4b7abad7ce6105247fcc25f46e355e2d107b860817ec04baf251681748f9340",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/inputs.py",
+      "original_sha256": "c4775be6f2be0584a6470ab1b83d495c58084fbc7539faa5f77c40e7348dcddb",
+      "published_sha256": "27fcd0bd099bbf1ea3cfb2305197437ed3a84c2482c4410e74677b7c581e0f27",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/interventions.py",
+      "original_sha256": "9ded5b4ae3c0a291e8755e913560a5acf0d2d509db92ee1da867c1a342ba9f36",
+      "published_sha256": "39cbd590754c2cb2285a17f3b0d1465f41483828fcd7e4ba04a668ce067c83d7",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/runtime.py",
+      "original_sha256": "8043f739bbdc2c1bdcaafbd6cdb4c02a2725725f2c6824271cabe555716bfac5",
+      "published_sha256": "db69aed68c5ea37230fd3f228c8054237d7492149dbaf7f723762255ee9cff91",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/sampler.py",
+      "original_sha256": "a72fd2a06d5877cde47b580a2ed108b9623edf903e880f45ea81072154c0cfd1",
+      "published_sha256": "2e90c39d46468b83af9e72370aed9c7443e5e7ab806b53819b1494d039437704",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/trace.py",
+      "original_sha256": "4d0d2b00e51c7893343d0bdd5bc367d5d94df8c25a97694253bc2e2cc31c612d",
+      "published_sha256": "d32e7d23fcf4ad443d01f3920760fabadecb2de164e1684e24c083c37206aa82",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/training.py",
+      "original_sha256": "5e98847b03b772d882c9b88c33c3e5342d3b96fe09a90b1bce5fae8fe58e04bb",
+      "published_sha256": "d046aa708d92799b4ba748173abfe88afd9f181387e2182e6acdf97e5463a065",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/history/source_audit/views.py",
+      "original_sha256": "bc5efc6b04fcd65a5a7cd02a7728dc25791bb1e913d3e24fd526c4da52a474bc",
+      "published_sha256": "dfa025ed8ff852b2780e8914648c3a41830a4ba91f89f97ede36aad4bee0c060",
+      "change": "complete historical scientific source for audit; private storage names mapped to public-inputs placeholders; explicit nonexecution guard. No claim of runnable original collector."
+    },
+    {
+      "path": "src/prepare_inputs.py",
+      "original_sha256": null,
+      "published_sha256": "2ba3e614d544e08d7a71e295be2e8111f3662c2fb42fb228cc9dd60e397d1dd0",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "src/public_io.py",
+      "original_sha256": null,
+      "published_sha256": "62839e8f7b4159817640bdcd5ed7bf17e6ac0ac422a53bbcfe7b075f154869a9",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "src/reconstruct_native.py",
+      "original_sha256": null,
+      "published_sha256": "c87ce844834d6b7bc6cef4e8f71b2870c3dc44602d4271b4a9b436f35ec807b6",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "src/run_frozen.py",
+      "original_sha256": null,
+      "published_sha256": "2e309649448f4182006ef5ced5bab775dfe19cf9500bf1bec5afafd4be1281eb",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "src/run_training.py",
+      "original_sha256": null,
+      "published_sha256": "840a17a67e9705283f56e4399a77549eac495bc597c46a46dbd6e96eddda1e71",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    },
+    {
+      "path": "src/sampler/blocks.py",
+      "original_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "published_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/sampler/common.py",
+      "original_sha256": "e584b7da04af5e9e3f19fd72fc4c6f7ae0f64393c93307d2ef554941dbee02f1",
+      "published_sha256": "e584b7da04af5e9e3f19fd72fc4c6f7ae0f64393c93307d2ef554941dbee02f1",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/core.py",
+      "original_sha256": "862f1b80964f551b0e7fa1a6f056c28ff119c59d916006622a735137c69d452f",
+      "published_sha256": "862f1b80964f551b0e7fa1a6f056c28ff119c59d916006622a735137c69d452f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/euclidean_adapters.py",
+      "original_sha256": "8633144c2d1323410407125353f44537faf86bb7c59ee191b049106d94c20b0f",
+      "published_sha256": "8633144c2d1323410407125353f44537faf86bb7c59ee191b049106d94c20b0f",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/exact_full.py",
+      "original_sha256": "6f7def942b689ffe2db2f5b9a8321227af39413e81f2fe1eab6648a602e73efe",
+      "published_sha256": "6f7def942b689ffe2db2f5b9a8321227af39413e81f2fe1eab6648a602e73efe",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/geometry.py",
+      "original_sha256": "1c7863fee9d14ea8cf2d090658fd690597cc4aba6ddbf76678e0f9941aba3639",
+      "published_sha256": "187e1e9788e9bea41e47f36bc46650e1201fc03919eb91dfb84a16081cfe0f94",
+      "change": "private provenance comment replaced with upstream reference; executable code unchanged"
+    },
+    {
+      "path": "src/training/arxiv_base/hyperbolic_adapters.py",
+      "original_sha256": "fedbb2e5c95f2c5216594f230f1df656c723d0ef57b35a4e9df163ade677e7b2",
+      "published_sha256": "fedbb2e5c95f2c5216594f230f1df656c723d0ef57b35a4e9df163ade677e7b2",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/model_builders.py",
+      "original_sha256": "6bd5ad6fdb653383a23df82640345a2689ca5b4bfac022d199260f8c47a845f0",
+      "published_sha256": "6bd5ad6fdb653383a23df82640345a2689ca5b4bfac022d199260f8c47a845f0",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/preflight.py",
+      "original_sha256": "9788fab20c47cc1deb5d082e4252a278baf187dad2e6cdc0152c3a59e538449c",
+      "published_sha256": "9788fab20c47cc1deb5d082e4252a278baf187dad2e6cdc0152c3a59e538449c",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/sampling_bridge.py",
+      "original_sha256": "29053feb7680ad68a3c9c4a581c00c540bf11c22877f633775d6365171aca7f1",
+      "published_sha256": "29053feb7680ad68a3c9c4a581c00c540bf11c22877f633775d6365171aca7f1",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/shared_blocks.py",
+      "original_sha256": "38a3ccd99d5deea86452b361a35dfd1de6aa9b0b13b73304915d368b74ba2e31",
+      "published_sha256": "38a3ccd99d5deea86452b361a35dfd1de6aa9b0b13b73304915d368b74ba2e31",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/training_data.py",
+      "original_sha256": "304b6924e5f16dd8e22da64004beff0979127ae9f76d8664aede588312a66fe6",
+      "published_sha256": "304b6924e5f16dd8e22da64004beff0979127ae9f76d8664aede588312a66fe6",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/training_engine.py",
+      "original_sha256": "9e4950a5aac8ae7047397814b4146cda4cdf80ad8c4ce29e8f88ae586fff700a",
+      "published_sha256": "9e4950a5aac8ae7047397814b4146cda4cdf80ad8c4ce29e8f88ae586fff700a",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_base/training_runner.py",
+      "original_sha256": "dee8f740237f44695a9712b36b4615d51477b75e2c198ddee62c7dd507cd71ab",
+      "published_sha256": "15b68c518ce26e3245926abd6537e9366a2525ec68473e114afe989113db1833",
+      "change": "portable plain-pretrain controller; accepted original builder/optimizer/training engine/RNG and fixed selection preserved; no adaptation or private scheduler"
+    },
+    {
+      "path": "src/training/arxiv_sage/blocks.py",
+      "original_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "published_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_sage/common.py",
+      "original_sha256": "e584b7da04af5e9e3f19fd72fc4c6f7ae0f64393c93307d2ef554941dbee02f1",
+      "published_sha256": "e584b7da04af5e9e3f19fd72fc4c6f7ae0f64393c93307d2ef554941dbee02f1",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_sage/prepare_data.py",
+      "original_sha256": "6d60bf985c94f747e162085015720dc40d534d3f619a57ddda28fb18cb808efa",
+      "published_sha256": "6d60bf985c94f747e162085015720dc40d534d3f619a57ddda28fb18cb808efa",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_sage/runtime.py",
+      "original_sha256": "8a92000cfc0cca640d2270f9a813363a49917e4df07bf84bee0a246e29a3be59",
+      "published_sha256": "8a92000cfc0cca640d2270f9a813363a49917e4df07bf84bee0a246e29a3be59",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_sage/sage.py",
+      "original_sha256": "365f880acd3278213a2615bf96122f725729ba6298b4002dea9ef441c611bcfc",
+      "published_sha256": "365f880acd3278213a2615bf96122f725729ba6298b4002dea9ef441c611bcfc",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/arxiv_sage/train_sage.py",
+      "original_sha256": "6481efad019f56a249d642df75484f8cc65cd1d6cd74df254d65491d41884bfb",
+      "published_sha256": "6481efad019f56a249d642df75484f8cc65cd1d6cd74df254d65491d41884bfb",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/pubmed_sage/blocks.py",
+      "original_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "published_sha256": "3701df971b35cd2719a87071a6ccbbceb295668e0661d3e37bccb867a576b698",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/pubmed_sage/common.py",
+      "original_sha256": "4d76b273ec9365a504867167d2703dc5947eec08e82593a0d7b45d1aa026adaf",
+      "published_sha256": "4d76b273ec9365a504867167d2703dc5947eec08e82593a0d7b45d1aa026adaf",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/pubmed_sage/prepare_pubmed.py",
+      "original_sha256": "8e12d12dd1c44680cb0754a76b093b4f16fe75bc08a2544f6bcf15c4e6576bcc",
+      "published_sha256": "8e12d12dd1c44680cb0754a76b093b4f16fe75bc08a2544f6bcf15c4e6576bcc",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/pubmed_sage/sage.py",
+      "original_sha256": "365f880acd3278213a2615bf96122f725729ba6298b4002dea9ef441c611bcfc",
+      "published_sha256": "365f880acd3278213a2615bf96122f725729ba6298b4002dea9ef441c611bcfc",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/training/pubmed_sage/train_pubmed.py",
+      "original_sha256": "703f30d85f79916abe83eeab2e645a3bebed4b8beec974dbbb4df1660496ea5d",
+      "published_sha256": "703f30d85f79916abe83eeab2e645a3bebed4b8beec974dbbb4df1660496ea5d",
+      "change": "verbatim accepted source"
+    },
+    {
+      "path": "src/verify_package.py",
+      "original_sha256": null,
+      "published_sha256": "84d9836940b0e226f9caabfdd9a886adf6734ca786af6ac95560ccfd74ead4ed",
+      "change": "new public portability/documentation/metadata extract; no original experimental source counterpart"
+    }
+  ]
+}

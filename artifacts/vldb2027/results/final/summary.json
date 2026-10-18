@@ -1,0 +1,25 @@
+{
+  "between_seed_std_ddof": 1,
+  "interpretation": [
+    "Four repeats are paired observations within a training seed, not independent training seeds.",
+    "Full/RAM timing uses the original three-repeat medians and original q=1/10/100 formulas.",
+    "Per-seed value is the four-repeat mean where applicable; maximum_observed preserves each seed worst observed peak.",
+    "Oracle mechanism states are not deployment states; interaction is not an additive contribution fraction.",
+    "Worker/science/scheduler usage scopes overlap; no cumulative total is invented.",
+    "Missing/unbound fields are pending, not zero; no labels, NPZ, checkpoint or per-node arrays were read."
+  ],
+  "pending_artifacts": [],
+  "pending_group_metrics": 0,
+  "process_CPU_seconds": 7.8125,
+  "repeats_per_training_seed": 4,
+  "schema": "vldb_final_scalar_summary_v1",
+  "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75",
+  "status": "complete",
+  "training_seeds": [
+    11,
+    23,
+    37
+  ],
+  "units": "accuracy/interaction fractions, native margins, counts, seconds and bytes; no normalization learned",
+  "wall_seconds": 9.33688709998387
+}

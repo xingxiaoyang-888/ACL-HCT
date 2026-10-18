@@ -1,0 +1,16 @@
+{
+  "schema": "vldb_frozen_sampling_plan_v1",
+  "round": "vldb-sampling-mechanisms-v1",
+  "models": ["hgcn", "hybonet", "sage", "gat"],
+  "seeds": [11, 23, 37],
+  "samplers": ["uniform", "labor"],
+  "datasets": {
+    "ogbn-arxiv": {"shape": {"nodes": 169343, "features": 128, "classes": 40, "test": 48603}, "uniform_fanouts": [5, 15, 30], "labor_grid": [5, 8, 12, 15, 20, 24, 30, 36, 48, 64, 80]},
+    "PubMed": {"shape": {"nodes": 19717, "features": 500, "classes": 3, "test": 1000}, "uniform_fanouts": [1, 4, 8], "labor_grid": [1, 2, 4, 6, 8, 12, 16]}
+  },
+  "calibration": {"seed": 11, "batches": 8, "repeats": 3, "paid_warmups_per_point": 1, "target_hash_prefix": "vldb-sampling-mechanisms-v1:calibration-target:", "target_selection": "arxiv gate hash-first1024 in8x128; PubMed dev500 hash-order np.array_split8", "statistic": "median_of_24_e2e_requests", "choice": "largest_LABOR_fanout_with_median_at_most_Uniform_median_else_minimum_unmatched", "point_order": "Uniform_ascending_then_LABOR_ascending", "labels_read": false},
+  "final": {"repeats": 4, "target_batch_size": 128, "guard_group_batches": 8, "mechanism_tier": "middle", "mechanism_layer_forward_order": 3, "mechanism_plan": "one_global_all_node_plan_per_layer_per_repeat", "full_forward_timing_repeats": 3, "RAM_timing_repeats": 3, "amortization_workloads": [1, 10, 100], "near_accuracy_per_seed_tolerance_pp": 0.2, "development_scientific_scoring": false},
+  "chunks": {"max_rows": 4096, "max_edges": 262144},
+  "semantics": {"labor": "official_LABOR0_probNone_importance0_empty_weights_required", "sage": "native_realized_sample_mean_empty_nonself_zero", "gat": "native_sampled_softmax_one_self", "hyperbolic": "fixed_self_plus_HT_nonself_SUM", "model_output_unbiasedness_claimed": false},
+  "no_test_driven_changes": true
+}

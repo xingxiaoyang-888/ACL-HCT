@@ -1,0 +1,27 @@
+\begin{table*}[t]
+\caption{Final deployment at the frozen middle tier and exact $q=1$ computation on the identical complete target workload. Accuracy and time are three-seed mean $\pm$ sample standard deviation. Sampled memory is the mean of each seed's four observed peaks; exact memory includes format setup and forward. Graph/CP loading is separately reported. Discrete calibration locks do not imply equal final times. All low/high endpoints, per-seed maxima and setup fields remain in the supplement.}
+\label{tab:final-deployment}
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Group & Method & Fanout & Accuracy (\%) & Workload time (s) & Mean peak (MiB) \\
+\midrule
+HGCN / arxiv & Uniform & 15 & 70.146 $\pm$ 0.232 & 48.676 $\pm$ 0.396 & 303.1 \\
+HGCN / arxiv & LABOR & 12 & 69.846 $\pm$ 0.385 & 34.903 $\pm$ 0.464 & 196.0 \\
+HGCN / arxiv & Exact & all & 70.470 $\pm$ 0.300 & 0.239 $\pm$ 0.023 & 891.4 \\
+HyboNet / arxiv & Uniform & 15 & 69.991 $\pm$ 0.190 & 42.362 $\pm$ 0.155 & 159.7 \\
+HyboNet / arxiv & LABOR & 15 & 69.887 $\pm$ 0.181 & 35.893 $\pm$ 0.100 & 131.1 \\
+HyboNet / arxiv & Exact & all & 70.165 $\pm$ 0.131 & 0.339 $\pm$ 0.055 & 482.6 \\
+GraphSAGE / arxiv & Uniform & 15 & 70.858 $\pm$ 0.439 & 43.202 $\pm$ 0.204 & 107.8 \\
+GraphSAGE / arxiv & LABOR & 15 & 70.826 $\pm$ 0.390 & 36.480 $\pm$ 0.194 & 90.7 \\
+GraphSAGE / arxiv & Exact & all & 70.970 $\pm$ 0.398 & 0.184 $\pm$ 0.006 & 891.0 \\
+GAT / arxiv & Uniform & 15 & 72.159 $\pm$ 0.089 & 44.818 $\pm$ 0.206 & 1245.8 \\
+GAT / arxiv & LABOR & 15 & 72.099 $\pm$ 0.081 & 37.990 $\pm$ 0.296 & 929.5 \\
+GAT / arxiv & Exact & all & 72.295 $\pm$ 0.086 & 0.299 $\pm$ 0.007 & 1977.8 \\
+GraphSAGE / PubMed & Uniform & 4 & 74.858 $\pm$ 0.636 & 0.329 $\pm$ 0.002 & 48.1 \\
+GraphSAGE / PubMed & LABOR & 6 & 74.975 $\pm$ 0.687 & 0.346 $\pm$ 0.014 & 53.9 \\
+GraphSAGE / PubMed & Exact & all & 75.267 $\pm$ 0.611 & 0.080 $\pm$ 0.005 & 169.9 \\
+\bottomrule
+\end{tabular}
+\end{table*}

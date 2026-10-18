@@ -1,0 +1,113 @@
+{
+  "schema": "portable_data_provenance_extract_v1",
+  "status": "metadata_only_no_data_or_labels_copied_or_opened",
+  "arxiv": {
+    "dataset_version": "ogbn-arxiv v1",
+    "official_archive_url": "https://snap.stanford.edu/ogb/data/nodeproppred/arxiv.zip",
+    "archive_sha256": "49f85c801589ecdcc52cfaca99693aaea7b8af16a9ac3f41dd85a5f3193fe276",
+    "archive_bytes": 83058288,
+    "raw_member_hashes": {
+      "raw/node-feat.csv.gz": "60a844c7aff2f129335d34da2f6b9271bd1cac03aff8c70c229e6f0d13624718",
+      "raw/edge.csv.gz": "47629e986116407d27eff4c9d2e923f06bf5da5c85cbae93b660f530bc9355df",
+      "raw/node-label.csv.gz": "b06e7cf75d909de66ce49bc4188a6dc525224f85dd6dcb36137de3d9321830d1",
+      "split/time/train.csv.gz": "84983391900af45194e5db8d977ec9e01d4eda96e20328f3d7575fdd45c6797c",
+      "split/time/valid.csv.gz": "ebe6cdcd77c75eedbce2064a05a49bc28e2c4a631f49d66b9e9ff317eef993eb"
+    },
+    "public_product_hashes": {
+      "ids.json": "c769a302ad1d0b338723215500b3a0b7ab1c8a812af7f8ed875c4c8eb4bc54a7",
+      "graph.npz": "0abcb3d440ce11e60494ff0c0d9b1a24cca44d93057faae67dd83739e4080862"
+    },
+    "preparation_source_sha256": "6d60bf985c94f747e162085015720dc40d534d3f619a57ddda28fb18cb808efa",
+    "dataset_license": "ODC-BY per official OGB documentation"
+  },
+  "pubmed": {
+    "source_repository": "https://github.com/kimiyoung/planetoid",
+    "source_commit": "af6abf468a772cc055bec88c52e4d6f51b7c37e3",
+    "repository_license": "MIT",
+    "repository_license_sha256": "8eeeea48c8b4bc197ad1d7ab01143ac43d52053e560b175bca7ca722c4047234",
+    "independent_dataset_license": "not identified",
+    "raw_files": [
+      {
+        "name": "ind.pubmed.x",
+        "bytes": 23172,
+        "sha256": "fbe9cb5c47200d1b7769a26e579be3b7130b556831f9d850e77c4c74f2599b33",
+        "git_blob_sha1": "16c0eca8d2b3297014ff80327416f9332eda10d7",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.x",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.y",
+        "bytes": 854,
+        "sha256": "e6c807633307a07ed659249006536a147c7999c797f11a2560752990181b41b3",
+        "git_blob_sha1": "e86670576c85340eeb2271b3c918bfa89322b2cf",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.y",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.tx",
+        "bytes": 405505,
+        "sha256": "4eb5f5d0f30f26497eb0ac6ac9719d09c67e284f1ed0385c93f3ef27a671da3d",
+        "git_blob_sha1": "eee4f3c988fde0da87a9ec7b01ca5e7863c1b1f1",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.tx",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.ty",
+        "bytes": 12135,
+        "sha256": "ee2e0d4819d9fbcc403689c3bf2e49face401b605932f093bc58ab6461130fdd",
+        "git_blob_sha1": "225a0bb9bb6430e3925d04688daf6a0da964c07a",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.ty",
+        "preparation_allowed": false,
+        "role": "official_test_label_file_metadata_only_no_values_included"
+      },
+      {
+        "name": "ind.pubmed.allx",
+        "bytes": 7578385,
+        "sha256": "508e538e2abdccdd54c4d3e9f49d638b4af7107d85845f66ddea5a5152658b7e",
+        "git_blob_sha1": "3b86bccf08111c37c632a9dd8ab63db25ea76361",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.allx",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.ally",
+        "bytes": 224739,
+        "sha256": "0c37bbe3b5014ec365e9d393cf4791925e5ed94fb194305d74f064a8d7b50f0e",
+        "git_blob_sha1": "4c8bcdc80882dd225fe4dd4fafd723baa616ac97",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.ally",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.graph",
+        "bytes": 471808,
+        "sha256": "5b89f0036ca22909471f1e6558eb42fa06e0c730a577bde5b058b40638f81dc9",
+        "git_blob_sha1": "76eb87e628a6b9d43fc31ea42c8c6c8f3e52b404",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.graph",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      },
+      {
+        "name": "ind.pubmed.test.index",
+        "bytes": 6000,
+        "sha256": "b101d421688bbaecbd82e8a18f1e282378d6830f3a37666f28ebc47f844341b5",
+        "git_blob_sha1": "41f6befcb7750cc4858cb852f2b349a9598cb2f4",
+        "url": "https://raw.githubusercontent.com/kimiyoung/planetoid/af6abf468a772cc055bec88c52e4d6f51b7c37e3/data/ind.pubmed.test.index",
+        "preparation_allowed": true,
+        "role": "raw_input_metadata_only"
+      }
+    ],
+    "public_product_hashes": {
+      "graph.npz": "a75464e3e3e5e5777446ecd98d8033b939fb285f3982589d9001567900c55316",
+      "ids.json": "598921d7c65037512167d964630f36e0a36ec7afb0fd9958658b97c0a4f8cb7f"
+    },
+    "preparation_source_sha256": "8e12d12dd1c44680cb0754a76b093b4f16fe75bc08a2544f6bcf15c4e6576bcc",
+    "preparation_receipt_sha256": "2bf279549cc1206991f8def53ad9ac3b2a71add5ce41708a4f62af8feed73b4c",
+    "validation_policy": "Inherited LResNet-loader rows 60..1059, then study SHA256 split into 500 fit and 500 dev; not PyG default",
+    "historical_test_exposure_disclosed": true
+  },
+  "final_target_manifest": "pending_complete_public_safe_final_export"
+}

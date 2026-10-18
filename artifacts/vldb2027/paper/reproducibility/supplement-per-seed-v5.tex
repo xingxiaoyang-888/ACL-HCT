@@ -1,0 +1,599 @@
+% Exact text/display transcription of final-per-seed-results.md; no reaggregation.
+These tables pivot accepted scalar rows only. No new forward pass, scoring, statistical aggregation, significance test or raw-array read was performed. All means, paired changes and interaction values come from the accepted exports. Decimal presentation converts fractions to percent/percentage points and bytes to MiB. Exact original precision and every additional metric remain in \path{final-accepted-scalars/}.
+
+Each seed summarizes four paired repeats where applicable; three training seeds remain the replication unit. Deployment dependency-cone sampling and whole-graph-prefix diagnosis are separate streams. A positive average margin does not imply every node is correct; exact output is not a label oracle. Correction/introduced counts below are mean nodes per repeat, not unique independent cases.
+
+Acceptance: \path{09bd47fbc1ad872f61c155b901a39da9d3c4600e69339d5b2b693ce8d9a36f05}. Source: metadata-v4 \path{ece3665a…}; frozen choices unchanged.
+
+Frozen target denominators: 48,603 arxiv test nodes and 1,000 PubMed test nodes per repeat. With batch size128, complete deployment workloads comprise380 arxiv requests (379\ensuremath{\times}128 +91) and8 PubMed requests (7\ensuremath{\times}128 +104). Four repeats retain the same target set. These counts come from the accepted pre-result plan, not reconstructed labels or prediction arrays. Diagnostic transition counts below are mean nodes per repeat; do not multiply them into independent observations.
+
+\subsection{HGCN / ogbn-arxiv}
+\subsubsection{Deployment: all tiers and seeds}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.035\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}}
+\caption{HGCN / ogbn-arxiv: Deployment: all tiers and seeds. Original displayed values, with all seeds retained.}\label{tab:supp-seed-1}\\
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endhead
+\midrule\multicolumn{8}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & low & 5 & 66.9244 & 22.869701 & 95.863 & reference \\
+11 & uniform & middle & 15 & 70.1299 & 48.516263 & 302.445 & reference \\
+11 & uniform & high & 30 & 70.4144 & 98.042242 & 447.643 & reference \\
+11 & labor & low & 8 & 68.6156 & 27.033624 & 127.825 & True \\
+11 & labor & middle & 12 & 69.7385 & 34.621050 & 197.525 & True \\
+11 & labor & high & 36 & 70.3588 & 91.752568 & 433.263 & True \\
+23 & uniform & low & 5 & 66.6759 & 22.646078 & 95.881 & reference \\
+23 & uniform & middle & 15 & 69.9221 & 48.385256 & 305.111 & reference \\
+23 & uniform & high & 30 & 70.1006 & 98.440332 & 447.577 & reference \\
+23 & labor & low & 8 & 68.4191 & 27.100554 & 128.199 & True \\
+23 & labor & middle & 12 & 69.5255 & 34.649926 & 198.158 & True \\
+23 & labor & high & 36 & 70.1536 & 91.369919 & 433.465 & True \\
+37 & uniform & low & 5 & 68.1645 & 23.782479 & 95.951 & reference \\
+37 & uniform & middle & 15 & 70.3845 & 49.127608 & 305.268 & reference \\
+37 & uniform & high & 30 & 70.6556 & 98.116899 & 447.712 & reference \\
+37 & labor & low & 8 & 69.4196 & 28.120279 & 126.723 & True \\
+37 & labor & middle & 12 & 70.2734 & 35.438394 & 195.771 & True \\
+37 & labor & high & 36 & 70.6757 & 90.896695 & 435.429 & True \\
+\end{longtable}\endgroup
+
+PubMed LABOR K6 is the same operating point at all three tier comparisons. The arxiv/SAGE low-tier LABOR point is reported despite its infeasible calibration match. Actual final times need not match the calibration target.
+
+\subsubsection{Middle-budget four corners: accuracy, native margin and transitions}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{HGCN / ogbn-arxiv: Middle-budget four corners: accuracy, native margin and transitions. Original displayed values, with all seeds retained.}\label{tab:supp-seed-2}\\
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & sampled & 70.1603 & 1.031111 & baseline & baseline \\
+11 & uniform & local\_\allowbreak{}restored & 70.3408 & 1.037387 & 283.25 & 195.50 \\
+11 & uniform & upstream\_\allowbreak{}restored & 70.3614 & 1.072653 & 1090.50 & 992.75 \\
+11 & uniform & both\_\allowbreak{}restored & 70.4761 & 1.078604 & 1198.75 & 1045.25 \\
+11 & labor & sampled & 69.8337 & 0.989599 & baseline & baseline \\
+11 & labor & local\_\allowbreak{}restored & 70.1232 & 1.015133 & 464.00 & 323.25 \\
+11 & labor & upstream\_\allowbreak{}restored & 70.2626 & 1.055035 & 1451.25 & 1242.75 \\
+11 & labor & both\_\allowbreak{}restored & 70.4427 & 1.075509 & 1601.75 & 1305.75 \\
+23 & uniform & sampled & 69.9854 & 1.185832 & baseline & baseline \\
+23 & uniform & local\_\allowbreak{}restored & 70.2066 & 1.192160 & 324.25 & 216.75 \\
+23 & uniform & upstream\_\allowbreak{}restored & 70.0384 & 1.241849 & 1165.25 & 1139.50 \\
+23 & uniform & both\_\allowbreak{}restored & 70.2292 & 1.247544 & 1295.75 & 1177.25 \\
+23 & labor & sampled & 69.4407 & 1.123544 & baseline & baseline \\
+23 & labor & local\_\allowbreak{}restored & 69.6912 & 1.153314 & 493.50 & 371.75 \\
+23 & labor & upstream\_\allowbreak{}restored & 70.0116 & 1.223060 & 1629.75 & 1352.25 \\
+23 & labor & both\_\allowbreak{}restored & 70.2426 & 1.243799 & 1784.00 & 1394.25 \\
+37 & uniform & sampled & 70.4113 & 1.116119 & baseline & baseline \\
+37 & uniform & local\_\allowbreak{}restored & 70.5563 & 1.122096 & 281.75 & 211.25 \\
+37 & uniform & upstream\_\allowbreak{}restored & 70.5903 & 1.147765 & 885.00 & 798.00 \\
+37 & uniform & both\_\allowbreak{}restored & 70.7019 & 1.153284 & 1009.00 & 867.75 \\
+37 & labor & sampled & 70.0559 & 1.052758 & baseline & baseline \\
+37 & labor & local\_\allowbreak{}restored & 70.3383 & 1.085157 & 462.75 & 325.50 \\
+37 & labor & upstream\_\allowbreak{}restored & 70.4776 & 1.126096 & 1241.50 & 1036.50 \\
+37 & labor & both\_\allowbreak{}restored & 70.7148 & 1.152714 & 1427.75 & 1107.50 \\
+\end{longtable}\endgroup
+
+\subsubsection{Paired restoration changes and interaction}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{HGCN / ogbn-arxiv: Paired restoration changes and interaction. Original displayed values, with all seeds retained.}\label{tab:supp-seed-3}\\
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & +0.1805 & +0.2011 & +0.3158 & -0.0658 & 0.46850254 \\
+11 & labor & +0.2896 & +0.4290 & +0.6090 & -0.1096 & 4.61257300 \\
+23 & uniform & +0.2212 & +0.0530 & +0.2438 & -0.0303 & 0.46521756 \\
+23 & labor & +0.2505 & +0.5710 & +0.8019 & -0.0195 & 5.28277477 \\
+37 & uniform & +0.1451 & +0.1790 & +0.2906 & -0.0334 & 0.43290270 \\
+37 & labor & +0.2824 & +0.4218 & +0.6589 & -0.0453 & 3.70722188 \\
+\end{longtable}\endgroup
+
+\subsubsection{Exact computation and paid RAM reuse}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}}
+\caption{HGCN / ogbn-arxiv: Exact computation and paid RAM reuse. Original displayed values, with all seeds retained.}\label{tab:supp-seed-4}\\
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endfirsthead
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & 70.5553 & 1 & 0.265433 & 0.266946 & 27094880 \\
+11 & 70.5553 & 10 & 0.888393 & 0.349911 & 27094880 \\
+11 & 70.5553 & 100 & 7.117990 & 1.179566 & 27094880 \\
+23 & 70.1356 & 1 & 0.221386 & 0.227289 & 27094880 \\
+23 & 70.1356 & 10 & 0.771857 & 0.296584 & 27094880 \\
+23 & 70.1356 & 100 & 6.276569 & 0.989537 & 27094880 \\
+37 & 70.7179 & 1 & 0.229909 & 0.237918 & 27094880 \\
+37 & 70.7179 & 10 & 0.806239 & 0.319460 & 27094880 \\
+37 & 70.7179 & 100 & 6.569535 & 1.134879 & 27094880 \\
+\end{longtable}\endgroup
+
+These are the original frozen amortization formulas, not q extra experiments. Common CP/graph setup is separate; exact q=1 includes format setup. All full-memory, component timing, sampled-input/full-input errors, native margin changes, across-seed standard deviations and plan-level scalar records are retained in the exact CSV copies.
+
+\subsection{HyboNet / ogbn-arxiv}
+\subsubsection{Deployment: all tiers and seeds}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.035\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}}
+\caption{HyboNet / ogbn-arxiv: Deployment: all tiers and seeds. Original displayed values, with all seeds retained.}\label{tab:supp-seed-5}\\
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endhead
+\midrule\multicolumn{8}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & low & 5 & 67.3369 & 17.914019 & 61.660 & reference \\
+11 & uniform & middle & 15 & 69.9293 & 42.531143 & 159.404 & reference \\
+11 & uniform & high & 30 & 70.1325 & 89.502669 & 231.361 & reference \\
+11 & labor & low & 5 & 65.6060 & 17.973554 & 53.379 & True \\
+11 & labor & middle & 15 & 69.8120 & 36.009196 & 132.019 & True \\
+11 & labor & high & 36 & 70.1227 & 82.586572 & 225.251 & True \\
+23 & uniform & low & 5 & 67.1929 & 17.887291 & 61.666 & reference \\
+23 & uniform & middle & 15 & 69.8398 & 42.328543 & 160.632 & reference \\
+23 & uniform & high & 30 & 70.0420 & 89.328723 & 231.295 & reference \\
+23 & labor & low & 5 & 65.2990 & 17.745708 & 53.352 & True \\
+23 & labor & middle & 15 & 69.7565 & 35.834023 & 132.552 & True \\
+23 & labor & high & 36 & 70.0116 & 82.559198 & 224.706 & True \\
+37 & uniform & low & 5 & 67.5401 & 17.884926 & 61.700 & reference \\
+37 & uniform & middle & 15 & 70.2045 & 42.226411 & 160.698 & reference \\
+37 & uniform & high & 30 & 70.2734 & 89.086853 & 231.430 & reference \\
+37 & labor & low & 5 & 65.5993 & 17.750192 & 53.591 & True \\
+37 & labor & middle & 15 & 70.0934 & 35.836794 & 131.106 & True \\
+37 & labor & high & 36 & 70.2734 & 82.519964 & 226.162 & True \\
+\end{longtable}\endgroup
+
+PubMed LABOR K6 is the same operating point at all three tier comparisons. The arxiv/SAGE low-tier LABOR point is reported despite its infeasible calibration match. Actual final times need not match the calibration target.
+
+\subsubsection{Middle-budget four corners: accuracy, native margin and transitions}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{HyboNet / ogbn-arxiv: Middle-budget four corners: accuracy, native margin and transitions. Original displayed values, with all seeds retained.}\label{tab:supp-seed-6}\\
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & sampled & 70.0111 & 1.357933 & baseline & baseline \\
+11 & uniform & local\_\allowbreak{}restored & 70.1546 & 1.360817 & 251.75 & 182.00 \\
+11 & uniform & upstream\_\allowbreak{}restored & 70.0224 & 1.428544 & 581.00 & 575.50 \\
+11 & uniform & both\_\allowbreak{}restored & 70.1294 & 1.431504 & 711.50 & 654.00 \\
+11 & labor & sampled & 69.8604 & 1.350667 & baseline & baseline \\
+11 & labor & local\_\allowbreak{}restored & 69.9664 & 1.355820 & 242.00 & 190.50 \\
+11 & labor & upstream\_\allowbreak{}restored & 70.0363 & 1.427775 & 687.75 & 602.25 \\
+11 & labor & both\_\allowbreak{}restored & 70.1294 & 1.431504 & 803.25 & 672.50 \\
+23 & uniform & sampled & 69.8074 & 1.298260 & baseline & baseline \\
+23 & uniform & local\_\allowbreak{}restored & 69.9412 & 1.301650 & 248.00 & 183.00 \\
+23 & uniform & upstream\_\allowbreak{}restored & 69.9566 & 1.344578 & 563.75 & 491.25 \\
+23 & uniform & both\_\allowbreak{}restored & 70.0553 & 1.347913 & 699.25 & 578.75 \\
+23 & labor & sampled & 69.7436 & 1.300074 & baseline & baseline \\
+23 & labor & local\_\allowbreak{}restored & 69.8712 & 1.305426 & 253.25 & 191.25 \\
+23 & labor & upstream\_\allowbreak{}restored & 69.9458 & 1.345025 & 685.00 & 586.75 \\
+23 & labor & both\_\allowbreak{}restored & 70.0553 & 1.347913 & 808.75 & 657.25 \\
+37 & uniform & sampled & 70.1983 & 1.294590 & baseline & baseline \\
+37 & uniform & local\_\allowbreak{}restored & 70.2812 & 1.297774 & 235.00 & 194.75 \\
+37 & uniform & upstream\_\allowbreak{}restored & 70.2431 & 1.350775 & 544.75 & 523.00 \\
+37 & uniform & both\_\allowbreak{}restored & 70.3105 & 1.353502 & 665.00 & 610.50 \\
+37 & labor & sampled & 70.0847 & 1.281594 & baseline & baseline \\
+37 & labor & local\_\allowbreak{}restored & 70.1834 & 1.284571 & 248.00 & 200.00 \\
+37 & labor & upstream\_\allowbreak{}restored & 70.2163 & 1.352480 & 698.00 & 634.00 \\
+37 & labor & both\_\allowbreak{}restored & 70.3105 & 1.353502 & 811.00 & 701.25 \\
+\end{longtable}\endgroup
+
+\subsubsection{Paired restoration changes and interaction}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{HyboNet / ogbn-arxiv: Paired restoration changes and interaction. Original displayed values, with all seeds retained.}\label{tab:supp-seed-7}\\
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & +0.1435 & +0.0113 & +0.1183 & -0.0365 & 0.00224604 \\
+11 & labor & +0.1060 & +0.1759 & +0.2690 & -0.0129 & 0.03977844 \\
+23 & uniform & +0.1337 & +0.1492 & +0.2479 & -0.0350 & 0.00219455 \\
+23 & labor & +0.1276 & +0.2021 & +0.3117 & -0.0180 & 0.04161711 \\
+37 & uniform & +0.0828 & +0.0448 & +0.1121 & -0.0154 & 0.00211417 \\
+37 & labor & +0.0988 & +0.1317 & +0.2258 & -0.0046 & 0.03888045 \\
+\end{longtable}\endgroup
+
+\subsubsection{Exact computation and paid RAM reuse}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}}
+\caption{HyboNet / ogbn-arxiv: Exact computation and paid RAM reuse. Original displayed values, with all seeds retained.}\label{tab:supp-seed-8}\\
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endfirsthead
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & 70.1294 & 1 & 0.340264 & 0.334069 & 27094880 \\
+11 & 70.1294 & 10 & 1.830769 & 0.409512 & 27094880 \\
+11 & 70.1294 & 100 & 16.735813 & 1.163942 & 27094880 \\
+23 & 70.0553 & 1 & 0.284210 & 0.289640 & 27094880 \\
+23 & 70.0553 & 10 & 1.550985 & 0.356633 & 27094880 \\
+23 & 70.0553 & 100 & 14.218742 & 1.026562 & 27094880 \\
+37 & 70.3105 & 1 & 0.393480 & 0.382282 & 27094880 \\
+37 & 70.3105 & 10 & 1.984050 & 0.446529 & 27094880 \\
+37 & 70.3105 & 100 & 17.889743 & 1.088996 & 27094880 \\
+\end{longtable}\endgroup
+
+These are the original frozen amortization formulas, not q extra experiments. Common CP/graph setup is separate; exact q=1 includes format setup. All full-memory, component timing, sampled-input/full-input errors, native margin changes, across-seed standard deviations and plan-level scalar records are retained in the exact CSV copies.
+
+\subsection{GraphSAGE / ogbn-arxiv}
+\subsubsection{Deployment: all tiers and seeds}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.035\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}}
+\caption{GraphSAGE / ogbn-arxiv: Deployment: all tiers and seeds. Original displayed values, with all seeds retained.}\label{tab:supp-seed-9}\\
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endhead
+\midrule\multicolumn{8}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & low & 5 & 69.0559 & 18.178637 & 51.506 & reference \\
+11 & uniform & middle & 15 & 70.4838 & 43.045747 & 108.159 & reference \\
+11 & uniform & high & 30 & 70.6078 & 89.902420 & 165.709 & reference \\
+11 & labor & low & 5 & 67.9865 & 18.437689 & 47.683 & False \\
+11 & labor & middle & 15 & 70.4884 & 36.302164 & 91.150 & True \\
+11 & labor & high & 36 & 70.5805 & 82.874647 & 154.440 & True \\
+23 & uniform & low & 5 & 69.3666 & 18.222668 & 51.504 & reference \\
+23 & uniform & middle & 15 & 70.7497 & 43.126781 & 107.987 & reference \\
+23 & uniform & high & 30 & 70.8624 & 90.123444 & 165.785 & reference \\
+23 & labor & low & 5 & 68.2869 & 18.421956 & 47.648 & False \\
+23 & labor & middle & 15 & 70.7369 & 36.452571 & 91.200 & True \\
+23 & labor & high & 36 & 70.8809 & 83.086254 & 154.961 & True \\
+37 & uniform & low & 5 & 69.8969 & 18.512795 & 51.506 & reference \\
+37 & uniform & middle & 15 & 71.3408 & 43.432314 & 108.366 & reference \\
+37 & uniform & high & 30 & 71.4045 & 91.046472 & 165.621 & reference \\
+37 & labor & low & 5 & 69.0148 & 18.442969 & 47.800 & False \\
+37 & labor & middle & 15 & 71.2528 & 36.686506 & 90.864 & True \\
+37 & labor & high & 36 & 71.3382 & 84.378858 & 154.859 & True \\
+\end{longtable}\endgroup
+
+PubMed LABOR K6 is the same operating point at all three tier comparisons. The arxiv/SAGE low-tier LABOR point is reported despite its infeasible calibration match. Actual final times need not match the calibration target.
+
+\subsubsection{Middle-budget four corners: accuracy, native margin and transitions}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GraphSAGE / ogbn-arxiv: Middle-budget four corners: accuracy, native margin and transitions. Original displayed values, with all seeds retained.}\label{tab:supp-seed-10}\\
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & sampled & 70.5327 & 1.252588 & baseline & baseline \\
+11 & uniform & local\_\allowbreak{}restored & 70.5970 & 1.256131 & 186.50 & 155.25 \\
+11 & uniform & upstream\_\allowbreak{}restored & 70.5641 & 1.312539 & 605.00 & 589.75 \\
+11 & uniform & both\_\allowbreak{}restored & 70.6232 & 1.315913 & 674.50 & 630.50 \\
+11 & labor & sampled & 70.4169 & 1.254852 & baseline & baseline \\
+11 & labor & local\_\allowbreak{}restored & 70.5286 & 1.257397 & 198.75 & 144.50 \\
+11 & labor & upstream\_\allowbreak{}restored & 70.5646 & 1.313823 & 697.75 & 626.00 \\
+11 & labor & both\_\allowbreak{}restored & 70.6232 & 1.315913 & 773.50 & 673.25 \\
+23 & uniform & sampled & 70.7353 & 1.258992 & baseline & baseline \\
+23 & uniform & local\_\allowbreak{}restored & 70.8331 & 1.262131 & 201.75 & 154.25 \\
+23 & uniform & upstream\_\allowbreak{}restored & 70.7899 & 1.319129 & 648.75 & 622.25 \\
+23 & uniform & both\_\allowbreak{}restored & 70.8804 & 1.322171 & 728.50 & 658.00 \\
+23 & labor & sampled & 70.6916 & 1.260396 & baseline & baseline \\
+23 & labor & local\_\allowbreak{}restored & 70.7688 & 1.262875 & 202.25 & 164.75 \\
+23 & labor & upstream\_\allowbreak{}restored & 70.7914 & 1.321024 & 712.25 & 663.75 \\
+23 & labor & both\_\allowbreak{}restored & 70.8804 & 1.322171 & 790.75 & 699.00 \\
+37 & uniform & sampled & 71.2898 & 1.216943 & baseline & baseline \\
+37 & uniform & local\_\allowbreak{}restored & 71.3505 & 1.219746 & 195.50 & 166.00 \\
+37 & uniform & upstream\_\allowbreak{}restored & 71.3634 & 1.269457 & 559.75 & 524.00 \\
+37 & uniform & both\_\allowbreak{}restored & 71.4051 & 1.271965 & 640.00 & 584.00 \\
+37 & labor & sampled & 71.3022 & 1.208778 & baseline & baseline \\
+37 & labor & local\_\allowbreak{}restored & 71.4128 & 1.210714 & 204.50 & 150.75 \\
+37 & labor & upstream\_\allowbreak{}restored & 71.3274 & 1.269505 & 599.25 & 587.00 \\
+37 & labor & both\_\allowbreak{}restored & 71.4051 & 1.271965 & 686.50 & 636.50 \\
+\end{longtable}\endgroup
+
+\subsubsection{Paired restoration changes and interaction}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GraphSAGE / ogbn-arxiv: Paired restoration changes and interaction. Original displayed values, with all seeds retained.}\label{tab:supp-seed-11}\\
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & +0.0643 & +0.0314 & +0.0905 & -0.0051 & 0.00352917 \\
+11 & labor & +0.1116 & +0.1476 & +0.2063 & -0.0530 & 0.00385210 \\
+23 & uniform & +0.0977 & +0.0545 & +0.1451 & -0.0072 & 0.00361693 \\
+23 & labor & +0.0772 & +0.0998 & +0.1888 & +0.0118 & 0.00399701 \\
+37 & uniform & +0.0607 & +0.0736 & +0.1152 & -0.0190 & 0.00724469 \\
+37 & labor & +0.1106 & +0.0252 & +0.1029 & -0.0329 & 0.00779397 \\
+\end{longtable}\endgroup
+
+\subsubsection{Exact computation and paid RAM reuse}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}}
+\caption{GraphSAGE / ogbn-arxiv: Exact computation and paid RAM reuse. Original displayed values, with all seeds retained.}\label{tab:supp-seed-12}\\
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endfirsthead
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & 70.6232 & 1 & 0.187096 & 0.193923 & 27094880 \\
+11 & 70.6232 & 10 & 0.444067 & 0.267763 & 27094880 \\
+11 & 70.6232 & 100 & 3.013769 & 1.006162 & 27094880 \\
+23 & 70.8804 & 1 & 0.177334 & 0.184627 & 27094880 \\
+23 & 70.8804 & 10 & 0.436640 & 0.262394 & 27094880 \\
+23 & 70.8804 & 100 & 3.029695 & 1.040062 & 27094880 \\
+37 & 71.4051 & 1 & 0.187917 & 0.195670 & 27094880 \\
+37 & 71.4051 & 10 & 0.455764 & 0.277773 & 27094880 \\
+37 & 71.4051 & 100 & 3.134234 & 1.098801 & 27094880 \\
+\end{longtable}\endgroup
+
+These are the original frozen amortization formulas, not q extra experiments. Common CP/graph setup is separate; exact q=1 includes format setup. All full-memory, component timing, sampled-input/full-input errors, native margin changes, across-seed standard deviations and plan-level scalar records are retained in the exact CSV copies.
+
+\subsection{GAT / ogbn-arxiv}
+\subsubsection{Deployment: all tiers and seeds}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.035\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}}
+\caption{GAT / ogbn-arxiv: Deployment: all tiers and seeds. Original displayed values, with all seeds retained.}\label{tab:supp-seed-13}\\
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endhead
+\midrule\multicolumn{8}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & low & 5 & 70.8089 & 18.178965 & 197.702 & reference \\
+11 & uniform & middle & 15 & 72.0578 & 44.617388 & 1251.475 & reference \\
+11 & uniform & high & 30 & 72.2322 & 94.091825 & 3080.454 & reference \\
+11 & labor & low & 5 & 70.3902 & 18.303514 & 169.991 & True \\
+11 & labor & middle & 15 & 72.0053 & 37.731604 & 943.442 & True \\
+11 & labor & high & 30 & 72.1797 & 74.619808 & 2398.835 & True \\
+23 & uniform & low & 5 & 71.0501 & 18.486565 & 197.854 & reference \\
+23 & uniform & middle & 15 & 72.2219 & 45.028231 & 1251.033 & reference \\
+23 & uniform & high & 30 & 72.3417 & 95.111255 & 3081.372 & reference \\
+23 & labor & low & 5 & 70.6109 & 18.731157 & 167.620 & True \\
+23 & labor & middle & 15 & 72.1473 & 38.313267 & 946.144 & True \\
+23 & labor & high & 30 & 72.3808 & 75.057174 & 2404.393 & True \\
+37 & uniform & low & 5 & 71.2667 & 18.293175 & 198.204 & reference \\
+37 & uniform & middle & 15 & 72.1987 & 44.807298 & 1260.540 & reference \\
+37 & uniform & high & 30 & 72.1890 & 94.699773 & 3076.838 & reference \\
+37 & labor & low & 5 & 70.8881 & 18.345737 & 170.414 & True \\
+37 & labor & middle & 15 & 72.1437 & 37.926430 & 929.912 & True \\
+37 & labor & high & 30 & 72.2373 & 75.009215 & 2400.219 & True \\
+\end{longtable}\endgroup
+
+PubMed LABOR K6 is the same operating point at all three tier comparisons. The arxiv/SAGE low-tier LABOR point is reported despite its infeasible calibration match. Actual final times need not match the calibration target.
+
+\subsubsection{Middle-budget four corners: accuracy, native margin and transitions}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GAT / ogbn-arxiv: Middle-budget four corners: accuracy, native margin and transitions. Original displayed values, with all seeds retained.}\label{tab:supp-seed-14}\\
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & sampled & 72.0501 & 3.445456 & baseline & baseline \\
+11 & uniform & local\_\allowbreak{}restored & 72.1442 & 3.451363 & 181.75 & 136.00 \\
+11 & uniform & upstream\_\allowbreak{}restored & 72.2049 & 3.680112 & 441.50 & 366.25 \\
+11 & uniform & both\_\allowbreak{}restored & 72.2774 & 3.685698 & 532.25 & 421.75 \\
+11 & labor & sampled & 72.0130 & 3.441008 & baseline & baseline \\
+11 & labor & local\_\allowbreak{}restored & 72.1036 & 3.448998 & 188.25 & 144.25 \\
+11 & labor & upstream\_\allowbreak{}restored & 72.2126 & 3.680089 & 523.25 & 426.25 \\
+11 & labor & both\_\allowbreak{}restored & 72.2774 & 3.685698 & 609.00 & 480.50 \\
+23 & uniform & sampled & 72.2059 & 3.461650 & baseline & baseline \\
+23 & uniform & local\_\allowbreak{}restored & 72.2851 & 3.466644 & 180.50 & 142.00 \\
+23 & uniform & upstream\_\allowbreak{}restored & 72.3176 & 3.719926 & 429.00 & 374.75 \\
+23 & uniform & both\_\allowbreak{}restored & 72.3885 & 3.725181 & 527.75 & 439.00 \\
+23 & labor & sampled & 72.2167 & 3.464314 & baseline & baseline \\
+23 & labor & local\_\allowbreak{}restored & 72.3160 & 3.465955 & 183.75 & 135.50 \\
+23 & labor & upstream\_\allowbreak{}restored & 72.3021 & 3.726340 & 490.50 & 449.00 \\
+23 & labor & both\_\allowbreak{}restored & 72.3885 & 3.725181 & 574.00 & 490.50 \\
+37 & uniform & sampled & 72.1684 & 3.517426 & baseline & baseline \\
+37 & uniform & local\_\allowbreak{}restored & 72.2332 & 3.522991 & 174.00 & 142.50 \\
+37 & uniform & upstream\_\allowbreak{}restored & 72.1756 & 3.732949 & 422.00 & 418.50 \\
+37 & uniform & both\_\allowbreak{}restored & 72.2198 & 3.737844 & 509.00 & 484.00 \\
+37 & labor & sampled & 72.0979 & 3.486986 & baseline & baseline \\
+37 & labor & local\_\allowbreak{}restored & 72.1432 & 3.487776 & 181.50 & 159.50 \\
+37 & labor & upstream\_\allowbreak{}restored & 72.1746 & 3.734061 & 495.25 & 458.00 \\
+37 & labor & both\_\allowbreak{}restored & 72.2198 & 3.737844 & 578.25 & 519.00 \\
+\end{longtable}\endgroup
+
+\subsubsection{Paired restoration changes and interaction}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GAT / ogbn-arxiv: Paired restoration changes and interaction. Original displayed values, with all seeds retained.}\label{tab:supp-seed-15}\\
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & +0.0941 & +0.1548 & +0.2274 & -0.0216 & 1.90133056 \\
+11 & labor & +0.0905 & +0.1996 & +0.2644 & -0.0257 & 2.04853182 \\
+23 & uniform & +0.0792 & +0.1116 & +0.1826 & -0.0082 & 2.34209336 \\
+23 & labor & +0.0993 & +0.0854 & +0.1718 & -0.0129 & 2.66721869 \\
+37 & uniform & +0.0648 & +0.0072 & +0.0514 & -0.0206 & 2.05886113 \\
+37 & labor & +0.0453 & +0.0766 & +0.1219 & +0.0000 & 2.31235536 \\
+\end{longtable}\endgroup
+
+\subsubsection{Exact computation and paid RAM reuse}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}}
+\caption{GAT / ogbn-arxiv: Exact computation and paid RAM reuse. Original displayed values, with all seeds retained.}\label{tab:supp-seed-16}\\
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endfirsthead
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & 72.2774 & 1 & 0.307020 & 0.434544 & 27094880 \\
+11 & 72.2774 & 10 & 1.998912 & 1.704486 & 27094880 \\
+11 & 72.2774 & 100 & 18.917833 & 14.403904 & 27094880 \\
+23 & 72.3885 & 1 & 0.297910 & 0.304950 & 27094880 \\
+23 & 72.3885 & 10 & 1.859950 & 0.377374 & 27094880 \\
+23 & 72.3885 & 100 & 17.480343 & 1.101615 & 27094880 \\
+37 & 72.2198 & 1 & 0.292912 & 0.299229 & 27094880 \\
+37 & 72.2198 & 10 & 1.851666 & 0.365270 & 27094880 \\
+37 & 72.2198 & 100 & 17.439200 & 1.025682 & 27094880 \\
+\end{longtable}\endgroup
+
+These are the original frozen amortization formulas, not q extra experiments. Common CP/graph setup is separate; exact q=1 includes format setup. All full-memory, component timing, sampled-input/full-input errors, native margin changes, across-seed standard deviations and plan-level scalar records are retained in the exact CSV copies.
+
+\subsection{GraphSAGE / PubMed}
+\subsubsection{Deployment: all tiers and seeds}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.035\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}}
+\caption{GraphSAGE / PubMed: Deployment: all tiers and seeds. Original displayed values, with all seeds retained.}\label{tab:supp-seed-17}\\
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Tier & K & Accuracy \% & Workload s & Max observed peak MiB & Feasible calibration match \\
+\midrule\endhead
+\midrule\multicolumn{8}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & low & 1 & 72.8500 & 0.297638 & 37.762 & reference \\
+11 & uniform & middle & 4 & 74.7250 & 0.329297 & 48.422 & reference \\
+11 & uniform & high & 8 & 75.0000 & 0.387821 & 63.431 & reference \\
+11 & labor & low & 6 & 75.1250 & 0.360889 & 54.098 & True \\
+11 & labor & middle & 6 & 75.1250 & 0.360421 & 54.098 & True \\
+11 & labor & high & 6 & 75.1250 & 0.364992 & 54.098 & True \\
+23 & uniform & low & 1 & 73.6250 & 0.285209 & 37.772 & reference \\
+23 & uniform & middle & 4 & 75.5500 & 0.326600 & 48.411 & reference \\
+23 & uniform & high & 8 & 75.8250 & 0.377677 & 62.183 & reference \\
+23 & labor & low & 6 & 75.5750 & 0.351006 & 54.274 & True \\
+23 & labor & middle & 6 & 75.5750 & 0.345077 & 54.274 & True \\
+23 & labor & high & 6 & 75.5750 & 0.330342 & 54.274 & True \\
+37 & uniform & low & 1 & 73.5750 & 0.285183 & 37.771 & reference \\
+37 & uniform & middle & 4 & 74.3000 & 0.330403 & 48.230 & reference \\
+37 & uniform & high & 8 & 74.3250 & 0.361659 & 63.245 & reference \\
+37 & labor & low & 6 & 74.2250 & 0.333999 & 53.901 & True \\
+37 & labor & middle & 6 & 74.2250 & 0.332198 & 53.901 & True \\
+37 & labor & high & 6 & 74.2250 & 0.339028 & 53.901 & True \\
+\end{longtable}\endgroup
+
+PubMed LABOR K6 is the same operating point at all three tier comparisons. The arxiv/SAGE low-tier LABOR point is reported despite its infeasible calibration match. Actual final times need not match the calibration target.
+
+\subsubsection{Middle-budget four corners: accuracy, native margin and transitions}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GraphSAGE / PubMed: Middle-budget four corners: accuracy, native margin and transitions. Original displayed values, with all seeds retained.}\label{tab:supp-seed-18}\\
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Corner & Accuracy \% & Native margin & Fixed/repeat & Introduced/\allowbreak{}repeat \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & sampled & 74.8000 & 5.378680 & baseline & baseline \\
+11 & uniform & local\_\allowbreak{}restored & 74.7500 & 5.378052 & 2.75 & 3.25 \\
+11 & uniform & upstream\_\allowbreak{}restored & 75.3750 & 5.422523 & 18.75 & 13.00 \\
+11 & uniform & both\_\allowbreak{}restored & 75.8000 & 5.421434 & 21.75 & 11.75 \\
+11 & labor & sampled & 75.0500 & 5.384160 & baseline & baseline \\
+11 & labor & local\_\allowbreak{}restored & 75.1750 & 5.380556 & 2.00 & 0.75 \\
+11 & labor & upstream\_\allowbreak{}restored & 75.2500 & 5.424648 & 14.75 & 12.75 \\
+11 & labor & both\_\allowbreak{}restored & 75.8000 & 5.421434 & 18.00 & 10.50 \\
+23 & uniform & sampled & 75.2250 & 5.597354 & baseline & baseline \\
+23 & uniform & local\_\allowbreak{}restored & 75.2750 & 5.589564 & 3.25 & 2.75 \\
+23 & uniform & upstream\_\allowbreak{}restored & 75.2250 & 5.672130 & 13.75 & 13.75 \\
+23 & uniform & both\_\allowbreak{}restored & 75.4000 & 5.661963 & 16.50 & 14.75 \\
+23 & labor & sampled & 75.4250 & 5.589689 & baseline & baseline \\
+23 & labor & local\_\allowbreak{}restored & 75.5750 & 5.598738 & 3.25 & 1.75 \\
+23 & labor & upstream\_\allowbreak{}restored & 75.2250 & 5.655098 & 9.25 & 11.25 \\
+23 & labor & both\_\allowbreak{}restored & 75.4000 & 5.661963 & 10.75 & 11.00 \\
+37 & uniform & sampled & 74.3000 & 5.621925 & baseline & baseline \\
+37 & uniform & local\_\allowbreak{}restored & 74.1750 & 5.616949 & 2.75 & 4.00 \\
+37 & uniform & upstream\_\allowbreak{}restored & 74.5500 & 5.638979 & 15.00 & 12.50 \\
+37 & uniform & both\_\allowbreak{}restored & 74.6000 & 5.635255 & 17.25 & 14.25 \\
+37 & labor & sampled & 73.9750 & 5.585634 & baseline & baseline \\
+37 & labor & local\_\allowbreak{}restored & 73.9750 & 5.594271 & 1.75 & 1.75 \\
+37 & labor & upstream\_\allowbreak{}restored & 74.5750 & 5.628201 & 15.75 & 9.75 \\
+37 & labor & both\_\allowbreak{}restored & 74.6000 & 5.635255 & 15.75 & 9.50 \\
+\end{longtable}\endgroup
+
+\subsubsection{Paired restoration changes and interaction}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\caption{GraphSAGE / PubMed: Paired restoration changes and interaction. Original displayed values, with all seeds retained.}\label{tab:supp-seed-19}\\
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endfirsthead
+\toprule
+Seed & Method & Local pp & Upstream pp & Joint pp & Interaction pp & Local estimator squared L2 \\
+\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & uniform & -0.0500 & +0.5750 & +1.0000 & +0.4750 & 0.43419411 \\
+11 & labor & +0.1250 & +0.2000 & +0.7500 & +0.4250 & 0.25247188 \\
+23 & uniform & +0.0500 & +0.0000 & +0.1750 & +0.1250 & 0.40992959 \\
+23 & labor & +0.1500 & -0.2000 & -0.0250 & +0.0250 & 0.23164653 \\
+37 & uniform & -0.1250 & +0.2500 & +0.3000 & +0.1750 & 0.38037591 \\
+37 & labor & +0.0000 & +0.6000 & +0.6250 & +0.0250 & 0.22698362 \\
+\end{longtable}\endgroup
+
+\subsubsection{Exact computation and paid RAM reuse}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.045\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}}
+\caption{GraphSAGE / PubMed: Exact computation and paid RAM reuse. Original displayed values, with all seeds retained.}\label{tab:supp-seed-20}\\
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endfirsthead
+\toprule
+Seed & Exact accuracy \% & q & Exact recompute s & Paid RAM s & RAM cache bytes \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on the next page}\\\endfoot
+\bottomrule\endlastfoot
+11 & 75.8000 & 1 & 0.085218 & 0.085334 & 236604 \\
+11 & 75.8000 & 10 & 0.155151 & 0.087565 & 236604 \\
+11 & 75.8000 & 100 & 0.854481 & 0.109872 & 236604 \\
+23 & 75.4000 & 1 & 0.078141 & 0.078283 & 236604 \\
+23 & 75.4000 & 10 & 0.135458 & 0.080583 & 236604 \\
+23 & 75.4000 & 100 & 0.708623 & 0.103591 & 236604 \\
+37 & 74.6000 & 1 & 0.075179 & 0.075279 & 236604 \\
+37 & 74.6000 & 10 & 0.131587 & 0.077243 & 236604 \\
+37 & 74.6000 & 100 & 0.695659 & 0.096879 & 236604 \\
+\end{longtable}\endgroup
+
+These are the original frozen amortization formulas, not q extra experiments. Common CP/graph setup is separate; exact q=1 includes format setup. All full-memory, component timing, sampled-input/full-input errors, native margin changes, across-seed standard deviations and plan-level scalar records are retained in the exact CSV copies.
+

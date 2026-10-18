@@ -1,0 +1,14 @@
+{
+  "schema": "vldb_frozen_sampling_completion_v1",
+  "status": "completed",
+  "dataset": "ogbn-arxiv",
+  "model": "hgcn",
+  "seed": 23,
+  "stage": "final",
+  "CP_model_setup_seconds": 0.22174211405217648,
+  "public_graph_setup_seconds": 1.6208302564918995,
+  "worker_wall_seconds": 1499.5476043652743,
+  "worker_process_cpu_seconds": 3108.01385144,
+  "child_process_CPU_seconds": null,
+  "common_CPU_feature_CSR_bytes": 107937896
+}

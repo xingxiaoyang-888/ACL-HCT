@@ -1,0 +1,546 @@
+{
+  "schema": "vldb_public_scalar_inputs_v1",
+  "source_manifest_sha256": "ece3665a84b76ac7801639561f0d07ab98af02d94c55f28aa8bc1dca82bb5e75",
+  "entries": [
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 11,
+      "weights_sha256": "73f5bac8cd4661c75195b624dbcf0ee8580ae396d728eabe8083335ea5300094",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/results.json",
+          "sha256": "ce6ebcf39f0a7cef30e9cbde6636942074b32fd31d4e64424e952152fa496f90"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/science/completion.json",
+          "sha256": "aa6ab4dbdcbe926d6540a8e1c8f5f18a6f2eeb9c79d46f4ec98e95915e84e3a1"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/worker/completion.json",
+          "sha256": "aececf64fa273497f251fafcbce85534b8e45f0f195497d9ff295c4b9c9d57d0"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/budget-lock.json",
+          "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/hardware-cost-binding.json",
+          "sha256": "f7441154fcd5150d2e338a1ec38355e3888eac430eebd2b8802b3b823649884d"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed11/deployment-costs.jsonl.gz",
+          "sha256": "ce551b16bc3b43021c60e54d2292bc403e33b416db190f4a5351e8e4708f3fa1"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 23,
+      "weights_sha256": "ec3d978a6a43a426e8585fa383209cf06d33e49d3e13ca6bdf6c51c49f375953",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/results.json",
+          "sha256": "e37ddd258f7d09d8b91156c183ec583fe6ab6bf70e623f418e3fb2a7223a04cb"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/science/completion.json",
+          "sha256": "15740b80dccc3067b5d7c18491d831a21aa7b78c6bb4dbd96f2f221130941fc7"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/worker/completion.json",
+          "sha256": "a43180e1d3575172580a7ca37768fc6348652f4e557a638f44cdf71fbf6ad028"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/budget-lock.json",
+          "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/hardware-cost-binding.json",
+          "sha256": "f7441154fcd5150d2e338a1ec38355e3888eac430eebd2b8802b3b823649884d"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed23/deployment-costs.jsonl.gz",
+          "sha256": "6332318e4730feaa224fdaa405e3888e4008c640a989ef992c34f700e124534c"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hgcn",
+      "seed": 37,
+      "weights_sha256": "cb273dc81128abdd1748e59d17d3d23c25e8f3647a90bda8c5094fbc320cd307",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/results.json",
+          "sha256": "b640406976efee208eec6c84a5c5db5df6178a791811b8efc4766675038bfdd6"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/science/completion.json",
+          "sha256": "c16b98c2c2c9ee5a8623ecf9a2d7d017deac81558028f40c485c04554736289b"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/worker/completion.json",
+          "sha256": "eadd5140b3489132fd7fc55000fc390ed4ce480d2d1197cf4daba606ead44497"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/budget-lock.json",
+          "sha256": "45f869e1f1ac165882b5e59d16bf6a23e6cab6ecde84e71af792c3642d561523"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/hardware-cost-binding.json",
+          "sha256": "f7441154fcd5150d2e338a1ec38355e3888eac430eebd2b8802b3b823649884d"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hgcn-seed37/deployment-costs.jsonl.gz",
+          "sha256": "a59510b8987cf692cfd51a2ecdec26d0d2071ee99905ef5f296a2b8cbaf8b7d3"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 11,
+      "weights_sha256": "4ae73768392b92204b11100a672c9f5df02e14a693d72a2c15101fdcfb48d7d3",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/results.json",
+          "sha256": "f1a79d5fd416e46289c8eed30699c563977ca0e9b5795eea21bdecc01f1e0e88"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/science/completion.json",
+          "sha256": "a48a0b38f2ce4fa1e80ec1180c6d946214cff44619aa4b97581f14e758c78fd9"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/worker/completion.json",
+          "sha256": "fb40dc68f1e114e18b759d741631d5c3adc9eedeeb5543b481e8791355d6a844"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/budget-lock.json",
+          "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/hardware-cost-binding.json",
+          "sha256": "f9a58e9adac352830c3e0f83e4ece364edf65e29170d215472abcd74fc904f36"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed11/deployment-costs.jsonl.gz",
+          "sha256": "7b6a84353a1da017f99831f1d3c678a2fb9b278a960c768013897804d6462a63"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 23,
+      "weights_sha256": "ea24c0137131a75f73079e1236c3e81c17fa06c88e3a936e863aeae2831cd575",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/results.json",
+          "sha256": "e681ffab216cd176051c6ef271ab1dc5af5d9e159766ea3f6b07186892dbafdd"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/science/completion.json",
+          "sha256": "2665eaa2afe96678077616c899cb889bfbd3d200f508e4e8df3117ae61fd2719"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/worker/completion.json",
+          "sha256": "33a0ea1181370a4cef59a741d9eaff95b46e18429fa0579b44955b6d395b6bb3"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/budget-lock.json",
+          "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/hardware-cost-binding.json",
+          "sha256": "f9a58e9adac352830c3e0f83e4ece364edf65e29170d215472abcd74fc904f36"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed23/deployment-costs.jsonl.gz",
+          "sha256": "3d57af00d7d939f719a80a5fb3377c69b329a2358872a15ce16f95010e5d17e7"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "hybonet",
+      "seed": 37,
+      "weights_sha256": "5947dc34d5c96f1552b7f25ded92835b4cbc2cc3ffe62bd802551ebef226ea4a",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/results.json",
+          "sha256": "5557d5b84180f0327d6e57cf5cf4eb69df1271a05cec12a40f924c2d4baf7c7c"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/science/completion.json",
+          "sha256": "7e57d1db6d118cd6abd1815d124a2052450f1814fdf2d9a6b37fdee1bbd4027d"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/worker/completion.json",
+          "sha256": "424de329e3d356f5c40d2244444720fe7d93064e5d56678c440c57c33fea810b"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/budget-lock.json",
+          "sha256": "a99c471869983dd97b1ef3318ff43f50a6d4ed04b7020a10ebe7e47c738b4439"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/hardware-cost-binding.json",
+          "sha256": "f9a58e9adac352830c3e0f83e4ece364edf65e29170d215472abcd74fc904f36"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-hybonet-seed37/deployment-costs.jsonl.gz",
+          "sha256": "df1e9b13ee07c25452c309e6986f631c17ec04509ae9d0e095f6d81e0f7e9cfa"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 11,
+      "weights_sha256": "2f6b8607ae00572ec61929ffe900ca9a5d2ae7c882a25e407b19928f7f0e0734",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/results.json",
+          "sha256": "40ac76b1690d8fccfd3ac8828910b9dd2a0b13fcf3858aa542c141d5b1ed52da"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/science/completion.json",
+          "sha256": "a4d7a0ed66293f4a53100f2cf04b502d8ddcae0ec557fad2d634e7cd8d88e223"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/worker/completion.json",
+          "sha256": "316d8c76c3387d1425854e0a08d2c11b2337e2023c371e4f37bc1e8dfd709e13"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/budget-lock.json",
+          "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/hardware-cost-binding.json",
+          "sha256": "302cd3fccfc76ca95285eaae7239f426d1b05cd9bcb25855db472db506c5bc6a"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed11/deployment-costs.jsonl.gz",
+          "sha256": "28fb4d7d5e6d7042da5617fa11c6d4887234126cc4f702d524c0a964c090960e"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 23,
+      "weights_sha256": "bfb6505b58ab077503e0845dde6996164b2a7734f7045da5b97b6d4027148d0c",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/results.json",
+          "sha256": "5ec014b9fb516ac0ad9e35fea839ef40e89946e59e2fab52dec67334cc010b51"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/science/completion.json",
+          "sha256": "d625dd3b7f88e0c0e724ef327baee9c8f7d371e1b03b901b53d8e45b6490ec5f"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/worker/completion.json",
+          "sha256": "6796720d96de7e0994cd44b677780593c7486b613a675b4df080ef918ad3de47"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/budget-lock.json",
+          "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/hardware-cost-binding.json",
+          "sha256": "302cd3fccfc76ca95285eaae7239f426d1b05cd9bcb25855db472db506c5bc6a"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed23/deployment-costs.jsonl.gz",
+          "sha256": "8ddeaf9876716b25126a8eed116b9b42ad9288bb004f884970a554fbc94f3c02"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "sage",
+      "seed": 37,
+      "weights_sha256": "1c4513961db6a71e0dc59f328296aca93e8461fc02e1e10b534e76f8f17f5872",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/results.json",
+          "sha256": "4a73cde5f6c127e350118522fbaeb527dc3619ea1bcfcfcce8a5f73ed5ee450f"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/science/completion.json",
+          "sha256": "99c9431b7b7c9e488225ef7848d8016bca86718190b1e7676f43035143e8b7b5"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/worker/completion.json",
+          "sha256": "4b108989ec3853b0a7889244e25cc7199f0efb544bf5d8ae757800cdb5e906c5"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/budget-lock.json",
+          "sha256": "7fe259ae0c27159b42f2e7968301dd2e58ef6b099da5816cfbc1163c4cb708e5"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/hardware-cost-binding.json",
+          "sha256": "302cd3fccfc76ca95285eaae7239f426d1b05cd9bcb25855db472db506c5bc6a"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-sage-seed37/deployment-costs.jsonl.gz",
+          "sha256": "80862b73fe13c10289774472b6d0181f849dac098f56b57eb346f960b82da8de"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 11,
+      "weights_sha256": "43b72451e57532b66d496ea29ec05e08fc2ef033ed9ae149b9d384c33eb702ad",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/results.json",
+          "sha256": "60ea12d2990b2322d9b8e54e6f90254485717ac5e1fa0123a43fd4c97da670c6"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/science/completion.json",
+          "sha256": "05acf1c512c8a459583829e2bd40dbab873da74b4897fd876e91bcfcf99aeb8a"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/worker/completion.json",
+          "sha256": "63d19d5ef80527c191049f95f3c132b3df9e43873a66568223e3e4e49b882d9b"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/budget-lock.json",
+          "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/hardware-cost-binding.json",
+          "sha256": "d168246c1d4aa5da3b37f90bcbba914bfd5fe915b5b0a869dff4948631572408"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed11/deployment-costs.jsonl.gz",
+          "sha256": "b2cc917e5af6aed6400957c7e925a4c8f93179e773371a03b53e7a8b0c3fdb5a"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 23,
+      "weights_sha256": "ff14c7ba092eeff0dced7a5d93ac9bff07464347ff4155fb3b31f0d3a7f036a1",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/results.json",
+          "sha256": "b9b63dfe8047e1a7edad6ea02c9e4608ee43bef93733730e04d6a7aed129aece"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/science/completion.json",
+          "sha256": "f5d5cfc810c979f1b8d5a841e078086f79ea7a078bee204e9007c0e659407b1b"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/worker/completion.json",
+          "sha256": "1d3eb080ab9078c2941f7a0919c3861f66fd6cadfa26b5dd6e07f0bae5023e0a"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/budget-lock.json",
+          "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/hardware-cost-binding.json",
+          "sha256": "d168246c1d4aa5da3b37f90bcbba914bfd5fe915b5b0a869dff4948631572408"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed23/deployment-costs.jsonl.gz",
+          "sha256": "ed239d7571984dcd04d8a883d66e8fd91584669ccec7415e57f21760f10de21f"
+        }
+      }
+    },
+    {
+      "dataset": "ogbn-arxiv",
+      "model": "gat",
+      "seed": 37,
+      "weights_sha256": "893769a83393cd178fed2f85710db5c46fc5f13a91f295f2e3a76d7d53dbd46f",
+      "files": {
+        "results": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/results.json",
+          "sha256": "6855d66156b5b8ea6d4a83cf9804c1ea40433f460b6a3894cc08e8902122d187"
+        },
+        "science_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/science/completion.json",
+          "sha256": "2f46cf57769466ab6ac516d450b58d3a8aaed673610cdee8475f2123ede5fa58"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/worker/completion.json",
+          "sha256": "7e7154f324a222388325a5621ef510338e1b78ed88378a732e375c2a920f52bb"
+        },
+        "hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/budget-lock.json",
+          "sha256": "005d415a87f34c765128096ddd265e23ce9279bdea90106a941f232b6fddccfe"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/hardware-cost-binding.json",
+          "sha256": "d168246c1d4aa5da3b37f90bcbba914bfd5fe915b5b0a869dff4948631572408"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/ogbn-arxiv-gat-seed37/deployment-costs.jsonl.gz",
+          "sha256": "e5dfe7682fefe4cde0e730b4cc91dd7f7b05ea71c45667c96034503c045bcbf7"
+        }
+      }
+    },
+    {
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 11,
+      "weights_sha256": "9f86c43575c01ac9f0d6ff8261d633fd0f80c8315dd1c9e1059f4122acb9066e",
+      "files": {
+        "results": {
+          "path": "results/raw-final/PubMed-sage-seed11/results.json",
+          "sha256": "f8ccd60a3a29d48ccf288dff3b3155a7af20f5e1ac2fe25bbefded28899183af"
+        },
+        "science_completion": {
+          "path": "results/raw-final/PubMed-sage-seed11/science/completion.json",
+          "sha256": "bbf061c3711100f9f050573d32d51e171aac1b43a38e61f15ad9420f4f1dc1b6"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/PubMed-sage-seed11/worker/completion.json",
+          "sha256": "65e8ddf97d014f94310a9ef717381cccc86a57c376a869dfdcacd4a5693bcd65"
+        },
+        "hardware": {
+          "path": "results/raw-final/PubMed-sage-seed11/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/PubMed-sage-seed11/budget-lock.json",
+          "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/PubMed-sage-seed11/hardware-cost-binding.json",
+          "sha256": "b045a36ce47973585adde4bddf887873e7ffcc39f511ab289063592e51543341"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/PubMed-sage-seed11/deployment-costs.jsonl.gz",
+          "sha256": "58a5e7fc1eaa860f2005f1122cbc695542d9e23183de2d1890b0cc304b1c1158"
+        }
+      }
+    },
+    {
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 23,
+      "weights_sha256": "8fec281f9c67bf2486fa1956c424f707eb0897bd9055b06521a13390f1d25667",
+      "files": {
+        "results": {
+          "path": "results/raw-final/PubMed-sage-seed23/results.json",
+          "sha256": "b8b01ffdde898549ca5140d8647ba19af150dca6358720ce3880371b16d4904a"
+        },
+        "science_completion": {
+          "path": "results/raw-final/PubMed-sage-seed23/science/completion.json",
+          "sha256": "595194f1b8e4e0e8fd7bc854ea6343f6d3cca5fa042ffec547c7017d41dfb496"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/PubMed-sage-seed23/worker/completion.json",
+          "sha256": "f45ae330337e941b16d938c37fa1cea9e62d0e34ff6ea8790a4dacd28fd57d9a"
+        },
+        "hardware": {
+          "path": "results/raw-final/PubMed-sage-seed23/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/PubMed-sage-seed23/budget-lock.json",
+          "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/PubMed-sage-seed23/hardware-cost-binding.json",
+          "sha256": "b045a36ce47973585adde4bddf887873e7ffcc39f511ab289063592e51543341"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/PubMed-sage-seed23/deployment-costs.jsonl.gz",
+          "sha256": "56c4d24220fc505ba15e71a7a9d1c887916517c84114a89f51a0dc0186d18dca"
+        }
+      }
+    },
+    {
+      "dataset": "PubMed",
+      "model": "sage",
+      "seed": 37,
+      "weights_sha256": "13af5b4596049640dc4e707cfcfda639b8677638149113093bde7cfd943a6b51",
+      "files": {
+        "results": {
+          "path": "results/raw-final/PubMed-sage-seed37/results.json",
+          "sha256": "1daafc61fd350530663dc6f6fa16ddeb2aa1d139dbb49208a7a072cf230061dd"
+        },
+        "science_completion": {
+          "path": "results/raw-final/PubMed-sage-seed37/science/completion.json",
+          "sha256": "755136a1c14af2dc161f877a25cbcd09a91b93d56ad323addc4297a8464c0da6"
+        },
+        "worker_completion": {
+          "path": "results/raw-final/PubMed-sage-seed37/worker/completion.json",
+          "sha256": "23d7282ec079330c40f8b868fd773c348b2f99194dab3137a368bd8dc67caa11"
+        },
+        "hardware": {
+          "path": "results/raw-final/PubMed-sage-seed37/hardware-identity.json",
+          "sha256": "3d40396a4a1053059212a02203ca0ee8b5cb3d8315904641c0b8725b8f43a7a9"
+        },
+        "budget": {
+          "path": "results/raw-final/PubMed-sage-seed37/budget-lock.json",
+          "sha256": "0f95eb64b8db4dcb9643c3babb1525e89ebde54a9f01bb7e3f60bc65067d11e0"
+        },
+        "budget_hardware": {
+          "path": "results/raw-final/PubMed-sage-seed37/hardware-cost-binding.json",
+          "sha256": "b045a36ce47973585adde4bddf887873e7ffcc39f511ab289063592e51543341"
+        },
+        "deployment_costs": {
+          "path": "results/raw-final/PubMed-sage-seed37/deployment-costs.jsonl.gz",
+          "sha256": "ca4669cc23d4407a322bfe561f094f60a0169857397d3171673961e55d3053d9"
+        }
+      }
+    }
+  ]
+}

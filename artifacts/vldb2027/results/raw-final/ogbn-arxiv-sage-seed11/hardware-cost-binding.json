@@ -1,0 +1,9 @@
+{
+  "schema": "vldb_hardware_cost_binding_v1",
+  "dataset": "ogbn-arxiv",
+  "model": "sage",
+  "seed": 11,
+  "hardware_class": "A800",
+  "actual_gpu_name": "NVIDIA A800-SXM4-80GB",
+  "source_manifest_sha256": "df228351e519b9f01c062add71b2861d1edbe7fb52dddcd45c6b95de0f7a6e7a"
+}
