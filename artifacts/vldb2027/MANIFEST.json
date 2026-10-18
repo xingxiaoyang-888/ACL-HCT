@@ -2,7 +2,7 @@
   "schema": "vldb2027_artifact_manifest_v1",
   "release_tag": "vldb2027-artifact-v1",
   "file_count": 273,
-  "payload_bytes": 27859190,
+  "payload_bytes": 27859191,
   "hash_algorithm": "SHA256",
   "files": [
     {
@@ -287,8 +287,8 @@
     },
     {
       "path": "paper/reproducibility/supplement-per-seed-v5.tex",
-      "bytes": 45003,
-      "sha256": "7aa5e2bbc1a1ae54948681271cbb253f281424372f041ae2f0c502cd160284cc"
+      "bytes": 45041,
+      "sha256": "10270a5dd2791d0ddd4186ed2a09ac6f6bc1db20204005a1d55a6dbc8d66bf1f"
     },
     {
       "path": "paper/reproducibility/supplement-protocol-v5.tex",
@@ -307,8 +307,8 @@
     },
     {
       "path": "paper/supplement.tex",
-      "bytes": 8570,
-      "sha256": "3e6f5ae60fa9630844d01091efc8e8ebf9635dbddcf8f463d5ee35ca789d96de"
+      "bytes": 8533,
+      "sha256": "88034ea901e78d7aee960a03736c794976b8aecbba01a342ae65e745caddc09c"
     },
     {
       "path": "README.md",

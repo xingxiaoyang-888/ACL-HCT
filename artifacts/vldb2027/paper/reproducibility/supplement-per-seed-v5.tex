@@ -1,9 +1,9 @@
 % Exact text/display transcription of final-per-seed-results.md; no reaggregation.
-These tables pivot accepted scalar rows only. No new forward pass, scoring, statistical aggregation, significance test or raw-array read was performed. All means, paired changes and interaction values come from the accepted exports. Decimal presentation converts fractions to percent/percentage points and bytes to MiB. Exact original precision and every additional metric remain in \path{final-accepted-scalars/}.
+These tables pivot accepted scalar rows only. No new forward pass, scoring, statistical aggregation, significance test or raw-array read was performed. All means, paired changes and interaction values come from the accepted exports. Decimal presentation converts fractions to percent/percentage points and bytes to MiB. Exact original precision and every additional metric remain in \path{results/final/} and \path{results/mechanisms/}.
 
 Each seed summarizes four paired repeats where applicable; three training seeds remain the replication unit. Deployment dependency-cone sampling and whole-graph-prefix diagnosis are separate streams. A positive average margin does not imply every node is correct; exact output is not a label oracle. Correction/introduced counts below are mean nodes per repeat, not unique independent cases.
 
-Acceptance: \path{09bd47fbc1ad872f61c155b901a39da9d3c4600e69339d5b2b693ce8d9a36f05}. Source: metadata-v4 \path{ece3665a…}; frozen choices unchanged.
+Acceptance: \path{09bd47fbc1ad872f61c155b901a39da9d3c4600e69339d5b2b693ce8d9a36f05}. Source: metadata-v4 source hash prefix \path{ece3665a}; frozen choices unchanged.
 
 Frozen target denominators: 48,603 arxiv test nodes and 1,000 PubMed test nodes per repeat. With batch size128, complete deployment workloads comprise380 arxiv requests (379\ensuremath{\times}128 +91) and8 PubMed requests (7\ensuremath{\times}128 +104). Four repeats retain the same target set. These counts come from the accepted pre-result plan, not reconstructed labels or prediction arrays. Diagnostic transition counts below are mean nodes per repeat; do not multiply them into independent observations.
 
