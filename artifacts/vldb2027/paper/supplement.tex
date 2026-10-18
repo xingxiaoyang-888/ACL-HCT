@@ -21,33 +21,33 @@
 \renewcommand{\theequation}{S\arabic{equation}}
 \title{Supplementary Evidence for\\From Neighbor Samples to Predictions}
 \author{Author information to be supplied}
-\date{Evidence draft, 18 October 2026}
+\date{}
 \begin{document}
 \maketitle
 \section{Overview and Evidence Roles}
-This supplement makes the complete evidence readable without duplicating every table in the main paper. It contains the detailed mathematical conditions and native-operator contracts; the original protocol, checkpoint roles and all 15 label-free calibration rows; the complete middle-budget mean table and all displayed final per-seed endpoints; paid exact/RAM reuse; historical mechanisms and correction controls; and the reproducibility/accounting boundary. The main paper presents three complementary figures for restoration, estimator error versus decisions, and quality--time--memory. Its result values are unchanged by this reorganization.
+This supplement makes the complete evidence readable without duplicating every table in the main paper. It contains the detailed mathematical conditions and native-operator contracts; the original protocol, checkpoint roles and all 15 label-free calibration rows; the complete middle-budget mean table and all displayed final per-seed endpoints; paid exact/RAM reuse; historical mechanisms and correction controls; and the reproducibility/accounting boundary. The main paper presents the core mechanism and deployment findings; this supplement retains their detailed conditions and seed-level evidence.
 
 The completed final study comprises five fixed groups, each with seeds 11, 23 and 37: HGCN, HyboNet, GraphSAGE and GAT on ogbn-arxiv, plus GraphSAGE on PubMed. Both samplers, all frozen budgets, every prescribed repeat and negative or infeasible outcome remain represented. The 24-checkpoint historical synthesis is fit/development evidence under its original training regimes. It is not relabeled as independent test evidence. Exact output is a computation reference, not a label oracle. Different native error and margin scales are compared only within a model.
 
-The tables below transcribe already accepted descriptive scalar exports. No label, checkpoint tensor or raw mechanism array is read for this document; no statistic is refit and no prediction is rescored. The source tables are already aggregated at the stated seed/repeat level. Original-precision CSVs remain adjacent in \path{reproducibility/final-accepted-scalars/}; the readable source is \path{reproducibility/final-per-seed-results.md}. Repeated node--plan events do not create independent training seeds. This is an internal evidence supplement, not a completed public artifact: authors, public checkpoint access and native-source redistribution/reconstruction remain outstanding.
+The tables transcribe the completed descriptive scalar exports at their stated seed/repeat level. Repeated node--plan events do not create independent training seeds. Original-precision results, source code, configurations and reproduction instructions are available at \url{https://github.com/xingxiaoyang-888/ACL-HCT}. Data and checkpoint assets are versioned under release \texttt{vldb2027-artifact-v1}; the corresponding source snapshot is commit \href{https://github.com/xingxiaoyang-888/ACL-HCT/tree/14e01d69dc74d279c644b7afd7c54cccc5350b07}{\texttt{14e01d69}}. All artifact paths below are relative to \path{artifacts/vldb2027/} in that repository.
 
-\paragraph{How to read dated records.}
-Historical preparation files and superseded source receipts retain earlier ``pending'' phrases as provenance. They do not override the completed final collection and accepted summaries used here. The current mathematics-to-implementation map and literature/formula attribution table reflect the completed evidence and its conditional scope. All 15 final cells and the complete scalar synthesis are complete. Historical tables based on a different subset or earlier scope are not substituted for the present results. The detailed source audit establishes implementation correspondence, not untested numerical domain certificates or a universal task-quality theorem.
+\paragraph{Evidence roles.}
+The final analysis covers all 15 frozen model--seed cells. Historical analyses retain their original datasets, subsets and development roles; they are not substituted for the new official-test results. The implementation correspondence supports the stated operator contracts, while the mathematical domain and smoothness conditions remain explicit.
 
 \input{reproducibility/supplement-mathematics-v5.tex}
 \input{reproducibility/supplement-protocol-v5.tex}
 
 \section{Complete Final Results}
 \label{sec:supp-final}
-The following mean table is the original middle-budget diagnostic display removed from the main paper to avoid duplicating its first figure. The per-seed tables that follow retain deployment endpoints, four-corner accuracies and native margins, corrected/introduced events, paired restoration changes, interactions, local-estimator error, and exact/RAM observations. Complete additional scalar fields and original precision remain in the exported CSVs; no favorable seed is selected.
+The following table reports the complete middle-budget four-corner diagnostic means. The per-seed tables that follow retain deployment endpoints, four-corner accuracies and native margins, corrected/introduced events, paired restoration changes, interactions, local-estimator error, and exact/RAM observations. Complete additional scalar fields and original precision remain in the exported CSVs; no favorable seed is selected.
 \input{reproducibility/final-results-primary.tex}
 \clearpage
 \input{reproducibility/supplement-per-seed-v5.tex}
 
 \section{Exact Computation and RAM Reuse}
-The paid reuse figure is moved intact from the main paper. It evaluates the registered formulas at $q=1,10,100$ from the recorded timing medians, not from additional repeated-workload experiments. Format setup and full-output cache construction, including device-to-host transfer, are paid before RAM gathering. Common graph/checkpoint loading remains separately scoped. A fixed graph and model are required; changes invalidate the cache. In particular, a cached full-graph output is not a free hidden representation or a teacher input to the sampled predictor.
+This figure retains the registered exact/RAM endpoints at $q=1,10,100$; the main paper additionally displays the same accounting formulas over $1\leq q\leq100$. Both use the recorded timing medians, not additional repeated-workload experiments. Format setup and full-output cache construction, including device-to-host transfer, are paid before RAM gathering. Common graph/checkpoint loading remains separately scoped. A fixed graph and model are required; changes invalidate the cache. In particular, a cached full-graph output is not a free hidden representation or a teacher input to the sampled predictor.
 
-The arxiv/SAGE mean paid RAM time is 0.191 seconds at $q=1$, compared with 0.184 seconds for exact recomputation, and 0.269 versus 0.445 seconds at $q=10$. GAT's $q=100$ paid times of 14.404, 1.102 and 1.026 seconds retain their seed-level variation and host-context limitation. These endpoints do not establish an interpolated break-even guarantee. Main-paper memory comparisons are scoped to the displayed middle tier: a high-budget sampled GAT point can use more allocated GPU memory than exact computation.
+The arxiv/SAGE mean paid RAM time is 0.191 seconds at $q=1$, compared with 0.184 seconds for exact recomputation, and 0.269 versus 0.445 seconds at $q=10$. GAT's $q=100$ paid times of 14.404, 1.102 and 1.026 seconds retain their seed-level variation and host-context limitation. The crossover is an analytic consequence of the recorded cost components, not a separately measured guarantee for a new workload. Main-paper memory comparisons are scoped to the displayed middle tier: a high-budget sampled GAT point can use more allocated GPU memory than exact computation.
 \input{reproducibility/final-figure-commands-v4.tex}
 \FinalCacheFigure
 \clearpage
@@ -55,24 +55,23 @@ The arxiv/SAGE mean paid RAM time is 0.191 seconds at $q=1$, compared with 0.184
 \input{reproducibility/supplement-historical-v5.tex}
 
 \section{Reproducibility and Complete Record Index}
-The final scalar synthesis is accepted under SHA256:\par
-\noindent\texttt{09bd47fbc1ad872f\allowbreak{}61c155b901a39da9\allowbreak{}d3c4600e69339d5b\allowbreak{}2b693ce8d9a36f05}\par
-It retains 2,115 per-seed scalar rows and 705 across-seed rows for deployment/cost, plus 1,440 per-seed and 480 across-seed mechanism rows, all prescribed scalar repeats and 120 error--decision pairs. The tables above format these accepted summaries; decimal units are displayed as in the prior readable tables. They are not new statistical estimates.
+The public manifests identify the source and result files by SHA256. The final scalar synthesis retains 2,115 per-seed rows and 705 across-seed rows for deployment/cost, plus 1,440 per-seed and 480 across-seed mechanism rows, all prescribed scalar repeats and 120 error--decision pairs. The tables format those summaries without rescoring predictions.
 
 \begin{itemize}
-\item \path{reproducibility/final-accepted-scalars/}: original-precision accepted scalar exports and index.
-\item \path{reproducibility/final-per-seed-results.md}: readable final seed-level source transcribed into this supplement.
-\item \path{reproducibility/a800-budget-locks-v1.tex} and companion CSV/JSON: complete original label-free calibration, including infeasible and nonmonotone observations.
-\item \path{reproducibility/task-a-findings.json}, \path{task-a-cell-summary.csv} and their canonical source links: historical 24-checkpoint fit synthesis, preserving original event denominators. The original per-checkpoint condition/contrast/interaction exports supply every historical seed, rather than a pooled mean replacing it.
-\item \path{reproducibility/historical-evidence-full.tex}: preserved earlier historical narrative, including narrower prior subsets, WordNet controls and calibration/predictor failures. Its dated scope and pending language are not a current final-status assertion.
-\item \path{reproducibility/math-implementation-map.md}: exact file/line/source hashes, including the native Lorentz denominator, prototype, bias and distance-proxy conditions. Its current final-status statements distinguish accepted empirical evidence from unchanged conditional mathematical contracts.
-\item \path{reproducibility/literature-and-formula-attribution.md}: verified primary references, elementary identities and this study's diagnostic/empirical contribution boundaries. The companion \path{reproducibility/supplement-package-plan.md} distinguishes reading material, scalar/plot reproduction and full experimental reproduction.
-\item \path{reproducibility/portable-proposal/}: receipt-based runtime versions, native revisions, official data acquisition/preprocessing, license gaps and the proposed portable export boundary.
+\item \path{results/final/} and \path{results/mechanisms/}: original-precision final scalar summaries, including repeat, seed and across-seed results.
+\item \path{results/raw-final/}: published original final outputs and compressed deployment-cost records.
+\item \path{results/historical-task-a/} and \path{results/historical-task-a-records-manifest.json}: the 24-checkpoint historical synthesis and versioned original-record inventory.
+\item \path{config/plan.json}, \path{config/budget-*.json} and \path{results/final/frozen-budgets.csv}: fixed methods, targets and all five label-free budget locks.
+\item \path{results/checkpoints-manifest.json} and \path{results/raw-downloads.json}: identities and download locations for versioned checkpoint and result assets.
+\item \path{config/source-manifest.json}, \path{config/native-sources.json} and \path{config/data-provenance.json}: exported-source bindings, pinned native dependencies and data provenance.
+\item \path{src/}, \path{scripts/} and \path{environment/}: scientific source, offline aggregation/figure scripts and recorded dependencies.
+\item \path{docs/reproduce-inference.md}, \path{validation.json} and \path{THIRD_PARTY_NOTICES.md}: reproduction routes, completed CPU validation and dependency/redistribution boundaries.
+\item \path{paper/reproducibility/historical-evidence-full.tex}: the dated narrative of auxiliary historical cases, retaining their original scope.
 \end{itemize}
 
 The new round's allocated GPU use is 17,299 seconds: 269 for three PubMed base trainings, 311 for successful label-free calibration, 13 for the preserved metadata failure and 16,706 for final evaluation. All resources are closed. The metadata repair changed no model, sampler or numerical computation, and accepted qualifications were not repeated. Allocation time is not deployment latency. Nested scheduler, worker, controller and phase timings have different or overlapping scopes and are not added; missing child CPU observations are not replaced with zero. The final offline synthesis records 11.375 native CPU-seconds and 14.666 wall-seconds without added GPU computation.
 
-No checkpoint bytes, task arrays, labels, credentials or private scheduler connection details are bundled in this manuscript directory. Exact native-source reconstruction, redistribution rights, reviewer-accessible checkpoint availability and a portable entry point remain explicit completion items. These packaging questions require no outcome-driven experiment or rescoring.
+The release supplies the 15 final-study checkpoints and 24 historical checkpoints, together with versioned result assets. Native dependencies are reconstructed from pinned upstream sources rather than redistributed as complete third-party trees. Public source bindings, native reconstruction and offline result/figure reproduction have passed the CPU validation recorded in \path{validation.json}; full GPU inference was not repeated during packaging. The historical collector remains audit-only. Historical result reproduction instead starts from the published captured records and offline aggregation scripts.
 
 \clearpage
 \bibliographystyle{ACM-Reference-Format}

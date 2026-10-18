@@ -1,8 +1,8 @@
 {
   "schema": "vldb2027_artifact_manifest_v1",
   "release_tag": "vldb2027-artifact-v1",
-  "file_count": 272,
-  "payload_bytes": 27854536,
+  "file_count": 273,
+  "payload_bytes": 27858030,
   "hash_algorithm": "SHA256",
   "files": [
     {
@@ -237,8 +237,8 @@
     },
     {
       "path": "paper/main.tex",
-      "bytes": 47702,
-      "sha256": "dd64dd39fff5323eadb9cdb75e4dbab16912464e20a8aaceee729debbe657087"
+      "bytes": 47814,
+      "sha256": "33fb5452b93a83954a256887525e46e7aad85c7cd8c2c565e398d7fc6fbb6545"
     },
     {
       "path": "paper/pvldb.sty",
@@ -277,8 +277,8 @@
     },
     {
       "path": "paper/reproducibility/supplement-historical-v5.tex",
-      "bytes": 2983,
-      "sha256": "edbbb6bf3675c0afd19f28d7ea22078a08dad7ba39ec626f8632176924b1078f"
+      "bytes": 3055,
+      "sha256": "4ca8070ca401b56cb4eb3b2510371f2001012356e7971cc25759351a0e486ca1"
     },
     {
       "path": "paper/reproducibility/supplement-mathematics-v5.tex",
@@ -292,8 +292,8 @@
     },
     {
       "path": "paper/reproducibility/supplement-protocol-v5.tex",
-      "bytes": 13278,
-      "sha256": "1b1bed57de4db1b91496a12c6b2018025a7cbfeacf53afb85970516bd2a8226a"
+      "bytes": 13448,
+      "sha256": "3acaa5c61187991190c0619edde6b675e12e51f91dcb598d404627b4444c2cf4"
     },
     {
       "path": "paper/reproducibility/systems-figure-commands-v6.tex",
@@ -307,13 +307,13 @@
     },
     {
       "path": "paper/supplement.tex",
-      "bytes": 9385,
-      "sha256": "2f99cb616f092bee24a305c755acdcfd24fb1a2f73816a079fd62bba99670099"
+      "bytes": 8570,
+      "sha256": "3e6f5ae60fa9630844d01091efc8e8ebf9635dbddcf8f463d5ee35ca789d96de"
     },
     {
       "path": "README.md",
-      "bytes": 6811,
-      "sha256": "c67e2859031ab79e90e5beeb29c1943e1442b8f4370fe1c3b6bd6f80fbc5f32d"
+      "bytes": 7136,
+      "sha256": "497cfbd8dfa00ef4d5fda02ced79dfc945f8578eaafe00e14dd48e8698a8e1d4"
     },
     {
       "path": "results/checkpoints-manifest.json",
@@ -329,6 +329,11 @@
       "path": "results/figure-inputs.json",
       "bytes": 2227,
       "sha256": "02c9c738c8daec5b2606c679ab90fd126dd6ac5c6abdf1d3a8012dcc02a160ea"
+    },
+    {
+      "path": "results/final-mechanism-arrays-manifest.json",
+      "bytes": 51664,
+      "sha256": "e3b4f4461bcdf08479532b1480400ca2d898b47b83524a2bef25abfbe6644fd1"
     },
     {
       "path": "results/final/across-seeds.csv",
@@ -361,9 +366,9 @@
       "sha256": "e44397df3530a4569d4c4bbd100dd5a20aa7cff500c293c95ce660059079935d"
     },
     {
-      "path": "results/final-mechanism-arrays-manifest.json",
-      "bytes": 51664,
-      "sha256": "e3b4f4461bcdf08479532b1480400ca2d898b47b83524a2bef25abfbe6644fd1"
+      "path": "results/historical-task-a-records-manifest.json",
+      "bytes": 738799,
+      "sha256": "933bf89062106317b78706f25ef204985fdb9d71a3381d23f2d2e38b32cb7e04"
     },
     {
       "path": "results/historical-task-a/per-cp-conditions.csv",
@@ -429,11 +434,6 @@
       "path": "results/historical-task-a/three-seed-summary.csv",
       "bytes": 6300,
       "sha256": "f9abee68f64fd6d9459f0e05e7abfb0b173ca4b7a8b87af8142add63a95a3dab"
-    },
-    {
-      "path": "results/historical-task-a-records-manifest.json",
-      "bytes": 738799,
-      "sha256": "933bf89062106317b78706f25ef204985fdb9d71a3381d23f2d2e38b32cb7e04"
     },
     {
       "path": "results/mechanism-inputs.json",
@@ -1041,6 +1041,11 @@
       "sha256": "d7d3a1f8fc8c446454634aca801ac4199ba188a24080cc436e41ded04ed12eb1"
     },
     {
+      "path": "scripts/check_manuscript.py",
+      "bytes": 3630,
+      "sha256": "2e6896e09fe057c76ceeb9bcc8fa8292ed27d7bb4087dfc26af1d01c7c13b318"
+    },
+    {
       "path": "scripts/download_results.py",
       "bytes": 3671,
       "sha256": "6925525efaf94d99a0f66b2497b48cb2ee72b8e78300e2a98dfeb5f5a180d64a"
@@ -1365,5 +1370,7 @@
       "bytes": 7419,
       "sha256": "33edb167b079ad6c0636c8338d6b13eebd6ace9fa51dcab010818ccc51dd95d7"
     }
-  ]
+  ],
+  "data_release_tag": "vldb2027-artifact-v1",
+  "document_release_tag": "vldb2027-submission-v1"
 }

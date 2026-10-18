@@ -76,6 +76,9 @@ These commands do not train models or generate new predictions. Historical Task 
 
 ## Build the manuscript
 
+Use the repository’s **Actions → Build paper → Run workflow** to compile both PDFs on GitHub without a local or research-server TeX installation. The workflow uses pinned actions and TeX Live 2026, checks the official front-matter blocks and page limit, and stores PDFs and rendered review pages as a build artifact.
+
+
 With a TeX distribution containing `acmart`, `natbib`, `amsmath` and the standard graphics packages:
 
 ```bash

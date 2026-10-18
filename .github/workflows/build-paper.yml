@@ -1,0 +1,40 @@
+name: Build paper
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  paper:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Compile manuscript and supplement
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b
+        with:
+          texlive_version: 2026
+          working_directory: artifacts/vldb2027/paper
+          root_file: |
+            main.tex
+            supplement.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Inspect and render PDFs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils python3-pil
+          /usr/bin/python3 artifacts/vldb2027/scripts/check_manuscript.py
+      - name: Store PDFs and review evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: paper-build-${{ github.sha }}
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            artifacts/vldb2027/paper/main.pdf
+            artifacts/vldb2027/paper/supplement.pdf
+            artifacts/vldb2027/paper/main.log
+            artifacts/vldb2027/paper/supplement.log
+            artifacts/vldb2027/paper/main.bbl
+            build/paper-review/

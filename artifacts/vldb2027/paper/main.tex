@@ -6,7 +6,7 @@
 \setlength{\emergencystretch}{2em}
 \renewcommand\vldbdoi{XX.XX/XXX.XX}
 \renewcommand\vldbpages{XXX-XXX}
-\renewcommand\vldbavailabilityurl{}
+\renewcommand\vldbavailabilityurl{https://github.com/xingxiaoyang-888/ACL-HCT}
 \definecolor{draftamber}{HTML}{9A5415}
 \newcommand{\draftnote}[1]{\par\smallskip\noindent{\color{draftamber}\textbf{Draft status.} #1}\par\smallskip}
 \newcommand{\R}{\mathbb R}
@@ -220,7 +220,7 @@ The final workloads contain 48,603 arxiv test nodes and 1,000 PubMed test nodes.
 PubMed provides qualified data and a contrasting graph/label structure, with 19,717 nodes and 60 training labels. The inherited native loader uses 1,000 validation nodes, split into 500 fit and 500 development nodes. Fit selects the checkpoint; development supplies label-free timing targets. Earlier hyperbolic work had evaluated PubMed test, while the present ordinary-model configuration was fixed independently of those scores. Full configurations, selected epochs and fit scores are provided in the supplement.
 
 \subsection{Samplers, budgets and metrics}
-Uniform uses per-layer fanout 5, 15 and 30 on arxiv, and 1, 4 and 8 on PubMed. LABOR-0 uses no external probability input and zero importance-sampling iterations. For each group, seed-11 label-free calibration selects the largest registered LABOR fanout whose median request time does not exceed the corresponding Uniform target; other seeds inherit it. Candidate sets, full millisecond measurements and all 15 locks are retained in the supplement. If no point fits, the minimum is reported as infeasible, without interpolation or retiming.
+Uniform uses per-layer fanout 5, 15 and 30 on arxiv, and 1, 4 and 8 on PubMed. LABOR-0 uses no external probability input and zero importance-sampling iterations. For each group, seed-11 label-free calibration selects the largest registered LABOR fanout whose median request time does not exceed the corresponding Uniform target; other seeds inherit it. Candidate sets and full millisecond measurements for all five budget locks, comprising 15 calibrated tier rows, are retained in the supplement and public artifact. If no point fits, the minimum is reported as infeasible, without interpolation or retiming.
 
 SAGE/arxiv's low LABOR point exceeds its target by approximately 0.298\% and remains infeasible. PubMed selects the same LABOR $K=6$ at all three tiers; these are not three independent operating points. Its Uniform $K=8$ calibration is faster than $K=4$, and that nonmonotonicity is retained. Actual final costs can differ from the calibration match. Near-equal quality requires no seed more than 0.2 percentage points below its comparison point.
 
