@@ -1,8 +1,8 @@
 {
   "schema": "vldb2027_artifact_manifest_v1",
   "release_tag": "vldb2027-artifact-v1",
-  "file_count": 233,
-  "payload_bytes": 24258562,
+  "file_count": 244,
+  "payload_bytes": 25828397,
   "hash_algorithm": "SHA256",
   "files": [
     {
@@ -122,8 +122,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5957,
-      "sha256": "d35419a3a4d28bf59b1499a4e19da01929d89a6256970abf8a93a2b0af3f7e53"
+      "bytes": 6435,
+      "sha256": "41337f50ed2e803f5a8e4e69996ca92e22efe538f5a5a3496d813fd463af06e4"
     },
     {
       "path": "results/checkpoints-manifest.json",
@@ -139,6 +139,61 @@
       "path": "results/figure-inputs.json",
       "bytes": 2227,
       "sha256": "02c9c738c8daec5b2606c679ab90fd126dd6ac5c6abdf1d3a8012dcc02a160ea"
+    },
+    {
+      "path": "results/figures/final_full_RAM_amortization.pdf",
+      "bytes": 72289,
+      "sha256": "0d47eaddda4b3bd08249be956c3bafb7717a705fbcb02b9c3373733be8f38f16"
+    },
+    {
+      "path": "results/figures/final_full_RAM_amortization.png",
+      "bytes": 310625,
+      "sha256": "98cabeafeab2129547de90ad404cc7fb45bd98c5aeb2ecd692d134afd151df9b"
+    },
+    {
+      "path": "results/figures/final_local_error_decision.pdf",
+      "bytes": 45605,
+      "sha256": "a9ba0e253fc28b589fe3f0b35a161830279bf7c27d56e6f14a071aaae649e297"
+    },
+    {
+      "path": "results/figures/final_local_error_decision.png",
+      "bytes": 156232,
+      "sha256": "bec1f84374fa290bbfb176a61cdbf19f3af0f068cf7d60f1f82eae34ac3bbc7b"
+    },
+    {
+      "path": "results/figures/final_mechanism_restoration.pdf",
+      "bytes": 49843,
+      "sha256": "e203b7d2ee62905aa44173eb6436417db6e302f88e51dcb0b21e50e9ffe1cadf"
+    },
+    {
+      "path": "results/figures/final_mechanism_restoration.png",
+      "bytes": 192560,
+      "sha256": "fb294f2d58f9d20e283c74a17063dfbc8de3b7a456c95687a8cf12fc9b27534b"
+    },
+    {
+      "path": "results/figures/final_quality_workload_memory.pdf",
+      "bytes": 76765,
+      "sha256": "49bda258b6fa86d33b5996b4e812dd3d5ed18e6b3ed6b115824f9d950679dc24"
+    },
+    {
+      "path": "results/figures/final_quality_workload_memory.png",
+      "bytes": 432623,
+      "sha256": "e50564a8cddfbef2b6444a6ebaf4bebeb657c64ea4b25f898d5a0c8b4613aad2"
+    },
+    {
+      "path": "results/figures/presentation.json",
+      "bytes": 3129,
+      "sha256": "adcf14d8a02e6ee169bf7fdf39307470c6c47bc2cedc490170744ca558983885"
+    },
+    {
+      "path": "results/figures/supplement_full_RAM_amortization.pdf",
+      "bytes": 48142,
+      "sha256": "e7ba4539ccf01c8e75e145c5d5ec21d21e633311ebf3526808e4a5aed4c9eb4a"
+    },
+    {
+      "path": "results/figures/supplement_full_RAM_amortization.png",
+      "bytes": 177918,
+      "sha256": "5f47a1663e258f3b2098a789e50734c2c3cfadc8b0dcfc906aa35cae01fd2e7a"
     },
     {
       "path": "results/final-mechanism-arrays-manifest.json",
@@ -857,8 +912,8 @@
     },
     {
       "path": "scripts/render_figures.py",
-      "bytes": 28341,
-      "sha256": "2ed61d2342aaeb6b2d98025558b5fa90afc010e55003aed28737e8dfa386ccfc"
+      "bytes": 31967,
+      "sha256": "3dd0526ef4308cc0f91c4ea02daeb4893278b208ede9456f15cabb18ab080a50"
     },
     {
       "path": "scripts/verify_artifact.py",

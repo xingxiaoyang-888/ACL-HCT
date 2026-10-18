@@ -260,6 +260,23 @@ def analytic_crossing(ram, other):
             'scope': 'continuous formula intersection; integer q and unchanged graph/features/weights required'}
 
 
+def configure_roman_fonts(font_paths=()):
+    """Use licensed Times New Roman faces for figure text and math."""
+    import matplotlib as mpl
+    from matplotlib import font_manager as fm
+    for path in font_paths:
+        fm.fontManager.addfont(str(path))
+    fonts = {}
+    for role, style, weight in (('regular','normal','normal'),('bold','normal','bold'),('italic','italic','normal'),('bold_italic','italic','bold')):
+        prop = fm.FontProperties(family='Times New Roman', style=style, weight=weight)
+        path = Path(fm.findfont(prop, fallback_to_default=False))
+        require(fm.FontProperties(fname=str(path)).get_name() == 'Times New Roman', 'Times New Roman is required; supply locally licensed font files.')
+        fonts[role] = dict(family='Times New Roman', style=style, weight=weight, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+    require(len({f['sha256'] for f in fonts.values()}) == 4, 'Four distinct Times New Roman faces are required.')
+    mpl.rcParams.update({'font.family':'serif','font.serif':['Times New Roman'], 'mathtext.fontset':'custom', 'mathtext.rm':'Times New Roman','mathtext.it':'Times New Roman:italic','mathtext.bf':'Times New Roman:bold','mathtext.bfit':'Times New Roman:italic:bold','mathtext.cal':'Times New Roman:italic','mathtext.sf':'Times New Roman','mathtext.tt':'Times New Roman','mathtext.fallback':None,'text.usetex':False,'pdf.fonttype':42,'ps.fonttype':42})
+    return fonts
+
+
 def save_figure(fig, output, name):
     fig.savefig(output / (name + '.pdf'), bbox_inches='tight')
     fig.savefig(output / (name + '.png'), dpi=200, bbox_inches='tight')
@@ -271,7 +288,7 @@ def render(manifest, points, output):
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
     from matplotlib.patches import FancyBboxPatch
-    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9,
+    plt.rcParams.update({ 'font.size': 9,
         'axes.spines.top': False, 'axes.spines.right': False,
         'pdf.fonttype': 42, 'ps.fonttype': 42, 'axes.titlesize': 10})
     sampler_handles = [Line2D([], [], color=COLORS[s], marker='o', linestyle='None', label=s.title()) for s in SAMPLERS]
@@ -297,7 +314,6 @@ def render(manifest, points, output):
         ax.set_ylabel('Accuracy change vs sampled (pp)')
     axes.flat[-1].axis('off'); axes.flat[-1].legend(handles=sampler_handles + seed_handles, loc='upper left', frameon=False)
     axes.flat[-1].text(0, .39, 'Dashed zero = sampled baseline.\nMax = largest of three branch means,\ncomputed across all three seeds.\nI_Q is an additive accuracy contrast,\nnot an independent error share.\nPanel scales can differ.', fontsize=8.5, va='top')
-    fig.suptitle('Local and upstream restoration at the frozen middle budget\nWhole-graph diagnostic prefixes; paired native computations', fontsize=11)
     save_figure(fig, output, 'final_mechanism_restoration'); plt.close(fig)
 
     fig, axes = plt.subplots(2, 3, figsize=(10, 5.05), constrained_layout=True)
@@ -318,7 +334,6 @@ def render(manifest, points, output):
         ax.margins(x=.15, y=.15)
     axes.flat[-1].axis('off'); axes.flat[-1].legend(handles=seed_handles, loc='upper left', frameon=False)
     axes.flat[-1].text(0, .50, 'Points: per-seed means.\n' + interval_label + ' (not CIs).\nNative scales differ across models.\nCompare within each panel only.\nEach sampler keeps its own prefix.', fontsize=8.2, va='top')
-    fig.suptitle('Local error and task decisions, with observed repeat variability\nFrozen middle budget only; all three seeds retained', fontsize=11)
     save_figure(fig, output, 'final_local_error_decision'); plt.close(fig)
 
     fig, axes = plt.subplots(5, 2, figsize=(10.0, 10.2), constrained_layout=True)
@@ -363,7 +378,6 @@ def render(manifest, points, output):
             ax.set_ylabel('Accuracy (%)'); ax.grid(alpha=.14); ax.tick_params(labelsize=8); ax.margins(x=.10, y=.25)
     fig.legend(handles=sampler_handles + seed_handles + [Line2D([], [], color=COLORS['full'], marker='*', linestyle='none', label='Exact (seed labels)')],
                loc='outside lower center', ncol=6, frameon=False, fontsize=8.5)
-    fig.suptitle('Quality, complete-workload time and memory\nLight L-M-H paths connect each seed; budget labels shown once per method\n! = infeasible calibration match; exact stars trade faster time for memory', fontsize=10.5)
     save_figure(fig, output, 'final_quality_workload_memory'); plt.close(fig)
 
     fig, axes = plt.subplots(2, 3, figsize=(10, 6.0), constrained_layout=True)
@@ -399,21 +413,53 @@ def render(manifest, points, output):
     save_figure(fig, output, 'final_full_RAM_amortization'); plt.close(fig)
 
 
+def render_cache_endpoints(points, output):
+    """Render the recorded supplementary q endpoints; no new measurements."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    COLORS = {'uniform':'#2367A3','labor':'#D47520','full':'#474747','ram':'#3B8777'}
+    points = {'ram':[dict(dataset=p['dataset'],model=p['model'],seed=p['seed'],**q) for p in points['cost_coefficients'] for q in p['original_q']]}
+    handles = [Line2D([],[],color=COLORS[s],marker='o',linestyle='None',label=s.title()) for s in SAMPLERS]
+    handles += [Line2D([],[],color='#555555',marker=MARKERS[s],linestyle='None',label='Seed '+str(s)) for s in SEEDS]
+    fig, axes = plt.subplots(2, 3, figsize=(10, 6.2), constrained_layout=True)
+    for ax, group in zip(axes.flat, GROUPS):
+        for p in select(points['ram'], group):
+            x = (1, 10, 100).index(p['q']) + (SEEDS.index(p['seed']) - 1) * 0.045
+            for name, offset, color in (('full_recompute_seconds', -0.13, COLORS['full']), ('paid_full_RAM_seconds', 0.13, COLORS['ram'])):
+                require(p[name] > 0, 'Nonpositive measured cost cannot be placed on log axis')
+                ax.scatter(x + offset, p[name], color=color, marker=MARKERS[p['seed']], s=34)
+        ax.set_yscale('log'); ax.set_xticks(range(3), ('1', '10', '100')); ax.set_xlabel('Complete target-workload repetitions q')
+        ax.set_ylabel('Recorded cumulative time (s, log)'); ax.set_title(group_title(group))
+    axes.flat[-1].axis('off')
+    extra = [Line2D([], [], color=c, marker='o', linestyle='None', label=l) for c, l in
+             ((COLORS['full'], 'Repeated exact full'), (COLORS['ram'], 'Paid full + RAM reuse'))]
+    axes.flat[-1].legend(handles=extra + handles[2:], loc='upper left', frameon=False)
+    axes.flat[-1].text(0, 0.35, 'q = 1, 10, 100 only.\nRAM cost includes setup + build\n(including output D2H) + q reads.\nNo free cache or interpolated\nbreak-even threshold is claimed.\nCache bytes are in scalar exports.', fontsize=9, va='top')
+    fig.suptitle('Exact recomputation and paid RAM reuse on identical target workloads\nFrozen graph and weights; recorded formulas, not extrapolated new measurements', fontsize=12)
+    save_figure(fig, output, 'supplement_full_RAM_amortization'); plt.close(fig)
+
+
 def main():
-    parser = argparse.ArgumentParser(description='Regenerate Figures 1-4 from published scalar results; no GPU or model loading.')
+    parser = argparse.ArgumentParser(description='Regenerate Figures 1-4 and the supplementary cache figure from published scalar results; no GPU or model loading.')
     parser.add_argument('--manifest', type=Path, default=ARTIFACT/'results/figure-inputs.json')
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--font-regular', type=Path)
+    parser.add_argument('--font-bold', type=Path)
+    parser.add_argument('--font-italic', type=Path)
+    parser.add_argument('--font-bold-italic', type=Path)
     args = parser.parse_args()
+    fonts = configure_roman_fonts([p for p in (args.font_regular,args.font_bold,args.font_italic,args.font_bold_italic) if p])
     manifest, docs, provenance, output = load_inputs(args.manifest, args.output)
     points = prepare_points(manifest, docs)
     published = json.loads((ARTIFACT/'results/published-figure-points.json').read_text(encoding='utf-8'))
     require(points == published['exact_plotted_scalars_and_coefficients'], 'Plotted numbers differ from the published figures')
     output.mkdir(parents=True, exist_ok=False)
     render(manifest, points, output)
+    render_cache_endpoints(points, output)
     (output/'figure-provenance.json').write_text(json.dumps(dict(
-        inputs=provenance, exact_plotted_scalars_and_coefficients=points,
+        inputs=provenance, exact_plotted_scalars_and_coefficients=points, fonts=fonts,
         hardware_scope=manifest['hardware_scope'], workload_scope=manifest['workload_scope']), indent=2)+'\n', encoding='utf-8')
-    print('Reproduced Figures 1-4; all plotted scalars exactly match the published record.')
+    print('Reproduced Figures 1-4 and the supplementary cache figure; all plotted scalars exactly match the published record.')
 
 
 if __name__ == '__main__':

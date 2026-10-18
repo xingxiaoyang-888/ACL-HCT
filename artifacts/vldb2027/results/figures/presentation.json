@@ -1,0 +1,87 @@
+{
+  "schema": "figure_presentation_revision_v1",
+  "scope": "Typography and removal of duplicated top descriptions from Figures 1–3 only; no experimental measurements changed.",
+  "source_sha256": "3dd0526ef4308cc0f91c4ea02daeb4893278b208ede9456f15cabb18ab080a50",
+  "input_record_sha256": "89425ef380a0f024e6a951dc51b2ad24db6352f2b25bf645ba70d4cfec89e956",
+  "fonts": {
+    "regular": {
+      "family": "Times New Roman",
+      "style": "normal",
+      "weight": "normal",
+      "sha256": "931c5de5c70401d9324d5014c123802b4fb753000360ceb2f56c589403cd58c5"
+    },
+    "bold": {
+      "family": "Times New Roman",
+      "style": "normal",
+      "weight": "bold",
+      "sha256": "54fbe2c70af7c85a97bed0573227e3ccc4b2486012e3ca2a40c6bc77065846f5"
+    },
+    "italic": {
+      "family": "Times New Roman",
+      "style": "italic",
+      "weight": "normal",
+      "sha256": "e7f7a88b65188328aea58670f955022e23c712f55679524729da1e4e03c49d88"
+    },
+    "bold_italic": {
+      "family": "Times New Roman",
+      "style": "italic",
+      "weight": "bold",
+      "sha256": "3a29d114cb5229e8dbda5bef6c69be4a210a13b7277de4d66e9fc86963226f6c"
+    }
+  },
+  "missing_glyph_warnings": [],
+  "figures": [
+    {
+      "path": "final_mechanism_restoration.pdf",
+      "bytes": 49843,
+      "sha256": "e203b7d2ee62905aa44173eb6436417db6e302f88e51dcb0b21e50e9ffe1cadf"
+    },
+    {
+      "path": "final_mechanism_restoration.png",
+      "bytes": 192560,
+      "sha256": "fb294f2d58f9d20e283c74a17063dfbc8de3b7a456c95687a8cf12fc9b27534b"
+    },
+    {
+      "path": "final_local_error_decision.pdf",
+      "bytes": 45605,
+      "sha256": "a9ba0e253fc28b589fe3f0b35a161830279bf7c27d56e6f14a071aaae649e297"
+    },
+    {
+      "path": "final_local_error_decision.png",
+      "bytes": 156232,
+      "sha256": "bec1f84374fa290bbfb176a61cdbf19f3af0f068cf7d60f1f82eae34ac3bbc7b"
+    },
+    {
+      "path": "final_quality_workload_memory.pdf",
+      "bytes": 76765,
+      "sha256": "49bda258b6fa86d33b5996b4e812dd3d5ed18e6b3ed6b115824f9d950679dc24"
+    },
+    {
+      "path": "final_quality_workload_memory.png",
+      "bytes": 432623,
+      "sha256": "e50564a8cddfbef2b6444a6ebaf4bebeb657c64ea4b25f898d5a0c8b4613aad2"
+    },
+    {
+      "path": "final_full_RAM_amortization.pdf",
+      "bytes": 72289,
+      "sha256": "0d47eaddda4b3bd08249be956c3bafb7717a705fbcb02b9c3373733be8f38f16"
+    },
+    {
+      "path": "final_full_RAM_amortization.png",
+      "bytes": 310625,
+      "sha256": "98cabeafeab2129547de90ad404cc7fb45bd98c5aeb2ecd692d134afd151df9b"
+    },
+    {
+      "path": "supplement_full_RAM_amortization.pdf",
+      "bytes": 48142,
+      "sha256": "e7ba4539ccf01c8e75e145c5d5ec21d21e633311ebf3526808e4a5aed4c9eb4a"
+    },
+    {
+      "path": "supplement_full_RAM_amortization.png",
+      "bytes": 177918,
+      "sha256": "5f47a1663e258f3b2098a789e50734c2c3cfadc8b0dcfc906aa35cae01fd2e7a"
+    }
+  ],
+  "visual_review": "All five empirical figures and the five affected PDF pages inspected; no clipping or missing glyphs.",
+  "caption_placement": "Existing formal captions cover the removed top descriptions; panel titles and legends retained."
+}

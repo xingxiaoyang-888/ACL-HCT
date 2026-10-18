@@ -28,7 +28,9 @@ python artifacts/vldb2027/scripts/verify_artifact.py
 python artifacts/vldb2027/scripts/render_figures.py --output build/vldb-figures
 ```
 
-The renderer checks every plotted scalar against the published figure record before drawing the four empirical figures. Use a fresh output directory for each rendering.
+The renderer checks every plotted scalar against the published figure record before drawing Figures 1–4 and the supplementary cache plot. Use a fresh output directory for each rendering.
+
+Install locally licensed Times New Roman regular, bold, italic and bold-italic faces, or pass their paths with `--font-regular`, `--font-bold`, `--font-italic` and `--font-bold-italic`. Font binaries are not distributed. All plot text and math use Roman faces; Figures 1–3 place their descriptive text in the formal captions rather than duplicate it above the panels. [Rendered experimental figures](results/figures/) are available as vector PDF and PNG.
 
 ## Run the frozen models
 
